@@ -61,7 +61,6 @@ public class Player : MonoBehaviour
 
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
-            Debug.Log(raycastHit.transform);
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
                 //has clear counter
@@ -78,7 +77,6 @@ public class Player : MonoBehaviour
         {
             SetSelectedCounter(null);
         }
-        Debug.Log(selectedCounter);
     }
 
     private void HandleMovement()
