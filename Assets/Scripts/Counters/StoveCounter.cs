@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static CuttingCounter;
 
-public class StoveCounter : BaseCounter
+public class StoveCounter : BaseCounter, IHasProgress
 {
+    public event EventHandler<IHasProgress.OnProgressChangedEventsArgs> OnProgressChanged;
 
-    private enum State
+    public event EventHandler<OnStateCHangedEventArgs> OnStateChanged;
+    public class OnStateCHangedEventArgs : EventArgs
+    {
+        public State state;
+    }
+    public enum State
     {
         Idle,
         Frying,
@@ -39,6 +46,11 @@ public class StoveCounter : BaseCounter
                 case State.Frying:
                     fryingTimer += Time.deltaTime;
 
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                    {
+                        progressNormalized = fryingTimer / fryingRecipeSO.fryingTimerMax
+                    });
+
                     if (fryingTimer > fryingRecipeSO.fryingTimerMax)
                     {
                         //Fried
@@ -46,15 +58,23 @@ public class StoveCounter : BaseCounter
 
                         KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
 
-                        Debug.Log("Object Fried!");
-
                         state = State.Fried;
                         burningTimer = 0f;
                         burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+                        OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
+                        {
+                            state = state
+                        });
                     }
                     break;
                 case State.Fried:
                     burningTimer += Time.deltaTime;
+
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                    {
+                        progressNormalized = burningTimer / burningRecipeSO.burningTimerMax
+                    });
 
                     if (burningTimer > burningRecipeSO.burningTimerMax)
                     {
@@ -63,8 +83,16 @@ public class StoveCounter : BaseCounter
 
                         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
 
-                        Debug.Log("Object Fried!");
                         state = State.Burned;
+                        OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
+                        {
+                            state = state
+                        });
+
+                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                        {
+                            progressNormalized = 0f
+                        });
                     }
                     break;
                 case State.Burned:
@@ -93,6 +121,16 @@ public class StoveCounter : BaseCounter
 
                     state = State.Frying;
                     fryingTimer = 0f;
+
+                    OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
+                    {
+                        state = state
+                    });
+
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                    {
+                        progressNormalized = fryingTimer / fryingRecipeSO.fryingTimerMax
+                    });
                 }
             }
             else
@@ -113,7 +151,19 @@ public class StoveCounter : BaseCounter
                 //player is not carrying anything
 
                 GetKitchenObject().SetKitchenObjectParent(player);
-                
+
+                state = State.Idle;
+
+                OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
+                {
+                    state = state
+                });
+
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                {
+                    progressNormalized = 0f
+                });
+
             }
         }
     }
