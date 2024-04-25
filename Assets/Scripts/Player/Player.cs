@@ -19,6 +19,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
 
+    private bool isWalking;
 
     private Vector3 lastInteractDir;
     private BaseCounter selectedCounter;
@@ -91,6 +92,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         }
     }
 
+
+    public bool IsWalking()
+    {
+        return isWalking;
+    }
+
     private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
@@ -136,7 +143,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             transform.position += moveDir * moveDistance;
         }
-
+        isWalking = moveDir != Vector3.zero;
         float rotationSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed);
     }
