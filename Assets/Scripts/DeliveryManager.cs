@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class DeliveryManager : MonoBehaviour
 {
+    public event EventHandler OnRecipeSuccess;
+    public event EventHandler OnRecipeFailed;
     public event EventHandler OnRecipeSpawned;
     public event EventHandler OnRecipeCompleted;
 
@@ -79,12 +81,14 @@ public class DeliveryManager : MonoBehaviour
                     waitingRecipeSOList.RemoveAt(i);
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                    OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
                     return;
                 }
             }
         }
         //No matches found!
         // Player did not delivered a correct recipe
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
     }
 
 
