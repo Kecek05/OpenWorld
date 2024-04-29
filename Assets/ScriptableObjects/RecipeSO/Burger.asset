@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c1144e8dc768da4d9730e815bb63a03, type: 3}
-  m_Name: Cabbage-CabbageSlices
+  m_Script: {fileID: 11500000, guid: fbcc20807cfaa46489089b37ab16e4ed, type: 3}
+  m_Name: Burger
   m_EditorClassIdentifier: 
-  input: {fileID: 11400000, guid: 029d453c6f21ec543aa4cf4de9281e6c, type: 2}
-  output: {fileID: 11400000, guid: 80554db3b18a62b4c8e1dec2b81ddb50, type: 2}
-  cuttingProgressMax: 6
+  kitchenObjectSOList:
+  - {fileID: 11400000, guid: 05e8325191dae0a4893d24eed066e387, type: 2}
+  - {fileID: 11400000, guid: 7fbb62e1389b56d4692cf063c7b7a40e, type: 2}
+  recipeName: Burger

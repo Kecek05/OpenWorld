@@ -13,8 +13,8 @@ public class ProgressBarUI : MonoBehaviour
     {
         hasProgress = hasProgressGameObject.GetComponent<IHasProgress>();
 
-        if(hasProgress != null )
-            Debug.LogError("Gameo Object " + hasProgressGameObject + " does not have IHasProgress!");
+        //if(hasProgress != null )
+        //    Debug.LogError("Gameo Object " + hasProgressGameObject + " does not have IHasProgress!");
         
 
         hasProgress.OnProgressChanged += HasProgress_OnProgressChanged;
@@ -27,7 +27,6 @@ public class ProgressBarUI : MonoBehaviour
     private void HasProgress_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventsArgs e)
     {
         barImage.fillAmount = e.progressNormalized;
-        print(e.progressNormalized + " progrtes" );
         if(e.progressNormalized == 0f || e.progressNormalized == 1f)
         {
             Hide();
