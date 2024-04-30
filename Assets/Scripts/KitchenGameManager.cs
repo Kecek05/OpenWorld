@@ -11,16 +11,15 @@ public class KitchenGameManager : MonoBehaviour
         WaitingToStart,
         CountdownToStart,
         GamePlaying,
-        GameOver,
     }
 
     private State state;
 
-    private float waitingToStartTimer = 1f;
+    private float waitingToStartTimer = .2f;
 
-    private float countdownToStartTimer = 3f;
+    private float countdownToStartTimer = .5f;
 
-    private float gamePlayingTimer = 10f;
+ //   private float gamePlayingTimer = 10f;
 
     private void Awake()
     {
@@ -47,14 +46,8 @@ public class KitchenGameManager : MonoBehaviour
                 }
                 break;
             case State.GamePlaying:
-                gamePlayingTimer -= Time.deltaTime;
-                if (gamePlayingTimer < 0f)
-                {
-                    state = State.GameOver;
-                }
                 break;
-            case State.GameOver:
-                break;
+       
 
         }
         Debug.Log(state);
