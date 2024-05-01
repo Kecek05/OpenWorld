@@ -47,17 +47,16 @@ public class Interactable : MonoBehaviour
          {
             if(col.tag == "item")
             {
-                canPickUp = true;
+                canPickUp = false;
             }
          }
     
     void CollectItem()
     {
-        
+        Destroy(Item);
         Item = null;
         barril += 1;
         pickUpText.SetActive(false);
-        Destroy(Item);
         Debug.Log("funciono saporra");
     }
   
