@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{ 
-    
+{
     public float speed = 3f;
     public float followRange = 5f; // Raio de alcance para seguir o jogador
+    public float floatSpeed = 1f; // Velocidade de flutuação
+    public float floatHeight = 0.5f; // Altura de flutuação
     public GameObject itemToDrop; // Objeto de item a ser dropado
     private Transform player;
     private bool isFrozen = false;
@@ -27,8 +28,11 @@ public class Enemy : MonoBehaviour
             // Verifica se o jogador está dentro do raio de alcance
             if (distanceToPlayer <= followRange)
             {
-                transform.LookAt(player);
-                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                // Calcula a direção em que o inimigo deve se mover (direção do jogador - direção do inimigo)
+                Vector3 direction = (player.position - transform.position).normalized;
+
+                // Move o inimigo na direção do jogador
+                transform.Translate(direction * speed * Time.deltaTime, Space.World);
             }
         }
         else
@@ -40,6 +44,12 @@ public class Enemy : MonoBehaviour
                 isFrozen = false;
             }
         }
+
+        // Calcula a posição de flutuação ao longo do eixo Y usando uma função senoidal
+        float newY = Mathf.Sin(Time.time * floatSpeed) * floatHeight;
+
+        // Atualiza a posição do inimigo mantendo a mesma posição ao longo dos eixos X e Z
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -69,4 +79,3 @@ public class Enemy : MonoBehaviour
         }
     }
 }
-
