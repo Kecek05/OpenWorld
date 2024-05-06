@@ -6,9 +6,11 @@ using UnityEngine.EventSystems;
 public class PlayerOpenWorld : MonoBehaviour
 {
 
-    [SerializeField] private Transform interactPoint;
+
     [SerializeField] private GameInput gameInput;
-    [SerializeField] private float interactRange;
+
+
+    private GameObject intectableObj;
 
     private void Start()
     {
@@ -17,18 +19,37 @@ public class PlayerOpenWorld : MonoBehaviour
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-        Ray ray = new Ray(interactPoint.position, interactPoint.forward);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, interactRange))
-        {
-            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
-            {
-                interactObj.Interact();
 
-            }
+        if(intectableObj != null)
+        {
+            IInteractable interactObj = intectableObj.gameObject.GetComponent<IInteractable>();
+            interactObj.Interact();
         }
     }
 
-    public Transform GetInteractPoint() { return interactPoint; }
-    public float GetInteractRange() { return interactRange; }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+        if(interactable != null)
+        {
+
+            intectableObj = other.gameObject;
+        } else
+        {
+
+            intectableObj = null;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+            intectableObj = null;
+        }
+        
+    }
+
+    public GameObject GetInteractableObj() { return intectableObj; }
 }

@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         // Instanciar o item dropado quando o inimigo for destruído
         if (itemToDrop != null)
         {
-            Instantiate(itemToDrop, transform.position, Quaternion.identity);
+        //    Instantiate(itemToDrop, transform.position, Quaternion.identity);
         }
     }
 }
