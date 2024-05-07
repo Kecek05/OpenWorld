@@ -50,7 +50,7 @@ public class KitchenGameManager : MonoBehaviour
        
 
         }
-        Debug.Log(state);
+       // Debug.Log(state);
 
     }
 

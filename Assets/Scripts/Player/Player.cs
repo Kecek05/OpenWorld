@@ -28,6 +28,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private KitchenObject kitchenObject;
     [SerializeField] private Transform counterTopPoint;
+    [SerializeField] private Rigidbody rb;
 
     private void Awake()
     {
@@ -76,7 +77,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (moveDir != Vector3.zero)
             lastInteractDir = moveDir;
 
-        float interactDistance = 2f;
+        float interactDistance = 1.5f;
 
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
@@ -106,50 +107,15 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
+
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
 
-        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        Vector3 moveDir = new Vector3(inputVector.x * moveSpeed, 0f, inputVector.y * moveSpeed);
 
-        float moveDistance = moveSpeed * Time.deltaTime;
-        float playerRadius = .7f;
-        float playerHeight = 2f;
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+        rb.velocity = moveDir;
 
-        if (!canMove)
-        {
-            //cant move
-
-            //only X
-            Vector3 moveDirX = new Vector3(moveDir.x, 0f, 0f).normalized;
-            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
-            if (canMove)
-            {
-                //can move only X
-                moveDir = moveDirX;
-            }
-            else
-            {
-                //cant move X
-
-                //only Z
-                Vector3 moveDirZ = new Vector3(0f, 0f, moveDir.z).normalized;
-                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
-                if (canMove)
-                {
-                    //can Z
-                    moveDir = moveDirZ;
-                }
-                else
-                {
-                    //cant move
-                }
-            }
-        }
-        if (canMove)
-        {
-            transform.position += moveDir * moveDistance;
-        }
-        isWalking = moveDir != Vector3.zero;
+        //transform.position += moveDir * moveDistance;
+        //isWalking = moveDir != Vector3.zero;
         float rotationSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed);
     }
