@@ -150,14 +150,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         {
             transform.position += moveDir * moveDistance;
         }
-
-        //Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
-        //Vector3 moveDir = new Vector3(inputVector.x * moveSpeed, 0f, inputVector.y * moveSpeed);
-
-        //rb.velocity = moveDir;
-
-        transform.position += moveDir * moveDistance;
         isWalking = moveDir != Vector3.zero;
         float rotationSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed);
