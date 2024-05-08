@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8671774031590624687}
   - component: {fileID: 5762231599259550218}
   - component: {fileID: 7499470114349479616}
-  - component: {fileID: -7390966846534037549}
+  - component: {fileID: 3780214122268875302}
   m_Layer: 0
   m_Name: ArvoreMenor
   m_TagString: Untagged
@@ -86,8 +86,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-7390966846534037549
-MeshCollider:
+--- !u!136 &3780214122268875302
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,10 +104,11 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8609087946177790782, guid: 1b8fcc45daff44d4485ea5fa46d2faa9, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.7046592
+  m_Height: 3.6749225
+  m_Direction: 1
+  m_Center: {x: 0.013692141, y: 0.7200887, z: 0.037149727}
 --- !u!1001 &4989534023899687056
 PrefabInstance:
   m_ObjectHideFlags: 0
