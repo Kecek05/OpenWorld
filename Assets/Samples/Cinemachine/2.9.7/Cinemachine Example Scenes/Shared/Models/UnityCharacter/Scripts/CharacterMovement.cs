@@ -28,6 +28,11 @@ namespace Cinemachine.Examples
         private float freezeTimer = 0f;
         private float freezeDuration = 3f;
 
+
+        private float reducedSpeed = 0.5f; // velocidade reduzida
+        private float normalSpeed = 1f; // velocidade normal
+        private bool isSpeedReduced = false; // ta falando se ta ou nao reduzida
+        private float speedReductionDuration = 3f; // duração da redução de velocidade reduzida
         // Use this for initialization
         void Start()
         {
@@ -96,6 +101,18 @@ namespace Cinemachine.Examples
                     isFrozen = false;
                 }
             }
+
+            if (isSpeedReduced)
+            {
+                speed = reducedSpeed;
+                speedReductionDuration -= Time.deltaTime;
+                if (speedReductionDuration <= 0)
+                {
+                    speed = normalSpeed;
+                    isSpeedReduced = false;
+                    speedReductionDuration = 3f; // reinicia a duração da redução de velocidade
+                }
+            }
 #else
         InputSystemHelper.EnableBackendsWarningMessage();
 #endif
@@ -139,6 +156,13 @@ namespace Cinemachine.Examples
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 FreezePlayer(); // levando pra variavel de congelar o jogador
+            }
+
+            if (collision.gameObject.CompareTag("Caranguejo"))
+            {
+                // Define a velocidade reduzida e ativa a variável de controle
+                speed = reducedSpeed;
+                isSpeedReduced = true;
             }
         }
 
