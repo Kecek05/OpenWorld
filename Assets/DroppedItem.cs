@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DroppedItem : MonoBehaviour
+public class DroppedItem : MonoBehaviour, IInteractable2
 {
     public float floatSpeed = 1f; // Velocidade de flutuação do item
     public float floatHeight = 0.5f; // Altura de flutuação do item
@@ -15,5 +15,10 @@ public class DroppedItem : MonoBehaviour
 
         // Rotaciona o item
         transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+    }
+
+    public void InteractCoin()
+    {
+        Destroy(gameObject);
     }
 }

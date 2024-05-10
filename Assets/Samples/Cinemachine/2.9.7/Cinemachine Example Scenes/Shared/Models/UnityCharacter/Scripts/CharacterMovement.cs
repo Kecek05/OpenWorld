@@ -13,7 +13,7 @@ namespace Cinemachine.Examples
         public KeyCode sprintKeyboard = KeyCode.Space;
 
         private float turnSpeedMultiplier;
-        private float speed = 0f;
+        private float speed = 2f;
         private float direction = 0f;
         private bool isSprinting = false;
         private Animator anim;
@@ -29,10 +29,10 @@ namespace Cinemachine.Examples
         private float freezeDuration = 3f;
 
 
-        private float reducedSpeed = 0.5f; // velocidade reduzida
-        private float normalSpeed = 1f; // velocidade normal
-        private bool isSpeedReduced = false; // ta falando se ta ou nao reduzida
-        private float speedReductionDuration = 3f; // duração da redução de velocidade reduzida
+        //private float reducedSpeed = 0.5f; // velocidade reduzida
+        //private float normalSpeed = 1f; // velocidade normal
+        //private bool isSpeedReduced = false; // ta falando se ta ou nao reduzida
+        //private float speedReductionDuration = 3f; // duração da redução de velocidade reduzida
         // Use this for initialization
         void Start()
         {
@@ -102,17 +102,17 @@ namespace Cinemachine.Examples
                 }
             }
 
-            if (isSpeedReduced)
-            {
-                speed = reducedSpeed;
-                speedReductionDuration -= Time.deltaTime;
-                if (speedReductionDuration <= 0)
-                {
-                    speed = normalSpeed;
-                    isSpeedReduced = false;
-                    speedReductionDuration = 3f; // reinicia a duração da redução de velocidade
-                }
-            }
+            //if (isSpeedReduced)
+            //{
+            //    speed = reducedSpeed;
+            //    speedReductionDuration -= Time.deltaTime;
+            //    if (speedReductionDuration <= 0)
+            //    {
+            //        speed = normalSpeed;
+            //        isSpeedReduced = false;
+            //        speedReductionDuration = 3f; // reinicia a duração da redução de velocidade
+            //    }
+            //}
 #else
         InputSystemHelper.EnableBackendsWarningMessage();
 #endif
@@ -159,11 +159,13 @@ namespace Cinemachine.Examples
             }
 
             if (collision.gameObject.CompareTag("Caranguejo"))
-            {
-                // Define a velocidade reduzida e ativa a variável de controle
-                speed = reducedSpeed;
-                isSpeedReduced = true;
-            }
+             {
+            // Reduz a velocidade do jogador
+             speed -= 2f;
+
+            // Garante que a velocidade não seja menor que zero
+            speed = Mathf.Max(speed, 0f);
+             }
         }
 
     }

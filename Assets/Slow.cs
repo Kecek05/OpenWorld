@@ -21,7 +21,7 @@ public class Slow : MonoBehaviour
         isFrozen = true;
         freezeTimer = freezeDuration;
         Debug.Log("congelo");
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
     }
 

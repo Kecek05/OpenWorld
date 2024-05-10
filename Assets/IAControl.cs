@@ -7,6 +7,8 @@ public class IAControl : MonoBehaviour
 {
     NavMeshAgent agent;
     public Transform target;
+    public GameObject itemToDrop; // item para ser dropado
+    public float dropRadius = 1f; // raio de dispersão do item dropado
     //Animator anim;
 
     enum State
@@ -119,6 +121,18 @@ public class IAControl : MonoBehaviour
             target = null;
             state = State.IDLE;
 
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Calcula uma posição aleatória dentro do raio de dispersão
+            Vector3 dropPosition = transform.position + Random.insideUnitSphere * dropRadius;
+
+            // Instancia o item para ser dropado na posição calculada
+            Instantiate(itemToDrop, dropPosition, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }
