@@ -9,7 +9,7 @@ public class IAControl : MonoBehaviour
     public Transform target;
     public GameObject itemToDrop; // item para ser dropado
     public float dropRadius = 1f; // raio de dispersão do item dropado
-    //Animator anim;
+    Animator anim;
 
     enum State
     {
@@ -26,7 +26,7 @@ public class IAControl : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(IDLE());
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         state = State.IDLE;
     }
 
@@ -57,8 +57,8 @@ public class IAControl : MonoBehaviour
         Debug.Log("Berserk");
         while (target && state == State.BERSERK)
         {
-            //anim.SetFloat("Speed", agent.velocity.magnitude);
-            //anim.SetFloat("Turn", Vector3.Dot(agent.velocity.normalized, transform.forward));
+            anim.SetFloat("Speed", agent.velocity.magnitude);
+            anim.SetFloat("Turn", Vector3.Dot(agent.velocity.normalized, transform.forward));
             agent.SetDestination(target.position);
             yield return new WaitForSeconds(1);
             Debug.Log("Berserk - funciono");
