@@ -369,6 +369,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8992808598244444595}
     m_Modifications:
+    - target: {fileID: 268341163238313858, guid: 6da43fec759150440af08d5387313a14, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1782508826, guid: 1e9f2f4b59255c844911ebfe3bf809ad, type: 3}
+    - target: {fileID: 268341163238313858, guid: 6da43fec759150440af08d5387313a14, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 268341163238313858, guid: 6da43fec759150440af08d5387313a14, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 268341163238313858, guid: 6da43fec759150440af08d5387313a14, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839117099060049156, guid: 6da43fec759150440af08d5387313a14, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1960668292, guid: 7670d3b04a5d1734d8394a6e2482bf99, type: 3}
+    - target: {fileID: 839117099060049156, guid: 6da43fec759150440af08d5387313a14, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4788577017410005490, guid: 6da43fec759150440af08d5387313a14, type: 3}
       propertyPath: m_Name
       value: ProgressBarUI
@@ -460,13 +484,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5272834063377354437, guid: 6da43fec759150440af08d5387313a14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 711101775968103362}
   m_SourcePrefab: {fileID: 100100000, guid: 6da43fec759150440af08d5387313a14, type: 3}
 --- !u!224 &5311969953575516678 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9109973078551638254, guid: 6da43fec759150440af08d5387313a14, type: 3}
   m_PrefabInstance: {fileID: 4024749913099963112}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9148524002752611373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5272834063377354437, guid: 6da43fec759150440af08d5387313a14, type: 3}
+  m_PrefabInstance: {fileID: 4024749913099963112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &711101775968103362
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9148524002752611373}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39bf28fb699e19c478662f73142ec631, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8065212824801404219
 PrefabInstance:
   m_ObjectHideFlags: 0
