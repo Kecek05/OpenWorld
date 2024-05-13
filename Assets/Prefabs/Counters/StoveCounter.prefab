@@ -270,6 +270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoveCounter_Visual
       objectReference: {fileID: 0}
+    - target: {fileID: 4589716710238282922, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282923, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -551,7 +555,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6353127639383599515, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794787136027931024, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
+    - target: {fileID: 6860992957247335528, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
+    - target: {fileID: 6911662955802196059, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
     - target: {fileID: 6918696954688420558, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228161236349595286, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796064293532456194, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -567,14 +595,19 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7104736124035946802}
   m_SourcePrefab: {fileID: 100100000, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
---- !u!1 &1146520611782254581 stripped
+--- !u!1 &838498614600518573 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6918696954688420558, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7228161236349595286, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
   m_PrefabInstance: {fileID: 8065212824801404219}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3076929514094488106 stripped
+--- !u!1 &1584283599191519289 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4998458208842551057, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8796064293532456194, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+  m_PrefabInstance: {fileID: 8065212824801404219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4019378796550065312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6353127639383599515, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
   m_PrefabInstance: {fileID: 8065212824801404219}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5790669603115565456 stripped
@@ -601,11 +634,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCounter: {fileID: 3137521418104083435}
   visualGameObjectArray:
-  - {fileID: 3076929514094488106}
-  - {fileID: 5994881230258592212}
-  - {fileID: 1146520611782254581}
---- !u!1 &5994881230258592212 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4386361873462607087, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
-  m_PrefabInstance: {fileID: 8065212824801404219}
-  m_PrefabAsset: {fileID: 0}
+  - {fileID: 1584283599191519289}
+  - {fileID: 838498614600518573}
+  - {fileID: 4019378796550065312}
