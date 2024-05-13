@@ -4,51 +4,70 @@ using UnityEngine;
 
 public class EnemyShooter : BaseEnemy
 {
+    [Header( "== Shooter ==")]
+    [Space]
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shootingPoint;
-    [SerializeField] private float hitRange;
+    [SerializeField] private float shootRange;
 
-    private float patrolTimer;
-    private float patrolMaxTimer;
-
+    [Header("Attack Timer")]
     private float attackDelay = 0f ;
     [SerializeField] private float attackMaxDelay;
-    private void Start()
+
+    protected override void Start()
     {
-        state = State.IDLE;
+        attackDelay = attackMaxDelay;
+        GetNavMesh().speed = GetSpeed();
+       UpdateState(State.IDLE);
+    }
+
+    protected override void FixedUpdate()
+    {
+        switch (state)
+        {
+            case State.ATTACK:
+                if(attackDelay > 0)
+                    attackDelay -= Time.deltaTime;
+                break;
+            case State.WAITING:
+                if (GetPatrolDelay() > 0)
+                {
+                    SetPatrolDelay(GetPatrolDelay() - Time.deltaTime);
+                }
+                else if (GetPatrolDelay() <= 0)
+                {
+                    SetPatrolDelay(GetPatrolDelayMax());
+                    UpdateState(State.PATROL);
+                }
+                break;
+        }
 
     }
 
-    private void Update()
-    {
-        UpdateState();
-    }
 
 
     protected override void FollowState()
     {
         //Seguir o player, Se estiver no range de ataque, ataque!
-        if(GetTarget() != null)
+        while (state == State.FOLLOW && GetTarget() != null)
         {
+
             GetNavMesh().SetDestination(GetTarget().position);
 
             float distancia = Vector3.Distance(GetTarget().position, transform.position);
 
-            if (distancia <= hitRange)
+            if (distancia <= shootRange)
             {
-                //Pode atirar no player
-                state = State.ATTACK;
+               // Pode atirar no player
+                UpdateState(State.ATTACK);
             }
         }
+        //out while
+        UpdateState(State.IDLE);
+
     }
 
-    private void FixedUpdate()
-    {
-        if(state == State.ATTACK && attackDelay > 0)
-        {
-            attackDelay -= Time.deltaTime;
-        }
-    }
+
 
 
     protected override void AttackState()
@@ -62,7 +81,6 @@ public class EnemyShooter : BaseEnemy
 
             int selfDamage = 1;
             SetHealth(GetHealth() - selfDamage);
-            Debug.Log("HEALTH " + GetHealth());
             if(GetHealth() <= 0)
             {
                 //robo morre
@@ -73,40 +91,7 @@ public class EnemyShooter : BaseEnemy
 
     }
 
-    protected override void IdleState()
-    {
-        //Fica parado
-        
 
-        if(CheckDistanceToPlayer())
-        {
-            SetTarget(PlayerOpenWorld.main.transform);
-            //Seguir player
-            state = State.FOLLOW;
-        }
-        else
-        {
-            SetTarget(null);
-            //timer para chamar o PatrolState
-            state = State.PATROL;
-        }
-    }
 
-    protected override void PatrolState()
-    {
-        RandomPlacesToGO();
-        state = State.IDLE;
-    }
 
-    private bool CheckDistanceToPlayer()
-    {
-        float distanciaToPlayer = Vector3.Distance(PlayerOpenWorld.main.transform.position, transform.position);
-        if (distanciaToPlayer <= GetAggroRange())
-        {
-            return true;
-        } else
-        {
-            return false;
-        }
-    }
 }
