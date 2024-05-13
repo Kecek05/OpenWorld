@@ -68,6 +68,9 @@ public class IAControl : MonoBehaviour
         Debug.Log("volto idle");
     }
 
+
+
+
     IEnumerator IDLE()
     {
         Debug.Log("IDLE");
