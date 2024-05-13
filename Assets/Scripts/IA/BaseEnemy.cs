@@ -15,138 +15,124 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] private int Health;
     [SerializeField] private float speed;
     [SerializeField] private float aggroRange;
+    [SerializeField] private float attackRange;
 
-    [Header("Timers")]
-    private float patrolDelay;
-    [SerializeField] private float patrolMaxDelay;
+    private float timeCheckDistanceToPlayer;
+    private float maxTimeCheckDistanceToPlayer = 0.3f;
+
+    [SerializeField] private Vector3 offsetFollow;
+    [SerializeField] private float patrolDelay;
     protected enum State
     {
         IDLE,
         FOLLOW,
-        WAITING,
         PATROL,
         ATTACK
     }
     protected State state;
 
-    protected virtual void Start()
+    protected void Start()
     {
+        timeCheckDistanceToPlayer = maxTimeCheckDistanceToPlayer;
         agent.speed = speed;
-        patrolDelay = patrolMaxDelay;
-        UpdateState(State.IDLE);
+        //  UpdateState(State.IDLE);
+        StartCoroutine(IdleState());
     }
 
-    protected virtual void FixedUpdate()
+    protected void Update()
     {
-        switch (state)
+
+
+        //Delay to check
+        if(timeCheckDistanceToPlayer > 0)
         {
-            case State.WAITING:
-                if (patrolDelay > 0)
-                {
-                    patrolDelay -= Time.deltaTime;
-                } else if (patrolDelay <= 0)
-                {
-                    patrolDelay = patrolMaxDelay;
-                    UpdateState(State.PATROL);
-                }
-                break;
+            timeCheckDistanceToPlayer -= Time.deltaTime;
+        } else if(timeCheckDistanceToPlayer <= 0)
+        {
+            timeCheckDistanceToPlayer = maxTimeCheckDistanceToPlayer;
+            CheckDistanceToPlayer();
         }
-
     }
-
-
     protected void UpdateState(State newState)
     {
-
+        if(newState != state)
+        {
+            StopAllCoroutines();
             state = newState;
             switch (state)
             {
                 case State.IDLE:
-                    IdleState();
-                    break;
-                case State.WAITING:
-                    WaitingState();
+                    StartCoroutine(IdleState());
                     break;
                 case State.FOLLOW:
-                    FollowState();
+                    StartCoroutine(FollowState());
                     break;
                 case State.PATROL:
-                    PatrolState();
+                    StartCoroutine(PatrolState());
                     break;
                 case State.ATTACK:
-                    AttackState();
+                    StartCoroutine(AttackState());
                     break;
             }
+        }
 
-        
-        Debug.Log(state);
     }
 
-    protected virtual void IdleState()
+    protected IEnumerator IdleState()
     {
-        //Fica parado
-        if (CheckDistanceToPlayer())
+        //stay in the place
+        while (state == State.IDLE && GetTarget() == null)
         {
-            print("IN RANGEE");
-            SetTarget(PlayerOpenWorld.main.transform);
-            //Seguir player
-            UpdateState(State.FOLLOW);
-        }
-        else
-        {
-            SetTarget(null);
-            //timer para chamar o PatrolState
-            UpdateState(State.WAITING);
+            
+                yield return new WaitForSeconds(1f);
+                UpdateState(State.PATROL);
+            
         }
 
     }
 
-    protected virtual void FollowState()
+    protected IEnumerator PatrolState()
+    {
+        //andar aleatoriamente
+        while (state == State.PATROL && GetTarget() == null)
+        {
+            //Player not In range
+            RandomPlacesToGO();
+            yield return new WaitForSeconds(patrolDelay);
+            UpdateState(State.IDLE);
+
+        }
+
+    }
+
+
+
+    protected IEnumerator FollowState()
     {
         //Seguir o player, Se estiver no range de ataque, ataque!
         while (state == State.FOLLOW && GetTarget() != null)
         {
-            GetNavMesh().SetDestination(GetTarget().position);
 
-            float distancia = Vector3.Distance(GetTarget().position, transform.position);
-        } 
-        //out while
-        UpdateState(State.IDLE);
+            Vector3 result = GetTarget().transform.position + offsetFollow;
 
-    }
+            GetNavMesh().SetDestination(result);
 
-    protected virtual void PatrolState()
-    {
-        print("aptrol");
-        if(CheckDistanceToPlayer())
-        {
-            SetTarget(PlayerOpenWorld.main.transform);
-            UpdateState(State.FOLLOW);
+            float distanciaToPlayer = Vector3.Distance(PlayerOpenWorld.main.transform.position, transform.position);
 
-        }
-        else
-        {
-            RandomPlacesToGO();
-            UpdateState(State.WAITING);
+            if (distanciaToPlayer <= attackRange)
+            {
+                UpdateState(State.ATTACK);
+            }
+            yield return new WaitForSeconds(1f); // 1 sec and resets
 
         }
 
 
-
     }
 
-    protected virtual void WaitingState()
-    {
-        if (CheckDistanceToPlayer())
-        {
-            SetTarget(PlayerOpenWorld.main.transform);
 
-            UpdateState(State.FOLLOW);
-        }
-    }
 
-    protected abstract void AttackState();
-    
+    protected abstract IEnumerator AttackState();
 
     private void RandomPlacesToGO()
     {
@@ -158,19 +144,26 @@ public abstract class BaseEnemy : MonoBehaviour
         agent.SetDestination(finalPosition);
     }
 
-    private bool CheckDistanceToPlayer()
+    private void CheckDistanceToPlayer()
     {
         float distanciaToPlayer = Vector3.Distance(PlayerOpenWorld.main.transform.position, transform.position);
         if (distanciaToPlayer <= aggroRange)
         {
-            return true;
+            SetTarget(PlayerOpenWorld.main.transform);
+            UpdateState(State.FOLLOW);
         }
         else
         {
-            return false;
+            SetTarget(null);
         }
     }
 
+    protected void DestroySelf()
+    {
+        print("spawn Coin");
+        Instantiate(itemToDrop, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 
     protected float GetAggroRange() { return aggroRange; }
 
@@ -184,13 +177,6 @@ public abstract class BaseEnemy : MonoBehaviour
     protected int GetHealth() { return Health; }
 
     protected void SetHealth(int _health) { Health = _health; }
-
-
-    protected float GetPatrolDelay() { return patrolDelay; }
-
-    protected void SetPatrolDelay(float _patrolDelay) {  patrolDelay = _patrolDelay; }
-
-    protected float GetPatrolDelayMax() { return patrolMaxDelay; }
 
     protected float GetSpeed() { return speed; }
 }

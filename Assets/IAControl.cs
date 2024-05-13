@@ -87,9 +87,9 @@ public class IAControl : MonoBehaviour
         Debug.Log("Patrol");
         while (!target && state == State.PATROL)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1f);
             RandomPlacesToGO();
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2f);
         }
 
     }

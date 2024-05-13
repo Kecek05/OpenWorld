@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
         Vector3 direcao = (PlayerOpenWorld.main.GetAggroPoint().position - transform.position).normalized;
 
         rb.velocity = direcao * bulletSpeed;
+
+        Destroy(gameObject, 5f);
     }
 
     private void OnCollisionEnter(Collision collision)

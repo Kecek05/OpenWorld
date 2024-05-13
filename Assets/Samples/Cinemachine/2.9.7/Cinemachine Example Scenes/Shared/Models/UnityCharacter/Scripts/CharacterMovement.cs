@@ -6,6 +6,9 @@ namespace Cinemachine.Examples
     [AddComponentMenu("")] // Don't display in add component menu
     public class CharacterMovement : MonoBehaviour
     {
+
+
+
         public bool useCharacterForward = false;
         public bool lockToCameraForward = false;
         public float turnSpeed = 10f;
@@ -34,6 +37,9 @@ namespace Cinemachine.Examples
         //private bool isSpeedReduced = false; // ta falando se ta ou nao reduzida
         //private float speedReductionDuration = 3f; // duração da redução de velocidade reduzida
         // Use this for initialization
+
+
+
         void Start()
         {
             anim = GetComponent<Animator>();
@@ -168,5 +174,7 @@ namespace Cinemachine.Examples
              }
         }
 
+       
     }
+
 }

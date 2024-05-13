@@ -8,7 +8,7 @@ public class Caranguejo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject); // Destruir o caranguejo ao colidir com o jogador
+            
         }
     }
 }
