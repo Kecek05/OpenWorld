@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: d69cf20817b83264681fd93cc31263d3, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 56f7584eaf7001543bf4c0e0b68f66ef, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -729,7 +729,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 1e-45, z: 4.415e-42, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -742,13 +742,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150989540}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.454428, y: 0.034082424, z: -0.023231372, w: 0.8898281}
+  m_LocalRotation: {x: 0.42747295, y: -0.31581226, z: 0.15591839, w: 0.83259773}
   m_LocalPosition: {x: 0.73, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 710022786}
-  m_LocalEulerAnglesHint: {x: 54.126, y: 3.869, z: -1.014}
+  m_LocalEulerAnglesHint: {x: 54.126, y: -42.062, z: -1.014}
 --- !u!114 &150989543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8622,6 +8622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 340456965106624864, guid: 720b80cec4064ef4b805245ca6e232ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.954
+      objectReference: {fileID: 0}
     - target: {fileID: 2356656045436621545, guid: 720b80cec4064ef4b805245ca6e232ac, type: 3}
       propertyPath: gameInput
       value: 
@@ -8668,6 +8672,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5086303525519434165, guid: 720b80cec4064ef4b805245ca6e232ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165773553260575947, guid: 720b80cec4064ef4b805245ca6e232ac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165773553260575947, guid: 720b80cec4064ef4b805245ca6e232ac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165773553260575947, guid: 720b80cec4064ef4b805245ca6e232ac, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165773553260575947, guid: 720b80cec4064ef4b805245ca6e232ac, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
