@@ -15,10 +15,38 @@ PrefabInstance:
     - target: {fileID: 1975997015093199226, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e1c23b5aded59d84da30738d3267a6c9, type: 3}
+      objectReference: {fileID: 826596870, guid: 0845554149acfc04281eb3c88237e853, type: 3}
     - target: {fileID: 2101704345277284419, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: m_Name
       value: CountainerCounter_Cabbage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2875802658939275440, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
+    - target: {fileID: 4233725397767492988, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455822283640266997, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: visualGameObjectArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455822283640266997, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: visualGameObjectArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 3560374109423212373}
+    - target: {fileID: 4455822283640266997, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: visualGameObjectArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 3981692840140647244}
+    - target: {fileID: 4455822283640266997, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: visualGameObjectArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 3660149236902912170}
+    - target: {fileID: 6336202048513584192, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 6797464584530045325, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65,3 +93,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+--- !u!1 &3560374109423212373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4233725397767492988, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+  m_PrefabInstance: {fileID: 840426774634431017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3660149236902912170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4135076196227736195, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+  m_PrefabInstance: {fileID: 840426774634431017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3981692840140647244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4388787764953131365, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+  m_PrefabInstance: {fileID: 840426774634431017}
+  m_PrefabAsset: {fileID: 0}

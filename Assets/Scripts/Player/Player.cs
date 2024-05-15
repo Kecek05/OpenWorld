@@ -28,6 +28,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private KitchenObject kitchenObject;
     [SerializeField] private Transform counterTopPoint;
+   // [SerializeField] private Rigidbody rb;
 
     private void Awake()
     {
