@@ -6,6 +6,9 @@ namespace Cinemachine.Examples
     [AddComponentMenu("")] // Don't display in add component menu
     public class CharacterMovement : MonoBehaviour
     {
+
+
+
         public bool useCharacterForward = false;
         public bool lockToCameraForward = false;
         public float turnSpeed = 10f;
@@ -13,7 +16,7 @@ namespace Cinemachine.Examples
         public KeyCode sprintKeyboard = KeyCode.Space;
 
         private float turnSpeedMultiplier;
-        private float speed = 0f;
+        private float speed = 2f;
         private float direction = 0f;
         private bool isSprinting = false;
         private Animator anim;
@@ -28,7 +31,15 @@ namespace Cinemachine.Examples
         private float freezeTimer = 0f;
         private float freezeDuration = 3f;
 
+
+        //private float reducedSpeed = 0.5f; // velocidade reduzida
+        //private float normalSpeed = 1f; // velocidade normal
+        //private bool isSpeedReduced = false; // ta falando se ta ou nao reduzida
+        //private float speedReductionDuration = 3f; // duração da redução de velocidade reduzida
         // Use this for initialization
+
+
+
         void Start()
         {
             anim = GetComponent<Animator>();
@@ -96,6 +107,18 @@ namespace Cinemachine.Examples
                     isFrozen = false;
                 }
             }
+
+            //if (isSpeedReduced)
+            //{
+            //    speed = reducedSpeed;
+            //    speedReductionDuration -= Time.deltaTime;
+            //    if (speedReductionDuration <= 0)
+            //    {
+            //        speed = normalSpeed;
+            //        isSpeedReduced = false;
+            //        speedReductionDuration = 3f; // reinicia a duração da redução de velocidade
+            //    }
+            //}
 #else
         InputSystemHelper.EnableBackendsWarningMessage();
 #endif
@@ -140,7 +163,18 @@ namespace Cinemachine.Examples
             {
                 FreezePlayer(); // levando pra variavel de congelar o jogador
             }
+
+            if (collision.gameObject.CompareTag("Caranguejo"))
+             {
+            // Reduz a velocidade do jogador
+             speed -= 2f;
+
+            // Garante que a velocidade não seja menor que zero
+            speed = Mathf.Max(speed, 0f);
+             }
         }
 
+       
     }
+
 }

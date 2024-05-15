@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        // Calcula a posição de flutuação ao longo do eixo Y usando uma função senoidal
+        // Calcula a posição de flutuação ao longo do eixo Y usando uma função sensorial
         float newY = Mathf.Sin(Time.time * floatSpeed) * floatHeight;
 
         // Atualiza a posição do inimigo mantendo a mesma posição ao longo dos eixos X e Z

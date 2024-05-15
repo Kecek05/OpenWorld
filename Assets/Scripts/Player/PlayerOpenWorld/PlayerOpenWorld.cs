@@ -5,12 +5,18 @@ using UnityEngine.EventSystems;
 
 public class PlayerOpenWorld : MonoBehaviour
 {
-
+    public static PlayerOpenWorld main;
 
     [SerializeField] private GameInput gameInput;
-
+    [SerializeField] private Transform aggroPoint;
 
     private GameObject intectableObj;
+
+    private void Awake()
+    {
+        main = this;
+    }
+
 
     private void Start()
     {
@@ -51,5 +57,6 @@ public class PlayerOpenWorld : MonoBehaviour
         
     }
 
+    public Transform GetAggroPoint() { return aggroPoint; }
     public GameObject GetInteractableObj() { return intectableObj; }
 }
