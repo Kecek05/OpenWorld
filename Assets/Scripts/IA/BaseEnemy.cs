@@ -31,12 +31,19 @@ public abstract class BaseEnemy : MonoBehaviour
     }
     protected State state;
 
+    protected EnemyAnimatorController enemyAnimationController;
+
     protected void Start()
     {
         timeCheckDistanceToPlayer = maxTimeCheckDistanceToPlayer;
         agent.speed = speed;
         //  UpdateState(State.IDLE);
         StartCoroutine(IdleState());
+    }
+
+    protected virtual void Awake()
+    {
+        enemyAnimationController = GetComponent<EnemyAnimatorController>();
     }
 
     protected void Update()
@@ -98,6 +105,8 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             //Player not In range
             RandomPlacesToGO();
+            enemyAnimationController.SetSpeed(agent.velocity.magnitude);
+            enemyAnimationController.SetTurn(Vector3.Dot(agent.velocity.normalized, transform.forward));
             yield return new WaitForSeconds(patrolDelay);
             UpdateState(State.IDLE);
 
@@ -114,6 +123,9 @@ public abstract class BaseEnemy : MonoBehaviour
         {
 
             Vector3 result = GetTarget().transform.position + offsetFollow;
+
+            enemyAnimationController.SetSpeed(agent.velocity.magnitude);
+            enemyAnimationController.SetTurn(Vector3.Dot(agent.velocity.normalized, transform.forward));
 
             GetNavMesh().SetDestination(result);
 
