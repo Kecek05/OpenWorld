@@ -47,6 +47,8 @@ public class PlayerOpenWorld : MonoBehaviour
             intectableObj = null;
         }
     }
+
+
     private void OnTriggerExit(Collider other)
     {
         IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
