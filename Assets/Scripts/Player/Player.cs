@@ -43,7 +43,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
             intectableObj = other.gameObject;
         }
-        else
+       
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+        if (interactable != null)
         {
 
             intectableObj = null;

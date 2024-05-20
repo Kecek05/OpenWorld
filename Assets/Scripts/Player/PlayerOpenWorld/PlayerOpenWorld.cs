@@ -34,29 +34,26 @@ public class PlayerOpenWorld : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
+        Debug.Log(other.gameObject);
         IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
-        if(interactable != null)
+        if (interactable != null)
         {
 
             intectableObj = other.gameObject;
-        } else
-        {
-
-            intectableObj = null;
         }
-    }
 
+    }
 
     private void OnTriggerExit(Collider other)
     {
         IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
         if (interactable != null)
         {
+
             intectableObj = null;
         }
-        
     }
 
     public Transform GetAggroPoint() { return aggroPoint; }
