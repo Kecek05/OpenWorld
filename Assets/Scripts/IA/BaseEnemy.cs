@@ -21,6 +21,8 @@ public abstract class BaseEnemy : MonoBehaviour
 
     [SerializeField] private Vector3 offsetFollow;
     [SerializeField] private float patrolDelay;
+
+    protected Coroutine currentCoroutine;
     protected enum State
     {
         IDLE,
@@ -58,26 +60,29 @@ public abstract class BaseEnemy : MonoBehaviour
             timeCheckDistanceToPlayer = maxTimeCheckDistanceToPlayer;
             CheckDistanceToPlayer();
         }
+
+
     }
     protected void UpdateState(State newState)
     {
         if(newState != state)
         {
-            StopAllCoroutines();
+            if(currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
             state = newState;
             switch (state)
             {
                 case State.IDLE:
-                    StartCoroutine(IdleState());
+                    currentCoroutine = StartCoroutine(IdleState());
                     break;
                 case State.FOLLOW:
-                    StartCoroutine(FollowState());
+                    currentCoroutine = StartCoroutine(FollowState());
                     break;
                 case State.PATROL:
-                    StartCoroutine(PatrolState());
+                    currentCoroutine = StartCoroutine(PatrolState());
                     break;
                 case State.ATTACK:
-                    StartCoroutine(AttackState());
+                    currentCoroutine = StartCoroutine(AttackState());
                     break;
             }
         }

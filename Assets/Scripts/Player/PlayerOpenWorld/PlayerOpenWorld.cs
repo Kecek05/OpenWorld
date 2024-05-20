@@ -36,7 +36,7 @@ public class PlayerOpenWorld : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.gameObject);
+        //Debug.Log(other.gameObject);
         IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
         if (interactable != null)
         {
