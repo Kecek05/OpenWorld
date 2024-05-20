@@ -9,15 +9,33 @@ public class InteractionUi : MonoBehaviour
    
     [SerializeField] private GameObject container;
     [SerializeField] private PlayerOpenWorld playerOpenWorld;
+    [SerializeField] private Player playerHouse;
     void Update()
     {
       
-        if(playerOpenWorld.GetInteractableObj() != null)
+        if(playerOpenWorld != null)
         {
-            container.SetActive(true);
-        } else
+            if(playerOpenWorld.GetInteractableObj() != null)
+            {
+                container.SetActive(true);
+            } else
+            {
+                container.SetActive(false);
+            }
+
+        }
+
+        if(playerHouse != null)
         {
-            container.SetActive(false);
+            if (playerHouse.GetInteractableObj() != null)
+            {
+                container.SetActive(true);
+            }
+            else
+            {
+                container.SetActive(false);
+            }
+
         }
        
     }

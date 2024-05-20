@@ -28,7 +28,34 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private KitchenObject kitchenObject;
     [SerializeField] private Transform counterTopPoint;
-   // [SerializeField] private Rigidbody rb;
+    // [SerializeField] private Rigidbody rb;
+
+
+    //mudar cena
+    private GameObject intectableObj;
+
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log(other.gameObject);
+        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+
+            intectableObj = other.gameObject;
+        }
+       
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+
+            intectableObj = null;
+        }
+    }
+
 
     private void Awake()
     {
@@ -55,6 +82,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
         if (!KitchenGameManager.Instance.IsGamePlaying()) return;
+
+        if (intectableObj != null)
+        {
+            IInteractable interactObj = intectableObj.gameObject.GetComponent<IInteractable>();
+            interactObj.Interact();
+        }
+
 
         if ((selectedCounter != null))
         {
@@ -193,4 +227,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     {
         return kitchenObject != null;
     }
+
+
+    public GameObject GetInteractableObj() { return intectableObj; }
 }

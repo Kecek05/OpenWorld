@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DayTime : MonoBehaviour
 {
-    public float daySeconds;
+    [SerializeField] private float daySeconds;
     float radDay;
-    public float daySpeed = 1;
+    [SerializeField] private float daySpeed = 1;
     Light sunlight;
     float intensity;
     public Gradient ambient;
