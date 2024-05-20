@@ -6,10 +6,11 @@ using UnityEngine;
 public class EnemySlow : BaseEnemy
 {
     [SerializeField] private GameObject gfx;
-    [SerializeField] private Rigidbody rbPlayer;
+
     [SerializeField] private float slowDuration;
 
     private bool startSlow;
+
 
 
     protected override IEnumerator AttackState()
@@ -32,10 +33,17 @@ public class EnemySlow : BaseEnemy
                 rbPlayer.constraints = RigidbodyConstraints.FreezeRotation;
                 DestroySelf(); 
             }
-
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            startSlow = true;
+            gfx.SetActive(false);
+        }
+    }
 
 
 }

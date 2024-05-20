@@ -9,4 +9,12 @@ public class EnemyCrab : BaseEnemy
         DestroySelf(); // Destruir o caranguejo ao colidir com o jogador
         yield break;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            DestroySelf(); // Destruir o caranguejo ao colidir com o jogador
+        }
+    }
 }

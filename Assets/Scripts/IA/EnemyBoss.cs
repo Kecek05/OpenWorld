@@ -36,7 +36,7 @@ public class EnemyBoss : MonoBehaviour
 
 
 
-
+    [SerializeField] private GameObject bossGFX;
     [SerializeField] private Rigidbody rb;
 
     protected enum State
@@ -119,7 +119,7 @@ public class EnemyBoss : MonoBehaviour
                     currentCoroutine = AttackState4();
                     break;
                 case State.SUMMON:
-                    currentCoroutine = SpawnState();
+                    currentCoroutine = SummonState();
                     break;
             }
             StartCoroutine(currentCoroutine);
@@ -283,20 +283,25 @@ public class EnemyBoss : MonoBehaviour
 
     protected IEnumerator AttackState3()
     {
-        yield return new WaitForSeconds(attackDelay);
+        //fica inv
+        bossGFX.SetActive(false);
+
+        yield return new WaitForSeconds(attackDelay + 2f);
+        bossGFX.SetActive(true);
 
         UpdateState(State.SUMMON);
     }
 
 
 
-    protected IEnumerator SpawnState()
+    protected IEnumerator SummonState()
     {
         Vector3 spawnPos = spawnPoint.position;
         for (int i = 0; i < enemiesToSpawn.Length; i++)
         {
             //instance all enemies
             Instantiate(enemiesToSpawn[i], spawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(0.4f);
         }
 
 
@@ -310,8 +315,22 @@ public class EnemyBoss : MonoBehaviour
     protected IEnumerator AttackState4()
     {
         //ultimo ataque, morre
+        for (int i = 0; i < 5;  i++)
+        {
+
+            Vector3 spawnPos = shootingPoint.position;
+
+            Instantiate(bullet, spawnPos, Quaternion.identity);
+
+            Vector3 spawnPos2 = shootingPoint2.position;
+
+            Instantiate(bullet, spawnPos2, Quaternion.identity);
+            yield return new WaitForSeconds(0.4f);
+        }
+
+
+        yield return new WaitForSeconds(attackDelay + 1.5f);
         DestroySelf();
-        yield return null;
     }
 
 

@@ -752,6 +752,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2219292830553907875, guid: c36ff93178e34184a43cadbbcda5f453, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2219292830553907877, guid: c36ff93178e34184a43cadbbcda5f453, type: 3}
       propertyPath: m_Name
       value: BOSS
@@ -781,6 +785,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2219292830553907877, guid: c36ff93178e34184a43cadbbcda5f453, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8640910736415841561}
+    - targetCorrespondingSourceObject: {fileID: 2219292830553907877, guid: c36ff93178e34184a43cadbbcda5f453, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1821838207974617528}
   m_SourcePrefab: {fileID: 100100000, guid: c36ff93178e34184a43cadbbcda5f453, type: 3}
 --- !u!95 &1675041635894052809 stripped
 Animator:
@@ -790,6 +797,11 @@ Animator:
 --- !u!4 &1675041635901286445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2219292830553816709, guid: c36ff93178e34184a43cadbbcda5f453, type: 3}
+  m_PrefabInstance: {fileID: 716761099061008040}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1675041635901453323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2219292830553907875, guid: c36ff93178e34184a43cadbbcda5f453, type: 3}
   m_PrefabInstance: {fileID: 716761099061008040}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1675041635901453325 stripped
@@ -847,15 +859,48 @@ MonoBehaviour:
   itemToDrop: {fileID: 1539252249147740877, guid: 9a57015288be99843888440f301caae3, type: 3}
   agent: {fileID: 8310501152994211722}
   Health: 10
-  speed: 3
+  speed: 7
   aggroRange: 30
   attackRange: 20
   offsetFollow: {x: 10, y: 10, z: 0}
   patrolDelay: 3
   bullet: {fileID: 4897743863698980165, guid: d88a5cffee9ee4b49bf623514fbd3260, type: 3}
-  enemiesToSpawn: []
+  enemiesToSpawn:
+  - {fileID: 5188082132923353997, guid: 2a4c6bb647b0a7a4f9f0190db73b16f8, type: 3}
+  - {fileID: 930239737671905199, guid: 9ae7b318b1754134ebe810cbf761b40d, type: 3}
+  - {fileID: 8232312164019334735, guid: e4714d69e78894e42aeafd05ac14b622, type: 3}
+  - {fileID: 8232312164019334735, guid: 78878fa9f6c47a9449adf00fceed5fd9, type: 3}
+  - {fileID: 608079846579097446, guid: 0249acf4fb0b6ab409459bae98b4be68, type: 3}
   shootingPoint: {fileID: 4076016131579966551}
   shootingPoint2: {fileID: 8872784918602342747}
   spawnPoint: {fileID: 2038845274976081695}
   attackDelay: 5
-  rb: {fileID: 0}
+  bossGFX: {fileID: 1675041635901453323}
+  rb: {fileID: 1821838207974617528}
+--- !u!54 &1821838207974617528
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675041635901453325}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
