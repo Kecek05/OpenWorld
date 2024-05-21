@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 102
+  controlID: 75
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -32,11 +32,11 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_EditorHideFlags: 1
   m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
@@ -58,29 +58,31 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
+  m_SerializedViewNames:
+  - UnityEditor.DeviceSimulation.SimulatorWindow
+  m_SerializedViewValues:
+  - C:\Users\ra00331197\OpenWorld\Library\PlayModeViewStates\25dead900322e0b48a1af0a388f9a732
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1274, y: 603}
+  m_TargetSize: {x: 1072, y: 603}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 2
+  m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
-  m_VSyncEnabled: 0
+  m_VSyncEnabled: 1
   m_Gizmos: 0
-  m_Stats: 1
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Stats: 0
+  m_SelectedSizes: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -637
-    m_HBaseRangeMax: 637
+    m_HBaseRangeMin: -536
+    m_HBaseRangeMax: 536
     m_VBaseRangeMin: -301.5
     m_VBaseRangeMax: 301.5
     m_HAllowExceedBaseRangeMin: 1
@@ -117,7 +119,7 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1274, y: 624}
-  m_ClearInEditMode: 1
+  m_ClearInEditMode: 0
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
@@ -146,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 103
+  controlID: 76
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 104
+  controlID: 77
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +198,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 105
+  controlID: 78
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -216,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 230
     height: 645
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 7}
   m_Panes:
   - {fileID: 7}
@@ -259,10 +261,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 297}
-      m_SelectedIDs: b066ffff
-      m_LastClickedID: -39248
-      m_ExpandedIDs: a666ffffb066ffffc26dffffc6f2ffffba9e00004e9f000062a00000b2a00000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: c2700000
+      m_LastClickedID: 0
+      m_ExpandedIDs: fafaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -305,7 +307,7 @@ MonoBehaviour:
     y: 0
     width: 1276
     height: 645
-  m_MinSize: {x: 102, y: 121}
+  m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
@@ -679,7 +681,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -207, y: -242}
+      snapOffset: {x: -216, y: -242}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: AINavigationOverlay
@@ -724,9 +726,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.7944663, y: -5.2647247, z: 12.207448}
+    m_Target: {x: -0.6989142, y: -7.3315716, z: 10.650341}
     speed: 2
-    m_Value: {x: 3.7944663, y: -5.2647247, z: 12.207448}
+    m_Value: {x: -0.6989142, y: -7.3315716, z: 10.650341}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -776,9 +778,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.31208846, y: 0.0036976407, z: -0.0012410867, w: -0.95004505}
   m_Size:
-    m_Target: 11.394707
+    m_Target: 14.748909
     speed: 2
-    m_Value: 11.394707
+    m_Value: 14.748909
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1978,7 +1980,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 116
+  controlID: 159
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2051,7 +2053,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ScriptableObjects/KitchenObjectSO/Alimentos
+    - Assets/ScriptableObjects/RecipeSO
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2059,16 +2061,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 69
   m_LastFolders:
-  - Assets/ScriptableObjects/KitchenObjectSO/Alimentos
+  - Assets/ScriptableObjects/RecipeSO
   m_LastFoldersGridSize: 69
   m_LastProjectPath: D:\Faculdade\Openworld\OpenWorld
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 203}
-    m_SelectedIDs: 8e340000
-    m_LastClickedID: 13454
-    m_ExpandedIDs: 000000007498000076980000789800007a9800007c9800007e98000080980000829800008498000086980000889800008a9800008c9800008e9800009098000092980000949800009698000098980000ca9a0000289d000000ca9a3b
+    scrollPos: {x: 0, y: 603}
+    m_SelectedIDs: 308a0000
+    m_LastClickedID: 35376
+    m_ExpandedIDs: 0000000086890000888900008a8900008c8900008e89000090890000928900009489000096890000988900009a8900009c8900009e890000a0890000a2890000a4890000a6890000a8890000aa890000ac890000ae890000188a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2096,7 +2098,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007498000076980000789800007a9800007c9800007e98000080980000829800008498000086980000889800008a9800008c9800008e9800009098000092980000949800009698000098980000
+    m_ExpandedIDs: 0000000086890000888900008a8900008c8900008e89000090890000928900009489000096890000988900009a8900009c8900009e890000a0890000a2890000a4890000a6890000a8890000aa890000ac890000ae890000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2121,8 +2123,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b066ffff
-    m_LastClickedInstanceID: -39248
+    m_SelectedInstanceIDs: c2700000
+    m_LastClickedInstanceID: 28866
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: a4ee0000
     m_RenameOverlay:
@@ -2188,7 +2190,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 203524
+  m_LastSelectedObjectID: -39248
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2199,7 +2201,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -2208,15 +2210,15 @@ MonoBehaviour:
     y: 0
     width: 616
     height: 302
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
   - {fileID: 20}
-  m_Selected: 1
-  m_LastSelected: 2
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2262,7 +2264,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - "Assets/Cen\xE1rio/Casas/Casa Bruxa/Alimentos"
+    - Assets/ScriptableObjects/KitchenObjectSO/Alimentos
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2270,16 +2272,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - "Assets/Cen\xE1rio/Casas/Casa Bruxa/Alimentos"
+  - Assets/ScriptableObjects/KitchenObjectSO/Alimentos
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Faculdade\Openworld\OpenWorld
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 32ac0000
-    m_LastClickedID: 44082
-    m_ExpandedIDs: 000000007498000076980000789800007a9800007c9800007e98000080980000829800008498000086980000889800008a9800008c9800008e9800009098000092980000949800009698000098980000a69a00006cad00006ead000000ca9a3b
+    scrollPos: {x: 0, y: 443}
+    m_SelectedIDs: 3a8a0000
+    m_LastClickedID: 35386
+    m_ExpandedIDs: 0000000086890000888900008a8900008c8900008e89000090890000928900009489000096890000988900009a8900009c8900009e890000a0890000a2890000a4890000a6890000a8890000aa890000ac890000ae890000188a0000388a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2307,7 +2309,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007498000076980000789800007a9800007c9800007e98000080980000829800008498000086980000889800008a9800008c9800008e9800009098000092980000949800009698000098980000
+    m_ExpandedIDs: 0000000086890000888900008a8900008c8900008e89000090890000928900009489000096890000988900009a8900009c8900009e890000a0890000a2890000a4890000a6890000a8890000aa890000ac890000ae890000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2332,9 +2334,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 32ac0000
-    m_LastClickedInstanceID: 44082
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: c2700000
+    m_LastClickedInstanceID: 28866
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: b8740000f0870000408800001288000038c100004ec4000058c4000062c400006cc40000749800007c980000849800008c980000a4980000b8d00000c0d00000c8d00000d0d00000b2cf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2442,7 +2444,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Objects/Alimentos
+    - "Assets/Cen\xE1rio/Casas/Casa Bruxa/Alimentos/Texturas"
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2450,16 +2452,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs/Objects/Alimentos
+  - "Assets/Cen\xE1rio/Casas/Casa Bruxa/Alimentos/Texturas"
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: F:\UnityProjects\OpenWorld\OpenWorld
+  m_LastProjectPath: D:\Faculdade\Openworld\OpenWorld
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 251}
-    m_SelectedIDs: 92340000
-    m_LastClickedID: 13458
-    m_ExpandedIDs: 000000007498000076980000789800007a9800007c9800007e98000080980000829800008498000086980000889800008a9800008c9800008e9800009098000092980000949800009698000098980000c29a0000c69a00003e9c0000409c0000429c0000449c00000aad00000cad000034ae000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 7ead0000
+    m_LastClickedID: 44414
+    m_ExpandedIDs: 0000000086890000888900008a8900008c8900008e89000090890000928900009489000096890000988900009a8900009c8900009e890000a0890000a2890000a4890000a6890000a8890000aa890000ac890000ae890000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2487,7 +2489,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007498000076980000789800007a9800007c9800007e98000080980000829800008498000086980000889800008a9800008c9800008e9800009098000092980000949800009698000098980000
+    m_ExpandedIDs: 0000000086890000888900008a8900008c8900008e89000090890000928900009489000096890000988900009a8900009c8900009e890000a0890000a2890000a4890000a6890000a8890000aa890000ac890000ae890000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2512,8 +2514,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 4456ffff
-    m_LastClickedInstanceID: -43452
+    m_SelectedInstanceIDs: 12650100
+    m_LastClickedInstanceID: 91410
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 708600007a8600008486000060850000188500002a7801003a7801004a7801005a780100a2770100d8780000
     m_RenameOverlay:
@@ -2562,8 +2564,8 @@ MonoBehaviour:
     y: 0
     width: 414
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -2585,7 +2587,7 @@ MonoBehaviour:
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Debug
+    m_Text: Inspector
     m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
     m_Tooltip: 
   m_Pos:
@@ -2613,7 +2615,7 @@ MonoBehaviour:
   m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
-  m_InspectorMode: 1
+  m_InspectorMode: 0
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
