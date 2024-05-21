@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 64
+  controlID: 51
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 65
+  controlID: 52
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 66
+  controlID: 53
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 67
+  controlID: 54
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 78
+  controlID: 65
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -348,8 +348,8 @@ MonoBehaviour:
     y: 0
     width: 414
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -492,21 +492,21 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 217}
-      m_SelectedIDs: 22e1fcff
-      m_LastClickedID: -204510
-      m_ExpandedIDs: 1ce1fcff22e1fcff2ce1fcff30e7fcff34e7fcff3ae7fcff42e7fcffc0f6ffffb6df03005ce10300ace10300
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: cefaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: SlimeCrab
-        m_OriginalName: SlimeCrab
+        m_Name: PocaoRedonda
+        m_OriginalName: PocaoRedonda
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -32098
+        m_UserData: -5034
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -920,16 +920,16 @@ MonoBehaviour:
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 21.90613, y: -7.060682, z: 1.6693255}
+    m_Target: {x: 4.8911552, y: -31.159857, z: 68.78886}
     speed: 2
-    m_Value: {x: 21.90613, y: -7.060682, z: 1.6693255}
+    m_Value: {x: 4.8911552, y: -31.159857, z: 68.78886}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -938,7 +938,7 @@ MonoBehaviour:
   m_ValidateTrueMetals: 0
   m_DoValidateTrueMetals: 0
   m_SceneViewState:
-    m_AlwaysRefresh: 1
+    m_AlwaysRefresh: 0
     showFog: 1
     showSkybox: 1
     showFlares: 1
@@ -975,13 +975,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.25299716, y: -0.6030796, z: 0.20971572, w: -0.72695595}
+    m_Target: {x: -0.22842225, y: -0.013418492, z: 0.00315296, w: -0.9738442}
     speed: 2
-    m_Value: {x: -0.25297713, y: -0.6030319, z: 0.20969912, w: -0.72689843}
+    m_Value: {x: -0.22833787, y: -0.013413535, z: 0.0031517951, w: -0.9734844}
   m_Size:
-    m_Target: 9.449487
+    m_Target: 47.760635
     speed: 2
-    m_Value: 9.449487
+    m_Value: 47.760635
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2183,7 +2183,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ScriptableObjects/CuttingRecipeSO/Alimentos
+    - Assets/Prefabs/Objects/Pocoes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2191,16 +2191,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/ScriptableObjects/CuttingRecipeSO/Alimentos
+  - Assets/Prefabs/Objects/Pocoes
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\ra00333610\Desktop\Trabalhos\OpenWorld
+  m_LastProjectPath: D:\Faculdade\Openworld\OpenWorld
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 439}
-    m_SelectedIDs: 90ef0300
-    m_LastClickedID: 257936
-    m_ExpandedIDs: 00000000789500007a9500007c9500007e9500008095000064970000809700008c970000449800007aef030000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 423}
+    m_SelectedIDs: 36950000
+    m_LastClickedID: 38198
+    m_ExpandedIDs: 00000000f6890000f8890000fa890000fc890000fe890000008a0000028a0000048a0000068a0000088a00000a8a00000c8a00000e8a0000108a0000128a0000148a0000168a0000188a00001a8a00001c8a00001e8a00004a8a0000808a0000b68a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2228,7 +2228,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000789500007a9500007c9500007e95000080950000
+    m_ExpandedIDs: 00000000f6890000f8890000fa890000fc890000fe890000008a0000028a0000048a0000068a0000088a00000a8a00000c8a00000e8a0000108a0000128a0000148a0000168a0000188a00001a8a00001c8a00001e8a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2259,15 +2259,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: a4ee0000289000009a1b0300
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Cabbage-CabbageSlices
-      m_OriginalName: Cabbage-CabbageSlices
+      m_Name: Pocoes
+      m_OriginalName: Pocoes
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 29942
+      m_UserData: 38198
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -2346,7 +2346,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 235}
     m_SelectedIDs: 746f0000
     m_LastClickedID: 28532
-    m_ExpandedIDs: 00000000789500007a9500007c9500007e95000080950000849700002098000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000f6890000f8890000fa890000fc890000fe890000008a0000028a0000048a0000068a0000088a00000a8a00000c8a00000e8a0000108a0000128a0000148a0000168a0000188a00001a8a00001c8a00001e8a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2374,7 +2374,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000789500007a9500007c9500007e95000080950000
+    m_ExpandedIDs: 00000000f6890000f8890000fa890000fc890000fe890000008a0000028a0000048a0000068a0000088a00000a8a00000c8a00000e8a0000108a0000128a0000148a0000168a0000188a00001a8a00001c8a00001e8a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2405,18 +2405,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: b8740000f0870000408800001288000038c100004ec4000058c4000062c400006cc40000749800007c980000849800008c980000a4980000b8d00000c0d00000c8d00000d0d00000b2cf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: SlimeStunGun
-      m_OriginalName: SlimeStunGun
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 35984
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
@@ -2509,7 +2509,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Objects
+    - "Assets/Cen\xE1rio/Casas/Casa Bruxa/Pocoes"
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -2517,16 +2517,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs/Objects
+  - "Assets/Cen\xE1rio/Casas/Casa Bruxa/Pocoes"
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\ra00333610\Desktop\Trabalhos\OpenWorld
+  m_LastProjectPath: D:\Faculdade\Openworld\OpenWorld
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 247}
-    m_SelectedIDs: 24980000
-    m_LastClickedID: 38948
-    m_ExpandedIDs: 00000000789500007a9500007c9500007e95000080950000849700002098000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 188b0000
+    m_LastClickedID: 35608
+    m_ExpandedIDs: 00000000f6890000f8890000fa890000fc890000fe890000008a0000028a0000048a0000068a0000088a00000a8a00000c8a00000e8a0000108a0000128a0000148a0000168a0000188a00001a8a00001c8a00001e8a00004a8a0000b68a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2554,7 +2554,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000789500007a9500007c9500007e95000080950000
+    m_ExpandedIDs: 00000000f6890000f8890000fa890000fc890000fe890000008a0000028a0000048a0000068a0000088a00000a8a00000c8a00000e8a0000108a0000128a0000148a0000168a0000188a00001a8a00001c8a00001e8a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2585,15 +2585,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: 708600007a8600008486000060850000188500002a7801003a7801004a7801005a780100a2770100d8780000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: SlimeLightMachineGun
-      m_OriginalName: SlimeLightMachineGun
+      m_Name: Pocoes
+      m_OriginalName: Pocoes
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 35980
+      m_UserData: 35608
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0

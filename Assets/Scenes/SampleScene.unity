@@ -10452,63 +10452,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4247451835210129175, guid: 55b819d7983680a43a343f66cc71cb91, type: 3}
   m_PrefabInstance: {fileID: 844425118}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &881452692
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 81.9052
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.16
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 256.1391
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
-      propertyPath: m_Name
-      value: Grama Igor
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: af5b77d1325619445b2e537ffa0481a9, type: 3}
 --- !u!1001 &886411592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14711,7 +14654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106259953078090781, guid: 877a21fa6346f2e46a4982d5648a5078, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.062504
+      value: 13.062427
       objectReference: {fileID: 0}
     - target: {fileID: 9106259953078090781, guid: 877a21fa6346f2e46a4982d5648a5078, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23721,6 +23664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DroppedItem
       objectReference: {fileID: 0}
+    - target: {fileID: 1539252249147740877, guid: 9a57015288be99843888440f301caae3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3951234708689588555, guid: 9a57015288be99843888440f301caae3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6
@@ -26022,7 +25969,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4928960615311822120, guid: 973d6c76dd5acb645895dbc52b0af261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.062504
+      value: 13.062427
       objectReference: {fileID: 0}
     - target: {fileID: 4928960615311822120, guid: 973d6c76dd5acb645895dbc52b0af261, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26757,7 +26704,6 @@ SceneRoots:
   - {fileID: 6031031292304164715}
   - {fileID: 1709025495}
   - {fileID: 1830917421361176502}
-  - {fileID: 881452692}
   - {fileID: 1471676476}
   - {fileID: 1296317449}
   - {fileID: 1049332939}
