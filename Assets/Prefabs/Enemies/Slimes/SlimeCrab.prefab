@@ -66,7 +66,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5188082132923353997}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -75,8 +75,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: -0.2
+  m_Height: 0.34
+  m_BaseOffset: -0.23
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!136 &1202326710818534746
@@ -98,10 +98,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4311142
-  m_Height: 0.9842918
+  m_Radius: 0.35676575
+  m_Height: 0.7135315
   m_Direction: 1
-  m_Center: {x: -0.003868103, y: 0.7796403, z: 0.03630066}
+  m_Center: {x: -0.12783432, y: 0.33454502, z: 0.03630066}
 --- !u!114 &8947383140966432904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7d15f66bb6fe4374b9fb210561f2b030, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7d15f66bb6fe4374b9fb210561f2b030, type: 3}
       propertyPath: m_LocalPosition.y
@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7d15f66bb6fe4374b9fb210561f2b030, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.239
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7d15f66bb6fe4374b9fb210561f2b030, type: 3}
       propertyPath: m_LocalRotation.w
