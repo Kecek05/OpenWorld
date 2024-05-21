@@ -21,6 +21,9 @@ public abstract class BaseEnemy : MonoBehaviour
 
     [SerializeField] private Vector3 offsetFollow;
     [SerializeField] private float patrolDelay;
+    public Rigidbody rbPlayer;
+
+    protected IEnumerator currentCoroutine;
     protected enum State
     {
         IDLE,
@@ -34,6 +37,10 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected void Start()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        rbPlayer = player.GetComponent<Rigidbody>();
+        if(rbPlayer == null )
+            rbPlayer = player.transform.parent.GetComponent<Rigidbody>();
         timeCheckDistanceToPlayer = maxTimeCheckDistanceToPlayer;
         agent.speed = speed;
         //  UpdateState(State.IDLE);
@@ -58,28 +65,32 @@ public abstract class BaseEnemy : MonoBehaviour
             timeCheckDistanceToPlayer = maxTimeCheckDistanceToPlayer;
             CheckDistanceToPlayer();
         }
+
+
     }
     protected void UpdateState(State newState)
     {
         if(newState != state)
         {
-            StopAllCoroutines();
+            if (currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
             state = newState;
             switch (state)
             {
                 case State.IDLE:
-                    StartCoroutine(IdleState());
+                    currentCoroutine = IdleState();
                     break;
                 case State.FOLLOW:
-                    StartCoroutine(FollowState());
+                    currentCoroutine = FollowState();
                     break;
                 case State.PATROL:
-                    StartCoroutine(PatrolState());
+                    currentCoroutine = PatrolState();
                     break;
                 case State.ATTACK:
-                    StartCoroutine(AttackState());
+                    currentCoroutine = AttackState();
                     break;
             }
+            StartCoroutine(currentCoroutine);
         }
 
     }
@@ -99,18 +110,26 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected IEnumerator PatrolState()
     {
-        //andar aleatoriamente
         while (state == State.PATROL && GetTarget() == null)
         {
+            if (GetTarget() != null)
+                break;
             //Player not In range
             RandomPlacesToGO();
-            enemyAnimationController.SetSpeed(agent.velocity.magnitude);
-            enemyAnimationController.SetTurn(Vector3.Dot(agent.velocity.normalized, transform.forward));
+            if(enemyAnimationController != null)
+            {
+                enemyAnimationController.SetSpeed(agent.velocity.magnitude);
+                enemyAnimationController.SetTurn(Vector3.Dot(agent.velocity.normalized, transform.forward));
+
+            }
             yield return new WaitForSeconds(patrolDelay);
             UpdateState(State.IDLE);
 
-        }
 
+
+
+
+        }
     }
 
 
@@ -120,11 +139,15 @@ public abstract class BaseEnemy : MonoBehaviour
         //Seguir o player, Se estiver no range de ataque, ataque!
         while (state == State.FOLLOW && GetTarget() != null)
         {
-
+            yield return new WaitForSeconds(0.1f);
             Vector3 result = GetTarget().transform.position + offsetFollow;
 
-            enemyAnimationController.SetSpeed(agent.velocity.magnitude);
-            enemyAnimationController.SetTurn(Vector3.Dot(agent.velocity.normalized, transform.forward));
+            if(enemyAnimationController != null)
+            {
+                enemyAnimationController.SetSpeed(agent.velocity.magnitude);
+                enemyAnimationController.SetTurn(Vector3.Dot(agent.velocity.normalized, transform.forward));
+
+            }
 
             GetNavMesh().SetDestination(result);
 
@@ -133,8 +156,9 @@ public abstract class BaseEnemy : MonoBehaviour
             if (distanciaToPlayer <= attackRange)
             {
                 UpdateState(State.ATTACK);
+                break;
             }
-            yield return new WaitForSeconds(1f); // 1 sec and resets
+
 
         }
 

@@ -16,11 +16,15 @@ public class PlayerOpenWorld : MonoBehaviour
     {
         main = this;
     }
-
+    private void Update()
+    {
+        Cursor.visible = false;
+    }
 
     private void Start()
     {
         gameInput.OnInteractAction += GameInput_OnInteractAction;
+
     }
 
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
@@ -36,7 +40,7 @@ public class PlayerOpenWorld : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.gameObject);
+        //Debug.Log(other.gameObject);
         IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
         if (interactable != null)
         {

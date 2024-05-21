@@ -305,6 +305,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1557585983417840, guid: c76daac06b7a420cb02fdd233a6a5de7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5996236972882579476}
+    - targetCorrespondingSourceObject: {fileID: 1557585983417840, guid: c76daac06b7a420cb02fdd233a6a5de7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2373501483989238490}
   m_SourcePrefab: {fileID: 100100000, guid: c76daac06b7a420cb02fdd233a6a5de7, type: 3}
 --- !u!95 &6506922865673553227 stripped
 Animator:
@@ -336,8 +339,8 @@ MonoBehaviour:
   attackRange: 5
   offsetFollow: {x: 0, y: 0, z: 0}
   patrolDelay: 3
-  gfx: {fileID: 0}
   rbPlayer: {fileID: 0}
+  gfx: {fileID: 6565089597640903423}
   slowDuration: 3
 --- !u!195 &6968588864646702768
 NavMeshAgent:
@@ -374,3 +377,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6506922865673553227}
+--- !u!65 &2373501483989238490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564916952341062325}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2872672, z: 1.1140442}
+  m_Center: {x: 0, y: 0.1436336, z: 0.057022095}
+--- !u!1 &6565089597640903423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1459630055785914, guid: c76daac06b7a420cb02fdd233a6a5de7, type: 3}
+  m_PrefabInstance: {fileID: 6565911471996604229}
+  m_PrefabAsset: {fileID: 0}
