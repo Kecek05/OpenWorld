@@ -626,9 +626,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 18cc0a2288f578446be6b806d7c98f73, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1098005174}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 18cc0a2288f578446be6b806d7c98f73, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1098005175}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 18cc0a2288f578446be6b806d7c98f73, type: 3}
       insertIndex: -1
@@ -4830,20 +4827,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18cc0a2288f578446be6b806d7c98f73, type: 3}
   m_PrefabInstance: {fileID: 138422356}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1098005174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366613641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa2c7654cab69a34fb00ca11e2ab8517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimator: {fileID: 0}
-  sceneToLoad: SampleScene
 --- !u!65 &1098005175
 BoxCollider:
   m_ObjectHideFlags: 0
