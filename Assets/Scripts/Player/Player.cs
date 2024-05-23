@@ -36,7 +36,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.gameObject);
         IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
         if (interactable != null)
         {

@@ -129,14 +129,14 @@ namespace Cinemachine.Examples
             if (!useCharacterForward)
             {
                 turnSpeedMultiplier = 1f;
-                var forward = mainCamera.transform.TransformDirection(Vector3.forward);
-                forward.y = 0;
-
+                //var forward = mainCamera.transform.TransformDirection(Vector3.forward);
+                //forward.y = 0;
+//
                 //get the right-facing direction of the referenceTransform
-                var right = mainCamera.transform.TransformDirection(Vector3.right);
+             //   var right = mainCamera.transform.TransformDirection(Vector3.right);
 
                 // determine the direction the player will face based on input and the referenceTransform's right and forward directions
-                targetDirection = input.x * right + input.y * forward;
+               // targetDirection = input.x * right + input.y * forward;
             }
             else
             {
