@@ -31,6 +31,9 @@ public class StoveCounter : BaseCounter, IHasProgress
     private float burningTimer;
     private BurningRepiceSO burningRecipeSO;
 
+    private float cookingTimer;
+    private int ingredientInCauldron;
+
     private void Start()
     {
         state = State.Idle; 
@@ -44,29 +47,33 @@ public class StoveCounter : BaseCounter, IHasProgress
                 case State.Idle:
                     break;
                 case State.Frying:
-                    fryingTimer += Time.deltaTime;
 
-                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
-                    {
-                        progressNormalized = fryingTimer / fryingRecipeSO.fryingTimerMax
-                    });
+                    cookingTimer -= Time.deltaTime;
 
-                    if (fryingTimer > fryingRecipeSO.fryingTimerMax)
-                    {
-                        //Fried
-                        GetKitchenObject().DestroySelf();
+                    // if cooking timer for menor q zero, proximo estagio
+                    //fryingTimer += Time.deltaTime;
 
-                        KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
+                    //OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                    //{
+                    //    progressNormalized = fryingTimer / fryingRecipeSO.fryingTimerMax
+                    //});
 
-                        state = State.Fried;
-                        burningTimer = 0f;
-                        burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    //if (fryingTimer > fryingRecipeSO.fryingTimerMax)
+                    //{
+                    //    //Fried
+                    //    GetKitchenObject().DestroySelf();
 
-                        OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
-                        {
-                            state = state
-                        });
-                    }
+                    //    KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
+
+                    //    state = State.Fried;
+                    //    burningTimer = 0f;
+                    //    burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+                    //    OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
+                    //    {
+                    //        state = state
+                    //    });
+                    //}
                     break;
                 case State.Fried:
                     burningTimer += Time.deltaTime;
@@ -121,6 +128,11 @@ public class StoveCounter : BaseCounter, IHasProgress
                     state = State.Frying;
                     fryingTimer = 0f;
 
+                    cookingTimer += 5f;
+
+                    ingredientInCauldron = 0;
+                    ingredientInCauldron++;
+
                     OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
                     {
                         state = state
@@ -143,25 +155,33 @@ public class StoveCounter : BaseCounter, IHasProgress
             if (player.HasKitchenObject())
             {
                 //player is carrying something
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                
+                if(ingredientInCauldron < 3)
                 {
-                    //player is holding a plate
-                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
-                    {
-                        GetKitchenObject().DestroySelf();
-                        state = State.Idle;
-
-                        OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
-                        {
-                            state = state
-                        });
-
-                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
-                        {
-                            progressNormalized = 0f
-                        });
-                    }
+                    ingredientInCauldron++;
+                    cookingTimer += 5f;
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
                 }
+
+                //if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                //{
+                //    //player is holding a plate
+                //    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
+                //    {
+                //        GetKitchenObject().DestroySelf();
+                //        state = State.Idle;
+
+                //        OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
+                //        {
+                //            state = state
+                //        });
+
+                //        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                //        {
+                //            progressNormalized = 0f
+                //        });
+                //    }
+                //}
             }
             else
             {
