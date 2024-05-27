@@ -20,7 +20,7 @@ public class StoveCounterSound : MonoBehaviour
 
     private void StoveCounter_OnStateChanged(object sender, StoveCounter.OnStateCHangedEventArgs e)
     {
-        bool playSound = e.state == StoveCounter.State.Frying || e.state == StoveCounter.State.Fried;
+        bool playSound = e.state == StoveCounter.State.CookingIngredient || e.state == StoveCounter.State.CookedIngredient;
         if (playSound)
         {
             audioSource.Play();
