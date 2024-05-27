@@ -32,23 +32,12 @@ public class ItemOnGround : MonoBehaviour, IInteractable
         {
             switch(selectedItemOnGroundSO.itemType)
             {
-                case PlayerItens.ItensType.Bread:
-                   PlayerItens.main.SetBreadCount(PlayerItens.main.GetBreadCount() + 1);
-                   break;
-                case PlayerItens.ItensType.MeatPatty:
-                   PlayerItens.main.SetMeatyPattyCount(PlayerItens.main.GetMeatyPattyCount() + 1);
-                   break;
-                case PlayerItens.ItensType.Chesse:
-                   PlayerItens.main.SetCheeseCount(PlayerItens.main.GetCheeseCount() + 1);
-                   break;
+                
                 case PlayerItens.ItensType.Cabbage:
                    PlayerItens.main.SetCabbageCount(PlayerItens.main.GetCabbageCount() + 1);
                    break;
                 case PlayerItens.ItensType.Carambola:
                    PlayerItens.main.SetCarambolaCount(PlayerItens.main.GetCarambolaCount() + 1);
-                   break;
-                case PlayerItens.ItensType.Tomato:
-                   PlayerItens.main.SetTomatoCount(PlayerItens.main.GetTomatoCount() + 1);
                    break;
                 case PlayerItens.ItensType.Cogumelo:
                    PlayerItens.main.SetCogumeloCount(PlayerItens.main.GetCogumeloCount() + 1);
