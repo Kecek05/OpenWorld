@@ -42,8 +42,7 @@ public class StoveCounter : BaseCounter, IHasProgress
 
     private PotionCaulderonRecipeSO currentPotionCaulderonRecipe;
 
-    private float cookingTimerIngredient = 5f;
-
+    private float currentMaxTimeToCook;
 
     private List<KitchenObjectSO> kitchenObjectSOInCaulderonList = new List<KitchenObjectSO>();
 
@@ -62,11 +61,17 @@ public class StoveCounter : BaseCounter, IHasProgress
                     break;
                 case State.CookingIngredient:
 
-                    cookingTimer -= Time.deltaTime;
+                    cookingTimer += Time.deltaTime;
 
 
+                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                    {
+                        progressNormalized = cookingTimer / currentMaxTimeToCook,
+                        progressCount = cookedIngredientCount
 
-                    if (cookingTimer <= 0)
+                    });
+
+                    if (cookingTimer >= currentMaxTimeToCook)
                     {
                         //Cooking Done
                         cookedIngredientCount++;
@@ -74,7 +79,7 @@ public class StoveCounter : BaseCounter, IHasProgress
                         state = State.CookedIngredient; 
                     }
 
-                    Debug.Log(cookingTimer);
+
 
 
                     //OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
@@ -117,7 +122,8 @@ public class StoveCounter : BaseCounter, IHasProgress
                             for (int i = 0; i < kitchenObjectSOInCaulderonList.Count; i++)
                             {
                                 //take the time of the last kitchenObject in the list
-                                cookingTimer = kitchenObjectSOInCaulderonList[i].timeInCaulderon;
+                                cookingTimer = 0f;
+                                currentMaxTimeToCook = kitchenObjectSOInCaulderonList[i].timeInCaulderon;
                             }
 
                             
@@ -158,7 +164,6 @@ public class StoveCounter : BaseCounter, IHasProgress
 
             }
         }
-        Debug.Log("State " + state);
     }
 
 
@@ -182,7 +187,8 @@ public class StoveCounter : BaseCounter, IHasProgress
                     //fryingTimer = 0f;
 
 
-                    cookingTimer = GetKitchenObject().GetKitchenObjectSO().timeInCaulderon;
+                    cookingTimer = 0f;
+                    currentMaxTimeToCook = GetKitchenObject().GetKitchenObjectSO().timeInCaulderon;
                     totalIngredientInCauldron = 0;
                     totalIngredientInCauldron++;
 
