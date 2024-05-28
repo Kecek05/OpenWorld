@@ -7,7 +7,7 @@ public class HitBarUI : MonoBehaviour
 {
     [SerializeField] private GameObject hitObject;
     [SerializeField] private Slider hitSlider;
-
+    [SerializeField] private Image handleImage;
     private IHasHitBar hitBar;
     private void Start()
     {
@@ -18,9 +18,22 @@ public class HitBarUI : MonoBehaviour
 
         hitBar.OnHitFinished += HitBar_OnHitFinished;
 
+        hitBar.OnHitMissed += HitBar_OnHitMissed;
+
         hitSlider.value = 0;
 
         Hide();
+    }
+
+    private void HitBar_OnHitMissed(object sender, IHasHitBar.OnHitMissedEventArgs e)
+    {
+        if(e.missed)
+        {
+            handleImage.color = Color.black;
+        } else
+        {
+            handleImage.color = Color.white;
+        }
     }
 
     private void HitBar_OnHitFinished(object sender, System.EventArgs e)

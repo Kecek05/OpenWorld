@@ -483,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitObject: {fileID: 7613971973758887128}
   hitSlider: {fileID: 5854931647986554610}
+  handleImage: {fileID: 469217607393354164}
 --- !u!1 &4992635023893774840
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,6 +836,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterTopPoint: {fileID: 2215602339411452336}
+  missedDelay: 1
+  speedSlider: 0.05
+  crumpleRecipeSOArray:
+  - {fileID: 11400000, guid: d70ca09511505ad4693741931b2bfcf3, type: 2}
 --- !u!1001 &7715992544535130504
 PrefabInstance:
   m_ObjectHideFlags: 0
