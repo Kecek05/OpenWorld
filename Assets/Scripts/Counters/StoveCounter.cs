@@ -72,13 +72,10 @@ public class StoveCounter : BaseCounter, IHasProgress
                         cookedIngredientCount++;
                        
                         state = State.CookedIngredient; 
-
-
                     }
 
                     Debug.Log(cookingTimer);
 
-                    //fryingTimer += Time.deltaTime;
 
                     //OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
                     //{
@@ -92,9 +89,8 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                     //    KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
 
-                    //    state = State.Fried;
-                    //    burningTimer = 0f;
-                    //    burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+
+
 
                     //    OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
                     //    {
@@ -111,10 +107,6 @@ public class StoveCounter : BaseCounter, IHasProgress
 
                         state = State.Done;
 
-                        //cookingTimer = cookingTimerIngredient;
-
-                        //state = State.CookedIngredient;
-                        //potion done
                     } else
                     {
                         //can cook more
@@ -122,7 +114,13 @@ public class StoveCounter : BaseCounter, IHasProgress
                         {
                             //there is one more to cook
                             waitingToCook--;
-                            cookingTimer = 5f;
+                            for (int i = 0; i < kitchenObjectSOInCaulderonList.Count; i++)
+                            {
+                                //take the time of the last kitchenObject in the list
+                                cookingTimer = kitchenObjectSOInCaulderonList[i].timeInCaulderon;
+                            }
+
+                            
                             state = State.CookingIngredient;
                         }
                     }
@@ -154,6 +152,8 @@ public class StoveCounter : BaseCounter, IHasProgress
                     //}
                     break;
                 case State.Done:
+                    PotionObjectSO potion = GetPotionObjectSOResult();
+                    Debug.Log("Potion is " + potion);
                     break;
 
             }
@@ -182,13 +182,12 @@ public class StoveCounter : BaseCounter, IHasProgress
                     //fryingTimer = 0f;
 
 
-                    cookingTimer += 5f;
+                    cookingTimer = GetKitchenObject().GetKitchenObjectSO().timeInCaulderon;
                     totalIngredientInCauldron = 0;
                     totalIngredientInCauldron++;
 
                     //kitchenObjectSOInCaulderonList.Clear(); // reset the list
                     kitchenObjectSOInCaulderonList.Add(GetKitchenObject().GetKitchenObjectSO());
-
 
                     state = State.CookingIngredient;
 
@@ -227,7 +226,7 @@ public class StoveCounter : BaseCounter, IHasProgress
                     if(Recipe(player.GetKitchenObject().GetKitchenObjectSO()))
                     {
                         // the item is in list
-                        //player.GetKitchenObject().SetKitchenObjectParent(this);
+                        player.GetKitchenObject().SetKitchenObjectParent(this);
                         totalIngredientInCauldron++;
                         waitingToCook++;
                     }
@@ -267,19 +266,19 @@ public class StoveCounter : BaseCounter, IHasProgress
             {
                 //player is not carrying anything
 
-                GetKitchenObject().SetKitchenObjectParent(player);
+                //GetKitchenObject().SetKitchenObjectParent(player);
 
-                state = State.Idle;
+                //state = State.Idle;
 
-                OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
-                {
-                    state = state
-                });
+                //OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
+                //{
+                //    state = state
+                //});
 
-                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
-                {
-                    progressNormalized = 0f
-                });
+                //OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+                //{
+                //    progressNormalized = 0f
+                //});
 
             }
         }
@@ -329,7 +328,19 @@ public class StoveCounter : BaseCounter, IHasProgress
         return false;
     }
 
+    private PotionObjectSO GetPotionObjectSOResult()
+    {
+        foreach (PotionCaulderonRecipeSO potionCaulderonRecipeSO in potionCaulderonRecipeSOArray)
+        {
+            if(kitchenObjectSOInCaulderonList.SequenceEqual(potionCaulderonRecipeSO.potionObjectSO.ingredientsSOList))
+            {
+                // same ingredients
+                return potionCaulderonRecipeSO.potionObjectSO;
+            }
 
+        }
+        return null;
+    }
 
 
     private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)
