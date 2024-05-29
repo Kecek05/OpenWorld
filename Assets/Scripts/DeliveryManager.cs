@@ -15,46 +15,56 @@ public class DeliveryManager : MonoBehaviour
 
     [SerializeField] private RecipeListSO recipeListSO;
 
-    private List<RecipeSO> waitingRecipeSOList;
-
-    private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 4f;
-    private int waitingRecipeMax = 4;
+    private List<PotionObjectSO> waitingPotionObjectSOList;
 
 
     private void Awake()
     {
         Instance = this;
-        waitingRecipeSOList = new List<RecipeSO>();
+        waitingPotionObjectSOList = new List<PotionObjectSO>();
     }
 
     private void Update()
     {
-        spawnRecipeTimer -= Time.deltaTime;
-        if(spawnRecipeTimer <= 0f)
+        //spawnRecipeTimer -= Time.deltaTime;
+        //if(spawnRecipeTimer <= 0f)
+        //{
+        //    spawnRecipeTimer = spawnRecipeTimerMax;
+        //    if(waitingPotionObjectSOList.Count < waitingRecipeMax)
+        //    {
+        //        PotionObjectSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
+
+        //        waitingPotionObjectSOList.Add(waitingRecipeSO);
+
+        //        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
+        //    }
+        //}
+    }
+
+    private void Start()
+    {
+
+        for(int i = 0; i  < recipeListSO.recipeSOList.Count; i++)
         {
-            spawnRecipeTimer = spawnRecipeTimerMax;
-            if(waitingRecipeSOList.Count < waitingRecipeMax)
-            {
-                RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
+            PotionObjectSO potionSelected = recipeListSO.recipeSOList[i];
 
-                waitingRecipeSOList.Add(waitingRecipeSO);
+            waitingPotionObjectSOList.Add(potionSelected);
 
-                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
-            }
+            OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
         }
     }
 
+
     public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
     {
-        for(int i = 0; i < waitingRecipeSOList.Count; ++i)
+        for(int i = 0; i < waitingPotionObjectSOList.Count; ++i)
         {
-           RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
-            if(waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            PotionObjectSO waitingRecipeSO = waitingPotionObjectSOList[i];
+            if(waitingRecipeSO.ingredientsSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 //Has the same number of ingredients
                 bool plateContentsMatchesRecipe = true;
-                foreach (KitchenObjectSO recipekitchenObjectSO in waitingRecipeSO.kitchenObjectSOList)
+                foreach (KitchenObjectSO recipekitchenObjectSO in waitingRecipeSO.ingredientsSOList)
                 {
                     //Cycling through all ingredients in the recipe
                     bool ingredientFount = false;
@@ -78,7 +88,8 @@ public class DeliveryManager : MonoBehaviour
                 {
                     //player delivered the correct recipe!
 
-                    waitingRecipeSOList.RemoveAt(i);
+                    //waitingPotionObjectSOList.RemoveAt(i);
+                    StoredPotionsController.main.StorePotion(plateKitchenObject.GetPotionObjectSOInThisPlate());
 
                     OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
                     OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
@@ -92,8 +103,8 @@ public class DeliveryManager : MonoBehaviour
     }
 
 
-    public List<RecipeSO> GetWaitingRecipeSOList()
+    public List<PotionObjectSO> GetWaitingPotionObjectSOList()
     {
-        return waitingRecipeSOList;
+        return waitingPotionObjectSOList;
     }
 }

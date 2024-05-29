@@ -10,7 +10,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI recipeNameText;
     [SerializeField] private Transform iconContainer;
     [SerializeField] private Transform iconTemplate;
-
+    [SerializeField] private Image potionImage;
 
 
 
@@ -18,20 +18,21 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     {
         iconTemplate.gameObject.SetActive(false);
     }
-    public void SetRecipeSO(RecipeSO recipeSO)
+    public void SetPotionObjectSO(PotionObjectSO potionObjectSO)
     {
-        recipeNameText.text = recipeSO.recipeName;
+        recipeNameText.text = potionObjectSO.PotionName;
 
         foreach (Transform child in iconContainer)
         {
             if (child == iconTemplate) continue;
             Destroy(child.gameObject);
         }
-        foreach(KitchenObjectSO kitchenObjectSO in recipeSO.kitchenObjectSOList)
+        foreach(KitchenObjectSO kitchenObjectSO in potionObjectSO.ingredientsSOList)
         {
             Transform iconTransform = Instantiate(iconTemplate, iconContainer);
             iconTransform.gameObject.SetActive(true);
             iconTransform.GetComponent<Image>().sprite = kitchenObjectSO.sprite;
         }
+        potionImage.sprite = potionObjectSO.potionSprite;
     }
 }

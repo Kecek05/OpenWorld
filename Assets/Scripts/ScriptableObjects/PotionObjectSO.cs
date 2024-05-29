@@ -6,6 +6,7 @@ using UnityEngine;
 public class PotionObjectSO : ScriptableObject
 {
     public string PotionName;
+    public Sprite potionSprite;
 
     public List<KitchenObjectSO> ingredientsSOList;
 

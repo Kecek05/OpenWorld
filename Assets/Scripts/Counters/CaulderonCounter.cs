@@ -247,6 +247,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                         {
                             //Potion done
                             plateKitchenObject.AddIngredientToPotion(potionDone);
+                            plateKitchenObject.SetPotionObjectSOInThisPlate(potionDone);
 
                             ResetCaulderon();
                             

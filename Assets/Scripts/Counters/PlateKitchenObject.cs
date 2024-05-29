@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlateKitchenObject : KitchenObject
 {
@@ -16,6 +17,8 @@ public class PlateKitchenObject : KitchenObject
     [SerializeField] private List<KitchenObjectSO> validKitchenObjectSOList;
 
     private List<KitchenObjectSO> kitchenObjectSOList;
+
+    private PotionObjectSO potionObjectSOInThisPlate;
 
     private void Awake()
     {
@@ -53,4 +56,8 @@ public class PlateKitchenObject : KitchenObject
     {
         return kitchenObjectSOList;
     }
+
+    public PotionObjectSO GetPotionObjectSOInThisPlate() { return potionObjectSOInThisPlate;}
+
+    public void SetPotionObjectSOInThisPlate(PotionObjectSO potionObjectSO) { potionObjectSOInThisPlate = potionObjectSO;}
 }
