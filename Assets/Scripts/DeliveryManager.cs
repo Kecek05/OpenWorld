@@ -103,8 +103,8 @@ public class DeliveryManager : MonoBehaviour
     }
 
 
-    public List<PotionObjectSO> GetWaitingPotionObjectSOList()
+    public List<PotionObjectSO> GetRecipeListPotionObjectSOList()
     {
-        return waitingPotionObjectSOList;
+        return recipeListSO.recipeSOList;
     }
 }

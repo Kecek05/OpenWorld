@@ -29,6 +29,7 @@ public class DeliveryManagerUI : MonoBehaviour
     private void DeliveryManager_OnRecipeCompleted(object sender, System.EventArgs e)
     {
        //UpdateVisual();
+       UpdatePotionCount();
     }
 
     private void UpdateVisual()
@@ -38,7 +39,7 @@ public class DeliveryManagerUI : MonoBehaviour
             if(child == recipeTemplate) continue;
             Destroy(child.gameObject);
         }
-        foreach(PotionObjectSO potionObjectSO in DeliveryManager.Instance.GetWaitingPotionObjectSOList())
+        foreach(PotionObjectSO potionObjectSO in DeliveryManager.Instance.GetRecipeListPotionObjectSOList())
         {
             Transform recipeTransform = Instantiate(recipeTemplate, container);
             recipeTransform.gameObject.SetActive(true);
@@ -47,6 +48,11 @@ public class DeliveryManagerUI : MonoBehaviour
 
         }
 
+    }
+
+    private void UpdatePotionCount()
+    {
+        //update the potion count in UI
     }
 
 }
