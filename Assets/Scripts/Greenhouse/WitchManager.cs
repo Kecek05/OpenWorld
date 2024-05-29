@@ -7,9 +7,9 @@ public class WitchManager : MonoBehaviour
     private void Update()
     {
         WitchInputs.main.GetAllInputs();
+        
     }
-
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         WitchMovement.main1.GetAllMoves();
     }
