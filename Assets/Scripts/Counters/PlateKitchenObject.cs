@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlateKitchenObject : KitchenObject
@@ -20,26 +21,31 @@ public class PlateKitchenObject : KitchenObject
     {
         kitchenObjectSOList = new List<KitchenObjectSO>();
     }
-    public bool TryAddIngredient(KitchenObjectSO kitchenObjectSO)
-    {
-        if(!validKitchenObjectSOList.Contains(kitchenObjectSO))
-        {
-            // not valid ingredient
-            return false;
-        }
-        if(kitchenObjectSOList.Contains(kitchenObjectSO))
-        {
-            //already has this type
-            return false;
-        } else
-        {
-            //new ingredient
-            kitchenObjectSOList.Add(kitchenObjectSO);
 
-            OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs {
-                kitchenObjectSO = kitchenObjectSO
-            });
-            return true;
+    public void AddIngredientToPotion(PotionObjectSO potionObjectSO)
+    {
+        foreach(KitchenObjectSO kitchenObjectInPotion in potionObjectSO.ingredientsSOList)
+        {
+            if(!validKitchenObjectSOList.Contains(kitchenObjectInPotion))
+            {
+                // not valid ingredient
+                //return false;
+            }
+            if(kitchenObjectSOList.Contains(kitchenObjectInPotion))
+            {
+                //already has this type
+               // return false;
+            } else
+            {
+                //new ingredient
+                kitchenObjectSOList.Add(kitchenObjectInPotion);
+
+                OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs {
+                    kitchenObjectSO = kitchenObjectInPotion
+                });
+                //return true;
+            }
+
         }
     }
 
