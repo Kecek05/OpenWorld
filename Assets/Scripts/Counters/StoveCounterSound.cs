@@ -5,7 +5,7 @@ using UnityEngine;
 public class StoveCounterSound : MonoBehaviour
 {
 
-    [SerializeField] private StoveCounter stoveCounter;
+    [SerializeField] private CaulderonCounter stoveCounter;
     private AudioSource audioSource;
 
     private void Awake()
@@ -18,9 +18,9 @@ public class StoveCounterSound : MonoBehaviour
         stoveCounter.OnStateChanged += StoveCounter_OnStateChanged;
     }
 
-    private void StoveCounter_OnStateChanged(object sender, StoveCounter.OnStateCHangedEventArgs e)
+    private void StoveCounter_OnStateChanged(object sender, CaulderonCounter.OnStateCHangedEventArgs e)
     {
-        bool playSound = e.state == StoveCounter.State.CookingIngredient || e.state == StoveCounter.State.CookedIngredient;
+        bool playSound = e.state == CaulderonCounter.State.CookingIngredient || e.state == CaulderonCounter.State.CookedIngredient;
         if (playSound)
         {
             audioSource.Play();
