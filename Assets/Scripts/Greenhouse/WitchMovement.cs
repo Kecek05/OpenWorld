@@ -9,23 +9,62 @@ public class WitchMovement : MonoBehaviour
     Vector3 moveDirection;
     Transform cameraObj;
     Rigidbody rb;
-    
-    [SerializeField] private float rotationSpeed = 10f;
+    Animator anim;
+
+    private float rotationSpeed = 10f;
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float runSpeed = 12f;
+    [SerializeField] private float jumpForce;
     [SerializeField] private float maxStamina = 4;
     [SerializeField] private float currentStamina;
+
+    [SerializeField] private bool isGround;
+    private LayerMask groundLayer;
+    private float groundCheckSize;
+    private Vector3 groundCheckPosition;
+
 
     private void Awake()
     {
         main1 = this;
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         cameraObj = Camera.main.transform;
     }
 
+    private void LateUpdate()
+    {
+        var groundcheck = Physics.OverlapSphere(transform.position + groundCheckPosition,groundCheckSize, groundLayer);
+
+        if(groundcheck.Length != 0)
+        {
+            isGround = true;
+            
+        }
+        else
+        {
+            isGround = false;
+            
+        }
+        //anim.SetBool("Jump", !isGround); colocar a animação de pulo aqui
+
+        if(isGround == true && WitchInputs.main.GetJumpInput() == true)
+        {
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+    
+
     private void HandleAllMovement()
     {
-        HandleMovement();
+        if (isGround)
+        {
+            HandleMovement();
+        }
+        else
+        {
+            HandleAirMovement();
+        }
         HandleRotation();
     }
 
@@ -44,7 +83,7 @@ public class WitchMovement : MonoBehaviour
             moveDirection = moveDirection * runSpeed;
             currentStamina -= Time.deltaTime;
         }
-        else if(WitchInputs.main.GetRunInput() == true && currentStamina < 0)
+        else if(WitchInputs.main.GetRunInput() == true && currentStamina <= 0)
         {
             moveDirection = moveDirection * moveSpeed;
         }
@@ -59,7 +98,24 @@ public class WitchMovement : MonoBehaviour
         }
 
         Vector3 movementVelocity = moveDirection;
+        movementVelocity.y = rb.velocity.y;
         rb.velocity = movementVelocity;
+    }
+
+    private void HandleAirMovement()
+    {
+        float horizontalInput = WitchInputs.main.GetHorizontalInput();
+        float verticalInput = WitchInputs.main.GetVerticalInput();
+
+        Vector3 moveDirection = cameraObj.forward * verticalInput + cameraObj.right * horizontalInput;
+        moveDirection.Normalize();
+        moveDirection.y = 0;
+
+        moveDirection *= moveSpeed * 1.5f;
+
+
+        Vector3 airVelocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
+        rb.velocity = airVelocity;
     }
 
     private void HandleRotation()
@@ -79,6 +135,12 @@ public class WitchMovement : MonoBehaviour
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         transform.rotation = playerRotation;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + groundCheckPosition, groundCheckSize);
     }
     public void GetAllMoves() => HandleAllMovement();
 
