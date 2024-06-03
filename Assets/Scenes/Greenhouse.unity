@@ -4527,7 +4527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   runSpeed: 15
-  jumpForce: 0.4
+  jumpForce: 0
   maxStamina: 4
   currentStamina: 0
   isGround: 0
@@ -4536,6 +4536,40 @@ MonoBehaviour:
     m_Bits: 1
   groundCheckSize: 0.64
   groundCheckPosition: {x: 0, y: 0.3, z: 0}
+  jumpForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 28.369316
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.00897666
+    - serializedVersion: 3
+      time: 0.15
+      value: 5
+      inSlope: 0.08641273
+      outSlope: -0.041961752
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.08799702
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3
+      value: 0
+      inSlope: -26.14859
+      outSlope: -26.14859
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.01077195
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  jumpingMaxTime: 0.3
 --- !u!114 &1267774207
 MonoBehaviour:
   m_ObjectHideFlags: 0

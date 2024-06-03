@@ -23,6 +23,13 @@ public class WitchMovement : MonoBehaviour
     [SerializeField] private float groundCheckSize;
     [SerializeField] private Vector3 groundCheckPosition;
 
+    [SerializeField] private AnimationCurve jumpForceCurve;
+
+    private bool isJumping = false;
+    private float jumpingTime;
+    [SerializeField] private float jumpingMaxTime;
+    private IEnumerator jumpingCoroutine;
+
 
     private void Awake()
     {
@@ -39,7 +46,6 @@ public class WitchMovement : MonoBehaviour
         if(groundcheck.Length != 0)
         {
             isGround = true;
-            
         }
         else
         {
@@ -48,13 +54,35 @@ public class WitchMovement : MonoBehaviour
         }
         //anim.SetBool("Jump", !isGround); colocar a animação de pulo aqui
 
-        if(isGround == true && WitchInputs.main.GetJumpInput() == true)
+        if(isGround == true && WitchInputs.main.GetJumpInput() == true && isJumping == false)
         {
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            if(jumpingCoroutine == null)
+            {
+                isJumping = true;
+                jumpingCoroutine = JumpCouroutine();
+                StartCoroutine(jumpingCoroutine);
+            }
         }
+        
     }
-    
 
+
+
+    private IEnumerator JumpCouroutine()
+    {
+        jumpForce = jumpForceCurve.Evaluate(0);
+        jumpingTime = 0f;
+        while(jumpingTime < jumpingMaxTime)
+        {
+            jumpingTime += Time.deltaTime;
+            jumpForce = jumpForceCurve.Evaluate(jumpingTime);
+            rb.velocity = transform.up * jumpForce;
+            //rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            yield return null;
+        }
+        isJumping = false;
+        jumpingCoroutine = null;
+    }
     private void HandleAllMovement()
     {
         if (isGround)
