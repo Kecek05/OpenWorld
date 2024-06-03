@@ -29,7 +29,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
     private void DeliveryManager_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
     {
-        UpdatePotionCount(e.completedPotion);
+        UpdatePotionCount();
     }
 
     public void SetPotionObjectSO(PotionObjectSO potionObjectSO)
@@ -53,15 +53,15 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     }
 
 
-    private void UpdatePotionCount(PotionObjectSO potion)
+    private void UpdatePotionCount()
     {
         for (int i = 0; i < StoredPotionsController.Instance.GetRecipeSavedCountArray().Length; i++)
         {
             //Runs for all the recipes
-            if (potion == StoredPotionsController.Instance.GetRecipeListSO().recipeSOList[i])
+            if (selectedPotionObjectSO == StoredPotionsController.Instance.GetRecipeListSO().recipeSOList[i])
             {
                 //stored potion matches with the recipe
-                recipeCountText.text = StoredPotionsController.Instance.GetRecipeSavedCountArray()[i].ToString();
+                recipeCountText.text = StoredPotionsController.Instance.GetRecipeSavedCountArray()[i].ToString() + "x";
                 break;
             }
         }
