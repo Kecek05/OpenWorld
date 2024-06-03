@@ -4317,7 +4317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1195354954
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4530,11 +4530,11 @@ MonoBehaviour:
   jumpForce: 0.4
   maxStamina: 4
   currentStamina: 0
+  isGround: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
-  isGround: 0
-  groundCheckSize: 0.67
+  groundCheckSize: 0.64
   groundCheckPosition: {x: 0, y: 0.3, z: 0}
 --- !u!114 &1267774207
 MonoBehaviour:
@@ -4548,7 +4548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54d3a9aed8cd674e8bb8e277bd7405e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementInput: {x: 0, y: 0}
   run: 0
   jump: 0
 --- !u!114 &1267774208
@@ -4736,7 +4735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1381246553
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5255,7 +5254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1529150682
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7382,7 +7381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1769327113
 MeshCollider:
   m_ObjectHideFlags: 0

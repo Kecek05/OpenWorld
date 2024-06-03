@@ -19,9 +19,9 @@ public class WitchMovement : MonoBehaviour
     [SerializeField] private float currentStamina;
 
     [SerializeField] private bool isGround;
-    private LayerMask groundLayer;
-    private float groundCheckSize;
-    private Vector3 groundCheckPosition;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundCheckSize;
+    [SerializeField] private Vector3 groundCheckPosition;
 
 
     private void Awake()

@@ -14,6 +14,7 @@ public class WitchInputs : MonoBehaviour
 
     [SerializeField] private bool run;
     [SerializeField] private bool jump;
+
     private void Awake()
     {
         main = this;
