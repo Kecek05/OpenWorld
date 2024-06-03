@@ -32,27 +32,23 @@ public class ItemOnGround : MonoBehaviour, IInteractable
         {
             switch(selectedItemOnGroundSO.itemType)
             {
-                
-                case PlayerItens.ItensType.Cabbage:
-                   PlayerItens.main.SetCabbageCount(PlayerItens.main.GetCabbageCount() + 1);
-                   break;
                 case PlayerItens.ItensType.Carambola:
-                   PlayerItens.main.SetCarambolaCount(PlayerItens.main.GetCarambolaCount() + 1);
+                   PlayerItens.Instance.SetCarambolaCount(PlayerItens.Instance.GetCarambolaCount() + 1);
                    break;
                 case PlayerItens.ItensType.Cogumelo:
-                   PlayerItens.main.SetCogumeloCount(PlayerItens.main.GetCogumeloCount() + 1);
+                   PlayerItens.Instance.SetCogumeloCount(PlayerItens.Instance.GetCogumeloCount() + 1);
                    break;
                 case PlayerItens.ItensType.Flor:
-                   PlayerItens.main.SetFlorCount(PlayerItens.main.GetFlorCount() + 1);
+                   PlayerItens.Instance.SetFlorCount(PlayerItens.Instance.GetFlorCount() + 1);
                    break;
                 case PlayerItens.ItensType.Lavanda:
-                   PlayerItens.main.SetLavandaCount(PlayerItens.main.GetLavandaCount() + 1);
+                   PlayerItens.Instance.SetLavandaCount(PlayerItens.Instance.GetLavandaCount() + 1);
                    break;
                 case PlayerItens.ItensType.Mandragora:
-                   PlayerItens.main.SetMandragoraCount(PlayerItens.main.GetMandragoraCount() + 1);
+                   PlayerItens.Instance.SetMandragoraCount(PlayerItens.Instance.GetMandragoraCount() + 1);
                    break;
                 case PlayerItens.ItensType.Samambaia:
-                    PlayerItens.main.SetSamambaiaCount(PlayerItens.main.GetSamambaiaCount() + 1);
+                    PlayerItens.Instance.SetSamambaiaCount(PlayerItens.Instance.GetSamambaiaCount() + 1);
                     break;
             }
 

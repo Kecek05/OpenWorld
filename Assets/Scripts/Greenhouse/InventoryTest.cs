@@ -12,12 +12,11 @@ public class InventoryTest : MonoBehaviour
     
     void Update()
     {
-        texts[(int)PlayerItens.ItensType.Cabbage].text = PlayerItens.main.GetCabbageCount().ToString();
-        texts[(int)PlayerItens.ItensType.Carambola].text = PlayerItens.main.GetCarambolaCount().ToString();
-        texts[(int)PlayerItens.ItensType.Cogumelo].text = PlayerItens.main.GetCogumeloCount().ToString();
-        texts[(int)PlayerItens.ItensType.Flor].text = PlayerItens.main.GetFlorCount().ToString();
-        texts[(int)PlayerItens.ItensType.Lavanda].text = PlayerItens.main.GetLavandaCount().ToString();
-        texts[(int)PlayerItens.ItensType.Mandragora].text = PlayerItens.main.GetMandragoraCount().ToString();
-        texts[(int)PlayerItens.ItensType.Samambaia].text = PlayerItens.main.GetSamambaiaCount().ToString();
+        texts[(int)PlayerItens.ItensType.Carambola].text = PlayerItens.Instance.GetCarambolaCount().ToString();
+        texts[(int)PlayerItens.ItensType.Cogumelo].text = PlayerItens.Instance.GetCogumeloCount().ToString();
+        texts[(int)PlayerItens.ItensType.Flor].text = PlayerItens.Instance.GetFlorCount().ToString();
+        texts[(int)PlayerItens.ItensType.Lavanda].text = PlayerItens.Instance.GetLavandaCount().ToString();
+        texts[(int)PlayerItens.ItensType.Mandragora].text = PlayerItens.Instance.GetMandragoraCount().ToString();
+        texts[(int)PlayerItens.ItensType.Samambaia].text = PlayerItens.Instance.GetSamambaiaCount().ToString();
     }
 }

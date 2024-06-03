@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlayerItens : MonoBehaviour
 {
-    public static PlayerItens main;
+    public static PlayerItens Instance { get; private set; }
 
-    private int cabbageCount;
-    private int carambolaCount;
+    public int carambolaCount;
     private int cogumeloCount;
     private int florCount;
     private int lavandaCount;
@@ -16,7 +15,6 @@ public class PlayerItens : MonoBehaviour
 
     public enum ItensType
     {
-        Cabbage,
         Carambola,
         Cogumelo,
         Flor,
@@ -28,13 +26,10 @@ public class PlayerItens : MonoBehaviour
 
     private void Awake()
     {
-        main = this;
-        DontDestroyOnLoad(main);
+        Instance = this;
+        DontDestroyOnLoad(Instance);
     }
 
-
-    public void SetCabbageCount(int _cabbageCount) { cabbageCount = _cabbageCount; }
-    public int GetCabbageCount() { return cabbageCount; }
 
 
     public void SetCarambolaCount(int _carambolaCount) { carambolaCount = _carambolaCount; }
