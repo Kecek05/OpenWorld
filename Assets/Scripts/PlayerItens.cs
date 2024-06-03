@@ -6,7 +6,7 @@ public class PlayerItens : MonoBehaviour
 {
     public static PlayerItens Instance { get; private set; }
 
-    public int carambolaCount;
+    private int carambolaCount;
     private int cogumeloCount;
     private int florCount;
     private int lavandaCount;
