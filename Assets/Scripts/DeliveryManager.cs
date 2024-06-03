@@ -61,30 +61,37 @@ public class DeliveryManager : MonoBehaviour
     }
 
 
+
     public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject)
     {
-        for(int i = 0; i < recipesPotionObjectSOList.Count; ++i)
+        for (int i = 0; i < waitingPotionObjectSOList.Count; ++i)
         {
-            PotionObjectSO recipePotionObjectSO = recipesPotionObjectSOList[i];
-            if(recipePotionObjectSO.ingredientsSOList.Count == deliveredPlateKitchenObject.GetKitchenObjectSOList().Count)
+            PotionObjectSO waitingRecipeSO = waitingPotionObjectSOList[i];
+            if (waitingRecipeSO.ingredientsSOList.Count == deliveredPlateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 //Has the same number of ingredients
                 bool plateContentsMatchesRecipe = true;
-                foreach (KitchenObjectSO kitchenObjectSOInRecipe in recipePotionObjectSO.ingredientsSOList)
+                foreach (KitchenObjectSO recipekitchenObjectSO in waitingRecipeSO.ingredientsSOList)
                 {
                     //Cycling through all ingredients in the recipe
-                    foreach (KitchenObjectSO deliveredKitchenObjectSO in deliveredPlateKitchenObject.GetKitchenObjectSOList())
+                    bool ingredientFount = false;
+                    foreach (KitchenObjectSO platekitchenObjectSO in deliveredPlateKitchenObject.GetKitchenObjectSOList())
                     {
                         //Cycling through all ingredients in the plate
-                        if(deliveredKitchenObjectSO != kitchenObjectSOInRecipe)
+                        if (platekitchenObjectSO == recipekitchenObjectSO)
                         {
-                            //Ingredient dont matches!
-                            plateContentsMatchesRecipe = false;
+                            //Ingredient matches!
+                            ingredientFount = true;
                             break;
                         }
                     }
+                    if (!ingredientFount)
+                    {
+                        //This recipe ingredient was not found on the plate
+                        plateContentsMatchesRecipe = false;
+                    }
                 }
-                if(plateContentsMatchesRecipe)
+                if (plateContentsMatchesRecipe)
                 {
                     //player delivered the correct recipe!
 
