@@ -42,15 +42,17 @@ public class KitchenObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public bool TryGetPlate(out PlateKitchenObject plateKitchenObject)
+    public bool TryGetPlate(out PlateKitchenObject plateKitchenObject, out GameObject potionShapeObject)
     {
         if (this is PlateKitchenObject)
         {
             plateKitchenObject = this as PlateKitchenObject;
+            potionShapeObject = this.gameObject;
             return true;
         } else
         {
             plateKitchenObject = null;
+            potionShapeObject = null;
             return false;
         }
     }

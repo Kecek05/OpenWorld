@@ -8,6 +8,7 @@ public class CountainerCounter : BaseCounter
 {
     public event EventHandler OnPlayerGrabbedObject;
 
+    public event EventHandler OnChangedItemCount;
 
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
@@ -21,6 +22,7 @@ public class CountainerCounter : BaseCounter
             KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
 
             OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
+            OnChangedItemCount?.Invoke(this, EventArgs.Empty);
 
         } else if (player.HasKitchenObject())
         {
@@ -32,9 +34,14 @@ public class CountainerCounter : BaseCounter
                 //Return the item
                 PlayerItens.Instance.ReturnItemToCountainer(CounterType);
 
+
                 //Destroy the item
                 player.GetKitchenObject().DestroySelf();
+                OnChangedItemCount?.Invoke(this, EventArgs.Empty);
             }
         }
     }
+
+
+    public PlayerItens.ItensType GetCounterType() { return CounterType; }
 }

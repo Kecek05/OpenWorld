@@ -240,7 +240,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                 } else
                 {
                     //Cant put more ingredients
-                    if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                    if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject, out GameObject potionShapeObject))
                     {
                         //player is holding a plate
                         if (state == State.Done)

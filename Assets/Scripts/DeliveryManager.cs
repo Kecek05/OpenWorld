@@ -62,7 +62,7 @@ public class DeliveryManager : MonoBehaviour
 
 
 
-    public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject)
+    public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject, GameObject potionShapeObject)
     {
         for (int i = 0; i < recipesPotionObjectSOList.Count; ++i)
         {
@@ -93,17 +93,22 @@ public class DeliveryManager : MonoBehaviour
                 }
                 if (plateContentsMatchesRecipe)
                 {
-                    //player delivered the correct recipe!
-
-                    //waitingPotionObjectSOList.RemoveAt(i);
-                    StoredPotionsController.Instance.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
-
-                    OnRecipeCompleted?.Invoke(this, new OnRecipeCompletedEventArgs
+                    //player delivered the correct ingredients!
+                    if(potionShapeObject == waitingRecipeSO.PotionShape)
                     {
-                        completedPotion = deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate()
-                    });
-                    OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
-                    return;
+                        //same potion shape
+                        StoredPotionsController.Instance.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
+
+                        OnRecipeCompleted?.Invoke(this, new OnRecipeCompletedEventArgs
+                        {
+                            completedPotion = deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate()
+                        });
+                        OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
+                        return;
+                    } else
+                    {
+                        //wrong potion shape
+                    }
                 }
             }
         }

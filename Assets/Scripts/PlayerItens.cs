@@ -107,6 +107,27 @@ public class PlayerItens : MonoBehaviour
         }
     }
 
+    public int GetCountWithItemType(ItensType itemType) // return the count with the type of the item
+    {
+        switch (itemType)
+        {
+            case ItensType.Carambola:
+                return itensCount[0];
+            case ItensType.Cogumelo:
+                return itensCount[1];
+            case ItensType.Flor:
+                return itensCount[2];
+            case ItensType.Lavanda:
+                return itensCount[3];
+            case ItensType.Mandragora:
+                return itensCount[4];
+            case ItensType.Samambaia:
+                return itensCount[5];
+        }
+        return 0;
+    }
+
+
     public void SetCarambolaCount(int _carambolaCount) { itensCount[0] = _carambolaCount; }
     public int GetCarambolaCount() {  return itensCount[0]; }
 

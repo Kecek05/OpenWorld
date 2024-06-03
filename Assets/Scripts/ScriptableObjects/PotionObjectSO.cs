@@ -10,4 +10,5 @@ public class PotionObjectSO : ScriptableObject
 
     public List<KitchenObjectSO> ingredientsSOList;
 
+    public GameObject PotionShape;
 }
