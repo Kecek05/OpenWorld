@@ -21,15 +21,14 @@ public class DeliveryManagerUI : MonoBehaviour
         UpdateVisual();
     }
 
-    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
+    private void DeliveryManager_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
     {
         //UpdateVisual();
     }
 
-    private void DeliveryManager_OnRecipeCompleted(object sender, System.EventArgs e)
+    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
     {
-       //UpdateVisual();
-       UpdatePotionCount();
+        //UpdateVisual();
     }
 
     private void UpdateVisual()
@@ -50,9 +49,6 @@ public class DeliveryManagerUI : MonoBehaviour
 
     }
 
-    private void UpdatePotionCount()
-    {
-        //update the potion count in UI
-    }
+
 
 }

@@ -9,19 +9,25 @@ public class DeliveryManager : MonoBehaviour
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
     public event EventHandler OnRecipeSpawned;
-    public event EventHandler OnRecipeCompleted;
+    public event EventHandler<OnRecipeCompletedEventArgs> OnRecipeCompleted;
+
+    public class OnRecipeCompletedEventArgs
+    {
+        public PotionObjectSO completedPotion;
+    }
+
 
     public static DeliveryManager Instance { get; private set; }
 
     [SerializeField] private RecipeListSO recipeListSO;
 
-    private List<PotionObjectSO> waitingPotionObjectSOList;
+    private List<PotionObjectSO> recipesPotionObjectSOList;
 
 
     private void Awake()
     {
         Instance = this;
-        waitingPotionObjectSOList = new List<PotionObjectSO>();
+        recipesPotionObjectSOList = new List<PotionObjectSO>();
     }
 
     private void Update()
@@ -48,40 +54,34 @@ public class DeliveryManager : MonoBehaviour
         {
             PotionObjectSO potionSelected = recipeListSO.recipeSOList[i];
 
-            waitingPotionObjectSOList.Add(potionSelected);
+            recipesPotionObjectSOList.Add(potionSelected);
 
             OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
         }
     }
 
 
-    public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
+    public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject)
     {
-        for(int i = 0; i < waitingPotionObjectSOList.Count; ++i)
+        for(int i = 0; i < recipesPotionObjectSOList.Count; ++i)
         {
-            PotionObjectSO waitingRecipeSO = waitingPotionObjectSOList[i];
-            if(waitingRecipeSO.ingredientsSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            PotionObjectSO recipePotionObjectSO = recipesPotionObjectSOList[i];
+            if(recipePotionObjectSO.ingredientsSOList.Count == deliveredPlateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 //Has the same number of ingredients
                 bool plateContentsMatchesRecipe = true;
-                foreach (KitchenObjectSO recipekitchenObjectSO in waitingRecipeSO.ingredientsSOList)
+                foreach (KitchenObjectSO kitchenObjectSOInRecipe in recipePotionObjectSO.ingredientsSOList)
                 {
                     //Cycling through all ingredients in the recipe
-                    bool ingredientFount = false;
-                    foreach (KitchenObjectSO platekitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
+                    foreach (KitchenObjectSO deliveredKitchenObjectSO in deliveredPlateKitchenObject.GetKitchenObjectSOList())
                     {
                         //Cycling through all ingredients in the plate
-                        if(platekitchenObjectSO == recipekitchenObjectSO)
+                        if(deliveredKitchenObjectSO != kitchenObjectSOInRecipe)
                         {
-                            //Ingredient matches!
-                            ingredientFount = true;
+                            //Ingredient dont matches!
+                            plateContentsMatchesRecipe = false;
                             break;
                         }
-                    }
-                    if(!ingredientFount)
-                    {
-                        //This recipe ingredient was not found on the plate
-                        plateContentsMatchesRecipe = false;
                     }
                 }
                 if(plateContentsMatchesRecipe)
@@ -89,9 +89,12 @@ public class DeliveryManager : MonoBehaviour
                     //player delivered the correct recipe!
 
                     //waitingPotionObjectSOList.RemoveAt(i);
-                    StoredPotionsController.main.StorePotion(plateKitchenObject.GetPotionObjectSOInThisPlate());
+                    StoredPotionsController.Instance.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
 
-                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+                    OnRecipeCompleted?.Invoke(this, new OnRecipeCompletedEventArgs
+                    {
+                        completedPotion = deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate()
+                    });
                     OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
                     return;
                 }

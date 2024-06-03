@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StoredPotionsController : MonoBehaviour
 {
-    public static StoredPotionsController main { get; set; }
+    public static StoredPotionsController Instance { get; set; }
 
     [SerializeField] private RecipeListSO recipeListSO;
 
@@ -12,7 +12,7 @@ public class StoredPotionsController : MonoBehaviour
 
     private void Awake()
     {
-        main = this;
+        Instance = this;
     }
 
     private void Start()
@@ -37,5 +37,9 @@ public class StoredPotionsController : MonoBehaviour
 
 
     } 
+
+    public int[] GetRecipeSavedCountArray() { return recipeSavedCountArray; }
+
+    public RecipeListSO GetRecipeListSO() { return recipeListSO; }
 
 }
