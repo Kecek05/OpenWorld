@@ -64,9 +64,9 @@ public class DeliveryManager : MonoBehaviour
 
     public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject)
     {
-        for (int i = 0; i < waitingPotionObjectSOList.Count; ++i)
+        for (int i = 0; i < recipesPotionObjectSOList.Count; ++i)
         {
-            PotionObjectSO waitingRecipeSO = waitingPotionObjectSOList[i];
+            PotionObjectSO waitingRecipeSO = recipesPotionObjectSOList[i];
             if (waitingRecipeSO.ingredientsSOList.Count == deliveredPlateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 //Has the same number of ingredients
