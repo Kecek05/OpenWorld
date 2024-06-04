@@ -40,17 +40,9 @@ public class CaulderonProgressBarUI : MonoBehaviour
                 barImage.fillAmount = (float)Math.Round(e.progressNormalized / 3 + 0.6f, 3);
                 break;
         }
-        Debug.Log(barImage.fillAmount);
 
         Show();
-        //if (e.progressNormalized == 0f || e.progressNormalized == 1f)
-        //{
-        //    Hide();
-        //}
-        //else
-        //{
-        //    Show();
-        //}
+
     }
 
 

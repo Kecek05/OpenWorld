@@ -94,7 +94,7 @@ public class DeliveryManager : MonoBehaviour
                 if (plateContentsMatchesRecipe)
                 {
                     //player delivered the correct ingredients!
-                    if(potionShapeObject == waitingRecipeSO.PotionShape)
+                    if(potionShapeObject.CompareTag(waitingRecipeSO.PotionShape.tag))
                     {
                         //same potion shape
                         StoredPotionsController.Instance.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());

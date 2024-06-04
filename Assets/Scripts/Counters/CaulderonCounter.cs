@@ -157,8 +157,6 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                     //}
                     break;
                 case State.Done:
-                    
-                    Debug.Log("Potion is " + potionDone);
                     break;
 
             }

@@ -57,6 +57,9 @@ public class PlateKitchenObject : KitchenObject
         return kitchenObjectSOList;
     }
 
+    public void SetKitchenObjectSOList(List<KitchenObjectSO> _kitchenObjectSOList) { kitchenObjectSOList = _kitchenObjectSOList; }
+
+
     public PotionObjectSO GetPotionObjectSOInThisPlate() { return potionObjectSOInThisPlate;}
 
     public void SetPotionObjectSOInThisPlate(PotionObjectSO potionObjectSO) { potionObjectSOInThisPlate = potionObjectSO;}
