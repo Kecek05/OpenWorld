@@ -28,12 +28,43 @@ public class ClearCounter : BaseCounter
             {
                 //player is carrying something
 
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject, out GameObject potionShapeObject))
+                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject playerPotionKitchenObject, out GameObject potionShapeObject))
                 {
                     //player is holding a potion
                     if(GetKitchenObject().TryGetPlate(out PlateKitchenObject counterPlateKitchenObject, out GameObject counterPotionShapeObject)) {
                         //Potion on the counter
-                        counterPlateKitchenObject.SetKitchenObjectSOList(plateKitchenObject.GetKitchenObjectSOList());
+                        PotionObjectSO potionObjectSOInPlayer = playerPotionKitchenObject.GetPotionObjectSOInThisPlate();
+                        if(potionObjectSOInPlayer != null)
+                        {
+                            //its a compleated potion on player hands
+                            counterPlateKitchenObject.SetPotionObjectSOInThisPlate(potionObjectSOInPlayer);
+                            for (int i = 0; i < 3; i++) {
+                                //3 ingredients
+                                counterPlateKitchenObject.AddIngredientToPotion(potionObjectSOInPlayer);
+                            }
+                            //Destroy potion on player hand
+                            player.GetKitchenObject().DestroySelf();
+                        } else
+                        {
+                            // not compleated potion, empty in player hand
+                            PotionObjectSO potionObjectSOInCounter = counterPlateKitchenObject.GetPotionObjectSOInThisPlate();
+                            if(potionObjectSOInCounter != null)
+                            {
+                                //its a compleated potion on counter
+                                playerPotionKitchenObject.SetPotionObjectSOInThisPlate(potionObjectSOInCounter);
+                                for (int i = 0; i < 3; i++)
+                                {
+                                    //3 ingredients
+                                    playerPotionKitchenObject.AddIngredientToPotion(potionObjectSOInCounter);
+                                }
+                                //Destroy potion on counter
+                                GetKitchenObject().DestroySelf();
+                            } else
+                            {
+                                // not a compleated potion on counter and either in player, do nothing
+                            }
+
+                        }
                     }
 
                     //if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
