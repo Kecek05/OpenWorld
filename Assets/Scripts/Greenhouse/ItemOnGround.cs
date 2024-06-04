@@ -13,6 +13,10 @@ public class ItemOnGround : MonoBehaviour, IInteractable
 
     private int selectedItemClicksToCollect;
 
+    private TesteItens item;
+
+    
+
     private void Start()
     {
         int randomItemOnGround = Random.Range(0, itemOnGroundSOArray.Length);
@@ -34,6 +38,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable
             {
                 case PlayerItens.ItensType.Carambola:
                    PlayerItens.Instance.SetCarambolaCount(PlayerItens.Instance.GetCarambolaCount() + 1);
+                    
                    break;
                 case PlayerItens.ItensType.Cogumelo:
                    PlayerItens.Instance.SetCogumeloCount(PlayerItens.Instance.GetCogumeloCount() + 1);

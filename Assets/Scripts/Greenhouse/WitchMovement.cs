@@ -15,10 +15,10 @@ public class WitchMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float runSpeed = 12f;
     [SerializeField] private float jumpForce;
-    [SerializeField] private float maxStamina = 4;
-    [SerializeField] private float currentStamina;
+    private float maxStamina = 4;
+    private float currentStamina;
 
-    [SerializeField] private bool isGround;
+    private bool isGround;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckSize;
     [SerializeField] private Vector3 groundCheckPosition;
@@ -29,7 +29,10 @@ public class WitchMovement : MonoBehaviour
     private float jumpingTime;
     [SerializeField] private float jumpingMaxTime;
     private IEnumerator jumpingCoroutine;
-
+    
+    [SerializeField] private AnimationCurve runSpeedCurve;
+    private IEnumerator runCoroutine;
+    private float runTime;
 
     private void Awake()
     {
@@ -52,7 +55,6 @@ public class WitchMovement : MonoBehaviour
             isGround = false;
             
         }
-        //anim.SetBool("Jump", !isGround); colocar a animação de pulo aqui
 
         if(isGround == true && WitchInputs.main.GetJumpInput() == true && isJumping == false)
         {
@@ -63,26 +65,8 @@ public class WitchMovement : MonoBehaviour
                 StartCoroutine(jumpingCoroutine);
             }
         }
-        
     }
 
-
-
-    private IEnumerator JumpCouroutine()
-    {
-        jumpForce = jumpForceCurve.Evaluate(0);
-        jumpingTime = 0f;
-        while(jumpingTime < jumpingMaxTime)
-        {
-            jumpingTime += Time.deltaTime;
-            jumpForce = jumpForceCurve.Evaluate(jumpingTime);
-            rb.velocity = transform.up * jumpForce;
-            //rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            yield return null;
-        }
-        isJumping = false;
-        jumpingCoroutine = null;
-    }
     private void HandleAllMovement()
     {
         if (isGround)
@@ -105,29 +89,53 @@ public class WitchMovement : MonoBehaviour
         moveDirection.Normalize();
         moveDirection.y = 0;
 
-       
+        
         if (WitchInputs.main.GetRunInput() == true && currentStamina > 0)
         {
+            float evaluatedSpeed = runSpeedCurve.Evaluate(runTime);
+            runTime += Time.deltaTime;
+            runSpeed = evaluatedSpeed;
             moveDirection = moveDirection * runSpeed;
             currentStamina -= Time.deltaTime;
+
         }
-        else if(WitchInputs.main.GetRunInput() == true && currentStamina <= 0)
+        else if (WitchInputs.main.GetRunInput() == true && currentStamina <= 0)
         {
+            runTime = 0;
             moveDirection = moveDirection * moveSpeed;
         }
         else
         {
+            runTime = 0;
             moveDirection = moveDirection * moveSpeed;
-
             if (currentStamina < maxStamina)
             {
                 currentStamina += Time.deltaTime;
             }
         }
 
+
         Vector3 movementVelocity = moveDirection;
         movementVelocity.y = rb.velocity.y;
         rb.velocity = movementVelocity;
+    }
+
+    
+   
+
+    private IEnumerator JumpCouroutine()
+    {
+        jumpForce = jumpForceCurve.Evaluate(0);
+        jumpingTime = 0f;
+        while (jumpingTime < jumpingMaxTime)
+        {
+            jumpingTime += Time.deltaTime;
+            jumpForce = jumpForceCurve.Evaluate(jumpingTime);
+            rb.velocity = transform.up * jumpForce;
+            yield return null;
+        }
+        isJumping = false;
+        jumpingCoroutine = null;
     }
 
     private void HandleAirMovement()
@@ -165,11 +173,6 @@ public class WitchMovement : MonoBehaviour
         transform.rotation = playerRotation;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + groundCheckPosition, groundCheckSize);
-    }
     public void GetAllMoves() => HandleAllMovement();
 
 }
