@@ -14,5 +14,5 @@ public class ItemOnGroundSO : ScriptableObject
 
     public PlayerItens.ItensType itemType;
 
-    public Sprite sprite;
+    public Sprite itemSprite;
 }
