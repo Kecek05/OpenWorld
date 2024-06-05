@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 public class InventoryUIController : MonoBehaviour
@@ -11,6 +10,7 @@ public class InventoryUIController : MonoBehaviour
 
     [SerializeField] private WitchInventorySO witchInventorySO;
 
+    [SerializeField] private PlayerItemsSO playerItemsSO;
 
     private void Awake()
     {
@@ -53,13 +53,7 @@ public class InventoryUIController : MonoBehaviour
         }
         for(int i = 0; i < texts.Length; i++)
         {
-            texts[i].text = PlayerItens.Instance.GetItemsCollectedArray()[i].ToString();
+            texts[i].text = playerItemsSO.GetItemsCollectedArray()[i].ToString();
         }
-        //texts[(int)PlayerItens.ItensType.Carambola].text = PlayerItens.Instance.GetCarambolaCount().ToString();
-        //texts[(int)PlayerItens.ItensType.Cogumelo].text = PlayerItens.Instance.GetCogumeloCount().ToString();
-        //texts[(int)PlayerItens.ItensType.Flor].text = PlayerItens.Instance.GetFlorCount().ToString();
-        //texts[(int)PlayerItens.ItensType.Lavanda].text = PlayerItens.Instance.GetLavandaCount().ToString();
-        //texts[(int)PlayerItens.ItensType.Mandragora].text = PlayerItens.Instance.GetMandragoraCount().ToString();
-        //texts[(int)PlayerItens.ItensType.Samambaia].text = PlayerItens.Instance.GetSamambaiaCount().ToString();
     }
 }

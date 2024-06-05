@@ -1,8 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 
 public class CountainerCounter : BaseCounter
 {
@@ -12,11 +11,12 @@ public class CountainerCounter : BaseCounter
 
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    [SerializeField] private PlayerItens.ItensType CounterType;
+    [SerializeField] private PlayerItemsSO.ItensType CounterType;
 
+    [SerializeField] private PlayerItemsSO playerItemsSO;
     public override void Interact(Player player)
     {
-        if(!player.HasKitchenObject() && PlayerItens.Instance.TrySpawnItem(CounterType))
+        if(!player.HasKitchenObject() && playerItemsSO.TrySpawnItem(CounterType))
         {
             //player is not carrying anything and can grab one more kitchenObject
             KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
@@ -32,7 +32,7 @@ public class CountainerCounter : BaseCounter
                 //player is carrying same kitchenObject of the Countainer
 
                 //Return the item
-                PlayerItens.Instance.ReturnItemToCountainer(CounterType);
+                playerItemsSO.ReturnItemToCountainer(CounterType);
 
 
                 //Destroy the item
@@ -43,5 +43,5 @@ public class CountainerCounter : BaseCounter
     }
 
 
-    public PlayerItens.ItensType GetCounterType() { return CounterType; }
+    public PlayerItemsSO.ItensType GetCounterType() { return CounterType; }
 }
