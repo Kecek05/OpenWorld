@@ -12,7 +12,7 @@ public class WitchMovement : MonoBehaviour
     Animator anim;
 
     private float rotationSpeed = 10f;
-    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float runSpeed = 12f;
     [SerializeField] private float jumpForce;
     private float maxStamina = 4;
