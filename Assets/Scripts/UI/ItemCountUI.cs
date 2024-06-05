@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class ItemCountUI : MonoBehaviour
     [SerializeField] private CountainerCounter countainerCounter;
     [SerializeField] private TextMeshProUGUI counterX;
 
+    [SerializeField] private PlayerItemsSO playerItemsSO;
 
     private void Start()
     {
@@ -22,6 +22,6 @@ public class ItemCountUI : MonoBehaviour
 
     private void UpdateCounterTxt()
     {
-        counterX.text = PlayerItens.Instance.GetCountWithItemType(countainerCounter.GetCounterType()).ToString();
+        counterX.text = playerItemsSO.GetCountWithItemType(countainerCounter.GetCounterType()).ToString();
     }
 }

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,7 +43,6 @@ public class HitBarUI : MonoBehaviour
     private void HitBar_OnHitChanged(object sender, IHasHitBar.OnHitChangedEventArgs e)
     {
        hitSlider.value = (float)e.hitNumber / 10;
-        Debug.Log(hitSlider.value + " Value");
 
 
         Show();
