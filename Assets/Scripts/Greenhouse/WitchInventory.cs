@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ public class WitchInventory : MonoBehaviour
 
     private List<ItemOnGroundSO> inventoryList = new List<ItemOnGroundSO>();
 
-    [SerializeField] private int listMaxLenght = 6;
+    private int listMaxLenght = 4;
     private void Awake()
     {
         Instance = this;
