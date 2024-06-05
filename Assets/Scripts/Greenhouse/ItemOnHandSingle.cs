@@ -1,14 +1,15 @@
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemOnHandSingle : MonoBehaviour
 {
-    [SerializeField] private Sprite itemSprite;
+    [SerializeField] private Image itemSprite;
 
 
     public void SetItemSprite(Sprite _itemSprite)
     {
-        itemSprite = _itemSprite;   
+        itemSprite.sprite = _itemSprite;   
     }
 
 }

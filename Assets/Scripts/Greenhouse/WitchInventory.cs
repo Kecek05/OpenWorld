@@ -1,13 +1,25 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WitchInventory : MonoBehaviour
 {
+    public event EventHandler OnDepositeItems;
+
+    public event EventHandler<OnItemGrabEventArgs> OnItemGrab;
+
+    public class OnItemGrabEventArgs
+    {
+        public Sprite itemSprite;
+    }
+
     public static WitchInventory Instance { get; private set; }
 
     private List<ItemOnGroundSO> inventoryList = new List<ItemOnGroundSO>();
 
     private int listMaxLenght = 4;
+
+
     private void Awake()
     {
         Instance = this;
@@ -16,6 +28,10 @@ public class WitchInventory : MonoBehaviour
     public void AddItemToInventoryList(ItemOnGroundSO itemToAdd)
     {
         inventoryList.Add(itemToAdd);
+        OnItemGrab?.Invoke(this, new OnItemGrabEventArgs
+        {
+            itemSprite = itemToAdd.itemSprite,
+        });
     }
 
     public void DepositeItemOnBox()
@@ -45,6 +61,7 @@ public class WitchInventory : MonoBehaviour
             }
         }
         inventoryList.Clear();
+        OnDepositeItems?.Invoke(this, EventArgs.Empty);
     }
 
     public bool CanAddMoreItens() { return inventoryList.Count < listMaxLenght; }

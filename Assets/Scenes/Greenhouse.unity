@@ -1534,7 +1534,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 29
   m_TargetDisplay: 0
 --- !u!1001 &258169721
 PrefabInstance:
@@ -3052,7 +3052,7 @@ GameObject:
   - component: {fileID: 731965301}
   - component: {fileID: 731965300}
   m_Layer: 7
-  m_Name: txtSamambaia (1)
+  m_Name: txtMandragora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3110,7 +3110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &731965301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3401,7 +3401,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &864175432
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3514,12 +3514,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 445377343}
-  - {fileID: 2115072365}
-  - {fileID: 689967108}
-  - {fileID: 362291102}
-  - {fileID: 1116095632}
   - {fileID: 1040468355}
+  - {fileID: 1116095632}
+  - {fileID: 362291102}
+  - {fileID: 689967108}
+  - {fileID: 2115072365}
+  - {fileID: 445377343}
   m_Father: {fileID: 1137936849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3679,7 +3679,7 @@ GameObject:
   - component: {fileID: 944195768}
   - component: {fileID: 944195767}
   m_Layer: 7
-  m_Name: txtSamambaia (3)
+  m_Name: txtFlor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3737,7 +3737,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &944195768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3758,7 +3758,7 @@ GameObject:
   - component: {fileID: 956024256}
   - component: {fileID: 956024255}
   m_Layer: 7
-  m_Name: txtSamambaia (6)
+  m_Name: txtCarambola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3816,7 +3816,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &956024256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4326,6 +4326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1224517110}
+  - component: {fileID: 1224517111}
   m_Layer: 7
   m_Name: ItemOnHandTemplate
   m_TagString: Untagged
@@ -4353,6 +4354,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1224517111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224517109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d040dfd9d1c1d2b40aef11eb66ef74f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 886759864}
 --- !u!1 &1230646982
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,7 +5293,7 @@ GameObject:
   - component: {fileID: 1500677537}
   - component: {fileID: 1500677536}
   m_Layer: 7
-  m_Name: txtSamambaia (2)
+  m_Name: txtLavanda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5337,7 +5351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &1500677537
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5657,7 +5671,7 @@ GameObject:
   - component: {fileID: 1590840977}
   - component: {fileID: 1590840976}
   m_Layer: 7
-  m_Name: txtSamambaia (4)
+  m_Name: txtCogumelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5715,7 +5729,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!222 &1590840977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7410,8 +7424,8 @@ MonoBehaviour:
   - {fileID: 1500677536}
   - {fileID: 731965300}
   - {fileID: 864175431}
-  itemOnHandTemplate: {fileID: 0}
-  container: {fileID: 0}
+  itemOnHandTemplate: {fileID: 1224517110}
+  container: {fileID: 1319010803}
 --- !u!114 &1650087045
 MonoBehaviour:
   m_ObjectHideFlags: 0
