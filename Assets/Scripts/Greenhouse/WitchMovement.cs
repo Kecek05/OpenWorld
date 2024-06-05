@@ -15,7 +15,7 @@ public class WitchMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float runSpeed = 12f;
     [SerializeField] private float jumpForce;
-    private float maxStamina = 4;
+    private float maxStamina = 6;
     private float currentStamina;
 
     private bool isGround;

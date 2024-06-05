@@ -12,7 +12,7 @@ public class ItemOnGroundSO : ScriptableObject
 
     public int clicksToCollect;
 
-    public PlayerItens.ItensType itemType;
+    public PlayerItemsSO.ItensType itemType;
 
     public Sprite itemSprite;
 }

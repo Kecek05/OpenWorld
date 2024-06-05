@@ -1,9 +1,9 @@
 
 using UnityEngine;
 
-public class PlayerItens : MonoBehaviour
+[CreateAssetMenu()]
+public class PlayerItemsSO : ScriptableObject
 {
-    public static PlayerItens Instance { get; private set; }
 
     private int[] itemsCollected;
 
@@ -17,11 +17,8 @@ public class PlayerItens : MonoBehaviour
         Samambaia,
     }
 
-
-    private void Awake()
+    private void OnEnable()
     {
-        Instance = this;
-        DontDestroyOnLoad(Instance);
         itemsCollected = new int[6];
     }
 
@@ -80,22 +77,22 @@ public class PlayerItens : MonoBehaviour
         switch (itemTypeToReturn)
         {
             case ItensType.Carambola:
-                    itemsCollected[0]++;
+                itemsCollected[0]++;
                 break;
             case ItensType.Cogumelo:
-                    itemsCollected[1]++;
+                itemsCollected[1]++;
                 break;
             case ItensType.Flor:
-                    itemsCollected[2]++;
+                itemsCollected[2]++;
                 break;
             case ItensType.Lavanda:
-                    itemsCollected[3]++;
+                itemsCollected[3]++;
                 break;
             case ItensType.Mandragora:
-                    itemsCollected[4]++;
+                itemsCollected[4]++;
                 break;
             case ItensType.Samambaia:
-                    itemsCollected[5]++;
+                itemsCollected[5]++;
                 break;
         }
     }
@@ -123,7 +120,7 @@ public class PlayerItens : MonoBehaviour
 
     public void SetCarambolaCount(int _carambolaCount) { itemsCollected[0] = _carambolaCount; }
 
-    public int GetCarambolaCount() {  return itemsCollected[0]; }
+    public int GetCarambolaCount() { return itemsCollected[0]; }
 
 
     public void SetCogumeloCount(int _cogumeloCount) { itemsCollected[1] = _cogumeloCount; }
@@ -131,20 +128,19 @@ public class PlayerItens : MonoBehaviour
 
 
     public void SetFlorCount(int _florCount) { itemsCollected[2] = _florCount; }
-    public int GetFlorCount() {  return itemsCollected[2]; }
+    public int GetFlorCount() { return itemsCollected[2]; }
 
 
     public void SetLavandaCount(int _lavandaCount) { itemsCollected[3] = _lavandaCount; }
-    public int GetLavandaCount() {  return itemsCollected[3]; }
+    public int GetLavandaCount() { return itemsCollected[3]; }
 
 
     public void SetMandragoraCount(int _mangragoraCount) { itemsCollected[4] = _mangragoraCount; }
-    public int GetMandragoraCount() {  return itemsCollected[4]; }
+    public int GetMandragoraCount() { return itemsCollected[4]; }
 
 
     public void SetSamambaiaCount(int _samambaiaCount) { itemsCollected[5] = _samambaiaCount; }
     public int GetSamambaiaCount() { return itemsCollected[5]; }
 
     public int[] GetItemsCollectedArray() { return itemsCollected; }
-
 }

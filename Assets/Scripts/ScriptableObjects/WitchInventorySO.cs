@@ -9,6 +9,8 @@ public class WitchInventorySO : ScriptableObject
 
     public event EventHandler<OnItemGrabEventArgs> OnItemGrab;
 
+    [SerializeField] private PlayerItemsSO playerItemsSO;
+
     public class OnItemGrabEventArgs
     {
         public Sprite itemSprite;
@@ -39,23 +41,23 @@ public class WitchInventorySO : ScriptableObject
         {
             switch (itemInListSO.itemType)
             {
-                case PlayerItens.ItensType.Carambola:
-                    PlayerItens.Instance.SetCarambolaCount(PlayerItens.Instance.GetCarambolaCount() + 1);
+                case PlayerItemsSO.ItensType.Carambola:
+                    playerItemsSO.SetCarambolaCount(playerItemsSO.GetCarambolaCount() + 1);
                     break;
-                case PlayerItens.ItensType.Cogumelo:
-                    PlayerItens.Instance.SetCogumeloCount(PlayerItens.Instance.GetCogumeloCount() + 1);
+                case PlayerItemsSO.ItensType.Cogumelo:
+                    playerItemsSO.SetCogumeloCount(playerItemsSO.GetCogumeloCount() + 1);
                     break;
-                case PlayerItens.ItensType.Flor:
-                    PlayerItens.Instance.SetFlorCount(PlayerItens.Instance.GetFlorCount() + 1);
+                case PlayerItemsSO.ItensType.Flor:
+                    playerItemsSO.SetFlorCount(playerItemsSO.GetFlorCount() + 1);
                     break;
-                case PlayerItens.ItensType.Lavanda:
-                    PlayerItens.Instance.SetLavandaCount(PlayerItens.Instance.GetLavandaCount() + 1);
+                case PlayerItemsSO.ItensType.Lavanda:
+                    playerItemsSO.SetLavandaCount(playerItemsSO.GetLavandaCount() + 1);
                     break;
-                case PlayerItens.ItensType.Mandragora:
-                    PlayerItens.Instance.SetMandragoraCount(PlayerItens.Instance.GetMandragoraCount() + 1);
+                case PlayerItemsSO.ItensType.Mandragora:
+                    playerItemsSO.SetMandragoraCount(playerItemsSO.GetMandragoraCount() + 1);
                     break;
-                case PlayerItens.ItensType.Samambaia:
-                    PlayerItens.Instance.SetSamambaiaCount(PlayerItens.Instance.GetSamambaiaCount() + 1);
+                case PlayerItemsSO.ItensType.Samambaia:
+                    playerItemsSO.SetSamambaiaCount(playerItemsSO.GetSamambaiaCount() + 1);
                     break;
             }
         }
