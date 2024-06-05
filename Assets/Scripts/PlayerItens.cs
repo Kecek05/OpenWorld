@@ -129,6 +129,7 @@ public class PlayerItens : MonoBehaviour
 
 
     public void SetCarambolaCount(int _carambolaCount) { itensCount[0] = _carambolaCount; }
+
     public int GetCarambolaCount() {  return itensCount[0]; }
 
 
