@@ -9,80 +9,106 @@ public class DeliveryManager : MonoBehaviour
     public event EventHandler OnRecipeSuccess;
     public event EventHandler OnRecipeFailed;
     public event EventHandler OnRecipeSpawned;
-    public event EventHandler OnRecipeCompleted;
+    public event EventHandler<OnRecipeCompletedEventArgs> OnRecipeCompleted;
+
+    public class OnRecipeCompletedEventArgs
+    {
+        public PotionObjectSO completedPotion;
+    }
+
 
     public static DeliveryManager Instance { get; private set; }
 
     [SerializeField] private RecipeListSO recipeListSO;
 
-    private List<RecipeSO> waitingRecipeSOList;
-
-    private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 4f;
-    private int waitingRecipeMax = 4;
+    private List<PotionObjectSO> recipesPotionObjectSOList;
 
 
     private void Awake()
     {
         Instance = this;
-        waitingRecipeSOList = new List<RecipeSO>();
+        recipesPotionObjectSOList = new List<PotionObjectSO>();
     }
 
     private void Update()
     {
-        spawnRecipeTimer -= Time.deltaTime;
-        if(spawnRecipeTimer <= 0f)
+        //spawnRecipeTimer -= Time.deltaTime;
+        //if(spawnRecipeTimer <= 0f)
+        //{
+        //    spawnRecipeTimer = spawnRecipeTimerMax;
+        //    if(waitingPotionObjectSOList.Count < waitingRecipeMax)
+        //    {
+        //        PotionObjectSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
+
+        //        waitingPotionObjectSOList.Add(waitingRecipeSO);
+
+        //        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
+        //    }
+        //}
+    }
+
+    private void Start()
+    {
+
+        for(int i = 0; i  < recipeListSO.recipeSOList.Count; i++)
         {
-            spawnRecipeTimer = spawnRecipeTimerMax;
-            if(waitingRecipeSOList.Count < waitingRecipeMax)
-            {
-                RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
+            PotionObjectSO potionSelected = recipeListSO.recipeSOList[i];
 
-                waitingRecipeSOList.Add(waitingRecipeSO);
+            recipesPotionObjectSOList.Add(potionSelected);
 
-                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
-            }
+            OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
         }
     }
 
-    public void DeliverRecipe(PlateKitchenObject plateKitchenObject)
+
+
+    public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject, GameObject potionShapeObject)
     {
-        for(int i = 0; i < waitingRecipeSOList.Count; ++i)
+        for (int i = 0; i < recipesPotionObjectSOList.Count; ++i)
         {
-           RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
-            if(waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count)
+            PotionObjectSO waitingRecipeSO = recipesPotionObjectSOList[i];
+            if (waitingRecipeSO.ingredientsSOList.Count == deliveredPlateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 //Has the same number of ingredients
                 bool plateContentsMatchesRecipe = true;
-                foreach (KitchenObjectSO recipekitchenObjectSO in waitingRecipeSO.kitchenObjectSOList)
+                foreach (KitchenObjectSO recipekitchenObjectSO in waitingRecipeSO.ingredientsSOList)
                 {
                     //Cycling through all ingredients in the recipe
                     bool ingredientFount = false;
-                    foreach (KitchenObjectSO platekitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
+                    foreach (KitchenObjectSO platekitchenObjectSO in deliveredPlateKitchenObject.GetKitchenObjectSOList())
                     {
                         //Cycling through all ingredients in the plate
-                        if(platekitchenObjectSO == recipekitchenObjectSO)
+                        if (platekitchenObjectSO == recipekitchenObjectSO)
                         {
                             //Ingredient matches!
                             ingredientFount = true;
                             break;
                         }
                     }
-                    if(!ingredientFount)
+                    if (!ingredientFount)
                     {
                         //This recipe ingredient was not found on the plate
                         plateContentsMatchesRecipe = false;
                     }
                 }
-                if(plateContentsMatchesRecipe)
+                if (plateContentsMatchesRecipe)
                 {
-                    //player delivered the correct recipe!
+                    //player delivered the correct ingredients!
+                    if(potionShapeObject.CompareTag(waitingRecipeSO.PotionShape.tag))
+                    {
+                        //same potion shape
+                        StoredPotionsController.Instance.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
 
-                    waitingRecipeSOList.RemoveAt(i);
-
-                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
-                    OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
-                    return;
+                        OnRecipeCompleted?.Invoke(this, new OnRecipeCompletedEventArgs
+                        {
+                            completedPotion = deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate()
+                        });
+                        OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
+                        return;
+                    } else
+                    {
+                        //wrong potion shape
+                    }
                 }
             }
         }
@@ -92,8 +118,8 @@ public class DeliveryManager : MonoBehaviour
     }
 
 
-    public List<RecipeSO> GetWaitingRecipeSOList()
+    public List<PotionObjectSO> GetRecipeListPotionObjectSOList()
     {
-        return waitingRecipeSOList;
+        return recipeListSO.recipeSOList;
     }
 }

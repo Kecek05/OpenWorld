@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlateKitchenObject : KitchenObject
 {
@@ -16,30 +18,37 @@ public class PlateKitchenObject : KitchenObject
 
     private List<KitchenObjectSO> kitchenObjectSOList;
 
+    private PotionObjectSO potionObjectSOInThisPlate;
+
     private void Awake()
     {
         kitchenObjectSOList = new List<KitchenObjectSO>();
     }
-    public bool TryAddIngredient(KitchenObjectSO kitchenObjectSO)
-    {
-        if(!validKitchenObjectSOList.Contains(kitchenObjectSO))
-        {
-            // not valid ingredient
-            return false;
-        }
-        if(kitchenObjectSOList.Contains(kitchenObjectSO))
-        {
-            //already has this type
-            return false;
-        } else
-        {
-            //new ingredient
-            kitchenObjectSOList.Add(kitchenObjectSO);
 
-            OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs {
-                kitchenObjectSO = kitchenObjectSO
-            });
-            return true;
+    public void AddIngredientToPotion(PotionObjectSO potionObjectSO)
+    {
+        foreach(KitchenObjectSO kitchenObjectInPotion in potionObjectSO.ingredientsSOList)
+        {
+            if(!validKitchenObjectSOList.Contains(kitchenObjectInPotion))
+            {
+                // not valid ingredient
+                //return false;
+            }
+            if(kitchenObjectSOList.Contains(kitchenObjectInPotion))
+            {
+                //already has this type
+               // return false;
+            } else
+            {
+                //new ingredient
+                kitchenObjectSOList.Add(kitchenObjectInPotion);
+
+                OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs {
+                    kitchenObjectSO = kitchenObjectInPotion
+                });
+                //return true;
+            }
+
         }
     }
 
@@ -47,4 +56,11 @@ public class PlateKitchenObject : KitchenObject
     {
         return kitchenObjectSOList;
     }
+
+    public void SetKitchenObjectSOList(List<KitchenObjectSO> _kitchenObjectSOList) { kitchenObjectSOList = _kitchenObjectSOList; }
+
+
+    public PotionObjectSO GetPotionObjectSOInThisPlate() { return potionObjectSOInThisPlate;}
+
+    public void SetPotionObjectSOInThisPlate(PotionObjectSO potionObjectSO) { potionObjectSOInThisPlate = potionObjectSO;}
 }

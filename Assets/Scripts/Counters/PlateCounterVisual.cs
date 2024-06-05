@@ -6,11 +6,13 @@ public class PlateCounterVisual : MonoBehaviour
 {
 
     [SerializeField] private PlatesCounter platesCounter;
-    [SerializeField] private Transform counterTopPoint;
+    [SerializeField] private Transform[] counterTopPoint;
     [SerializeField] private Transform plateVisualPrefab;
 
 
     private List<GameObject> plateVisualGameObjectList;
+
+    private int counterTopPointIndex = 0;
 
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class PlateCounterVisual : MonoBehaviour
 
     private void PlatesCounter_OnPlateRemoved(object sender, System.EventArgs e)
     {
+        counterTopPointIndex--;
+
         GameObject plateGameObject = plateVisualGameObjectList[plateVisualGameObjectList.Count - 1];
         plateVisualGameObjectList.Remove(plateGameObject);
         Destroy(plateGameObject);
@@ -31,10 +35,11 @@ public class PlateCounterVisual : MonoBehaviour
 
     private void PlatesCounter_OnPlateSpawned(object sender, System.EventArgs e)
     {
-        Transform plateVisualTransform = Instantiate(plateVisualPrefab, counterTopPoint);
+        counterTopPointIndex++;
 
-        float plateOffsetY = .1f;
-        plateVisualTransform.localPosition = new Vector3(0, plateOffsetY * plateVisualGameObjectList.Count, 0);
+        Transform plateVisualTransform = Instantiate(plateVisualPrefab, counterTopPoint[counterTopPointIndex - 1]);
+
+        plateVisualTransform.localPosition = Vector3.zero;
 
         plateVisualGameObjectList.Add(plateVisualTransform.gameObject);
     }

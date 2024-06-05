@@ -21,14 +21,14 @@ public class DeliveryManagerUI : MonoBehaviour
         UpdateVisual();
     }
 
-    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
+    private void DeliveryManager_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
     {
-        UpdateVisual();
+        //UpdateVisual();
     }
 
-    private void DeliveryManager_OnRecipeCompleted(object sender, System.EventArgs e)
+    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
     {
-        UpdateVisual();
+        //UpdateVisual();
     }
 
     private void UpdateVisual()
@@ -38,12 +38,17 @@ public class DeliveryManagerUI : MonoBehaviour
             if(child == recipeTemplate) continue;
             Destroy(child.gameObject);
         }
-        foreach(RecipeSO recipeSO in DeliveryManager.Instance.GetWaitingRecipeSOList())
+        foreach(PotionObjectSO potionObjectSO in DeliveryManager.Instance.GetRecipeListPotionObjectSOList())
         {
             Transform recipeTransform = Instantiate(recipeTemplate, container);
             recipeTransform.gameObject.SetActive(true);
-            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetRecipeSO(recipeSO);
+            recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetPotionObjectSO(potionObjectSO);
+
+
         }
+
     }
+
+
 
 }

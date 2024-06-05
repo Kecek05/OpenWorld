@@ -15,10 +15,11 @@ public class DeliveryCounter : BaseCounter
     {
         if(player.HasKitchenObject())
         {
-            if(player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject)) // ele tenta ver se o player possui um prato na mao, e se for um prato ele retorna o prato e o valor boleano na variavel PlateKitchenObject
+            if(player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject, out GameObject potionShapeObject)) 
             {
+                // ele tenta ver se o player possui um prato na mao, e se for um prato ele retorna o prato e o valor boleano na variavel PlateKitchenObject
                 //only accepts plates
-                DeliveryManager.Instance.DeliverRecipe(plateKitchenObject);
+                DeliveryManager.Instance.DeliverRecipe(plateKitchenObject, potionShapeObject);
                 player.GetKitchenObject().DestroySelf();
 
             }

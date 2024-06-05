@@ -6,41 +6,33 @@ public class ItemOnGround : MonoBehaviour, IInteractable
 {
 
     [SerializeField] private ItemOnGroundSO[] itemOnGroundSOArray;
-
     private ItemOnGroundSO selectedItemOnGroundSO;
-
     private Transform itemInGround;
-
     private int selectedItemClicksToCollect;
+
+    [SerializeField] private WitchInventorySO witchInventorySO;
 
     private void Start()
     {
         int randomItemOnGround = Random.Range(0, itemOnGroundSOArray.Length);
-        selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround];
-
+        selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround]; 
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
-
         itemInGround = Instantiate(selectedItemOnGroundSO.prefab, transform.position, Quaternion.identity);
     }
 
 
     public void Interact()
     {
-        selectedItemClicksToCollect--;
-        Debug.Log(selectedItemClicksToCollect);
-        if(selectedItemClicksToCollect <= 0 )
+        if (witchInventorySO.CanAddMoreItens())
         {
-            switch(selectedItemOnGroundSO.itemType)
+            selectedItemClicksToCollect--;
+
+            if(selectedItemClicksToCollect <= 0)
             {
-                case PlayerItens.ItensType.Carambola:
-                    PlayerItens.main.SetCarambolaCount(PlayerItens.main.GetCarambolaCount() + 1);
-                    break;
+                witchInventorySO.AddItemToInventoryList(selectedItemOnGroundSO);
+                Destroy(itemInGround.gameObject);
+                Destroy(gameObject);
             }
-
-
-            Destroy(itemInGround.gameObject);
-            Destroy(gameObject);
-
         }
     }
 }
