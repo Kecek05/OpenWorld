@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WitchInventory : MonoBehaviour
+[CreateAssetMenu()]
+public class WitchInventorySO : ScriptableObject
 {
     public event EventHandler OnDepositeItems;
 
@@ -13,16 +14,14 @@ public class WitchInventory : MonoBehaviour
         public Sprite itemSprite;
     }
 
-    public static WitchInventory Instance { get; private set; }
-
     private List<ItemOnGroundSO> inventoryList = new List<ItemOnGroundSO>();
 
     private int listMaxLenght = 4;
 
 
-    private void Awake()
+    private void OnEnable()
     {
-        Instance = this;
+        inventoryList.Clear();
     }
 
     public void AddItemToInventoryList(ItemOnGroundSO itemToAdd)

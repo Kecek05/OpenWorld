@@ -10,6 +10,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable
     private Transform itemInGround;
     private int selectedItemClicksToCollect;
 
+    [SerializeField] private WitchInventorySO witchInventorySO;
 
     private void Start()
     {
@@ -22,13 +23,13 @@ public class ItemOnGround : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (WitchInventory.Instance.CanAddMoreItens())
+        if (witchInventorySO.CanAddMoreItens())
         {
             selectedItemClicksToCollect--;
 
             if(selectedItemClicksToCollect <= 0)
             {
-                WitchInventory.Instance.AddItemToInventoryList(selectedItemOnGroundSO);
+                witchInventorySO.AddItemToInventoryList(selectedItemOnGroundSO);
                 Destroy(itemInGround.gameObject);
                 Destroy(gameObject);
             }

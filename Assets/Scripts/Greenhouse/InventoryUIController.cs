@@ -9,6 +9,8 @@ public class InventoryUIController : MonoBehaviour
     [SerializeField] private Transform itemOnHandTemplate;
     [SerializeField] private Transform container;
 
+    [SerializeField] private WitchInventorySO witchInventorySO;
+
 
     private void Awake()
     {
@@ -17,11 +19,11 @@ public class InventoryUIController : MonoBehaviour
 
     private void Start()
     {
-        WitchInventory.Instance.OnDepositeItems += WitchInventory_OnDepositeItems;
-        WitchInventory.Instance.OnItemGrab += WitchInventory_OnItemGrab;
+        witchInventorySO.OnDepositeItems += WitchInventory_OnDepositeItems;
+        witchInventorySO.OnItemGrab += WitchInventory_OnItemGrab;
     }
 
-    private void WitchInventory_OnItemGrab(object sender, WitchInventory.OnItemGrabEventArgs e)
+    private void WitchInventory_OnItemGrab(object sender, WitchInventorySO.OnItemGrabEventArgs e)
     {
         OnItemGrabedUI(e.itemSprite);
     }

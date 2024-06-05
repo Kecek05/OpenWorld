@@ -2288,6 +2288,7 @@ MonoBehaviour:
   - {fileID: 468294705}
   itemOnHandTemplate: {fileID: 0}
   container: {fileID: 0}
+  witchInventorySO: {fileID: 0}
 --- !u!114 &470785883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4367,50 +4368,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 886759864}
---- !u!1 &1230646982
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1230646984}
-  - component: {fileID: 1230646983}
-  m_Layer: 0
-  m_Name: ItemAssets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1230646983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230646982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2647aa28a803c7042a903eb6eb93799e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1230646984
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230646982}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 609.99713, y: 375.63202, z: 22.374512}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1267774191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
@@ -7426,6 +7383,7 @@ MonoBehaviour:
   - {fileID: 864175431}
   itemOnHandTemplate: {fileID: 1224517110}
   container: {fileID: 1319010803}
+  witchInventorySO: {fileID: 11400000, guid: 9de5a6a7d46d65c41bb6c7f5eda5727f, type: 2}
 --- !u!114 &1650087045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7521,6 +7479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fc6847c1db5d64890e37b764e4ed4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  witchInventorySO: {fileID: 11400000, guid: 9de5a6a7d46d65c41bb6c7f5eda5727f, type: 2}
 --- !u!65 &1659268803
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8393,50 +8352,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995235524}
   m_CullTransparentMesh: 1
---- !u!1 &2003408442
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003408444}
-  - component: {fileID: 2003408443}
-  m_Layer: 0
-  m_Name: WitchInventoryController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!114 &2003408443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003408442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba14bf1af3c3b74e9a0d9a5d3514a84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &2003408444
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003408442}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2025924075
 GameObject:
   m_ObjectHideFlags: 0
@@ -8865,6 +8780,4 @@ SceneRoots:
   - {fileID: 51948418}
   - {fileID: 1650087043}
   - {fileID: 496360043}
-  - {fileID: 1230646984}
-  - {fileID: 2003408444}
   - {fileID: 1659268806}

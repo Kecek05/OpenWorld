@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class DepositeItemBox : MonoBehaviour, IInteractable
 {
+    [SerializeField] private WitchInventorySO witchInventorySO;
 
     public void Interact()
     {
-        if(WitchInventory.Instance.ListNotEmpty())
+        if(witchInventorySO.ListNotEmpty())
         {
-            WitchInventory.Instance.DepositeItemOnBox();
+            witchInventorySO.DepositeItemOnBox();
             Debug.Log("depositamo");
         }
         
