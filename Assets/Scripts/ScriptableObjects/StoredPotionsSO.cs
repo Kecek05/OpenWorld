@@ -12,12 +12,18 @@ public class StoredPotionsSO : ScriptableObject
 
     [SerializeField] private int[] recipeSavedCountArray;
 
+    [SerializeField] PotionObjectSO[] potionsDebug;
 
     private void OnEnable()
     {
         //Same size of the recipes
-        potionsMade.Clear();
-        recipeSavedCountArray = new int[recipeListSO.recipeSOList.Count];
+       potionsMade.Clear();
+        for (int i = 0; i < potionsDebug.Length; i++)
+        {
+            potionsMade.Add(potionsDebug[i]);
+        }
+        
+        //recipeSavedCountArray = new int[recipeListSO.recipeSOList.Count];
     }
 
     public void StorePotion(PotionObjectSO _potionObjectSO)

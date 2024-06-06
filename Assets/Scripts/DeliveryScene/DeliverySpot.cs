@@ -1,8 +1,17 @@
 
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeliverySpot : MonoBehaviour, IInteractable
 {
+    public event EventHandler<OnPotionSetEventArgs> OnPotionSet;
+
+    public class OnPotionSetEventArgs
+    {
+        public Sprite potionSprite;
+    }
+
     [SerializeField] private StoredPotionsSO storedPotionsSO;
 
     private PotionObjectSO potionToDeliveryHere;
@@ -19,5 +28,7 @@ public class DeliverySpot : MonoBehaviour, IInteractable
     {
         //Set the potion here
         potionToDeliveryHere = _potionToDelivery;
+
+        OnPotionSet?.Invoke(this, new OnPotionSetEventArgs { potionSprite = potionToDeliveryHere.potionSprite });
     }
 }
