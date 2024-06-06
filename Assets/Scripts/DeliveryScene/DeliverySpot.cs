@@ -8,7 +8,9 @@ public class DeliverySpot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Delivered");
+        MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + potionToDeliveryHere.potionMoneyRecieve);
+
+        Debug.Log("Delivered, money earned is " + potionToDeliveryHere.potionMoneyRecieve);
         gameObject.SetActive(false);
     }
 

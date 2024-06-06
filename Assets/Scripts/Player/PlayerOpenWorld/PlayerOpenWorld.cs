@@ -34,6 +34,7 @@ public class PlayerOpenWorld : MonoBehaviour
         {
             IInteractable interactObj = intectableObj.gameObject.GetComponent<IInteractable>();
             interactObj.Interact();
+            intectableObj = null;
         }
     }
 
