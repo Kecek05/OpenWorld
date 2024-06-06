@@ -2588,6 +2588,7 @@ MonoBehaviour:
   iconContainer: {fileID: 177734431}
   iconTemplate: {fileID: 327026013}
   potionImage: {fileID: 0}
+  storedPotionsSO: {fileID: 0}
 --- !u!4 &359836584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 659d005255061d74a929e77c8aa525d8, type: 3}
@@ -4048,6 +4049,7 @@ MonoBehaviour:
   iconContainer: {fileID: 277449255}
   iconTemplate: {fileID: 345932938}
   potionImage: {fileID: 985871396}
+  storedPotionsSO: {fileID: 0}
 --- !u!1 &809721851
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,6 +4080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipeListSO: {fileID: 11400000, guid: cd11a3ef04ccc5f41a0dde9d6fee5c7a, type: 2}
+  storesPotionsSO: {fileID: 11400000, guid: 8efc078fb0677ee47a62b38f17760589, type: 2}
 --- !u!4 &809721853
 Transform:
   m_ObjectHideFlags: 0
@@ -6054,7 +6057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7cdbf47f6fa0f4987dc1830647e68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeListSO: {fileID: 11400000, guid: cd11a3ef04ccc5f41a0dde9d6fee5c7a, type: 2}
 --- !u!4 &1194500930
 Transform:
   m_ObjectHideFlags: 0

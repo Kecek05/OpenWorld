@@ -23,7 +23,7 @@ public class DeliveryManager : MonoBehaviour
 
     private List<PotionObjectSO> recipesPotionObjectSOList;
 
-    [SerializeField] private StoredPotionsSO storesPotionsSO;
+    [SerializeField] private StoredPotionsSO storedPotionsSO;
 
     private void Awake()
     {
@@ -98,7 +98,7 @@ public class DeliveryManager : MonoBehaviour
                     if(potionShapeObject.CompareTag(waitingRecipeSO.PotionShape.tag))
                     {
                         //same potion shape
-                        storesPotionsSO.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
+                        storedPotionsSO.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
 
                         OnRecipeCompleted?.Invoke(this, new OnRecipeCompletedEventArgs
                         {

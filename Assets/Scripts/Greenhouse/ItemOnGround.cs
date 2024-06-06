@@ -13,16 +13,17 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 
     [SerializeField] private WitchInventorySO witchInventorySO;
 
-    private int collectProgress;
 
     public event EventHandler<IHasProgress.OnProgressChangedEventsArgs> OnProgressChanged;
+
+    [SerializeField] private ParticleSystem spawnParticle;
 
     private void Start()
     {
         int randomItemOnGround = UnityEngine.Random.Range(0, itemOnGroundSOArray.Length);
         selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround]; 
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
-        itemInGround = Instantiate(selectedItemOnGroundSO.prefab, transform.position, Quaternion.identity);
+        itemInGround = Instantiate(selectedItemOnGroundSO.prefab, transform);
     }
 
 
@@ -41,6 +42,8 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
             if (selectedItemClicksToCollect <= 0)
             {
                 witchInventorySO.AddItemToInventoryList(selectedItemOnGroundSO);
+                spawnParticle.Play();
+
                 Destroy(itemInGround.gameObject);
                 Destroy(gameObject);
             }
