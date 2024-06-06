@@ -2524,10 +2524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ae3bdb098ad9649934934646a087a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  madePotionList:
-  - {fileID: 11400000, guid: 3e2a35fd1f967eb4f9071d9185c8ecf7, type: 2}
-  - {fileID: 11400000, guid: fbee19999016ffc4f8e223a82aeb07ed, type: 2}
-  - {fileID: 11400000, guid: 3460d13a6db2d32499e3cc9a59e63e47, type: 2}
   deliverySpotsList:
   - {fileID: 7706007515929416570}
   - {fileID: 1113742543}
@@ -2538,6 +2534,7 @@ MonoBehaviour:
   - {fileID: 870549053}
   - {fileID: 587840938}
   delayBetweenOrders: 5
+  storedPotionsSO: {fileID: 11400000, guid: 8efc078fb0677ee47a62b38f17760589, type: 2}
 --- !u!1 &779820115
 GameObject:
   m_ObjectHideFlags: 0

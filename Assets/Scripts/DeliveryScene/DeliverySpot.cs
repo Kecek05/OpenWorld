@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class DeliverySpot : MonoBehaviour, IInteractable
 {
+    [SerializeField] private StoredPotionsSO storedPotionsSO;
 
     private PotionObjectSO potionToDeliveryHere;
 
     public void Interact()
     {
-        MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + potionToDeliveryHere.potionMoneyRecieve);
+        storedPotionsSO.DeliveryPotion(potionToDeliveryHere);
 
-        Debug.Log("Delivered, money earned is " + potionToDeliveryHere.potionMoneyRecieve);
+        MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + potionToDeliveryHere.potionMoneyRecieve);
         gameObject.SetActive(false);
     }
 
@@ -18,6 +19,5 @@ public class DeliverySpot : MonoBehaviour, IInteractable
     {
         //Set the potion here
         potionToDeliveryHere = _potionToDelivery;
-        print(potionToDeliveryHere);
     }
 }
