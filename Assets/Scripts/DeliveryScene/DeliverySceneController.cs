@@ -10,16 +10,13 @@ public class DeliverySceneController : MonoBehaviour
 
     [SerializeField] private List<GameObject> deliverySpotsList = new List<GameObject>();
 
-
     [SerializeField] private float delayBetweenOrders;
-
-    //temp
-    private bool inGame = true;
 
     private IEnumerator creaRandomNewOrderCoroutine;
 
     private void Start()
     {
+
         creaRandomNewOrderCoroutine = CreateRandomNewOrder();
         StartCoroutine(creaRandomNewOrderCoroutine);
     }
@@ -27,8 +24,10 @@ public class DeliverySceneController : MonoBehaviour
 
     private IEnumerator CreateRandomNewOrder()
     {
-        while (inGame)
+        while (deliverySpotsList.Count > 0)
         {
+            //There is a spot to delivery potion
+
             int randomPotion = Random.Range(0, madePotionList.Count); //random recipe
             int randomSpot = Random.Range(0, deliverySpotsList.Count); //random spot
 
@@ -36,8 +35,9 @@ public class DeliverySceneController : MonoBehaviour
             selectedSpot.SetActive(true);
 
             selectedSpot.GetComponent<DeliverySpot>().SetPotionToDeliveryHere(madePotionList[randomPotion]);
-            deliverySpotsList.Remove(selectedSpot);
 
+
+            deliverySpotsList.Remove(selectedSpot);
             yield return new WaitForSeconds(delayBetweenOrders);
         }
 
