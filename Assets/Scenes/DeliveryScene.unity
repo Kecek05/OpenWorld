@@ -1163,6 +1163,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot (5)
@@ -1222,6 +1226,56 @@ RectTransform:
   m_AnchoredPosition: {x: -104, y: 164}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &235588457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235588458}
+  - component: {fileID: 235588459}
+  m_Layer: 5
+  m_Name: DeliveryMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &235588458
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235588457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1234864985}
+  m_Father: {fileID: 863211485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &235588459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235588457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc3a814d42edb444878250287855491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInput: {fileID: 46932169}
 --- !u!1 &252426008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994724517594351840, guid: d79bdc38aa527fa49921ea0e86a9d93c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8317864857209453984, guid: d79bdc38aa527fa49921ea0e86a9d93c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1693,6 +1747,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot (7)
@@ -1928,6 +1986,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot (4)
@@ -2047,6 +2109,7 @@ RectTransform:
   m_Children:
   - {fileID: 1323366260}
   - {fileID: 675803975}
+  - {fileID: 235588458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2102,6 +2165,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot (6)
@@ -2217,6 +2284,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot (3)
@@ -2288,6 +2359,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot (1)
@@ -2447,6 +2522,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126012990}
   m_CullTransparentMesh: 1
+--- !u!1 &1234864984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234864985}
+  - component: {fileID: 1234864986}
+  m_Layer: 5
+  m_Name: IndividualHit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1234864985
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234864984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1931133198}
+  m_Father: {fileID: 235588458}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1234864986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234864984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3deb378270556d741ae7cfabe294fffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 235588457}
+  spawnDelay: 1
+  downSpeed: 0
+  hitNumber: 10
 --- !u!1 &1267774191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
@@ -3029,6 +3157,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot (2)
@@ -3052,6 +3184,81 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
   m_PrefabInstance: {fileID: 1859964371}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1931133197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931133198}
+  - component: {fileID: 1931133200}
+  - component: {fileID: 1931133199}
+  m_Layer: 5
+  m_Name: GFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1931133198
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931133197}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1234864985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 570, y: -312}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1931133199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931133197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 256b17f65ca4560449866be321c6b6b2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1931133200
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931133197}
+  m_CullTransparentMesh: 1
 --- !u!1 &2125334996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,6 +3432,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3976449054275256938, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
+      propertyPath: parentMinigame
+      value: 
+      objectReference: {fileID: 235588457}
     - target: {fileID: 5816383191804604837, guid: 08329094e30a29941b3b0116cd94b79d, type: 3}
       propertyPath: m_Name
       value: DeliverSpot

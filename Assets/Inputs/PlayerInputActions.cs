@@ -284,6 +284,138 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerHitMinigame"",
+            ""id"": ""bc21ddb7-092b-432e-bc7c-8c419da712e1"",
+            ""actions"": [
+                {
+                    ""name"": ""Hit1"",
+                    ""type"": ""Button"",
+                    ""id"": ""67e3ad79-fe2e-4bcf-b96a-76909633b7a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hit2"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a0e4f70-1b4f-4e39-b460-4904324e9ce6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hit3"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c4a1f69-3857-4da8-ae41-874630f243ab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hit4"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe7cc9b5-036a-4ad7-a38c-e82501a8d674"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""677c71eb-d9b3-4045-8c21-122370659652"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ddd6af7-4398-425e-a7dd-d53608890713"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e917b8d-4875-4b43-bfb6-36a89114ee0d"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5323e70-a7ff-4e3e-a3ff-771472ae7791"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5d1ca4f-e39b-402c-8aa0-d32eadd8e453"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f50395e7-7e7a-4b2d-a0a1-2179e6b2b356"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f68f354-57dc-4a3d-bcc3-a28e679c152c"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28f2aba4-06f7-47e2-b292-8c0344990181"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hit4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -295,6 +427,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerMovement_InteractAlternate = m_PlayerMovement.FindAction("InteractAlternate", throwIfNotFound: true);
         m_PlayerMovement_Run = m_PlayerMovement.FindAction("Run", throwIfNotFound: true);
         m_PlayerMovement_Jump = m_PlayerMovement.FindAction("Jump", throwIfNotFound: true);
+        // PlayerHitMinigame
+        m_PlayerHitMinigame = asset.FindActionMap("PlayerHitMinigame", throwIfNotFound: true);
+        m_PlayerHitMinigame_Hit1 = m_PlayerHitMinigame.FindAction("Hit1", throwIfNotFound: true);
+        m_PlayerHitMinigame_Hit2 = m_PlayerHitMinigame.FindAction("Hit2", throwIfNotFound: true);
+        m_PlayerHitMinigame_Hit3 = m_PlayerHitMinigame.FindAction("Hit3", throwIfNotFound: true);
+        m_PlayerHitMinigame_Hit4 = m_PlayerHitMinigame.FindAction("Hit4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -430,6 +568,76 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
+
+    // PlayerHitMinigame
+    private readonly InputActionMap m_PlayerHitMinigame;
+    private List<IPlayerHitMinigameActions> m_PlayerHitMinigameActionsCallbackInterfaces = new List<IPlayerHitMinigameActions>();
+    private readonly InputAction m_PlayerHitMinigame_Hit1;
+    private readonly InputAction m_PlayerHitMinigame_Hit2;
+    private readonly InputAction m_PlayerHitMinigame_Hit3;
+    private readonly InputAction m_PlayerHitMinigame_Hit4;
+    public struct PlayerHitMinigameActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public PlayerHitMinigameActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Hit1 => m_Wrapper.m_PlayerHitMinigame_Hit1;
+        public InputAction @Hit2 => m_Wrapper.m_PlayerHitMinigame_Hit2;
+        public InputAction @Hit3 => m_Wrapper.m_PlayerHitMinigame_Hit3;
+        public InputAction @Hit4 => m_Wrapper.m_PlayerHitMinigame_Hit4;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerHitMinigame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerHitMinigameActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerHitMinigameActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlayerHitMinigameActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerHitMinigameActionsCallbackInterfaces.Add(instance);
+            @Hit1.started += instance.OnHit1;
+            @Hit1.performed += instance.OnHit1;
+            @Hit1.canceled += instance.OnHit1;
+            @Hit2.started += instance.OnHit2;
+            @Hit2.performed += instance.OnHit2;
+            @Hit2.canceled += instance.OnHit2;
+            @Hit3.started += instance.OnHit3;
+            @Hit3.performed += instance.OnHit3;
+            @Hit3.canceled += instance.OnHit3;
+            @Hit4.started += instance.OnHit4;
+            @Hit4.performed += instance.OnHit4;
+            @Hit4.canceled += instance.OnHit4;
+        }
+
+        private void UnregisterCallbacks(IPlayerHitMinigameActions instance)
+        {
+            @Hit1.started -= instance.OnHit1;
+            @Hit1.performed -= instance.OnHit1;
+            @Hit1.canceled -= instance.OnHit1;
+            @Hit2.started -= instance.OnHit2;
+            @Hit2.performed -= instance.OnHit2;
+            @Hit2.canceled -= instance.OnHit2;
+            @Hit3.started -= instance.OnHit3;
+            @Hit3.performed -= instance.OnHit3;
+            @Hit3.canceled -= instance.OnHit3;
+            @Hit4.started -= instance.OnHit4;
+            @Hit4.performed -= instance.OnHit4;
+            @Hit4.canceled -= instance.OnHit4;
+        }
+
+        public void RemoveCallbacks(IPlayerHitMinigameActions instance)
+        {
+            if (m_Wrapper.m_PlayerHitMinigameActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayerHitMinigameActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PlayerHitMinigameActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PlayerHitMinigameActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PlayerHitMinigameActions @PlayerHitMinigame => new PlayerHitMinigameActions(this);
     public interface IPlayerMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -437,5 +645,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnInteractAlternate(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IPlayerHitMinigameActions
+    {
+        void OnHit1(InputAction.CallbackContext context);
+        void OnHit2(InputAction.CallbackContext context);
+        void OnHit3(InputAction.CallbackContext context);
+        void OnHit4(InputAction.CallbackContext context);
     }
 }
