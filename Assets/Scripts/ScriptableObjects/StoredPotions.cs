@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class StoredPotionsSO : ScriptableObject
+
+public class StoredPotions : MonoBehaviour
 {
-    [SerializeField] private RecipeListSO recipeListSO;
+    public static StoredPotions Instance { get; private set; }
+
 
     public List<PotionObjectSO> potionsMade;
 
@@ -14,17 +15,21 @@ public class StoredPotionsSO : ScriptableObject
 
     [SerializeField] PotionObjectSO[] potionsDebug;
 
-    private void OnEnable()
+    private void Awake()
     {
-        //Same size of the recipes
-        //potionsMade.Clear();
-        for (int i = 0; i < potionsDebug.Length; i++)
-        {
-            potionsMade.Add(potionsDebug[i]);
-        }
-        
-        //recipeSavedCountArray = new int[recipeListSO.recipeSOList.Count];
+        Instance = this;
     }
+
+    private void Start()
+    {
+        recipeSavedCountArray = new int[RandomizeRecipeController.Instance.GetSelectedPotionsSOList().Count];
+        //debug only
+        //for (int i = 0; i < potionsDebug.Length; i++)
+        //{
+        //    potionsMade.Add(potionsDebug[i]);
+        //}
+    }
+
 
     public void ResetPotionsMade()
     {
@@ -36,7 +41,7 @@ public class StoredPotionsSO : ScriptableObject
         for (int i = 0; i < recipeSavedCountArray.Length; i++)
         {
             //Runs for all the recipes
-            if (_potionObjectSO == recipeListSO.potionObjectSOList[i])
+            if (_potionObjectSO == RandomizeRecipeController.Instance.GetSelectedPotionsSOList()[i])
             {
                 //stored potion matches with the recipe
                 recipeSavedCountArray[i]++; //add the potion
@@ -51,7 +56,7 @@ public class StoredPotionsSO : ScriptableObject
         for (int i = 0; i < recipeSavedCountArray.Length; i++)
         {
             //Runs for all the recipes
-            if (_potionObjectSO == recipeListSO.potionObjectSOList[i])
+            if (_potionObjectSO == RandomizeRecipeController.Instance.GetSelectedPotionsSOList()[i])
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;
@@ -61,7 +66,5 @@ public class StoredPotionsSO : ScriptableObject
     }
 
     public int[] GetRecipeSavedCountArray() { return recipeSavedCountArray; }
-
-    public RecipeListSO GetRecipeListSO() { return recipeListSO; }
 
 }

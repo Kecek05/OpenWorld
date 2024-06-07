@@ -19,9 +19,7 @@ public class DeliveryManager : MonoBehaviour
 
     public static DeliveryManager Instance { get; private set; }
 
-    [SerializeField] private RecipeListSO recipeListSO;
 
-    [SerializeField] private StoredPotionsSO storedPotionsSO;
 
     private void Awake()
     {
@@ -33,9 +31,9 @@ public class DeliveryManager : MonoBehaviour
 
     public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject, GameObject potionShapeObject)
     {
-        for (int i = 0; i < recipeListSO.potionObjectSOList.Count; ++i)
+        for (int i = 0; i < RandomizeRecipeController.Instance.GetSelectedPotionsSOList().Count; ++i)
         {
-            PotionObjectSO waitingRecipeSO = recipeListSO.potionObjectSOList[i];
+            PotionObjectSO waitingRecipeSO = RandomizeRecipeController.Instance.GetSelectedPotionsSOList()[i];
             if (waitingRecipeSO.ingredientsSOList.Count == deliveredPlateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 //Has the same number of ingredients
@@ -66,7 +64,7 @@ public class DeliveryManager : MonoBehaviour
                     if(potionShapeObject.CompareTag(waitingRecipeSO.PotionShape.tag))
                     {
                         //same potion shape
-                        storedPotionsSO.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
+                        StoredPotions.Instance.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
 
                         OnRecipeCompleted?.Invoke(this, new OnRecipeCompletedEventArgs
                         {

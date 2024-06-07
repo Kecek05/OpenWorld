@@ -36,7 +36,7 @@ public class DeliveryManagerUI : MonoBehaviour
             if(child == recipeTemplate) continue;
             Destroy(child.gameObject);
         }
-        foreach(PotionObjectSO potionObjectSO in recipeListSO.potionObjectSOList)
+        foreach(PotionObjectSO potionObjectSO in RandomizeRecipeController.Instance.GetSelectedPotionsSOList())
         {
             Transform recipeTransform = Instantiate(recipeTemplate, container);
             recipeTransform.gameObject.SetActive(true);

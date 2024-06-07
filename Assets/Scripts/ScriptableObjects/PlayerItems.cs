@@ -1,10 +1,11 @@
 
 using System;
+using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class PlayerItemsSO : ScriptableObject
+public class PlayerItems : MonoBehaviour
 {
+    public static PlayerItems Instance { get; private set; }
 
     public int[] itemsCollected;
 
@@ -16,6 +17,15 @@ public class PlayerItemsSO : ScriptableObject
         Lavanda,
         Mandragora,
         Samambaia,
+    }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+    private void Start()
+    {
+        itemsCollected = new int[6];
     }
 
     public void ResetPlayerItems()

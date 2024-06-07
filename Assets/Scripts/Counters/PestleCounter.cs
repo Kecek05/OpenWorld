@@ -164,8 +164,6 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
                 adding = true;
             }
 
-            Debug.Log("Number is " + numberCount);
-
             OnHitChanged?.Invoke(this, new IHasHitBar.OnHitChangedEventArgs
             {
                 hitNumber = numberCount

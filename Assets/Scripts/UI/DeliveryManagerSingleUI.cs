@@ -15,7 +15,6 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
     private PotionObjectSO selectedPotionObjectSO;
 
-    [SerializeField] private StoredPotionsSO storedPotionsSO;
 
     private void Awake()
     {
@@ -56,13 +55,13 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
     private void UpdatePotionCount()
     {
-        for (int i = 0; i < storedPotionsSO.GetRecipeSavedCountArray().Length; i++)
+        for (int i = 0; i < StoredPotions.Instance.GetRecipeSavedCountArray().Length; i++)
         {
             //Runs for all the recipes
-            if (selectedPotionObjectSO == storedPotionsSO.GetRecipeListSO().potionObjectSOList[i])
+            if (selectedPotionObjectSO == RandomizeRecipeController.Instance.GetSelectedPotionsSOList()[i])
             {
                 //stored potion matches with the recipe
-                recipeCountText.text = storedPotionsSO.GetRecipeSavedCountArray()[i].ToString() + "x";
+                recipeCountText.text = StoredPotions.Instance.GetRecipeSavedCountArray()[i].ToString() + "x";
                 break;
             }
         }

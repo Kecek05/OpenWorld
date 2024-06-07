@@ -12,13 +12,11 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         public Sprite potionSprite;
     }
 
-    [SerializeField] private StoredPotionsSO storedPotionsSO;
-
     private PotionObjectSO potionToDeliveryHere;
 
     public void Interact()
     {
-        storedPotionsSO.DeliveryPotion(potionToDeliveryHere);
+        StoredPotions.Instance.DeliveryPotion(potionToDeliveryHere);
 
         MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + potionToDeliveryHere.potionMoneyRecieve);
         gameObject.SetActive(false);

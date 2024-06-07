@@ -5,13 +5,16 @@ using UnityEngine.UI;
 public class changeScene : MonoBehaviour
 {
 
-    private int totalTime = 40;
-    private int currentTime = 40;
+    [SerializeField] private int totalTime = 40;
+    private int currentTime;
     [SerializeField] private Image clockImage;
     [SerializeField] private Text timerText;
 
+    [SerializeField] private Loader.Scene scene;
+
     private void Start()
     {
+        currentTime = totalTime;
         StartCoroutine(ChangeScene());
         StartCoroutine(Clock());
     }
@@ -33,7 +36,7 @@ public class changeScene : MonoBehaviour
     private IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(totalTime);
-        Loader.Load(Loader.Scene.House);
+        Loader.Load(scene);
     }
 
     

@@ -9,7 +9,7 @@ public static class Loader
 {
     private class LoadingMonoBehaviour : MonoBehaviour { }
 
-    public enum Scene
+    public enum Scene // same as file 
     {
         MainMenuScene,
         House,

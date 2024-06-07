@@ -10,15 +10,10 @@ public class InventoryUIController : MonoBehaviour
 
     [SerializeField] private WitchInventorySO witchInventorySO;
 
-    [SerializeField] private PlayerItemsSO playerItemsSO;
 
     private void Awake()
     {
        itemOnHandTemplate.gameObject.SetActive(false);
-
-        //Reset the SOs
-        playerItemsSO.ResetPlayerItems();
-        witchInventorySO.ResetInventoryList();
     }
 
     private void Start()
@@ -57,7 +52,7 @@ public class InventoryUIController : MonoBehaviour
         }
         for(int i = 0; i < texts.Length; i++)
         {
-            texts[i].text = playerItemsSO.GetItemsCollectedArray()[i].ToString();
+            texts[i].text = PlayerItems.Instance.GetItemsCollectedArray()[i].ToString();
         }
     }
 }
