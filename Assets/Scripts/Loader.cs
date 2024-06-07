@@ -15,6 +15,7 @@ public static class Loader
         House,
         GreenHouse,
         LoadingScene,
+        DeliveryScene,
     }
 
     private static Action onLoaderCallBack;

@@ -17,13 +17,18 @@ public class StoredPotionsSO : ScriptableObject
     private void OnEnable()
     {
         //Same size of the recipes
-       potionsMade.Clear();
+        //potionsMade.Clear();
         for (int i = 0; i < potionsDebug.Length; i++)
         {
             potionsMade.Add(potionsDebug[i]);
         }
         
         //recipeSavedCountArray = new int[recipeListSO.recipeSOList.Count];
+    }
+
+    public void ResetPotionsMade()
+    {
+        potionsMade.Clear();
     }
 
     public void StorePotion(PotionObjectSO _potionObjectSO)

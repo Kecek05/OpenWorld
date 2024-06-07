@@ -14,7 +14,7 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.onClick.AddListener(() =>
         { // Lambda Expression, C# Delegates
-            Loader.Load(Loader.Scene.House);
+            Loader.Load(Loader.Scene.GreenHouse);
         });
         quitButton.onClick.AddListener(() =>
         { 

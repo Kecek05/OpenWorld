@@ -15,6 +15,11 @@ public class DeliverySceneController : MonoBehaviour
 
     [SerializeField] private StoredPotionsSO storedPotionsSO;
 
+    private void Awake()
+    {
+        storedPotionsSO.ResetPotionsMade();
+    }
+
     private void Start()
     {
 

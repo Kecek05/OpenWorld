@@ -1,11 +1,12 @@
 
+using System;
 using UnityEngine;
 
 [CreateAssetMenu()]
 public class PlayerItemsSO : ScriptableObject
 {
 
-    private int[] itemsCollected;
+    public int[] itemsCollected;
 
     public enum ItensType
     {
@@ -17,9 +18,9 @@ public class PlayerItemsSO : ScriptableObject
         Samambaia,
     }
 
-    private void OnEnable()
+    public void ResetPlayerItems()
     {
-        itemsCollected = new int[6];
+        //itemsCollected = new int[6];
     }
 
     public bool TrySpawnItem(ItensType itemTypeToSpawn)

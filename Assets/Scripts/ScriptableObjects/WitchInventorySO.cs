@@ -20,8 +20,7 @@ public class WitchInventorySO : ScriptableObject
 
     private int listMaxLenght = 4;
 
-
-    private void OnEnable()
+    public void ResetInventoryList()
     {
         inventoryList.Clear();
     }

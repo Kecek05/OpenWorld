@@ -15,6 +15,10 @@ public class InventoryUIController : MonoBehaviour
     private void Awake()
     {
        itemOnHandTemplate.gameObject.SetActive(false);
+
+        //Reset the SOs
+        playerItemsSO.ResetPlayerItems();
+        witchInventorySO.ResetInventoryList();
     }
 
     private void Start()
