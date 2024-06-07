@@ -20,7 +20,7 @@ public class PlayerItemsSO : ScriptableObject
 
     public void ResetPlayerItems()
     {
-        //itemsCollected = new int[6];
+        itemsCollected = new int[6];
     }
 
     public bool TrySpawnItem(ItensType itemTypeToSpawn)
