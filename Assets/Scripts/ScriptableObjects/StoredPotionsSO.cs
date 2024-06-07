@@ -31,7 +31,7 @@ public class StoredPotionsSO : ScriptableObject
         for (int i = 0; i < recipeSavedCountArray.Length; i++)
         {
             //Runs for all the recipes
-            if (_potionObjectSO == recipeListSO.recipeSOList[i])
+            if (_potionObjectSO == recipeListSO.potionObjectSOList[i])
             {
                 //stored potion matches with the recipe
                 recipeSavedCountArray[i]++; //add the potion
@@ -46,7 +46,7 @@ public class StoredPotionsSO : ScriptableObject
         for (int i = 0; i < recipeSavedCountArray.Length; i++)
         {
             //Runs for all the recipes
-            if (_potionObjectSO == recipeListSO.recipeSOList[i])
+            if (_potionObjectSO == recipeListSO.potionObjectSOList[i])
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;

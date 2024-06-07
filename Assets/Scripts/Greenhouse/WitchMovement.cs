@@ -15,8 +15,6 @@ public class WitchMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float runSpeed = 12f;
     [SerializeField] private float jumpForce;
-    private float maxStamina = 6;
-    private float currentStamina;
 
     private bool isGround;
     [SerializeField] private LayerMask groundLayer;
@@ -90,16 +88,15 @@ public class WitchMovement : MonoBehaviour
         moveDirection.y = 0;
 
         
-        if (WitchInputs.main.GetRunInput() == true && currentStamina > 0)
+        if (WitchInputs.main.GetRunInput() == true)
         {
             float evaluatedSpeed = runSpeedCurve.Evaluate(runTime);
             runTime += Time.deltaTime;
             runSpeed = evaluatedSpeed;
             moveDirection = moveDirection * runSpeed;
-            currentStamina -= Time.deltaTime;
 
         }
-        else if (WitchInputs.main.GetRunInput() == true && currentStamina <= 0)
+        else if (WitchInputs.main.GetRunInput() == true)
         {
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
@@ -108,10 +105,6 @@ public class WitchMovement : MonoBehaviour
         {
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
-            if (currentStamina < maxStamina)
-            {
-                currentStamina += Time.deltaTime;
-            }
         }
 
 

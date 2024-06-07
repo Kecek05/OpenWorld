@@ -24,7 +24,8 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
     private void Start()
     {
-        DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
+        if(DeliveryManager.Instance != null)
+            DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
     }
 
     private void DeliveryManager_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
@@ -58,7 +59,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
         for (int i = 0; i < storedPotionsSO.GetRecipeSavedCountArray().Length; i++)
         {
             //Runs for all the recipes
-            if (selectedPotionObjectSO == storedPotionsSO.GetRecipeListSO().recipeSOList[i])
+            if (selectedPotionObjectSO == storedPotionsSO.GetRecipeListSO().potionObjectSOList[i])
             {
                 //stored potion matches with the recipe
                 recipeCountText.text = storedPotionsSO.GetRecipeSavedCountArray()[i].ToString() + "x";

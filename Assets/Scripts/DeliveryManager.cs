@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 
 public class DeliveryManager : MonoBehaviour
 {
-    public event EventHandler OnRecipeSuccess;
-    public event EventHandler OnRecipeFailed;
-    public event EventHandler OnRecipeSpawned;
+    public event EventHandler OnRecipeSuccess; // for SFX
+    public event EventHandler OnRecipeFailed; // for SFX
+
     public event EventHandler<OnRecipeCompletedEventArgs> OnRecipeCompleted;
 
     public class OnRecipeCompletedEventArgs
@@ -21,53 +21,21 @@ public class DeliveryManager : MonoBehaviour
 
     [SerializeField] private RecipeListSO recipeListSO;
 
-    private List<PotionObjectSO> recipesPotionObjectSOList;
-
     [SerializeField] private StoredPotionsSO storedPotionsSO;
 
     private void Awake()
     {
         Instance = this;
-        recipesPotionObjectSOList = new List<PotionObjectSO>();
-    }
 
-    private void Update()
-    {
-        //spawnRecipeTimer -= Time.deltaTime;
-        //if(spawnRecipeTimer <= 0f)
-        //{
-        //    spawnRecipeTimer = spawnRecipeTimerMax;
-        //    if(waitingPotionObjectSOList.Count < waitingRecipeMax)
-        //    {
-        //        PotionObjectSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
-
-        //        waitingPotionObjectSOList.Add(waitingRecipeSO);
-
-        //        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
-        //    }
-        //}
-    }
-
-    private void Start()
-    {
-
-        for(int i = 0; i  < recipeListSO.recipeSOList.Count; i++)
-        {
-            PotionObjectSO potionSelected = recipeListSO.recipeSOList[i];
-
-            recipesPotionObjectSOList.Add(potionSelected);
-
-            OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
-        }
     }
 
 
 
     public void DeliverRecipe(PlateKitchenObject deliveredPlateKitchenObject, GameObject potionShapeObject)
     {
-        for (int i = 0; i < recipesPotionObjectSOList.Count; ++i)
+        for (int i = 0; i < recipeListSO.potionObjectSOList.Count; ++i)
         {
-            PotionObjectSO waitingRecipeSO = recipesPotionObjectSOList[i];
+            PotionObjectSO waitingRecipeSO = recipeListSO.potionObjectSOList[i];
             if (waitingRecipeSO.ingredientsSOList.Count == deliveredPlateKitchenObject.GetKitchenObjectSOList().Count)
             {
                 //Has the same number of ingredients
@@ -116,11 +84,5 @@ public class DeliveryManager : MonoBehaviour
         //No matches found!
         // Player did not delivered a correct recipe
         OnRecipeFailed?.Invoke(this, EventArgs.Empty);
-    }
-
-
-    public List<PotionObjectSO> GetRecipeListPotionObjectSOList()
-    {
-        return recipeListSO.recipeSOList;
     }
 }
