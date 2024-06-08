@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class changeScene : MonoBehaviour
 {
 
-    [SerializeField] private int totalTime = 40;
-    private int currentTime;
+    [SerializeField] private float totalTime = 40f;
+    private float currentTime;
     [SerializeField] private Image clockImage;
     [SerializeField] private Text timerText;
 
@@ -23,14 +23,18 @@ public class changeScene : MonoBehaviour
     {
         currentTime = totalTime;
 
-        while (currentTime > 0)
+        while (currentTime > 0) 
         {
-            currentTime--; 
+            currentTime -= Time.deltaTime; 
             float fillAmount = (float)currentTime / totalTime; 
             clockImage.fillAmount = fillAmount;
-            timerText.text = currentTime.ToString();
-            yield return new WaitForSeconds(1f);
+            int seconds = Mathf.FloorToInt(currentTime);
+            int milliseconds = Mathf.FloorToInt((currentTime - seconds) * 100);
+            timerText.text = seconds.ToString("00") + ":" + milliseconds.ToString("00");
+            yield return null;
         }
+        currentTime = 0;
+        timerText.text = "00:00";
     }
 
     private IEnumerator ChangeScene()
