@@ -24,10 +24,10 @@ public class StoredPotions : MonoBehaviour
     {
         recipeSavedCountArray = new int[RandomizeRecipeController.Instance.GetSelectedPotionsSOList().Count];
         //debug only
-        //for (int i = 0; i < potionsDebug.Length; i++)
-        //{
-        //    potionsMade.Add(potionsDebug[i]);
-        //}
+        for (int i = 0; i < potionsDebug.Length; i++)
+        {
+            potionsMade.Add(potionsDebug[i]);
+        }
     }
 
 
