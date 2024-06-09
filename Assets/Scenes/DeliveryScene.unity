@@ -176,7 +176,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 46932170}
-  - component: {fileID: 46932169}
+  - component: {fileID: 46932172}
+  - component: {fileID: 46932171}
   m_Layer: 0
   m_Name: GameInput
   m_TagString: Untagged
@@ -184,18 +185,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &46932169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46932168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd57aa314d792ae4ca1f96fa54a946e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &46932170
 Transform:
   m_ObjectHideFlags: 0
@@ -211,6 +200,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46932171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46932168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 7da870be8fef14b4493ef5aebc35d548, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard
+  m_DefaultActionMap: PlayerMovement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &46932172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46932168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54d3a9aed8cd674e8bb8e277bd7405e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  run: 0
+  jump: 0
 --- !u!1001 &51948418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1002,9 +1035,6 @@ PrefabInstance:
       addedObject: {fileID: 1267774208}
     - targetCorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1267774207}
-    - targetCorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1267774206}
   m_SourcePrefab: {fileID: 100100000, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
 --- !u!1 &121877767
@@ -1275,7 +1305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc3a814d42edb444878250287855491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameInput: {fileID: 46932169}
 --- !u!1 &252426008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,7 +2603,7 @@ MonoBehaviour:
   parent: {fileID: 235588457}
   spawnDelay: 1
   downSpeed: 0
-  hitNumber: 10
+  hitNumber: 3
 --- !u!1 &1267774191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
@@ -2597,7 +2626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9646968ed930644aa7f6ced8ec73326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameInput: {fileID: 46932169}
   aggroPoint: {fileID: 1834344050}
 --- !u!65 &1267774198
 BoxCollider:
@@ -2748,20 +2776,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1267774207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267774191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a54d3a9aed8cd674e8bb8e277bd7405e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  run: 0
-  jump: 0
 --- !u!114 &1267774208
 MonoBehaviour:
   m_ObjectHideFlags: 0

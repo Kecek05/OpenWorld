@@ -54,7 +54,7 @@ public class WitchMovement : MonoBehaviour
             
         }
 
-        if(isGround == true && WitchInputs.main.GetJumpInput() == true && isJumping == false)
+        if(isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false)
         {
             if(jumpingCoroutine == null)
             {
@@ -80,15 +80,15 @@ public class WitchMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        float horizontalInput = WitchInputs.main.GetHorizontalInput();
-        float verticalInput = WitchInputs.main.GetVerticalInput();
+        float horizontalInput = WitchInputs.Instance.GetHorizontalInput();
+        float verticalInput = WitchInputs.Instance.GetVerticalInput();
 
         Vector3 moveDirection = cameraObj.forward * verticalInput + cameraObj.right * horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
 
         
-        if (WitchInputs.main.GetRunInput() == true)
+        if (WitchInputs.Instance.GetRunInput() == true)
         {
             float evaluatedSpeed = runSpeedCurve.Evaluate(runTime);
             runTime += Time.deltaTime;
@@ -96,7 +96,7 @@ public class WitchMovement : MonoBehaviour
             moveDirection = moveDirection * runSpeed;
 
         }
-        else if (WitchInputs.main.GetRunInput() == true)
+        else if (WitchInputs.Instance.GetRunInput() == true)
         {
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
@@ -133,8 +133,8 @@ public class WitchMovement : MonoBehaviour
 
     private void HandleAirMovement()
     {
-        float horizontalInput = WitchInputs.main.GetHorizontalInput();
-        float verticalInput = WitchInputs.main.GetVerticalInput();
+        float horizontalInput = WitchInputs.Instance.GetHorizontalInput();
+        float verticalInput = WitchInputs.Instance.GetVerticalInput();
 
         Vector3 moveDirection = cameraObj.forward * verticalInput + cameraObj.right * horizontalInput;
         moveDirection.Normalize();
@@ -150,8 +150,8 @@ public class WitchMovement : MonoBehaviour
     private void HandleRotation()
     {
         Vector3 targetDirection = Vector3.zero;
-        targetDirection = cameraObj.forward * WitchInputs.main.GetVerticalInput();
-        targetDirection = targetDirection + cameraObj.right * WitchInputs.main.GetHorizontalInput();
+        targetDirection = cameraObj.forward * WitchInputs.Instance.GetVerticalInput();
+        targetDirection = targetDirection + cameraObj.right * WitchInputs.Instance.GetHorizontalInput();
         targetDirection.Normalize();
         targetDirection.y = 0;
 

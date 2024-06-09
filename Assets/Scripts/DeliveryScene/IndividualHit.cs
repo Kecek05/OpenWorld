@@ -17,6 +17,8 @@ public class IndividualHit : MonoBehaviour
 
     private IEnumerator hitLoopCoroutine;
 
+    private bool inLoop = false;
+
     private void OnEnable()
     {
         hited = false;
@@ -24,17 +26,34 @@ public class IndividualHit : MonoBehaviour
         StartCoroutine(hitLoopCoroutine);
     }
 
+
+    private void Start()
+    {
+        WitchInputs.Instance.OnHit1Performed += WitchInputs_OnHit1Performed;
+    }
+
+    private void WitchInputs_OnHit1Performed(object sender, System.EventArgs e)
+    {
+        if(inLoop)
+        {
+            hited = true;
+        }
+    }
+
     private IEnumerator HitLoop()
     {
-        while(!hited || _hitCount <= hitNumber)
+        while(!hited && _hitCount <= hitNumber)
         {
             //not clicked yet or can still click
-
+            inLoop = true;
 
             _hitCount += Time.deltaTime;
             yield return null;
         }
         //Hitted
+        inLoop = false;
         parent.SetActive(false);
     }
+
+    
 }
