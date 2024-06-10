@@ -15,16 +15,26 @@ public class IndividualMovingHit : MonoBehaviour
 
     private IEnumerator movingCoroutine;
 
-    [SerializeField] private float duration = 2.0f;
+    private float duration;
 
-    private void Start()
-    {
-        individualHit.OnHitStarted += IndividualHit_OnHitStarted;
-    }
+
     private void OnEnable()
     {
+        individualHit.OnHitStarted += IndividualHit_OnHitStarted;
+
         _startPosition = startPosition.position;
         _endPosition = endPosition.position;
+        gameObject.transform.position = _startPosition;
+
+        duration = individualHit.GetTimeToHit();
+
+
+        Debug.Log("start position is " +  _startPosition + " end position is " +  _endPosition);
+    }
+
+    private void OnDisable()
+    {
+        individualHit.OnHitStarted -= IndividualHit_OnHitStarted;
     }
 
     private void IndividualHit_OnHitStarted(object sender, System.EventArgs e)
@@ -51,5 +61,7 @@ public class IndividualMovingHit : MonoBehaviour
 
         // Garantir que o objeto esteja exatamente na posição final ao término da duração
         transform.position = _endPosition;
+
+        movingCoroutine = null;
     }
 }

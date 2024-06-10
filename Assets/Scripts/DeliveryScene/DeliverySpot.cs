@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DeliverySpot : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject parentMinigame;
 
     public event EventHandler<OnPotionSetEventArgs> OnPotionSet;
 
@@ -18,11 +17,13 @@ public class DeliverySpot : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        //Delivery the potion
         StoredPotions.Instance.DeliveryPotion(potionToDeliveryHere);
 
+        //Add the money
         MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + potionToDeliveryHere.potionMoneyRecieve);
 
-        parentMinigame.SetActive(true);
+        DeliveryMinigame.Instance.StartMinigame();
 
         gameObject.SetActive(false);
     }

@@ -7,32 +7,35 @@ public class IndividualHit : MonoBehaviour
 {
     public event EventHandler OnHitStarted;
 
-    [SerializeField] private float spawnDelay;
-    [SerializeField] private float downSpeed;
-    [SerializeField] private float hitNumber;
+    [SerializeField] private float spawnIndividualDelay;
+    [SerializeField] private float timeToHit;
     [SerializeField] private DeliveryMinigame.HitInputs hitInput;
 
-    private float _hitCount = 0f;
-    private bool inLoop = false;
+    private float _hitTime = 0f;
+    private bool inMinigame = false;
     private bool hited = false;
 
 
     private IEnumerator hitLoopCoroutine;
 
-    
+
+    private void Awake()
+    {
+        ManageInput();
+    }
 
     private void OnEnable()
     {
         hited = false;
-        _hitCount = 0f;
+        _hitTime = 0f;
         hitLoopCoroutine = HitLoop();
         StartCoroutine(hitLoopCoroutine);
     }
 
 
-    private void Start()
+    private void ManageInput()
     {
-        switch(hitInput)
+        switch (hitInput)
         {
             case DeliveryMinigame.HitInputs.Q:
                 WitchInputs.Instance.OnHit1Performed += WitchInputs_OnHitPerformed;
@@ -48,12 +51,12 @@ public class IndividualHit : MonoBehaviour
                 break;
 
         }
-
     }
+
 
     private void WitchInputs_OnHitPerformed(object sender, System.EventArgs e)
     {
-        if(inLoop)
+        if(inMinigame)
         {
             hited = true;
             DeliveryMinigame.Instance.Hitted();
@@ -64,19 +67,21 @@ public class IndividualHit : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f); // wait for the subscription
         OnHitStarted?.Invoke(this, EventArgs.Empty);
-
-        while (!hited && _hitCount <= hitNumber)
+        yield return new WaitForSeconds(spawnIndividualDelay); // random spawn delay
+        while (!hited && _hitTime <= timeToHit)
         {
             //not clicked yet or can still click
-            inLoop = true;
+            inMinigame = true;
 
-            _hitCount += Time.deltaTime;
+            _hitTime += Time.deltaTime;
             yield return null;
         }
         //Hitted
-        inLoop = false;
+        inMinigame = false;
+        DeliveryMinigame.Instance.Hitted();
         gameObject.SetActive(false);
     }
 
+    public float GetTimeToHit() { return timeToHit; }
     
 }
