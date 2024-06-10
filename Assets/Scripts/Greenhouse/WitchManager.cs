@@ -10,6 +10,6 @@ public class WitchManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        WitchMovement.main1.GetAllMoves();
+        WitchMovement.Instance.GetAllMoves();
     }
 }

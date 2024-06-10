@@ -18,7 +18,7 @@ public class WitchInputs : MonoBehaviour
     public event EventHandler OnHit4Performed;
 
 
-    private PlayerInput playerInput;
+    [SerializeField] private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
     private Vector2 movementInput;
     private float verticalInput;
@@ -30,7 +30,6 @@ public class WitchInputs : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        playerInput = GetComponent<PlayerInput>();
 
         Debug.Log("Action map is: " + playerInput.currentActionMap);
     }
@@ -109,6 +108,7 @@ public class WitchInputs : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+
     }
 
     private void OnMovementCanceled(InputAction.CallbackContext context)

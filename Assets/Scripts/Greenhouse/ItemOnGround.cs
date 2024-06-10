@@ -8,12 +8,21 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 {
 
     [SerializeField] private ItemOnGroundSO[] itemOnGroundSOArray;
-    private ItemOnGroundSO selectedItemOnGroundSO;
     private Transform itemInGround;
+
+    [SerializeField] private Transform spawnpoint;
+
+    private ItemOnGroundSO selectedItemOnGroundSO;
+
+
     [SerializeField] private Image itemInGroundImage;
-    private int selectedItemClicksToCollect;
+
+    private int selectedItemClicksToCollect; // clicks need to collect
+
     [SerializeField] private WitchInventorySO witchInventorySO;
+
     public event EventHandler<IHasProgress.OnProgressChangedEventsArgs> OnProgressChanged;
+
     [SerializeField] private ParticleSystem spawnParticle;
 
     private void Start()
@@ -21,7 +30,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
         int randomItemOnGround = UnityEngine.Random.Range(0, itemOnGroundSOArray.Length);
         selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround]; 
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
-        itemInGround = Instantiate(selectedItemOnGroundSO.prefab, transform);
+        itemInGround = Instantiate(selectedItemOnGroundSO.prefab, spawnpoint.transform);
         itemInGroundImage.sprite = selectedItemOnGroundSO.itemSprite;
     }
 
@@ -30,7 +39,8 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
     {
         if (witchInventorySO.CanAddMoreItens())
         {
-            selectedItemClicksToCollect--;
+            //Inv not full
+            selectedItemClicksToCollect--; 
 
             OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
             {
@@ -40,10 +50,16 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 
             if (selectedItemClicksToCollect <= 0)
             {
+                //done all clicks
+
+                //add item
                 witchInventorySO.AddItemToInventoryList(selectedItemOnGroundSO);
+
+                
                 spawnParticle.Play();
 
                 Destroy(itemInGround.gameObject);
+                //selectedItemOnGroundSO = null;
                 Destroy(gameObject);
                 Destroy(itemInGroundImage.gameObject);
                 

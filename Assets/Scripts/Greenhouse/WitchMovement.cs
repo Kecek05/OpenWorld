@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WitchMovement : MonoBehaviour
 {
-    public static WitchMovement main1;
+    public static WitchMovement Instance { get; private set; }
 
     Vector3 moveDirection;
     Transform cameraObj;
@@ -34,7 +34,7 @@ public class WitchMovement : MonoBehaviour
 
     private void Awake()
     {
-        main1 = this;
+        Instance = this;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         cameraObj = Camera.main.transform;
