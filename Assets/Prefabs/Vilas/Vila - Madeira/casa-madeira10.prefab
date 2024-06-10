@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 112.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 147.54
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalRotation.x
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalRotation.z
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -55,65 +55,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -2045257923548263128, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2488514177733473844}
-    - targetCorrespondingSourceObject: {fileID: 2725337755230610859, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8580647286096970416}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
---- !u!1 &1387780913433191116 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2725337755230610859, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
-  m_PrefabInstance: {fileID: 3931707744947242855}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &8580647286096970416
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387780913433191116}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8829468777091971923, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
---- !u!1 &6128822527094540879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -2045257923548263128, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
-  m_PrefabInstance: {fileID: 3931707744947242855}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &2488514177733473844
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6128822527094540879}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2477511411847689622, guid: 8bef0b0bfcc873643b610d0bb3021c42, type: 3}
