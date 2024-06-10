@@ -6,7 +6,7 @@ public class WitchManager : MonoBehaviour
 {
     private void Update()
     {
-        WitchInputs.main.GetAllInputs();
+        WitchInputs.Instance.GetAllInputs();
     }
     private void LateUpdate()
     {

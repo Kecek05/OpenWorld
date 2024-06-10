@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,5 +6,12 @@ using UnityEngine;
 //[CreateAssetMenu()]
 public class RecipeListSO : ScriptableObject
 {
-    public List<PotionObjectSO> recipeSOList;
+    public event EventHandler OnRecipeSpawned;
+
+    public List<PotionObjectSO> possiblesPotionObjectSOList;
+
+    public void OnRecipeSpawnedTrigger()
+    {
+        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
+    }
 }

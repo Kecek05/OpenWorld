@@ -10,7 +10,6 @@ public class InventoryUIController : MonoBehaviour
 
     [SerializeField] private WitchInventorySO witchInventorySO;
 
-    [SerializeField] private PlayerItemsSO playerItemsSO;
 
     private void Awake()
     {
@@ -53,7 +52,7 @@ public class InventoryUIController : MonoBehaviour
         }
         for(int i = 0; i < texts.Length; i++)
         {
-            texts[i].text = playerItemsSO.GetItemsCollectedArray()[i].ToString();
+            texts[i].text = PlayerItems.Instance.GetItemsCollectedArray()[i].ToString();
         }
     }
 }

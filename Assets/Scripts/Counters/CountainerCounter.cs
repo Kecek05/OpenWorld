@@ -11,12 +11,12 @@ public class CountainerCounter : BaseCounter
 
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
-    [SerializeField] private PlayerItemsSO.ItensType CounterType;
+    [SerializeField] private PlayerItems.ItensType CounterType;
 
-    [SerializeField] private PlayerItemsSO playerItemsSO;
+
     public override void Interact(Player player)
     {
-        if(!player.HasKitchenObject() && playerItemsSO.TrySpawnItem(CounterType))
+        if(!player.HasKitchenObject() && PlayerItems.Instance.TrySpawnItem(CounterType))
         {
             //player is not carrying anything and can grab one more kitchenObject
             KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
@@ -32,7 +32,7 @@ public class CountainerCounter : BaseCounter
                 //player is carrying same kitchenObject of the Countainer
 
                 //Return the item
-                playerItemsSO.ReturnItemToCountainer(CounterType);
+                PlayerItems.Instance.ReturnItemToCountainer(CounterType);
 
 
                 //Destroy the item
@@ -43,5 +43,5 @@ public class CountainerCounter : BaseCounter
     }
 
 
-    public PlayerItemsSO.ItensType GetCounterType() { return CounterType; }
+    public PlayerItems.ItensType GetCounterType() { return CounterType; }
 }

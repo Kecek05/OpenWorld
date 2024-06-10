@@ -11,7 +11,7 @@ public class ItemOnGroundSO : ScriptableObject
 
     public int clicksToCollect;
 
-    public PlayerItemsSO.ItensType itemType;
+    public PlayerItems.ItensType itemType;
 
     public Sprite itemSprite;
 }

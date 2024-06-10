@@ -7,6 +7,8 @@ public class DeliveryManagerUI : MonoBehaviour
     [SerializeField] private Transform container;
     [SerializeField] private Transform recipeTemplate;
 
+    [SerializeField] private RecipeListSO recipeListSO;
+
     private void Awake()
     {
         recipeTemplate.gameObject.SetActive(false);
@@ -15,21 +17,17 @@ public class DeliveryManagerUI : MonoBehaviour
 
     private void Start()
     {
-        DeliveryManager.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
-        DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
+
+        recipeListSO.OnRecipeSpawned += RecipeListSO_OnRecipeSpawned;
 
         UpdateVisual();
     }
 
-    private void DeliveryManager_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
+    private void RecipeListSO_OnRecipeSpawned(object sender, System.EventArgs e)
     {
-        //UpdateVisual();
+        
     }
 
-    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
-    {
-        //UpdateVisual();
-    }
 
     private void UpdateVisual()
     {
@@ -38,7 +36,7 @@ public class DeliveryManagerUI : MonoBehaviour
             if(child == recipeTemplate) continue;
             Destroy(child.gameObject);
         }
-        foreach(PotionObjectSO potionObjectSO in DeliveryManager.Instance.GetRecipeListPotionObjectSOList())
+        foreach(PotionObjectSO potionObjectSO in RandomizeRecipeController.Instance.GetSelectedPotionsSOList())
         {
             Transform recipeTransform = Instantiate(recipeTemplate, container);
             recipeTransform.gameObject.SetActive(true);

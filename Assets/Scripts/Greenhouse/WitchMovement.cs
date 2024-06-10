@@ -15,8 +15,6 @@ public class WitchMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float runSpeed = 12f;
     [SerializeField] private float jumpForce;
-    private float maxStamina = 6;
-    private float currentStamina;
 
     private bool isGround;
     [SerializeField] private LayerMask groundLayer;
@@ -56,7 +54,7 @@ public class WitchMovement : MonoBehaviour
             
         }
 
-        if(isGround == true && WitchInputs.main.GetJumpInput() == true && isJumping == false)
+        if(isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false)
         {
             if(jumpingCoroutine == null)
             {
@@ -82,24 +80,23 @@ public class WitchMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        float horizontalInput = WitchInputs.main.GetHorizontalInput();
-        float verticalInput = WitchInputs.main.GetVerticalInput();
+        float horizontalInput = WitchInputs.Instance.GetHorizontalInput();
+        float verticalInput = WitchInputs.Instance.GetVerticalInput();
 
         Vector3 moveDirection = cameraObj.forward * verticalInput + cameraObj.right * horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
 
         
-        if (WitchInputs.main.GetRunInput() == true && currentStamina > 0)
+        if (WitchInputs.Instance.GetRunInput() == true)
         {
             float evaluatedSpeed = runSpeedCurve.Evaluate(runTime);
             runTime += Time.deltaTime;
             runSpeed = evaluatedSpeed;
             moveDirection = moveDirection * runSpeed;
-            currentStamina -= Time.deltaTime;
 
         }
-        else if (WitchInputs.main.GetRunInput() == true && currentStamina <= 0)
+        else if (WitchInputs.Instance.GetRunInput() == true)
         {
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
@@ -108,10 +105,6 @@ public class WitchMovement : MonoBehaviour
         {
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
-            if (currentStamina < maxStamina)
-            {
-                currentStamina += Time.deltaTime;
-            }
         }
 
 
@@ -140,8 +133,8 @@ public class WitchMovement : MonoBehaviour
 
     private void HandleAirMovement()
     {
-        float horizontalInput = WitchInputs.main.GetHorizontalInput();
-        float verticalInput = WitchInputs.main.GetVerticalInput();
+        float horizontalInput = WitchInputs.Instance.GetHorizontalInput();
+        float verticalInput = WitchInputs.Instance.GetVerticalInput();
 
         Vector3 moveDirection = cameraObj.forward * verticalInput + cameraObj.right * horizontalInput;
         moveDirection.Normalize();
@@ -157,8 +150,8 @@ public class WitchMovement : MonoBehaviour
     private void HandleRotation()
     {
         Vector3 targetDirection = Vector3.zero;
-        targetDirection = cameraObj.forward * WitchInputs.main.GetVerticalInput();
-        targetDirection = targetDirection + cameraObj.right * WitchInputs.main.GetHorizontalInput();
+        targetDirection = cameraObj.forward * WitchInputs.Instance.GetVerticalInput();
+        targetDirection = targetDirection + cameraObj.right * WitchInputs.Instance.GetHorizontalInput();
         targetDirection.Normalize();
         targetDirection.y = 0;
 

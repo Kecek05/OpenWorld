@@ -7,7 +7,6 @@ public class PlayerOpenWorld : MonoBehaviour
 {
     public static PlayerOpenWorld main;
 
-    [SerializeField] private GameInput gameInput;
     [SerializeField] private Transform aggroPoint;
 
     private GameObject intectableObj;
@@ -23,7 +22,7 @@ public class PlayerOpenWorld : MonoBehaviour
 
     private void Start()
     {
-        gameInput.OnInteractAction += GameInput_OnInteractAction;
+        WitchInputs.Instance.OnInteractAction += GameInput_OnInteractAction;
 
     }
 
@@ -34,6 +33,7 @@ public class PlayerOpenWorld : MonoBehaviour
         {
             IInteractable interactObj = intectableObj.gameObject.GetComponent<IInteractable>();
             interactObj.Interact();
+            intectableObj = null;
         }
     }
 

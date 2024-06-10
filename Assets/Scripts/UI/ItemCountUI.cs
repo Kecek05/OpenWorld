@@ -7,7 +7,6 @@ public class ItemCountUI : MonoBehaviour
     [SerializeField] private CountainerCounter countainerCounter;
     [SerializeField] private TextMeshProUGUI counterX;
 
-    [SerializeField] private PlayerItemsSO playerItemsSO;
 
     private void Start()
     {
@@ -22,6 +21,6 @@ public class ItemCountUI : MonoBehaviour
 
     private void UpdateCounterTxt()
     {
-        counterX.text = playerItemsSO.GetCountWithItemType(countainerCounter.GetCounterType()).ToString();
+        counterX.text = PlayerItems.Instance.GetCountWithItemType(countainerCounter.GetCounterType()).ToString();
     }
 }

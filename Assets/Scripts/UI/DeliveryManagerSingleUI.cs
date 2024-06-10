@@ -16,7 +16,6 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     private PotionObjectSO selectedPotionObjectSO;
 
 
-
     private void Awake()
     {
         iconTemplate.gameObject.SetActive(false);
@@ -24,7 +23,8 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
     private void Start()
     {
-        DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
+        if(DeliveryManager.Instance != null)
+            DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
     }
 
     private void DeliveryManager_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
@@ -55,13 +55,13 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
     private void UpdatePotionCount()
     {
-        for (int i = 0; i < StoredPotionsController.Instance.GetRecipeSavedCountArray().Length; i++)
+        for (int i = 0; i < StoredPotions.Instance.GetRecipeSavedCountArray().Length; i++)
         {
             //Runs for all the recipes
-            if (selectedPotionObjectSO == StoredPotionsController.Instance.GetRecipeListSO().recipeSOList[i])
+            if (selectedPotionObjectSO == RandomizeRecipeController.Instance.GetSelectedPotionsSOList()[i])
             {
                 //stored potion matches with the recipe
-                recipeCountText.text = StoredPotionsController.Instance.GetRecipeSavedCountArray()[i].ToString() + "x";
+                recipeCountText.text = StoredPotions.Instance.GetRecipeSavedCountArray()[i].ToString() + "x";
                 break;
             }
         }

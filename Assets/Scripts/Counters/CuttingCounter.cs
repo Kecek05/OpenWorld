@@ -13,6 +13,8 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
     public event EventHandler OnCut;
 
+    public event EventHandler OnCutFinished;
+
     [SerializeField] private InteractRecipeSO[] cuttingRecipeSOArray;
 
     private int cuttingProgress;
@@ -106,6 +108,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
                 KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
 
+                OnCutFinished?.Invoke(this, EventArgs.Empty);
             }
 
         }

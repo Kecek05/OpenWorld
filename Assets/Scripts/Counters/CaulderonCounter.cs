@@ -32,7 +32,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
         Done,
     }
 
-    [SerializeField] private PotionObjectSO[] potionObjectSOArray;
+    [SerializeField] private RecipeListSO recipeListSO;
 
     private State state;
 
@@ -83,24 +83,6 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                        
                         state = State.CookedIngredient; 
                     }
-
-
-
-                    //if (fryingTimer > fryingRecipeSO.fryingTimerMax)
-                    //{
-                    //    //Fried
-                    //    GetKitchenObject().DestroySelf();
-
-                    //    KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
-
-
-
-
-                    //    OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
-                    //    {
-                    //        state = state
-                    //    });
-                    //}
                     break;
                 case State.CookedIngredient:
 
@@ -130,31 +112,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                         }
                     }
 
-                    //burningTimer += Time.deltaTime;
-
-                    //OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
-                    //{
-                    //    progressNormalized = burningTimer / burningRecipeSO.burningTimerMax
-                    //});
-
-                    //if (burningTimer > burningRecipeSO.burningTimerMax)
-                    //{
-                    //    //Fried
-                    //    GetKitchenObject().DestroySelf();
-
-                    //    KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
-
-                    //    state = State.Done;
-                    //    OnStateChanged?.Invoke(this, new OnStateCHangedEventArgs
-                    //    {
-                    //        state = state
-                    //    });
-
-                    //    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
-                    //    {
-                    //        progressNormalized = 0f
-                    //    });
-                    //}
+ 
                     break;
                 case State.Done:
                     break;
@@ -312,9 +270,9 @@ public class CaulderonCounter : BaseCounter, IHasProgress
 
         listToVerify.Add(inputKitchenObject);
 
-        int totalPotionObjectInArray = potionObjectSOArray.Length;
+        int totalPotionObjectInArray = RandomizeRecipeController.Instance.GetSelectedPotionsSOList().Count;
 
-        foreach(PotionObjectSO potionObjectSO in potionObjectSOArray)
+        foreach(PotionObjectSO potionObjectSO in RandomizeRecipeController.Instance.GetSelectedPotionsSOList())
         {
             for(int i = 0; i <listToVerify.Count; i++)
             {
@@ -326,15 +284,6 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                     //return false;
                 }
             }
-            
-
-
-            //bool containsAll = listToVerify.All(inputKitchenObject => potionObjectSO.ingredientsSOList.Contains(inputKitchenObject));
-            //if (containsAll)
-            //{
-                
-            //    return true;
-            //}
             
          
         }
@@ -356,7 +305,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
 
     private bool GetExistRecipeFirstIndexWithInput(KitchenObjectSO inputKitchenObjectSO)
     {
-        foreach (PotionObjectSO potionObjectSO in potionObjectSOArray)
+        foreach (PotionObjectSO potionObjectSO in RandomizeRecipeController.Instance.GetSelectedPotionsSOList())
         {
             if (inputKitchenObjectSO == potionObjectSO.ingredientsSOList[0])
             {
@@ -369,7 +318,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
 
     private PotionObjectSO GetPotionObjectSOResult()
     {
-        foreach (PotionObjectSO potionObjectSO in potionObjectSOArray)
+        foreach (PotionObjectSO potionObjectSO in RandomizeRecipeController.Instance.GetSelectedPotionsSOList())
         {
             if(kitchenObjectSOInCaulderonList.SequenceEqual(potionObjectSO.ingredientsSOList))
             {

@@ -1,11 +1,13 @@
 
+using System;
+using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class PlayerItemsSO : ScriptableObject
+public class PlayerItems : MonoBehaviour
 {
+    public static PlayerItems Instance { get; private set; }
 
-    private int[] itemsCollected;
+    public int[] itemsCollected;
 
     public enum ItensType
     {
@@ -17,7 +19,16 @@ public class PlayerItemsSO : ScriptableObject
         Samambaia,
     }
 
-    private void OnEnable()
+    private void Awake()
+    {
+        Instance = this;
+    }
+    private void Start()
+    {
+        itemsCollected = new int[6];
+    }
+
+    public void ResetPlayerItems()
     {
         itemsCollected = new int[6];
     }

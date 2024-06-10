@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemOnGround : MonoBehaviour, IInteractable
+public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 {
 
     [SerializeField] private ItemOnGroundSO[] itemOnGroundSOArray;
@@ -12,12 +13,17 @@ public class ItemOnGround : MonoBehaviour, IInteractable
 
     [SerializeField] private WitchInventorySO witchInventorySO;
 
+
+    public event EventHandler<IHasProgress.OnProgressChangedEventsArgs> OnProgressChanged;
+
+    [SerializeField] private ParticleSystem spawnParticle;
+
     private void Start()
     {
-        int randomItemOnGround = Random.Range(0, itemOnGroundSOArray.Length);
+        int randomItemOnGround = UnityEngine.Random.Range(0, itemOnGroundSOArray.Length);
         selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround]; 
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
-        itemInGround = Instantiate(selectedItemOnGroundSO.prefab, transform.position, Quaternion.identity);
+        itemInGround = Instantiate(selectedItemOnGroundSO.prefab, transform);
     }
 
 
@@ -27,9 +33,17 @@ public class ItemOnGround : MonoBehaviour, IInteractable
         {
             selectedItemClicksToCollect--;
 
-            if(selectedItemClicksToCollect <= 0)
+            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
+            {
+                progressNormalized = 1f - (float)selectedItemClicksToCollect / selectedItemOnGroundSO.clicksToCollect, 
+                progressCount = selectedItemClicksToCollect
+            });
+
+            if (selectedItemClicksToCollect <= 0)
             {
                 witchInventorySO.AddItemToInventoryList(selectedItemOnGroundSO);
+                spawnParticle.Play();
+
                 Destroy(itemInGround.gameObject);
                 Destroy(gameObject);
             }
