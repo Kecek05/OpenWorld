@@ -14,4 +14,6 @@ public class PotionObjectSO : ScriptableObject
     public GameObject PotionShape;
     [Space]
     public int potionMoneyRecieve;
+    [Space]
+    public MinigameDifficultySO minigameDifficulty;
 }

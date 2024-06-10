@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class DeliveryMinigame : MonoBehaviour
 {
     public static DeliveryMinigame Instance {  get; private set; }
+
+    public event Action OnFinishedMinigame;
 
     private int hitCount = 0;
     private int missCount = 0;
@@ -13,17 +16,20 @@ public class DeliveryMinigame : MonoBehaviour
     [SerializeField] private GameObject[] individualHits;
 
     private IEnumerator startMinigameCoroutine;
+    private IEnumerator finishMinigameCoroutine;
 
     private int startRecieveMoney;
     private float recieveMoneyMultiply = 1;
+
+    private MinigameDifficultySO minigameDifficultySO;
     
 
     public enum HitInputs
     {
-        Q,
-        W,
-        E,
-        R,
+        A,
+        S,
+        D,
+        F,
     }
 
 
@@ -32,8 +38,10 @@ public class DeliveryMinigame : MonoBehaviour
         Instance = this;
     }
 
-    public void StartMinigame(int _startRecieveMoney)
+    public void StartMinigame(int _startRecieveMoney, MinigameDifficultySO _minigameDifficultySO)
     {
+        minigameDifficultySO = _minigameDifficultySO;
+
         startRecieveMoney = _startRecieveMoney;
         if(startMinigameCoroutine == null)
         {
@@ -47,8 +55,7 @@ public class DeliveryMinigame : MonoBehaviour
         WitchInputs.Instance.ChangePLayerInputHitMinigame(true);
         titleObj.SetActive(true);
         yield return new WaitForSeconds(delayToStart);
-        hitCount = 0;
-
+        ResetMinigame();
         for (int i = 0; i < individualHits.Length; i++)
         {
             //turn all minigames on
@@ -56,8 +63,11 @@ public class DeliveryMinigame : MonoBehaviour
         }
     }
 
-    private void FinishedMinigame()
+    private IEnumerator FinishedMinigame()
     {
+        //wait a little 
+        OnFinishedMinigame?.Invoke();
+        yield return new WaitForSeconds(1f);
         //Add the money
         MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + CalculateMoneyAdd());
 
@@ -68,11 +78,21 @@ public class DeliveryMinigame : MonoBehaviour
             //turn all minigames off
             individualHits[i].gameObject.SetActive(false);
         }
+
+       ResetMinigame();
+
+        
+    }
+
+    private void ResetMinigame()
+    {
+
+        hitCount = 0;
+        missCount = 0;
         startRecieveMoney = 0;
         recieveMoneyMultiply = 1;
         startMinigameCoroutine = null;
-
-        
+        finishMinigameCoroutine = null;
     }
 
     private int CalculateMoneyAdd()
@@ -97,9 +117,15 @@ public class DeliveryMinigame : MonoBehaviour
 
     private void VerifyFinishedGame()
     {
-        if ((hitCount + missCount) >= 1)
+        if ((hitCount + missCount) >= individualHits.Length)
         {
-            FinishedMinigame();
+            if(finishMinigameCoroutine == null)
+            {
+                finishMinigameCoroutine = FinishedMinigame();
+                StartCoroutine(finishMinigameCoroutine);
+            }
         }
     }
+
+    public MinigameDifficultySO GetMinigameDifficultySO() { return minigameDifficultySO; }
 }

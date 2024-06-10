@@ -5,28 +5,38 @@ using UnityEngine;
 
 public class IndividualHit : MonoBehaviour
 {
+    public event Action<HitType> OnTextFeedback;
+
+    public enum HitType
+    {
+        Perfect,
+        Good,
+        Bad,
+    }
+
     [SerializeField] private IndividualMovingHit individualMovingHit;
-    [SerializeField] private float spawnIndividualDelay;
-    [SerializeField] private float timeToHit;
     [SerializeField] private DeliveryMinigame.HitInputs hitInput;
 
+    private float timeToHit;
     private float _hitTime = 0f;
+    private float individualMultiplyAdd = 0f;
     private bool inMinigame = false;
     private bool hited = false;
-    private float individualMultiplyAdd = 0f;
 
     private IEnumerator hitLoopCoroutine;
 
-
+    
 
     private void Awake()
     {
         ManageInput();
     }
 
+
+
     private void OnEnable()
     {
-
+        DeliveryMinigame.Instance.OnFinishedMinigame += DeliveryMinigame_OnFinishedMinigame;
         if(hitLoopCoroutine == null)
         {
             hitLoopCoroutine = HitLoop();
@@ -34,21 +44,30 @@ public class IndividualHit : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        DeliveryMinigame.Instance.OnFinishedMinigame -= DeliveryMinigame_OnFinishedMinigame;
+    }
+
+    private void DeliveryMinigame_OnFinishedMinigame()
+    {
+        ResetHitIndividualMinigame();
+    }
 
     private void ManageInput()
     {
         switch (hitInput)
         {
-            case DeliveryMinigame.HitInputs.Q:
+            case DeliveryMinigame.HitInputs.A:
                 WitchInputs.Instance.OnHit1Performed += WitchInputs_OnHitPerformed;
                 break;
-            case DeliveryMinigame.HitInputs.W:
+            case DeliveryMinigame.HitInputs.S:
                 WitchInputs.Instance.OnHit2Performed += WitchInputs_OnHitPerformed;
                 break;
-            case DeliveryMinigame.HitInputs.E:
+            case DeliveryMinigame.HitInputs.D:
                 WitchInputs.Instance.OnHit3Performed += WitchInputs_OnHitPerformed;
                 break;
-            case DeliveryMinigame.HitInputs.R:
+            case DeliveryMinigame.HitInputs.F:
                 WitchInputs.Instance.OnHit4Performed += WitchInputs_OnHitPerformed;
                 break;
 
@@ -67,8 +86,13 @@ public class IndividualHit : MonoBehaviour
 
     private IEnumerator HitLoop()
     {
-        yield return new WaitForSeconds(spawnIndividualDelay); // random spawn delay
+        //Random numbers based on difficulty of the recipe
+        float randomSpawnDelay = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpawnTime, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpawnTime);
+        timeToHit = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpeed, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpeed);
         _hitTime = 0f;
+        Debug.Log(DeliveryMinigame.Instance.GetMinigameDifficultySO().difficultyName);
+        yield return new WaitForSeconds(randomSpawnDelay); // random spawn delay
+        individualMovingHit.gameObject.SetActive(true);
         individualMovingHit.StartMoving();
         while (!hited && _hitTime <= timeToHit)
         {
@@ -87,7 +111,6 @@ public class IndividualHit : MonoBehaviour
     {
         //Missed
         Debug.Log("Missed");
-        ResetHitIndividualMinigame();
         DeliveryMinigame.Instance.MissedHit();
     }
 
@@ -96,9 +119,14 @@ public class IndividualHit : MonoBehaviour
         //Hitted
         CalculateAccuracy(_hitTime);
 
-        ResetHitIndividualMinigame();
+        //Hit turn off the moving img
+        individualMovingHit.StopMoving();
+        individualMovingHit.gameObject.SetActive(false);
+
         DeliveryMinigame.Instance.Hitted(individualMultiplyAdd);
     }
+
+
 
 
     private void CalculateAccuracy(float timeClicked)
@@ -109,16 +137,20 @@ public class IndividualHit : MonoBehaviour
         if(accuracy <= timeToHit / 10)
         {
             // Perfect click
+            OnTextFeedback?.Invoke(HitType.Perfect);
+
             Debug.Log("Perfect");
             individualMultiplyAdd = 0.25f;
         } else if( accuracy <= timeToHit / 5)
         {
             //Good click
+            OnTextFeedback?.Invoke(HitType.Good);
             Debug.Log("Good");
             individualMultiplyAdd = 0.15f;
         } else
         {
             //Bad click
+            OnTextFeedback?.Invoke(HitType.Bad);
             Debug.Log("Bad Click");
             individualMultiplyAdd = 0;
         }

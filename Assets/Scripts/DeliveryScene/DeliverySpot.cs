@@ -20,7 +20,7 @@ public class DeliverySpot : MonoBehaviour, IInteractable
         //Delivery the potion
         StoredPotions.Instance.DeliveryPotion(potionToDeliveryHere);
 
-        DeliveryMinigame.Instance.StartMinigame(potionToDeliveryHere.potionMoneyRecieve);
+        DeliveryMinigame.Instance.StartMinigame(potionToDeliveryHere.potionMoneyRecieve, potionToDeliveryHere.minigameDifficulty);
 
         gameObject.SetActive(false);
     }
