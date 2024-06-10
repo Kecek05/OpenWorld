@@ -11475,6 +11475,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: casa-pedra1
       objectReference: {fileID: 0}
+    - target: {fileID: 8013692345575012051, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013692345575012051, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
+    - target: {fileID: 8013692345575012051, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2179b5038a800594a8f2fa614239f1fe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12255,13 +12267,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21936703, y: 0.73304623, z: -0.6180919, w: -0.18023257}
-  m_LocalPosition: {x: 7.69, y: 14.96, z: 211.92}
+  m_LocalRotation: {x: 0.114828214, y: 0.8769534, z: -0.4666549, w: 0.0006495911}
+  m_LocalPosition: {x: -19.6, y: 17, z: 206.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 55.803, y: 252.29199, z: 75.61}
+  m_LocalEulerAnglesHint: {x: 54.947, y: 190.639, z: 20.463}
 --- !u!114 &705507996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19441,7 +19453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106259953078090781, guid: 877a21fa6346f2e46a4982d5648a5078, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.243479
+      value: 31.243736
       objectReference: {fileID: 0}
     - target: {fileID: 9106259953078090781, guid: 877a21fa6346f2e46a4982d5648a5078, type: 3}
       propertyPath: m_LocalPosition.y
@@ -37676,7 +37688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4928960615311822120, guid: 973d6c76dd5acb645895dbc52b0af261, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.243479
+      value: 31.243736
       objectReference: {fileID: 0}
     - target: {fileID: 4928960615311822120, guid: 973d6c76dd5acb645895dbc52b0af261, type: 3}
       propertyPath: m_LocalPosition.y
