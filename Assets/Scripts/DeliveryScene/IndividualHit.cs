@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class IndividualHit : MonoBehaviour
 {
-    public event EventHandler OnHitStarted;
-
+    [SerializeField] private IndividualMovingHit individualMovingHit;
     [SerializeField] private float spawnIndividualDelay;
     [SerializeField] private float timeToHit;
     [SerializeField] private DeliveryMinigame.HitInputs hitInput;
@@ -14,9 +13,10 @@ public class IndividualHit : MonoBehaviour
     private float _hitTime = 0f;
     private bool inMinigame = false;
     private bool hited = false;
-
+    private float individualMultiplyAdd = 0f;
 
     private IEnumerator hitLoopCoroutine;
+
 
 
     private void Awake()
@@ -26,10 +26,12 @@ public class IndividualHit : MonoBehaviour
 
     private void OnEnable()
     {
-        hited = false;
-        _hitTime = 0f;
-        hitLoopCoroutine = HitLoop();
-        StartCoroutine(hitLoopCoroutine);
+
+        if(hitLoopCoroutine == null)
+        {
+            hitLoopCoroutine = HitLoop();
+            StartCoroutine(hitLoopCoroutine);
+        }
     }
 
 
@@ -59,15 +61,15 @@ public class IndividualHit : MonoBehaviour
         if(inMinigame)
         {
             hited = true;
-            DeliveryMinigame.Instance.Hitted();
+            HittedIndividual();
         }
     }
 
     private IEnumerator HitLoop()
     {
-        yield return new WaitForSeconds(0.1f); // wait for the subscription
-        OnHitStarted?.Invoke(this, EventArgs.Empty);
         yield return new WaitForSeconds(spawnIndividualDelay); // random spawn delay
+        _hitTime = 0f;
+        individualMovingHit.StartMoving();
         while (!hited && _hitTime <= timeToHit)
         {
             //not clicked yet or can still click
@@ -76,10 +78,63 @@ public class IndividualHit : MonoBehaviour
             _hitTime += Time.deltaTime;
             yield return null;
         }
-        //Hitted
+        //Missed
         inMinigame = false;
-        DeliveryMinigame.Instance.Hitted();
-        gameObject.SetActive(false);
+        MissedHitIndividual();
+    }
+
+    private void MissedHitIndividual()
+    {
+        //Missed
+        Debug.Log("Missed");
+        ResetHitIndividualMinigame();
+        DeliveryMinigame.Instance.MissedHit();
+    }
+
+    private void HittedIndividual()
+    {
+        //Hitted
+        CalculateAccuracy(_hitTime);
+
+        ResetHitIndividualMinigame();
+        DeliveryMinigame.Instance.Hitted(individualMultiplyAdd);
+    }
+
+
+    private void CalculateAccuracy(float timeClicked)
+    {
+        float accuracy = timeToHit - timeClicked;
+        Debug.Log("Accuracy is " + accuracy + " Time Clicked is " + timeClicked);
+
+        if(accuracy <= timeToHit / 10)
+        {
+            // Perfect click
+            Debug.Log("Perfect");
+            individualMultiplyAdd = 0.25f;
+        } else if( accuracy <= timeToHit / 5)
+        {
+            //Good click
+            Debug.Log("Good");
+            individualMultiplyAdd = 0.15f;
+        } else
+        {
+            //Bad click
+            Debug.Log("Bad Click");
+            individualMultiplyAdd = 0;
+        }
+    }
+
+    
+    private void ResetHitIndividualMinigame()
+    {
+        //Reset for the next
+        hitLoopCoroutine = null;
+        StopAllCoroutines();
+        _hitTime = 0f;
+        hited = false;
+        inMinigame = false;
+        individualMultiplyAdd = 0f;
+        individualMovingHit.StopMoving();
     }
 
     public float GetTimeToHit() { return timeToHit; }

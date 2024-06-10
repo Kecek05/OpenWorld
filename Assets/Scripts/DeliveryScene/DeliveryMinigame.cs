@@ -6,12 +6,17 @@ public class DeliveryMinigame : MonoBehaviour
     public static DeliveryMinigame Instance {  get; private set; }
 
     private int hitCount = 0;
+    private int missCount = 0;
 
     [SerializeField] private GameObject titleObj;
     [SerializeField] private float delayToStart;
-    [SerializeField] private GameObject[] IndividualHits;
+    [SerializeField] private GameObject[] individualHits;
 
     private IEnumerator startMinigameCoroutine;
+
+    private int startRecieveMoney;
+    private float recieveMoneyMultiply = 1;
+    
 
     public enum HitInputs
     {
@@ -27,8 +32,9 @@ public class DeliveryMinigame : MonoBehaviour
         Instance = this;
     }
 
-    public void StartMinigame()
+    public void StartMinigame(int _startRecieveMoney)
     {
+        startRecieveMoney = _startRecieveMoney;
         if(startMinigameCoroutine == null)
         {
             startMinigameCoroutine = StartMinigameCoroutine();
@@ -43,33 +49,55 @@ public class DeliveryMinigame : MonoBehaviour
         yield return new WaitForSeconds(delayToStart);
         hitCount = 0;
 
-        for (int i = 0; i < IndividualHits.Length; i++)
+        for (int i = 0; i < individualHits.Length; i++)
         {
             //turn all minigames on
-            IndividualHits[i].gameObject.SetActive(true);
+            individualHits[i].gameObject.SetActive(true);
         }
-        Debug.Log("Start Minigame");
     }
 
     private void FinishedMinigame()
     {
+        //Add the money
+        MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + CalculateMoneyAdd());
 
         WitchInputs.Instance.ChangePLayerInputHitMinigame(false);
         titleObj.SetActive(false);
-        for (int i = 0; i < IndividualHits.Length; i++)
+        for (int i = 0; i < individualHits.Length; i++)
         {
             //turn all minigames off
-            IndividualHits[i].gameObject.SetActive(false);
+            individualHits[i].gameObject.SetActive(false);
         }
+        startRecieveMoney = 0;
+        recieveMoneyMultiply = 1;
         startMinigameCoroutine = null;
-        Debug.Log("all hited");
+
+        
+    }
+
+    private int CalculateMoneyAdd()
+    {
+        int totalMoney = startRecieveMoney * (int)recieveMoneyMultiply;
+        return totalMoney;
     }
 
 
-    public void Hitted()
+    public void Hitted(float multiplyAdd)
     {
-        hitCount++;
-        if(hitCount >= 1)
+       hitCount++;
+       recieveMoneyMultiply += multiplyAdd;
+       VerifyFinishedGame();
+    }
+
+    public void MissedHit()
+    {
+        missCount++;
+        VerifyFinishedGame();
+    }
+
+    private void VerifyFinishedGame()
+    {
+        if ((hitCount + missCount) >= 1)
         {
             FinishedMinigame();
         }

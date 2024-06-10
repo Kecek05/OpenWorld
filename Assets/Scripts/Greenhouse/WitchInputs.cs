@@ -30,8 +30,6 @@ public class WitchInputs : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        Debug.Log("Action map is: " + playerInput.currentActionMap);
     }
 
     private void Start()
@@ -130,12 +128,6 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerMovement.Enable();
             playerInput.SwitchCurrentActionMap("PlayerMovement");
         }
-
-        Debug.Log("Player Movement is: " + playerInputActions.PlayerMovement.enabled);
-
-        Debug.Log("Player HitMinigame is: " + playerInputActions.PlayerHitMinigame.enabled);
-
-        Debug.Log("Action map is: " + playerInput.currentActionMap);
     }
 
 
