@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class DeliveryMinigame : MonoBehaviour
 {
+    public static DeliveryMinigame Instance {  get; private set; }
 
-    private void Start()
+    private int hitCount = 0;
+
+    public enum HitInputs
     {
-        WitchInputs.Instance.OnHit1Performed += GameInput_OnHit1Performed;
-        WitchInputs.Instance.OnHit2Performed += GameInput_OnHit2Performed;
-        WitchInputs.Instance.OnHit3Performed += GameInput_OnHit3Performed;
-        WitchInputs.Instance.OnHit4Performed += GameInput_OnHit4Performed;
+        Q,
+        W,
+        E,
+        R,
+    }
+
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
     private void OnEnable()
@@ -21,23 +30,14 @@ public class DeliveryMinigame : MonoBehaviour
         WitchInputs.Instance.ChangePLayerInputHitMinigame(false);
     }
 
-    private void GameInput_OnHit4Performed(object sender, System.EventArgs e)
+
+    public void Hitted()
     {
-
-    }
-
-    private void GameInput_OnHit3Performed(object sender, System.EventArgs e)
-    {
-
-    }
-
-    private void GameInput_OnHit2Performed(object sender, System.EventArgs e)
-    {
-
-    }
-
-    private void GameInput_OnHit1Performed(object sender, System.EventArgs e)
-    {
-
+        hitCount++;
+        if(hitCount == 4)
+        {
+            Debug.Log("all hited");
+            gameObject.SetActive(false);
+        }
     }
 }
