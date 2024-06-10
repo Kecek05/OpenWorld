@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 {
@@ -9,13 +10,10 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
     [SerializeField] private ItemOnGroundSO[] itemOnGroundSOArray;
     private ItemOnGroundSO selectedItemOnGroundSO;
     private Transform itemInGround;
+    [SerializeField] private Image itemInGroundImage;
     private int selectedItemClicksToCollect;
-
     [SerializeField] private WitchInventorySO witchInventorySO;
-
-
     public event EventHandler<IHasProgress.OnProgressChangedEventsArgs> OnProgressChanged;
-
     [SerializeField] private ParticleSystem spawnParticle;
 
     private void Start()
@@ -24,6 +22,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
         selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround]; 
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
         itemInGround = Instantiate(selectedItemOnGroundSO.prefab, transform);
+        itemInGroundImage.sprite = selectedItemOnGroundSO.itemSprite;
     }
 
 
@@ -46,6 +45,8 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 
                 Destroy(itemInGround.gameObject);
                 Destroy(gameObject);
+                Destroy(itemInGroundImage.gameObject);
+                
             }
         }
     }
