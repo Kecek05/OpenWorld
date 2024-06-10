@@ -347,6 +347,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22304939}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &33480135
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.673676
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &33480136 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 33480135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &43166744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1583,8 +1645,195 @@ Transform:
   - {fileID: 225070674}
   - {fileID: 1927938509}
   - {fileID: 1922915312}
+  - {fileID: 1643556815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &181013845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.673676
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &181013846 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 181013845}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &183132155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &183132156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 183132155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &189217188
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.673676
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &189217189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 189217188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &189280686
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,6 +7117,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1802bca19f163d46b823c5210f49e17, type: 3}
+--- !u!1001 &933244901
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.5699997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &933244902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 933244901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &944149586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7777,6 +8088,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116095631}
   m_CullTransparentMesh: 1
+--- !u!1001 &1125963612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (14)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1125963613 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1125963612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1137936848
 GameObject:
   m_ObjectHideFlags: 0
@@ -8560,6 +8933,68 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1001 &1298000320
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.3000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1298000321 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1298000320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1319010802
 GameObject:
   m_ObjectHideFlags: 0
@@ -8870,6 +9305,130 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5527216910005429613, guid: c1802bca19f163d46b823c5210f49e17, type: 3}
   m_PrefabInstance: {fileID: 1340567017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1349002064
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.673676
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.8000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1349002065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1349002064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1371897842
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1371897843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1371897842}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1374769655
 GameObject:
@@ -9413,6 +9972,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5527216910005429613, guid: c1802bca19f163d46b823c5210f49e17, type: 3}
   m_PrefabInstance: {fileID: 1438052614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1456317336
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1456317337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1456317336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1469576098
 GameObject:
   m_ObjectHideFlags: 0
@@ -9589,6 +10210,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7859205558317776411, guid: 46e69ad4655d5c642897b3a8859798d0, type: 3}
   m_PrefabInstance: {fileID: 1487140085}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1490077572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.3000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1490077573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1490077572}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1500677534
 GameObject:
@@ -9950,6 +10633,68 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!1001 &1554640077
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2699995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1554640078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1554640077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1560424056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10632,6 +11377,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8995929224404566834, guid: 5af01df532e845748966868048be8012, type: 3}
   m_PrefabInstance: {fileID: 1639017922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1643556814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643556815}
+  m_Layer: 0
+  m_Name: MesasEstufa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1643556815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643556814}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.01, y: 1.12, z: -2.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 181013846}
+  - {fileID: 1456317337}
+  - {fileID: 1784928054}
+  - {fileID: 183132156}
+  - {fileID: 1349002065}
+  - {fileID: 933244902}
+  - {fileID: 1490077573}
+  - {fileID: 1298000321}
+  - {fileID: 189217189}
+  - {fileID: 1911962295}
+  - {fileID: 1371897843}
+  - {fileID: 1125963613}
+  - {fileID: 33480136}
+  - {fileID: 1554640078}
+  - {fileID: 1749374517}
+  - {fileID: 1746547260}
+  m_Father: {fileID: 176409510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650087042
 GameObject:
   m_ObjectHideFlags: 0
@@ -11136,6 +11928,192 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730425873}
   m_CullTransparentMesh: 1
+--- !u!1001 &1746547259
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1746547260 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1746547259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1749374516
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1749374517 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1749374516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1784928053
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1784928054 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1784928053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1785804125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11757,6 +12735,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4255057323726149649, guid: 15b3ce0278d026f4a92ab7d3e550e34c, type: 3}
   m_PrefabInstance: {fileID: 1888146252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1911962294
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1643556815}
+    m_Modifications:
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -23.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.8599997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206419207904956286, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+      propertyPath: m_Name
+      value: MesaEstufa (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+--- !u!4 &1911962295 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8396985494607648196, guid: d5b6776c7cdca8d43b9219cf4f40907f, type: 3}
+  m_PrefabInstance: {fileID: 1911962294}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1916284541 stripped
 Transform:
