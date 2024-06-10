@@ -34,7 +34,7 @@ public class DeliveryMinigame : MonoBehaviour
     public void Hitted()
     {
         hitCount++;
-        if(hitCount == 4)
+        if(hitCount == 1)
         {
             Debug.Log("all hited");
             gameObject.SetActive(false);

@@ -9,18 +9,22 @@ public class IndividualMovingHit : MonoBehaviour
 
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endPosition;
+    private Vector3 _startPosition;
+    private Vector3 _endPosition;
+
 
     private IEnumerator movingCoroutine;
-
-    private bool inGame = true;
 
     [SerializeField] private float duration = 2.0f;
 
     private void Start()
     {
         individualHit.OnHitStarted += IndividualHit_OnHitStarted;
-
-
+    }
+    private void OnEnable()
+    {
+        _startPosition = startPosition.position;
+        _endPosition = endPosition.position;
     }
 
     private void IndividualHit_OnHitStarted(object sender, System.EventArgs e)
@@ -35,8 +39,7 @@ public class IndividualMovingHit : MonoBehaviour
     private IEnumerator Moving()
     {
         float elapsedTime = 0;
-        Vector3 _startPosition = startPosition.position;
-        Vector3 _endPosition = endPosition.position;
+
 
         while (elapsedTime < duration)
         {
