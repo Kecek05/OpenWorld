@@ -16,6 +16,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 
 
     [SerializeField] private Image itemInGroundImage;
+    [SerializeField] private Image ItemInGroundMinimap;
 
     private int selectedItemClicksToCollect; // clicks need to collect
 
@@ -32,6 +33,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
         itemInGround = Instantiate(selectedItemOnGroundSO.prefab, spawnpoint.transform);
         itemInGroundImage.sprite = selectedItemOnGroundSO.itemSprite;
+        ItemInGroundMinimap.sprite = selectedItemOnGroundSO.itemSprite;
     }
 
 

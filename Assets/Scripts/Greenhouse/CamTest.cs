@@ -9,7 +9,7 @@ public class CamTest : MonoBehaviour
     [SerializeField] private Camera cameraMinimap;
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 offset;
-    private float speed = 2f;
+    private float speed = 4f;
     
 
     private void FixedUpdate()
@@ -24,6 +24,6 @@ public class CamTest : MonoBehaviour
     {
         Vector3 playerPosition = player.transform.position + offset;
         Vector3 cameraPosition2 = new Vector3(playerPosition.x, cameraMinimap.transform.position.y, playerPosition.z);
-        cameraMinimap.transform.position = Vector3.Lerp(cameraMinimap.transform.position, cameraPosition2, 2f * Time.deltaTime);
+        cameraMinimap.transform.position = Vector3.Lerp(cameraMinimap.transform.position, cameraPosition2, speed * Time.deltaTime);
     }
 }
