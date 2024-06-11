@@ -41,7 +41,7 @@ public class BasePlayer : MonoBehaviour
 
     private float runTime;
 
-
+    [SerializeField] private bool isInHouse = false; // for the player in house
 
     protected virtual void Awake()
     {
@@ -75,7 +75,7 @@ public class BasePlayer : MonoBehaviour
 
         }
 
-        if (isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false)
+        if (isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false && !isInHouse)
         {
             if (jumpingCoroutine == null)
             {
