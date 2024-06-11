@@ -56,7 +56,7 @@ public class BasePlayer : MonoBehaviour
         WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         Cursor.visible = false;
     }

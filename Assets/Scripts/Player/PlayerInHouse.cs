@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerInHouse : BasePlayer, IKitchenObjectParent
 {
 
-    public static PlayerInHouse Instance { get; private set; } // property
+    public static PlayerInHouse InstancePlayerInHouse { get; private set; } // property
 
 
     public event EventHandler OnPickedSomething;
@@ -17,11 +17,7 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         public BaseCounter selectedCounter;
     }
 
-    [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
-
-    private bool isWalking;
 
     private Vector3 lastInteractDir;
     private BaseCounter selectedCounter;
@@ -31,38 +27,9 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
     // [SerializeField] private Rigidbody rb;
 
 
-    //mudar cena
-    private GameObject intectableObj;
-
-    private void OnTriggerStay(Collider other)
-    {
-        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
-        if (interactable != null)
-        {
-
-            intectableObj = other.gameObject;
-        }
-       
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
-        if (interactable != null)
-        {
-
-            intectableObj = null;
-        }
-    }
 
 
-    private void Start()
-    {
-        gameInput.OnInteractAction += GameInput_OnInteractAction;
-        gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
-    }
-
-    private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
+    protected override void WitchInputs_OnInteractAlternateAction(object sender, EventArgs e)
     {
         if (!KitchenGameManager.Instance.IsGamePlaying()) return;
         
@@ -72,7 +39,7 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         }
     }
 
-    private void GameInput_OnInteractAction(object sender, System.EventArgs e)
+    protected override void WitchInputs_OnInteractAction(object sender, System.EventArgs e)
     {
         if (!KitchenGameManager.Instance.IsGamePlaying()) return;
 
@@ -89,15 +56,16 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         }
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         HandleMovement();
         HandleInteractions();
     }
 
     private void HandleInteractions()
     {
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector2 inputVector = WitchInputs.Instance.GetMovementVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
