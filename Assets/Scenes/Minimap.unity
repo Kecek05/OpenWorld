@@ -1305,19 +1305,10 @@ PrefabInstance:
       addedObject: {fileID: 1267774198}
     - targetCorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1267774197}
-    - targetCorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1267774202}
     - targetCorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1267774201}
-    - targetCorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1267774208}
-    - targetCorrespondingSourceObject: {fileID: 179894, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1267774206}
   m_SourcePrefab: {fileID: 100100000, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
 --- !u!1001 &79700698
 PrefabInstance:
@@ -10276,19 +10267,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
   m_PrefabInstance: {fileID: 51948418}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1267774197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267774191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9646968ed930644aa7f6ced8ec73326, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aggroPoint: {fileID: 1834344050}
 --- !u!65 &1267774198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10360,96 +10338,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1267774206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267774191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dcfda86a6feea042a15e82b7b0ba087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  runSpeed: 15
-  jumpForce: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  groundCheckSize: 0.64
-  groundCheckPosition: {x: 0, y: 0.3, z: 0}
-  jumpForceCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 28.369316
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.00897666
-    - serializedVersion: 3
-      time: 0.15
-      value: 5
-      inSlope: 0.08641273
-      outSlope: -0.041961752
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.08799702
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.3
-      value: 0
-      inSlope: -26.14859
-      outSlope: -26.14859
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.01077195
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  jumpingMaxTime: 0.3
-  runSpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 9
-      inSlope: -0.68509376
-      outSlope: -0.68509376
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.13545473
-    - serializedVersion: 3
-      time: 1
-      value: 15
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1267774208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267774191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d7cc9c5fee0db4aae5a36092f95bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1272220448
 PrefabInstance:
   m_ObjectHideFlags: 0

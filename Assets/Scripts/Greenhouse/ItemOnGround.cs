@@ -60,7 +60,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 
                 
                 spawnParticle.Play();
-
+                Debug.Log("Coletado");
                 Destroy(itemInGround.gameObject);
                 //selectedItemOnGroundSO = null;
                 Destroy(gameObject);
