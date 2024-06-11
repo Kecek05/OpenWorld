@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.EventSystems;
 public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
+
+    public event Action<GameObject> OnInteractObjectChanged;
 
     protected GameObject intectableObj;
 
@@ -105,6 +108,7 @@ public class BasePlayer : MonoBehaviour
         if (interactable != null)
         {
             intectableObj = other.gameObject;
+            OnInteractObjectChanged?.Invoke(other.gameObject);
         }
 
     }
@@ -116,6 +120,7 @@ public class BasePlayer : MonoBehaviour
         {
 
             intectableObj = null;
+            OnInteractObjectChanged?.Invoke(null);
         }
     }
 

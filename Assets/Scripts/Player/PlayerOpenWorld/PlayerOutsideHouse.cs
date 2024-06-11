@@ -1,10 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PlayerOutsideHouse : BasePlayer
 {
+
+    public static PlayerOutsideHouse InstancePlayerOutsideHouse;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        InstancePlayerOutsideHouse = this;
+    }
+
     protected override void WitchInputs_OnInteractAction(object sender, System.EventArgs e)
     {
 

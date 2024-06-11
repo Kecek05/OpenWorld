@@ -32,6 +32,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
         selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround]; 
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
         itemInGround = Instantiate(selectedItemOnGroundSO.prefab, spawnpoint.transform);
+        itemInGround.GetComponent<SelectedIngredient>().SetParent(this.gameObject);
         itemInGroundImage.sprite = selectedItemOnGroundSO.itemSprite;
         ItemInGroundMinimap.sprite = selectedItemOnGroundSO.itemSprite;
     }
