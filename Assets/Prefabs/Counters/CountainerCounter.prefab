@@ -377,7 +377,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countainerCounter: {fileID: 1171394229352402603}
   counterX: {fileID: 2941878530747855935}
-  playerItemsSO: {fileID: 11400000, guid: 24a5b17f07a982c48908ec47406c733c, type: 2}
 --- !u!1001 &4039421619630450286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -635,7 +634,6 @@ MonoBehaviour:
   counterTopPoint: {fileID: 7656090001145103659}
   kitchenObjectSO: {fileID: 11400000, guid: 44ac6788fd558e942915ceecc714f917, type: 2}
   CounterType: 0
-  playerItemsSO: {fileID: 11400000, guid: 24a5b17f07a982c48908ec47406c733c, type: 2}
 --- !u!4 &6797464584530045325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7129832358352043362, guid: 1d25f0a8963d4cc47a1e006d7be23c80, type: 3}
@@ -662,6 +660,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.008
       objectReference: {fileID: 0}
+    - target: {fileID: 1859742756064170695, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a2606841cf1e0348a75de1c33f6589f, type: 2}
+    - target: {fileID: 2298542010046885598, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -7215809044761938640, guid: 852e3c9ae74a6424a9a7d73d44657270, type: 3}
     - target: {fileID: 3187838834277086178, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
