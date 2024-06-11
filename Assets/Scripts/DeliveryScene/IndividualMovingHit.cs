@@ -1,5 +1,6 @@
 
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class IndividualMovingHit : MonoBehaviour
@@ -7,6 +8,7 @@ public class IndividualMovingHit : MonoBehaviour
 
     [SerializeField] private IndividualHit individualHit;
 
+    [SerializeField] private TextMeshProUGUI movingText;
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endPosition;
     [SerializeField] private Transform outScreenPosition;
@@ -23,6 +25,7 @@ public class IndividualMovingHit : MonoBehaviour
     private void OnEnable()
     {
         gameObject.transform.position = startPosition.position;
+        movingText.color = Color.white;
     }
 
     public void StartMoving()
@@ -46,7 +49,6 @@ public class IndividualMovingHit : MonoBehaviour
     {
         float elapsedTime = 0;
 
-
         while (elapsedTime < duration)
         {
             // Interpolação linear da posição entre A e B ao longo do tempo
@@ -67,6 +69,7 @@ public class IndividualMovingHit : MonoBehaviour
 
     private IEnumerator MissedMoving()
     {
+        movingText.color = Color.gray;
         float elapsedTime = 0f;
         float outScreenTime = 0.5f;
         while ( elapsedTime < outScreenTime )

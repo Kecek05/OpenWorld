@@ -79,6 +79,7 @@ public class IndividualHit : MonoBehaviour
     {
         if(inMinigame)
         {
+            Debug.Log("Performed hit");
             hited = true;
             HittedIndividual();
         }
@@ -90,9 +91,9 @@ public class IndividualHit : MonoBehaviour
         float randomSpawnDelay = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpawnTime, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpawnTime);
         timeToHit = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpeed, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpeed);
         _hitTime = 0f;
+        individualMovingHit.gameObject.SetActive(true);
         Debug.Log(DeliveryMinigame.Instance.GetMinigameDifficultySO().difficultyName);
         yield return new WaitForSeconds(randomSpawnDelay); // random spawn delay
-        individualMovingHit.gameObject.SetActive(true);
         individualMovingHit.StartMoving();
         while (!hited && _hitTime <= timeToHit)
         {
@@ -116,6 +117,8 @@ public class IndividualHit : MonoBehaviour
 
     private void HittedIndividual()
     {
+        StopCoroutine(hitLoopCoroutine); 
+
         //Hitted
         CalculateAccuracy(_hitTime);
 

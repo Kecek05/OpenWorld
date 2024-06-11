@@ -22,7 +22,8 @@ public class DeliveryMinigame : MonoBehaviour
     private float recieveMoneyMultiply = 1;
 
     private MinigameDifficultySO minigameDifficultySO;
-    
+
+    [SerializeField] private MinigameDifficultySO debug;
 
     public enum HitInputs
     {
@@ -40,7 +41,10 @@ public class DeliveryMinigame : MonoBehaviour
 
     public void StartMinigame(int _startRecieveMoney, MinigameDifficultySO _minigameDifficultySO)
     {
+        ResetMinigame(); // just for safety
         minigameDifficultySO = _minigameDifficultySO;
+        //debug
+        minigameDifficultySO = debug;
 
         startRecieveMoney = _startRecieveMoney;
         if(startMinigameCoroutine == null)
@@ -55,7 +59,6 @@ public class DeliveryMinigame : MonoBehaviour
         WitchInputs.Instance.ChangePLayerInputHitMinigame(true);
         titleObj.SetActive(true);
         yield return new WaitForSeconds(delayToStart);
-        ResetMinigame();
         for (int i = 0; i < individualHits.Length; i++)
         {
             //turn all minigames on
