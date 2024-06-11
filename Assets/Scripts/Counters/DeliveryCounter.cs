@@ -11,7 +11,7 @@ public class DeliveryCounter : BaseCounter
     {
         Instance = this;
     }
-    public override void Interact(Player player)
+    public override void Interact(PlayerInHouse player)
     {
         if(player.HasKitchenObject())
         {

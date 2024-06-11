@@ -30,8 +30,6 @@ public class WitchInputs : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        Debug.Log("Action map is: " + playerInput.currentActionMap);
     }
 
     private void Start()
@@ -39,6 +37,13 @@ public class WitchInputs : MonoBehaviour
         run = false;
         jump = false;
     }
+
+
+    private void Update()
+    {
+        GetAllInputs();
+    }
+
 
     private void OnEnable()
     {
@@ -66,11 +71,6 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerMovement.InteractAlternate.performed += InteractAlternate_performed;
         }
  
-    }
-
-    private void OnDisable()
-    {
-       // playerInputActions.Disable();
     }
 
     private void InteractAlternate_performed(InputAction.CallbackContext context)
@@ -130,12 +130,6 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerMovement.Enable();
             playerInput.SwitchCurrentActionMap("PlayerMovement");
         }
-
-        Debug.Log("Player Movement is: " + playerInputActions.PlayerMovement.enabled);
-
-        Debug.Log("Player HitMinigame is: " + playerInputActions.PlayerHitMinigame.enabled);
-
-        Debug.Log("Action map is: " + playerInput.currentActionMap);
     }
 
 
@@ -150,8 +144,18 @@ public class WitchInputs : MonoBehaviour
         horizontalInput = movementInput.x;
     }
 
-    
-    
+    public Vector2 GetMovementVectorNormalized()
+    {
+        Vector2 inputVector = playerInputActions.PlayerMovement.Move.ReadValue<Vector2>();
+        inputVector = inputVector.normalized;
+        ////arredonda o valor para 0 se ele for menor que 0.4 (isso melhora o movimento pelo controle)
+        if ((inputVector.x < 0.4f && inputVector.x > 0f) || (inputVector.x > -0.4f && inputVector.x < 0f))
+            inputVector.x = 0f;
+        if ((inputVector.y < 0.4f && inputVector.y > 0f) || (inputVector.y > -0.4f && inputVector.y < 0f))
+            inputVector.y = 0f;
+        return inputVector;
+    }
+
     public float GetVerticalInput() { return verticalInput; }
     public float GetHorizontalInput() { return horizontalInput; }
 

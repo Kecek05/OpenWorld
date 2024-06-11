@@ -1,5 +1,6 @@
 
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class IndividualMovingHit : MonoBehaviour
@@ -7,39 +8,46 @@ public class IndividualMovingHit : MonoBehaviour
 
     [SerializeField] private IndividualHit individualHit;
 
+    [SerializeField] private TextMeshProUGUI movingText;
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endPosition;
+    [SerializeField] private Transform outScreenPosition;
     private Vector3 _startPosition;
     private Vector3 _endPosition;
+    private Vector3 _outScreenPosition;
 
 
     private IEnumerator movingCoroutine;
+    private IEnumerator movingOutScreenCoroutine;
 
-    [SerializeField] private float duration = 2.0f;
+    private float duration;
 
-    private void Start()
-    {
-        individualHit.OnHitStarted += IndividualHit_OnHitStarted;
-    }
     private void OnEnable()
+    {
+        gameObject.transform.position = startPosition.position;
+        movingText.color = Color.white;
+    }
+
+    public void StartMoving()
     {
         _startPosition = startPosition.position;
         _endPosition = endPosition.position;
-    }
+        _outScreenPosition = outScreenPosition.position;
 
-    private void IndividualHit_OnHitStarted(object sender, System.EventArgs e)
-    {
-        if(movingCoroutine == null)
+        duration = individualHit.GetTimeToHit();
+
+        if (movingCoroutine == null)
         {
             movingCoroutine = Moving();
             StartCoroutine(movingCoroutine);
         }
     }
 
+
+
     private IEnumerator Moving()
     {
         float elapsedTime = 0;
-
 
         while (elapsedTime < duration)
         {
@@ -49,7 +57,30 @@ public class IndividualMovingHit : MonoBehaviour
             yield return null; // Esperar até o próximo frame
         }
 
-        // Garantir que o objeto esteja exatamente na posição final ao término da duração
+        //object in endPosition
         transform.position = _endPosition;
+        movingCoroutine = null;
+        movingOutScreenCoroutine = null;
+        if(movingOutScreenCoroutine == null) {
+            movingOutScreenCoroutine = MissedMoving();
+            StartCoroutine(movingOutScreenCoroutine);
+        }
     }
+
+    private IEnumerator MissedMoving()
+    {
+        movingText.color = Color.gray;
+        float elapsedTime = 0f;
+        float outScreenTime = 0.5f;
+        while ( elapsedTime < outScreenTime )
+        {
+            transform.position = Vector3.Lerp(_endPosition, _outScreenPosition, elapsedTime / outScreenTime);
+            elapsedTime += Time.deltaTime;
+            yield return null; // Esperar até o próximo frame
+        }
+        movingOutScreenCoroutine = null;
+        Debug.Log("OutScreen");
+    }
+
+    public void StopMoving() { movingCoroutine = null; }
 }

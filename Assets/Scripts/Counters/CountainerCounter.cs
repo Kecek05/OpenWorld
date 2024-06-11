@@ -14,7 +14,7 @@ public class CountainerCounter : BaseCounter
     [SerializeField] private PlayerItems.ItensType CounterType;
 
 
-    public override void Interact(Player player)
+    public override void Interact(PlayerInHouse player)
     {
         if(!player.HasKitchenObject() && PlayerItems.Instance.TrySpawnItem(CounterType))
         {
