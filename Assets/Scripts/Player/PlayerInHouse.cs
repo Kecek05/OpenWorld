@@ -26,7 +26,11 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
     [SerializeField] private Transform counterTopPoint;
     // [SerializeField] private Rigidbody rb;
 
-
+    protected override void Awake()
+    {
+        base.Awake();
+        InstancePlayerInHouse = this;
+    }
 
 
     protected override void WitchInputs_OnInteractAlternateAction(object sender, EventArgs e)
@@ -59,7 +63,6 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
     protected override void Update()
     {
         base.Update();
-        HandleMovement();
         HandleInteractions();
     }
 
@@ -92,62 +95,6 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         {
             SetSelectedCounter(null);
         }
-    }
-
-
-    public bool IsWalking()
-    {
-        return isWalking;
-    }
-
-    private void HandleMovement()
-    {
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
-
-        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
-
-        float moveDistance = moveSpeed * Time.deltaTime;
-        float playerRadius = .7f;
-        float playerHeight = 2f;
-        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
-
-        if (!canMove)
-        {
-            //cant move
-
-            //only X
-            Vector3 moveDirX = new Vector3(moveDir.x, 0f, 0f).normalized;
-            canMove = moveDir.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
-            if (canMove)
-            {
-                //can move only X
-                moveDir = moveDirX;
-            }
-            else
-            {
-                //cant move X
-
-                //only Z
-                Vector3 moveDirZ = new Vector3(0f, 0f, moveDir.z).normalized;
-                canMove = moveDir.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
-                if (canMove)
-                {
-                    //can Z
-                    moveDir = moveDirZ;
-                }
-                else
-                {
-                    //cant move
-                }
-            }
-        }
-        if (canMove)
-        {
-            transform.position += moveDir * moveDistance;
-        }
-        isWalking = moveDir != Vector3.zero;
-        float rotationSpeed = 10f;
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotationSpeed);
     }
 
     private void SetSelectedCounter(BaseCounter selectedCounter)
@@ -188,7 +135,4 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
     {
         return kitchenObject != null;
     }
-
-
-    public GameObject GetInteractableObj() { return intectableObj; }
 }

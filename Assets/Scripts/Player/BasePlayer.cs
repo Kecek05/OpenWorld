@@ -19,7 +19,7 @@ public class BasePlayer : MonoBehaviour
     [Header("Walk Stats")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float runSpeed = 12f;
-    [SerializeField] private float jumpForce;
+    private float jumpForce;
     [Space]
     private bool isGround;
     [Header("Layers")]
@@ -43,7 +43,7 @@ public class BasePlayer : MonoBehaviour
 
 
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         Instance = this;
         cameraObj = Camera.main.transform;

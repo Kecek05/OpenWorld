@@ -44,7 +44,7 @@ public class DeliveryMinigame : MonoBehaviour
         ResetMinigame(); // just for safety
         minigameDifficultySO = _minigameDifficultySO;
         //debug
-        minigameDifficultySO = debug;
+       // minigameDifficultySO = debug;
 
         startRecieveMoney = _startRecieveMoney;
         if(startMinigameCoroutine == null)

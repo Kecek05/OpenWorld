@@ -1348,7 +1348,6 @@ GameObject:
   - component: {fileID: 1352496516417965196}
   - component: {fileID: 4871033194061318114}
   - component: {fileID: 8004448452401515959}
-  - component: {fileID: 1158505564978875884}
   m_Layer: 7
   m_Name: ChaWitch
   m_TagString: Player
@@ -1429,7 +1428,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9646968ed930644aa7f6ced8ec73326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroPoint: {fileID: 0}
+  moveSpeed: 8
+  runSpeed: 15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  groundCheckSize: 0.64
+  groundCheckPosition: {x: 0, y: 0.3, z: 0}
+  jumpingMaxTime: 0.3
+  jumpForceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 28.369316
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.00897666
+    - serializedVersion: 3
+      time: 0.15
+      value: 5
+      inSlope: 0.08641273
+      outSlope: -0.041961752
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.08799702
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3
+      value: 0
+      inSlope: -26.14859
+      outSlope: -26.14859
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.01077195
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  runSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 9
+      inSlope: -0.68509376
+      outSlope: -0.68509376
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.13545473
+    - serializedVersion: 3
+      time: 1
+      value: 15
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!54 &4871033194061318114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1480,84 +1543,6 @@ CapsuleCollider:
   m_Height: 1.029564
   m_Direction: 1
   m_Center: {x: 0, y: 0.55, z: 0}
---- !u!114 &1158505564978875884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dcfda86a6feea042a15e82b7b0ba087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  runSpeed: 15
-  jumpForce: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  groundCheckSize: 0.64
-  groundCheckPosition: {x: 0, y: 0.3, z: 0}
-  jumpForceCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 28.369316
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.00897666
-    - serializedVersion: 3
-      time: 0.15
-      value: 5
-      inSlope: 0.08641273
-      outSlope: -0.041961752
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.08799702
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.3
-      value: 0
-      inSlope: -26.14859
-      outSlope: -26.14859
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.01077195
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  jumpingMaxTime: 0.3
-  runSpeedCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 9
-      inSlope: -0.68509376
-      outSlope: -0.68509376
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.13545473
-    - serializedVersion: 3
-      time: 1
-      value: 15
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &181522
 GameObject:
   m_ObjectHideFlags: 0

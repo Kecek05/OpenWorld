@@ -144,8 +144,18 @@ public class WitchInputs : MonoBehaviour
         horizontalInput = movementInput.x;
     }
 
-    
-    
+    public Vector2 GetMovementVectorNormalized()
+    {
+        Vector2 inputVector = playerInputActions.PlayerMovement.Move.ReadValue<Vector2>();
+        inputVector = inputVector.normalized;
+        ////arredonda o valor para 0 se ele for menor que 0.4 (isso melhora o movimento pelo controle)
+        if ((inputVector.x < 0.4f && inputVector.x > 0f) || (inputVector.x > -0.4f && inputVector.x < 0f))
+            inputVector.x = 0f;
+        if ((inputVector.y < 0.4f && inputVector.y > 0f) || (inputVector.y > -0.4f && inputVector.y < 0f))
+            inputVector.y = 0f;
+        return inputVector;
+    }
+
     public float GetVerticalInput() { return verticalInput; }
     public float GetHorizontalInput() { return horizontalInput; }
 

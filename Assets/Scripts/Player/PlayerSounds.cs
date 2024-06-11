@@ -20,12 +20,12 @@ public class PlayerSounds : MonoBehaviour
         {
             footstepTimer = footstepTimerMax;
 
-            if(player.IsWalking())
-            {
-                float volume = 1f;
-                SoundManager.Instance.PlayFootstepsSound(player.transform.position, volume);
+            //if(player.IsWalking())
+            //{
+            //    float volume = 1f;
+            //    SoundManager.Instance.PlayFootstepsSound(player.transform.position, volume);
 
-            }
+            //}
         }
     }
 }
