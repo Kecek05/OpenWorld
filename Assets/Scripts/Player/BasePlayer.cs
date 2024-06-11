@@ -56,7 +56,8 @@ public class BasePlayer : MonoBehaviour
     protected void Start()
     {
         WitchInputs.Instance.OnInteractAction += WitchInputs_OnInteractAction;
-        WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
+        if(isInHouse) 
+            WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
     }
 
     protected virtual void Update()

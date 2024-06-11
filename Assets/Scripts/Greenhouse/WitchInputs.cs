@@ -24,8 +24,8 @@ public class WitchInputs : MonoBehaviour
     private float verticalInput;
     private float horizontalInput;
 
-    [SerializeField] private bool run;
-    [SerializeField] private bool jump;
+    private bool run;
+    private bool jump;
 
     private void Awake()
     {
