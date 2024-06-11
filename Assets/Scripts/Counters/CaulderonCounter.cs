@@ -49,7 +49,9 @@ public class CaulderonCounter : BaseCounter, IHasProgress
 
     private PotionObjectSO potionDone;
 
-
+    [SerializeField] private GameObject confirmDeleteImage;
+    private IEnumerator confirmDeleteCoroutine;
+    private bool canConfirm = false;
 
     private void Start()
     {
@@ -217,10 +219,38 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                 //player is not carrying anything, reset the caulderon
 
                 //GetKitchenObject().SetKitchenObjectParent(player);
-                ResetCaulderon();
+                if(confirmDeleteCoroutine == null)
+                {
+                    confirmDeleteCoroutine = ConfirmDeleteIngredientes();
+                    StartCoroutine(confirmDeleteCoroutine);
+                    return;
+                }
+
+                if(canConfirm)
+                    ResetCaulderon();
 
             }
         }
+    }
+
+    private IEnumerator ConfirmDeleteIngredientes()
+    {
+        //Start Confirm Coroutine
+        float timeToConfirm = 2f;
+        float currentTime = 0f;
+        confirmDeleteImage.SetActive(true); //confirm Img
+        while (currentTime < timeToConfirm)
+        {
+            //If click again will delete
+            canConfirm = true;
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+
+        //Not Confirmed
+        confirmDeleteImage.SetActive(false);
+        canConfirm = false;
+        confirmDeleteCoroutine = null;
     }
 
     private void ResetCaulderon()
@@ -232,6 +262,11 @@ public class CaulderonCounter : BaseCounter, IHasProgress
         currentMaxTimeToCook = 0f;
         potionDone = null;
         kitchenObjectSOInCaulderonList.Clear();
+
+        //Reset Confirm Coroutine
+        StopCoroutine(confirmDeleteCoroutine);
+        confirmDeleteCoroutine = null;
+        confirmDeleteImage.SetActive(false);
 
         GetKitchenObject().DestroySelf();
 
