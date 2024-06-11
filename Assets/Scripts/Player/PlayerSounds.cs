@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    private Player player;
+    private PlayerInHouse player;
     private float footstepTimer;
     private float footstepTimerMax = .1f;
 
     private void Awake()
     {
-        player = GetComponent<Player>();
+        player = GetComponent<PlayerInHouse>();
     }
 
     private void Update()

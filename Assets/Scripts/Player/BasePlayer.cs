@@ -1,69 +1,125 @@
 using System.Collections;
-
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class WitchMovement : MonoBehaviour
+public class BasePlayer : MonoBehaviour
 {
-    public static WitchMovement Instance { get; private set; }
+    public static BasePlayer Instance;
 
-    Vector3 moveDirection;
-    Transform cameraObj;
-    Rigidbody rb;
-    Animator anim;
+    protected GameObject intectableObj;
+
+    //Movement
+    private Vector3 moveDirection;
+    private Transform cameraObj;
+    private Rigidbody rb;
 
     private float rotationSpeed = 10f;
+    [Space]
+    [Header("Walk Stats")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float runSpeed = 12f;
     [SerializeField] private float jumpForce;
-
+    [Space]
     private bool isGround;
+    [Header("Layers")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundCheckSize;
     [SerializeField] private Vector3 groundCheckPosition;
-
+    [Space]
+    [Header("Jump Stats")]
+    [SerializeField] private float jumpingMaxTime;
+    [Space]
+    [Header("Curves")]
     [SerializeField] private AnimationCurve jumpForceCurve;
+    [SerializeField] private AnimationCurve runSpeedCurve;
+    [Space]
 
     private bool isJumping = false;
     private float jumpingTime;
-    [SerializeField] private float jumpingMaxTime;
     private IEnumerator jumpingCoroutine;
-    
-    [SerializeField] private AnimationCurve runSpeedCurve;
-    private IEnumerator runCoroutine;
+
     private float runTime;
 
-    private void Awake()
+
+
+    protected void Awake()
     {
         Instance = this;
-        rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
         cameraObj = Camera.main.transform;
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void LateUpdate()
+    protected void Start()
     {
-        var groundcheck = Physics.OverlapSphere(transform.position + groundCheckPosition,groundCheckSize, groundLayer);
+        WitchInputs.Instance.OnInteractAction += WitchInputs_OnInteractAction;
+        WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
+    }
 
-        if(groundcheck.Length != 0)
+    protected void Update()
+    {
+        Cursor.visible = false;
+    }
+
+    protected void LateUpdate()
+    {
+        var groundcheck = Physics.OverlapSphere(transform.position + groundCheckPosition, groundCheckSize, groundLayer);
+
+        if (groundcheck.Length != 0)
         {
             isGround = true;
         }
         else
         {
             isGround = false;
-            
+
         }
 
-        if(isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false)
+        if (isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false)
         {
-            if(jumpingCoroutine == null)
+            if (jumpingCoroutine == null)
             {
                 isJumping = true;
                 jumpingCoroutine = JumpCouroutine();
                 StartCoroutine(jumpingCoroutine);
             }
         }
+        HandleAllMovement();
     }
+
+    protected virtual void WitchInputs_OnInteractAlternateAction(object sender, System.EventArgs e)
+    {
+        Debug.LogWarning("Interact Alternate not implemented");
+    }
+
+    protected virtual void WitchInputs_OnInteractAction(object sender, System.EventArgs e)
+    {
+        Debug.LogWarning("Interact not implemented");
+    }
+
+
+    protected void OnTriggerStay(Collider other)
+    {
+        //Debug.Log(other.gameObject);
+        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+            intectableObj = other.gameObject;
+        }
+
+    }
+
+    protected void OnTriggerExit(Collider other)
+    {
+        IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+
+            intectableObj = null;
+        }
+    }
+
+
 
     private void HandleAllMovement()
     {
@@ -87,7 +143,7 @@ public class WitchMovement : MonoBehaviour
         moveDirection.Normalize();
         moveDirection.y = 0;
 
-        
+
         if (WitchInputs.Instance.GetRunInput() == true)
         {
             float evaluatedSpeed = runSpeedCurve.Evaluate(runTime);
@@ -113,8 +169,8 @@ public class WitchMovement : MonoBehaviour
         rb.velocity = movementVelocity;
     }
 
-    
-   
+
+
 
     private IEnumerator JumpCouroutine()
     {
@@ -155,7 +211,7 @@ public class WitchMovement : MonoBehaviour
         targetDirection.Normalize();
         targetDirection.y = 0;
 
-        if(targetDirection == Vector3.zero)
+        if (targetDirection == Vector3.zero)
         {
             targetDirection = transform.forward;
         }
@@ -166,6 +222,7 @@ public class WitchMovement : MonoBehaviour
         transform.rotation = playerRotation;
     }
 
-    public void GetAllMoves() => HandleAllMovement();
 
+
+    public GameObject GetInteractableObj() { return intectableObj; }
 }

@@ -7,7 +7,7 @@ public class TrashCounter : BaseCounter
 {
     public static event EventHandler OnAnyObjectTrashed;
 
-    public override void Interact(Player player)
+    public override void Interact(PlayerInHouse player)
     {
         if (player.HasKitchenObject())
         {

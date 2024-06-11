@@ -30,7 +30,7 @@ public class PlatesCounter : BaseCounter
         }
     }
 
-    public override void Interact(Player player)
+    public override void Interact(PlayerInHouse player)
     {
         if(!player.HasKitchenObject())
         {

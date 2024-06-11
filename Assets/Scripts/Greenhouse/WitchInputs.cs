@@ -38,6 +38,13 @@ public class WitchInputs : MonoBehaviour
         jump = false;
     }
 
+
+    private void Update()
+    {
+        GetAllInputs();
+    }
+
+
     private void OnEnable()
     {
         if(playerInputActions == null)
@@ -64,11 +71,6 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerMovement.InteractAlternate.performed += InteractAlternate_performed;
         }
  
-    }
-
-    private void OnDisable()
-    {
-       // playerInputActions.Disable();
     }
 
     private void InteractAlternate_performed(InputAction.CallbackContext context)

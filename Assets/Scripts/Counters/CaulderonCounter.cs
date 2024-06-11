@@ -123,7 +123,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
 
 
 
-    public override void Interact(Player player)
+    public override void Interact(PlayerInHouse player)
     {
 
         if (!HasKitchenObject())

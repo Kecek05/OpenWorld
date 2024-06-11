@@ -8,7 +8,7 @@ public class PlayerAnimator : MonoBehaviour
     private const string IS_WALKING = "IsWalking";
     private Animator animator;
 
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerInHouse player;
 
     private void Awake()
     {

@@ -18,7 +18,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
     [SerializeField] private InteractRecipeSO[] cuttingRecipeSOArray;
 
     private int cuttingProgress;
-    public override void Interact(Player player)
+    public override void Interact(PlayerInHouse player)
     {
         if (!HasKitchenObject())
         {
@@ -84,7 +84,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
     }
 
 
-    public override void InteractAlternate(Player player)
+    public override void InteractAlternate(PlayerInHouse player)
     {
         if(HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
