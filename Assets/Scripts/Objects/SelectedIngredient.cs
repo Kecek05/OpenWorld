@@ -12,19 +12,27 @@ public class SelectedIngredient : MonoBehaviour
     {
         PlayerOutsideHouse.InstancePlayerOutsideHouse.OnInteractObjectChanged += PlayerOutsideHouse_OnInteractObjectChanged;
     }
+    private void OnDisable()
+    {
+        PlayerOutsideHouse.InstancePlayerOutsideHouse.OnInteractObjectChanged -= PlayerOutsideHouse_OnInteractObjectChanged;
+    }
 
     private void PlayerOutsideHouse_OnInteractObjectChanged(GameObject obj)
     {
-        if(obj == parent)
+        if(selectedVisualObject != null)
         {
 
-          selectedVisualObject.SetActive(true);
+            if(obj == parent)
+            {
 
-        } else
-        {
+              selectedVisualObject.SetActive(true);
 
-          selectedVisualObject.SetActive(false);
+            } else
+            {
 
+              selectedVisualObject.SetActive(false);
+
+            }
         }
     }
 
