@@ -10,7 +10,7 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
     public event EventHandler<IHasHitBar.OnHitChangedEventArgs> OnHitChanged;
     public event EventHandler OnHitFinished;
     public event EventHandler<IHasHitBar.OnHitMissedEventArgs> OnHitMissed;
-
+    public event EventHandler OnMoerRight;
 
     //Minigame RNG
     private int numberCount;
@@ -104,6 +104,7 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
                 {
                     progressNormalized = (float)crumpleCount / selectedRecipeSO.interactProgressMax
                 });
+                OnMoerRight?.Invoke(this, EventArgs.Empty);
 
                 //numberCount = 0;
             } else
