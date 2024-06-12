@@ -933,8 +933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2379549e6e33bd24197440e160f0f454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 496360042}
-  speed: 2
+  cameraMain: {fileID: 0}
+  cameraMinimap: {fileID: 0}
   player: {fileID: 1267774191}
   offset: {x: 4, y: 16, z: -2.5}
 --- !u!114 &496360040
@@ -2667,6 +2667,10 @@ PrefabInstance:
     - target: {fileID: 4686063629350739424, guid: 58cd65940b7f90347821958d66109961, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037661588281174534, guid: 58cd65940b7f90347821958d66109961, type: 3}
+      propertyPath: sceneType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9037661588281174534, guid: 58cd65940b7f90347821958d66109961, type: 3}
       propertyPath: playerInput
