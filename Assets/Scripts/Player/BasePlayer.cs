@@ -44,8 +44,6 @@ public class BasePlayer : MonoBehaviour
 
     private float runTime;
 
-    [SerializeField] private bool isInHouse = false; // for the player in house
-
     protected virtual void Awake()
     {
         Instance = this;
@@ -56,8 +54,7 @@ public class BasePlayer : MonoBehaviour
     protected void Start()
     {
         WitchInputs.Instance.OnInteractAction += WitchInputs_OnInteractAction;
-        if(isInHouse) 
-            WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
+        WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
     }
 
     protected virtual void Update()
@@ -79,7 +76,7 @@ public class BasePlayer : MonoBehaviour
 
         }
 
-        if (isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false && !isInHouse)
+        if (isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false)
         {
             if (jumpingCoroutine == null)
             {

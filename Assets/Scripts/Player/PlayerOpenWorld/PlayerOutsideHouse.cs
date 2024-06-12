@@ -1,4 +1,6 @@
 
+using System.Diagnostics;
+
 public class PlayerOutsideHouse : BasePlayer
 {
 
@@ -12,7 +14,7 @@ public class PlayerOutsideHouse : BasePlayer
 
     protected override void WitchInputs_OnInteractAction(object sender, System.EventArgs e)
     {
-
+        print(e.ToString());
         if(intectableObj != null)
         {
             IInteractable interactObj = intectableObj.gameObject.GetComponent<IInteractable>();
