@@ -9,6 +9,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI recipeNameText;
     [SerializeField] private TextMeshProUGUI recipeCountText;
+    [SerializeField] private TextMeshProUGUI recipeCostText;
     [SerializeField] private Transform iconContainer;
     [SerializeField] private Transform iconTemplate;
     [SerializeField] private Image potionImage;
@@ -50,6 +51,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
             iconTransform.GetComponent<Image>().sprite = kitchenObjectSO.sprite;
         }
         potionImage.sprite = potionObjectSO.potionSprite;
+        recipeCostText.text = potionObjectSO.potionMoneyRecieve.ToString();
     }
 
 

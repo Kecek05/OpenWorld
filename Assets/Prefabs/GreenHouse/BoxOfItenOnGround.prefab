@@ -787,15 +787,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 595806463710455396, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
       propertyPath: m_Name
-      value: SpawnParticle
+      value: GrabItemParticle
       objectReference: {fileID: 0}
     - target: {fileID: 595806463710455396, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1482428686275568253, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be35da5ab051ae84f88f415ce0c66043, type: 2}
     - target: {fileID: 3406985652505343929, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406985652505343929, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406985652505343929, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406985652505343929, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406985652505343929, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406985652505343929, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406985652505343929, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3807957189809933980, guid: 47d17b1063e2f13499e64be5fd6b7f2e, type: 3}
       propertyPath: m_LocalPosition.x
