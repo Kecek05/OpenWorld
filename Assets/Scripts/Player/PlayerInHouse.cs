@@ -105,6 +105,7 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         {
             selectedCounter = selectedCounter
         });
+        Debug.Log(selectedCounter);
     }
 
     public Transform GetKitchenObjectFollowTransform()
