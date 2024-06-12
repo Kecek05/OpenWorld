@@ -170,9 +170,9 @@ public class WitchInputs : MonoBehaviour
         horizontalInput = movementInput.x;
     }
 
-    public Vector2 GetMovementVectorNormalized()
+    public Vector2 GetMovementVectorNormalizedInHouse()
     {
-        Vector2 inputVector = playerInputActions.PlayerOutSide.Move.ReadValue<Vector2>();
+        Vector2 inputVector = playerInputActions.PlayerInHouse.Move.ReadValue<Vector2>();
         inputVector = inputVector.normalized;
         ////arredonda o valor para 0 se ele for menor que 0.4 (isso melhora o movimento pelo controle)
         if ((inputVector.x < 0.4f && inputVector.x > 0f) || (inputVector.x > -0.4f && inputVector.x < 0f))

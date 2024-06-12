@@ -68,7 +68,7 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
 
     private void HandleInteractions()
     {
-        Vector2 inputVector = WitchInputs.Instance.GetMovementVectorNormalized();
+        Vector2 inputVector = WitchInputs.Instance.GetMovementVectorNormalizedInHouse();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
@@ -105,7 +105,6 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         {
             selectedCounter = selectedCounter
         });
-        Debug.Log(selectedCounter);
     }
 
     public Transform GetKitchenObjectFollowTransform()
