@@ -13,6 +13,13 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
     public event EventHandler OnCut;
 
+    public event EventHandler<OnCutParticleEventArgs> OnCutParticle;
+
+    public class OnCutParticleEventArgs
+    {
+        public Material particleMaterial;
+    }
+
     public event EventHandler OnCutFinished;
 
 
@@ -83,6 +90,10 @@ public class CuttingCounter : BaseCounter, IHasProgress
         {
             //there is a kitchenObject here and can be cut
             cuttingProgress++;
+            OnCutParticle?.Invoke(this, new OnCutParticleEventArgs
+            {
+                particleMaterial = GetKitchenObject().GetKitchenObjectSO().particleMaterial
+            });
 
             OnCut?.Invoke(this, EventArgs.Empty);
             OnAnyCut?.Invoke(this, EventArgs.Empty);

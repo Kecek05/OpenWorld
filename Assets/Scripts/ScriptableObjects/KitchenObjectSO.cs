@@ -11,4 +11,6 @@ public class KitchenObjectSO : ScriptableObject
     public string objectName;
 
     public float timeInCaulderon;
+
+    public Material particleMaterial;
 }
