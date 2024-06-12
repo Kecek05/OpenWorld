@@ -15,6 +15,7 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
     public event EventHandler OnCutFinished;
 
+
     [SerializeField] private InteractRecipeSO[] cuttingRecipeSOArray;
 
     private int cuttingProgress;

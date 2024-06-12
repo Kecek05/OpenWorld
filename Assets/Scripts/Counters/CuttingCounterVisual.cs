@@ -8,6 +8,7 @@ public class CuttingCounterVisual : MonoBehaviour
 
     [SerializeField] private CuttingCounter cuttingCounter;
     [SerializeField] private ParticleSystem finishedCuttingParticle;
+    [SerializeField] private ParticleSystem pickupItem;
 
     [SerializeField] private Animator animator;
 
@@ -16,6 +17,8 @@ public class CuttingCounterVisual : MonoBehaviour
         cuttingCounter.OnCut += CuttingCounter_OnCut;
         cuttingCounter.OnCutFinished += CuttingCounter_OnCutFinished;
     }
+
+
 
     private void CuttingCounter_OnCutFinished(object sender, System.EventArgs e)
     {
