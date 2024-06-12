@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5856211424543224239
+--- !u!1001 &9177367370296215579
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,28 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1171394229352402603, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
+      propertyPath: CounterType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171394229352402603, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: kitchenObjectSO
       value: 
-      objectReference: {fileID: 11400000, guid: b8c5d2122f36e694d90922c484d77bb5, type: 2}
+      objectReference: {fileID: 11400000, guid: 7798094e619eee1429c8986cae1dffca, type: 2}
     - target: {fileID: 1975997015093199226, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1867458966, guid: 0845554149acfc04281eb3c88237e853, type: 3}
+      objectReference: {fileID: 1407493873, guid: 0845554149acfc04281eb3c88237e853, type: 3}
     - target: {fileID: 2101704345277284419, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: m_Name
-      value: CountainerCounter_MeatPattyUncooked
-      objectReference: {fileID: 0}
-    - target: {fileID: 4135076196227736195, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4233725397767492988, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6336202048513584192, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.7
+      value: CountainerCounter_Carambola
       objectReference: {fileID: 0}
     - target: {fileID: 6797464584530045325, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,18 +63,6 @@ PrefabInstance:
     - target: {fileID: 6797464584530045325, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394410285643926035, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394410285643926035, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8394410285643926035, guid: 5be3c91cb738f4c4d81a188d0d922ff0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
