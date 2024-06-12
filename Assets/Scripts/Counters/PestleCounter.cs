@@ -11,6 +11,7 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
     public event EventHandler OnHitFinished;
     public event EventHandler<IHasHitBar.OnHitMissedEventArgs> OnHitMissed;
     public event EventHandler OnMoerRight;
+    public event EventHandler OnMoerMiss;
 
     //Minigame RNG
     private int numberCount;
@@ -110,7 +111,8 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
             } else
             {
                 //miss the hit
-                if(MissedCoroutine == null)
+                OnMoerMiss?.Invoke(this, EventArgs.Empty);
+                if (MissedCoroutine == null)
                 {
                     MissedCoroutine = MissedCountDown();
                     StartCoroutine(MissedCoroutine);

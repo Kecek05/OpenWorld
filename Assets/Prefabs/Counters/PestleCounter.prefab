@@ -941,7 +941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pestleCounter: {fileID: 793691648290020733}
-  pestleAnim: {fileID: 5997020098662082053}
+  pestleMoedorAnim: {fileID: 5997020098662082053}
+  pestlePoteAnim: {fileID: 8001160229860358038}
 --- !u!1001 &7715992544535130504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1129,6 +1130,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1255605710908113952, guid: 67b1d32606d60ef4ea8ef0a05507d333, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.609998
+      objectReference: {fileID: 0}
+    - target: {fileID: -1255605710908113952, guid: 67b1d32606d60ef4ea8ef0a05507d333, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -1145,6 +1150,9 @@ PrefabInstance:
     - {fileID: -4091792821388611644, guid: 852e3c9ae74a6424a9a7d73d44657270, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7146521406498821007, guid: 67b1d32606d60ef4ea8ef0a05507d333, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8001160229860358038}
     - targetCorrespondingSourceObject: {fileID: 4356877828898064976, guid: 67b1d32606d60ef4ea8ef0a05507d333, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5997020098662082053}
@@ -1165,6 +1173,32 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 95e76f2ac0d841941bd002de40241914, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7926057121351407370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7146521406498821007, guid: 67b1d32606d60ef4ea8ef0a05507d333, type: 3}
+  m_PrefabInstance: {fileID: 8155304587187895163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8001160229860358038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926057121351407370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc36071f83de62e4c84f37ecebda481f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
