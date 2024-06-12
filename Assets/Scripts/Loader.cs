@@ -16,6 +16,7 @@ public static class Loader
         GreenHouse,
         LoadingScene,
         DeliveryScene,
+        Payment,
     }
 
     private static Action onLoaderCallBack;

@@ -13,7 +13,8 @@ public class MoneyController : MonoBehaviour
         public int _currentMoney;
     }
 
-    private int currentMoney;
+    private int totalMoney;
+    private int dayMoney;
 
 
     private void Awake()
@@ -23,11 +24,18 @@ public class MoneyController : MonoBehaviour
 
 
 
-    public int GetCurrentMoney() { return currentMoney; }
+    public int GetCurrentMoney() { return totalMoney; }
+
+    public void ResetDayMoney()
+    {
+        dayMoney = 0;
+    }
 
     public void SetCurrentMoney(int _currentMoney) 
-    { 
-        currentMoney = _currentMoney;
-        OnMoneyChanged?.Invoke(this, new OnMoneyChangedEventArgs { _currentMoney = currentMoney});
+    {
+        dayMoney += (totalMoney - _currentMoney) * -1;
+        totalMoney = _currentMoney;
+        OnMoneyChanged?.Invoke(this, new OnMoneyChangedEventArgs { _currentMoney = totalMoney});
+
     }
 }
