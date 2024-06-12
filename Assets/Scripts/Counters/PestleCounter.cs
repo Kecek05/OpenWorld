@@ -9,9 +9,14 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
     public event EventHandler<IHasProgress.OnProgressChangedEventsArgs> OnProgressChanged;
     public event EventHandler<IHasHitBar.OnHitChangedEventArgs> OnHitChanged;
     public event EventHandler OnHitFinished;
+    public event EventHandler OnHitInterrupted;
     public event EventHandler<IHasHitBar.OnHitMissedEventArgs> OnHitMissed;
-    public event EventHandler OnMoerRight;
-    public event EventHandler OnMoerMiss;
+    public event EventHandler<OnMoerRightEventArgs> OnMoerRight;
+
+    public class OnMoerRightEventArgs
+    {
+        public Material particleMaterial;
+    }
 
     //Minigame RNG
     private int numberCount;
@@ -76,7 +81,7 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
                 {
                     progressNormalized = 0f
                 });
-                OnHitFinished?.Invoke(this, EventArgs.Empty);
+                OnHitInterrupted?.Invoke(this, EventArgs.Empty);
                 numberCount = 0;
                 adding = true;
                 selectedRecipeSO = null;
@@ -105,13 +110,12 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
                 {
                     progressNormalized = (float)crumpleCount / selectedRecipeSO.interactProgressMax
                 });
-                OnMoerRight?.Invoke(this, EventArgs.Empty);
+                OnMoerRight?.Invoke(this, new OnMoerRightEventArgs { particleMaterial = GetKitchenObject().GetKitchenObjectSO().particleMaterial});
 
                 //numberCount = 0;
             } else
             {
                 //miss the hit
-                OnMoerMiss?.Invoke(this, EventArgs.Empty);
                 if (MissedCoroutine == null)
                 {
                     MissedCoroutine = MissedCountDown();

@@ -10,6 +10,8 @@ public interface IHasHitBar
 
     public event EventHandler<OnHitMissedEventArgs> OnHitMissed;
 
+    public event EventHandler OnHitInterrupted;
+
     public event EventHandler OnHitFinished;
     public class OnHitChangedEventArgs : EventArgs
     {
