@@ -11,7 +11,8 @@ public class ItemCountUI : MonoBehaviour
     private void Start()
     {
         countainerCounter.OnChangedItemCount += CountainerCounter_OnChangedItemCount;
-        UpdateCounterTxt();
+        Invoke(nameof(UpdateCounterTxt), 0.2f);
+
     }
 
     private void CountainerCounter_OnChangedItemCount(object sender, System.EventArgs e)

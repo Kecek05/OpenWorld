@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ClearCounter : BaseCounter
 {
+    public event Action OnItemMoved;
 
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
@@ -17,6 +19,7 @@ public class ClearCounter : BaseCounter
             {
                 //player is carrying something
                 player.GetKitchenObject().SetKitchenObjectParent(this);
+                OnItemMoved?.Invoke();
             } else
             {
                 //player carrying anything
@@ -44,6 +47,7 @@ public class ClearCounter : BaseCounter
                             }
                             //Destroy potion on player hand
                             player.GetKitchenObject().DestroySelf();
+                            OnItemMoved?.Invoke();
                         } else
                         {
                             // not compleated potion, empty in player hand
@@ -59,6 +63,7 @@ public class ClearCounter : BaseCounter
                                 }
                                 //Destroy potion on counter
                                 GetKitchenObject().DestroySelf();
+                                OnItemMoved?.Invoke();
                             } else
                             {
                                 // not a compleated potion on counter and either in player, do nothing
@@ -67,28 +72,13 @@ public class ClearCounter : BaseCounter
                         }
                     }
 
-                    //if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
-                    //{
-                    //    GetKitchenObject().DestroySelf();
-                    //}
                 }
-                //else
-                //{
-                //    //player is not carrying a plate, but something else
-                //    if(GetKitchenObject().TryGetPlate(out plateKitchenObject))
-                //    {
-                //        //Counter is holding a plate
-                //        if(plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO()))
-                //        {
-                //            player.GetKitchenObject().DestroySelf();
-                //        }
-                //    }
-                //}
 
             } else
             {
                 //player is not carrying anything
                 GetKitchenObject().SetKitchenObjectParent(player);
+                OnItemMoved?.Invoke();
             }
         }
 
