@@ -73,7 +73,7 @@ public class DeliveryMinigame : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //Add the money
         MoneyController.Instance.SetDayMoney(MoneyController.Instance.GetDayMoney() + CalculateMoneyAdd());
-
+       // MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         WitchInputs.Instance.ChangePLayerInputHitMinigame(false);
         titleObj.SetActive(false);
         for (int i = 0; i < individualHits.Length; i++)

@@ -20,15 +20,11 @@ public class MoneyController : MonoBehaviour
     {
         Instance = this;
     }
-    
-    public int GetDayMoney() { return dayMoney;}
-    public int GetTotalMoney() { return totalMoney; }
-
 
     public void SetTotalMoney(int _currentMoney) 
     {
         totalMoney = _currentMoney;
-        OnMoneyChanged?.Invoke(this, new OnMoneyChangedEventArgs { _totalMoney = totalMoney});
+       // OnMoneyChanged?.Invoke(this, new OnMoneyChangedEventArgs { _totalMoney = totalMoney});
     }
 
     public void SetDayMoney(int _dayMoney)
@@ -41,5 +37,8 @@ public class MoneyController : MonoBehaviour
     {
         dayMoney = 0;
     }
+
+    public int GetDayMoney() { return dayMoney; }
+    public int GetTotalMoney() { return totalMoney; }
 
 }

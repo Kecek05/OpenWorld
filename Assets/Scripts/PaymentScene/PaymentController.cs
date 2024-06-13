@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PaymentController : MonoBehaviour
 {
     private int totalEconomy;
-    private int expanseFixed;
+    private int expanseFixed = 50;
     //private int[] expanses;
 
     [SerializeField] private TextMeshProUGUI[] expanseTxt;
@@ -22,16 +22,32 @@ public class PaymentController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("iniciou");
-        totalEconomy = MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney();
-        economyTxt.text = totalEconomy.ToString();
+        //Debug.Log("iniciou");
+        //totalEconomy = MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney();
+        //economyTxt.text = totalEconomy.ToString();
 
-        dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString();
+        //dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString();
 
-        expanseFixed = 50;
-        fixedExpanseTxt.text = expanseFixed.ToString();
+        //expanseFixed = 50;
+        //fixedExpanseTxt.text = expanseFixed.ToString();
+        
+            InitializeUI();
+        
     }
 
+
+    private void InitializeUI()
+    {
+        totalEconomy = MoneyController.Instance.GetTotalMoney();
+        UpdateUI();
+    }
+    private void UpdateUI()
+    {
+        economyTxt.text = totalEconomy.ToString();
+        dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString();
+        fixedExpanseTxt.text = expanseFixed.ToString();
+        fixedExpanseTxt.text = expanseFixed.ToString();
+    }
     public void OnButtonClick()
     {
        DoPayment();
