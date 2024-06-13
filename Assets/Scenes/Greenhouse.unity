@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17450991, g: 0.2182625, b: 0.3005068, a: 1}
+  m_IndirectSpecularColor: {r: 0.17450939, g: 0.2182623, b: 0.30050808, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7315,7 +7315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2379549e6e33bd24197440e160f0f454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraMain: {fileID: 0}
   cameraMinimap: {fileID: 0}
   player: {fileID: 1267774191}
   offset: {x: 4, y: 10, z: 4}
@@ -11052,6 +11051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeNameText: {fileID: 452304964}
   recipeCountText: {fileID: 801196248}
+  recipeCostText: {fileID: 0}
   iconContainer: {fileID: 1547146090}
   iconTemplate: {fileID: 1840225578}
   potionImage: {fileID: 1799049825}
@@ -17850,7 +17850,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  isInHouse: 0
 --- !u!65 &1267774198
 BoxCollider:
   m_ObjectHideFlags: 0
