@@ -8,7 +8,6 @@ public class WitchInputs : MonoBehaviour
 {
     public static WitchInputs Instance { get; private set; }
 
-
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
 
@@ -134,7 +133,6 @@ public class WitchInputs : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
-
     }
 
     private void OnMovementCanceled(InputAction.CallbackContext context)

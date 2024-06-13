@@ -8,6 +8,9 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
 
+    public static event Action OnPlayerWalking; // SFX
+    public static event Action OnPlayerRunning; // SFX
+
     public event Action<GameObject> OnInteractObjectChanged;
 
     protected GameObject intectableObj;
@@ -153,22 +156,24 @@ public class BasePlayer : MonoBehaviour
             runSpeed = evaluatedSpeed;
             moveDirection = moveDirection * runSpeed;
 
-        }
-        else if (WitchInputs.Instance.GetRunInput() == true)
-        {
-            runTime = 0;
-            moveDirection = moveDirection * moveSpeed;
+
+            if (moveDirection != Vector3.zero)
+                OnPlayerRunning?.Invoke();
         }
         else
         {
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
+            if(moveDirection != Vector3.zero)
+                OnPlayerWalking?.Invoke();
         }
+
 
 
         Vector3 movementVelocity = moveDirection;
         movementVelocity.y = rb.velocity.y;
         rb.velocity = movementVelocity;
+            
     }
 
 
