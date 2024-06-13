@@ -18,13 +18,20 @@ public class MoneyController : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetTotalMoney(int _currentMoney) 
     {
         totalMoney = _currentMoney;
-       // OnMoneyChanged?.Invoke(this, new OnMoneyChangedEventArgs { _totalMoney = totalMoney});
+        OnMoneyChanged?.Invoke(this, new OnMoneyChangedEventArgs { _totalMoney = totalMoney});
     }
 
     public void SetDayMoney(int _dayMoney)
@@ -40,5 +47,4 @@ public class MoneyController : MonoBehaviour
 
     public int GetDayMoney() { return dayMoney; }
     public int GetTotalMoney() { return totalMoney; }
-
 }

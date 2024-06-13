@@ -18,36 +18,19 @@ public class PaymentController : MonoBehaviour
 
     [SerializeField] private bool paymentConcluded = false;
     [SerializeField] private Loader.Scene scene;
-
+    private int payoff;
 
     private void Start()
     {
-        //Debug.Log("iniciou");
-        //totalEconomy = MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney();
-        //economyTxt.text = totalEconomy.ToString();
-
-        //dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString();
-
-        //expanseFixed = 50;
-        //fixedExpanseTxt.text = expanseFixed.ToString();
-        
-            InitializeUI();
-        
-    }
-
-
-    private void InitializeUI()
-    {
+        MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         totalEconomy = MoneyController.Instance.GetTotalMoney();
-        UpdateUI();
-    }
-    private void UpdateUI()
-    {
         economyTxt.text = totalEconomy.ToString();
         dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString();
         fixedExpanseTxt.text = expanseFixed.ToString();
-        fixedExpanseTxt.text = expanseFixed.ToString();
+        
     }
+
+
     public void OnButtonClick()
     {
        DoPayment();
@@ -55,8 +38,8 @@ public class PaymentController : MonoBehaviour
 
     void DoPayment()
     {
-        totalEconomy -= expanseFixed;
-        payOffTxt.text = totalEconomy.ToString();
+        payoff = totalEconomy - expanseFixed;
+        payOffTxt.text = payoff.ToString();
         paymentConcluded = true;
     }
 
@@ -65,7 +48,8 @@ public class PaymentController : MonoBehaviour
     {
         if(paymentConcluded == true)
         {
-            MoneyController.Instance.SetTotalMoney(totalEconomy);
+            MoneyController.Instance.SetTotalMoney(payoff);
+            Debug.Log("quando sai da cena" + MoneyController.Instance.GetTotalMoney());
             MoneyController.Instance.ResetDayMoney();
             Loader.Load(scene);
         }
