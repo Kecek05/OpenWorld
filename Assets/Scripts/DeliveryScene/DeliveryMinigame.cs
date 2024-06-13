@@ -72,7 +72,7 @@ public class DeliveryMinigame : MonoBehaviour
         OnFinishedMinigame?.Invoke();
         yield return new WaitForSeconds(1f);
         //Add the money
-        MoneyController.Instance.SetCurrentMoney(MoneyController.Instance.GetCurrentMoney() + CalculateMoneyAdd());
+        MoneyController.Instance.SetDayMoney(MoneyController.Instance.GetDayMoney() + CalculateMoneyAdd());
 
         WitchInputs.Instance.ChangePLayerInputHitMinigame(false);
         titleObj.SetActive(false);

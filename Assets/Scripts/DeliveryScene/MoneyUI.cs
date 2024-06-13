@@ -14,6 +14,6 @@ public class MoneyUI : MonoBehaviour
 
     private void MoneyController_OnMoneyChanged(object sender, MoneyController.OnMoneyChangedEventArgs e)
     {
-        moneyTxt.text = e._currentMoney.ToString();
+        moneyTxt.text = e._dayMoney.ToString();
     }
 }
