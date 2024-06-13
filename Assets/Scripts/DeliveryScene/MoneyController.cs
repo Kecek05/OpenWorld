@@ -27,9 +27,8 @@ public class MoneyController : MonoBehaviour
 
     public void SetTotalMoney(int _currentMoney) 
     {
-        totalMoney = _currentMoney + dayMoney;
+        totalMoney = _currentMoney;
         OnMoneyChanged?.Invoke(this, new OnMoneyChangedEventArgs { _totalMoney = totalMoney});
-        
     }
 
     public void SetDayMoney(int _dayMoney)

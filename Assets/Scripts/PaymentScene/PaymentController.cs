@@ -6,11 +6,9 @@ using UnityEngine.UI;
 
 public class PaymentController : MonoBehaviour
 {
-    private int economys;
-    private int dayPayment;
+    private int totalEconomy;
     private int expanseFixed;
-    private int[] expanses;
-    private int payOff;
+    //private int[] expanses;
 
     [SerializeField] private TextMeshProUGUI[] expanseTxt;
     [SerializeField] private TextMeshProUGUI economyTxt;
@@ -18,62 +16,40 @@ public class PaymentController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fixedExpanseTxt;
     [SerializeField] private TextMeshProUGUI payOffTxt;
 
-    private bool isActionOne = true;
     [SerializeField] private bool paymentConcluded = false;
     [SerializeField] private Loader.Scene scene;
 
 
     private void Start()
     {
-        economys = MoneyController.Instance.GetTotalMoney();
-        string economyString = economys.ToString();
-        economyTxt.text = economyString;
+        Debug.Log("iniciou");
+        totalEconomy = MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney();
+        economyTxt.text = totalEconomy.ToString();
 
-        dayPayment = MoneyController.Instance.GetDayMoney();
-        string dayPaymentString = dayPayment.ToString();
-        dayPaymentTxt.text = dayPaymentString;
+        dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString();
 
         expanseFixed = 50;
-        string fixedExpanse = expanseFixed.ToString();
-        fixedExpanseTxt.text = fixedExpanse;
+        fixedExpanseTxt.text = expanseFixed.ToString();
     }
 
     public void OnButtonClick()
     {
-        if (isActionOne)
-        {
-            PerformActionOne();
-            Debug.Log("apertou");
-        }
-        else
-        {
-            PerformActionTwo();
-            Debug.Log("soltou");
-        }
-        isActionOne = !isActionOne;
+       DoPayment();
     }
 
-    void PerformActionOne()
+    void DoPayment()
     {
-        payOff = economys - expanseFixed;
+        totalEconomy -= expanseFixed;
+        payOffTxt.text = totalEconomy.ToString();
         paymentConcluded = true;
-        string payOffstring = payOff.ToString();
-        payOffTxt.text = payOffstring;
-        MoneyController.Instance.SetTotalMoney(payOff);
     }
 
-    void PerformActionTwo()
-    {
-        payOff = 0;
-        string payOffstring = payOff.ToString();
-        payOffTxt.text = payOffstring;
-        paymentConcluded = false;   
-    }
-
+   
     public void PassDay()
     {
         if(paymentConcluded == true)
         {
+            MoneyController.Instance.SetTotalMoney(totalEconomy);
             MoneyController.Instance.ResetDayMoney();
             Loader.Load(scene);
         }
