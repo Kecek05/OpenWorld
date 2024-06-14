@@ -13,11 +13,5 @@ public class DontDestroyOnLoadScript : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
-
-
 }
