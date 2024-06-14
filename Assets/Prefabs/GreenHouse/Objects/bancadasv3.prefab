@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 70bcbabd892af7940bf65ecc4e04a2fb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4cba2d045567e4040945a7cb8b57662e, type: 2}
+      objectReference: {fileID: 2100000, guid: effa1e5f606fcd143970e3b7c5e7b3bf, type: 2}
     - target: {fileID: 919132149155446097, guid: 70bcbabd892af7940bf65ecc4e04a2fb, type: 3}
       propertyPath: m_Name
       value: bancadasv3
@@ -66,15 +66,15 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 70bcbabd892af7940bf65ecc4e04a2fb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 240780973881883499}
+      addedObject: {fileID: 4272910727268097923}
   m_SourcePrefab: {fileID: 100100000, guid: 70bcbabd892af7940bf65ecc4e04a2fb, type: 3}
 --- !u!1 &649514194796511689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 70bcbabd892af7940bf65ecc4e04a2fb, type: 3}
   m_PrefabInstance: {fileID: 415140861230627992}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &240780973881883499
-MeshCollider:
+--- !u!65 &4272910727268097923
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -91,7 +91,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7584878696394392055, guid: 70bcbabd892af7940bf65ecc4e04a2fb, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 5.2100286, y: 1.257273, z: 1.7694955}
+  m_Center: {x: -1.0722275, y: 0.8303361, z: 7.530527}
