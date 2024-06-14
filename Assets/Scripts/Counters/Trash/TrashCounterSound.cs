@@ -13,7 +13,7 @@ public class TrashCounterSound : MonoBehaviour
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
     {
-        SFXHouseManager.Instance.PlayRandomSFXClip(SFXHouseManager.Instance.GetAudioClipRefsSO().trash, trashCounter.transform);
+        SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().trash, trashCounter.transform);
 
     }
 }

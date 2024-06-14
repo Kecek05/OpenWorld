@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXHouseManager : MonoBehaviour
+public class SFXManager : MonoBehaviour
 {
-    public static SFXHouseManager Instance { get; private set; }
+    public static SFXManager Instance { get; private set; }
     [SerializeField] private AudioClipRefsSO audioClipRefsSO;
 
     [SerializeField] private AudioSource sFXObject;
@@ -22,15 +22,39 @@ public class SFXHouseManager : MonoBehaviour
     }
 
 
-    private void Start()
+    private void OnEnable()
     {
-        DeliveryManager.Instance.OnRecipeWrong += Instance_OnRecipeWrong;
-        DeliveryManager.Instance.OnRecipeCompleted += Instance_OnRecipeCompleted;
+        //House
+        if(DeliveryManager.Instance !=null)
+        {
+            DeliveryManager.Instance.OnRecipeWrong += Instance_OnRecipeWrong;
+            DeliveryManager.Instance.OnRecipeCompleted += Instance_OnRecipeCompleted;
+        }
         BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
-        PlayerInHouse.InstancePlayerInHouse.OnPickedSomething += Player_OnPickedSomething;
+        if(PlayerInHouse.InstancePlayerInHouse !=null) 
+            PlayerInHouse.InstancePlayerInHouse.OnPickedSomething += Player_OnPickedSomething;
+
+        //Geral
         BasePlayer.OnPlayerWalking += WitchInputs_OnPlayerWalking;
         BasePlayer.OnPlayerRunning += WitchInputs_OnPlayerRunning;
 
+    }
+
+    private void OnDisable()
+    {
+        //House
+        if (DeliveryManager.Instance != null)
+        {
+            DeliveryManager.Instance.OnRecipeWrong -= Instance_OnRecipeWrong;
+            DeliveryManager.Instance.OnRecipeCompleted -= Instance_OnRecipeCompleted;
+        }
+        BaseCounter.OnAnyObjectPlacedHere -= BaseCounter_OnAnyObjectPlacedHere;
+        if (PlayerInHouse.InstancePlayerInHouse != null)
+            PlayerInHouse.InstancePlayerInHouse.OnPickedSomething -= Player_OnPickedSomething;
+
+        //Geral
+        BasePlayer.OnPlayerWalking -= WitchInputs_OnPlayerWalking;
+        BasePlayer.OnPlayerRunning -= WitchInputs_OnPlayerRunning;
     }
 
     private void Instance_OnRecipeWrong(object sender, System.EventArgs e)
@@ -57,7 +81,7 @@ public class SFXHouseManager : MonoBehaviour
 
     private IEnumerator PlayerRunSFX()
     {
-        PlayRandomSFXClip(audioClipRefsSO.footstep, BasePlayer.Instance.transform);
+        PlayRandomSFXClip(audioClipRefsSO.footstepHouse, BasePlayer.Instance.transform);
         yield return new WaitForSeconds(delayBetweenRunningFootStepsSFX);
         //Can play another SFX walking
         playerRunSFXCoroutine = null;
@@ -77,7 +101,7 @@ public class SFXHouseManager : MonoBehaviour
 
     private IEnumerator PlayerMoveSFX()
     {
-        PlayRandomSFXClip(audioClipRefsSO.footstep, BasePlayer.Instance.transform);
+        PlayRandomSFXClip(audioClipRefsSO.footstepHouse, BasePlayer.Instance.transform);
         yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
         //Can play another SFX walking
         playerWalkSFXCoroutine = null;
@@ -85,14 +109,14 @@ public class SFXHouseManager : MonoBehaviour
 
     private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
     {
-        BaseCounter baseCounter = sender as BaseCounter;
-        PlayRandomSFXClip(audioClipRefsSO.objectDrop, baseCounter.transform);
+        Transform baseCounter = sender as Transform;
+        PlayRandomSFXClip(audioClipRefsSO.kitchenObjDrop, baseCounter.transform);
     }
 
     private void Player_OnPickedSomething(object sender, System.EventArgs e)
     {
-        PlayerInHouse player = sender as PlayerInHouse;
-        PlayRandomSFXClip(audioClipRefsSO.objectPickup, player.transform);
+        Transform player = sender as Transform;
+        PlayRandomSFXClip(audioClipRefsSO.kitchenObjPickup, player.transform);
     }
 
     public void PlayRandomSFXClip(AudioClip[] audioClips, Transform soundPos, float volume = 1f)
