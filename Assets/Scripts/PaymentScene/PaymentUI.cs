@@ -15,9 +15,11 @@ public class PaymentUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI payOffTxt;
 
 
-    public void SetEconomyTxt(int _economy)
+    private void SetStartPaymentTxt(int _economy, int _dayPayment, int _fixedExpanse)
     {
-      //  _economy = 
+        economyTxt.text = _economy.ToString();
+        dayPaymentTxt.text = _dayPayment.ToString();
+        fixedExpanseTxt.text = _fixedExpanse.ToString();
     }
 
 

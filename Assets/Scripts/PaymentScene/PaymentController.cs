@@ -4,19 +4,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static MoneyController;
-using static PaymentUI;
 
 public class PaymentController : MonoBehaviour
 {
     public static MoneyController Instance;
-    public event EventHandler OnUpdateMoney;
 
     private int totalEconomy;
-    private int expanseFixed = 50;
+    private int expanseFixed;
     private int payoff;
-    private int[] expanses;
-    [SerializeField] private bool paymentConcluded = false;
+
+    private bool paymentConcluded = false;
+    [SerializeField] private Loader.Scene scene;
 
     [SerializeField] private TextMeshProUGUI[] expanseTxt;
     [SerializeField] private TextMeshProUGUI economyTxt;
@@ -25,9 +23,6 @@ public class PaymentController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI payOffTxt;
 
 
-    [SerializeField] private Loader.Scene scene;
-    
-
     private void Start()
     {
         MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
@@ -35,7 +30,7 @@ public class PaymentController : MonoBehaviour
         economyTxt.text = totalEconomy.ToString(); // passa para o texto, evento aqui
         dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString(); // evento, pega o valor do dia e passar para o texto
         fixedExpanseTxt.text = expanseFixed.ToString(); // evento, só passa o valor fixo
-        
+
     }
 
 
