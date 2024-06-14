@@ -59,14 +59,20 @@ public class SFXManager : MonoBehaviour
 
     private void Instance_OnRecipeWrong(object sender, System.EventArgs e)
     {
-        Transform deliveryCounterPos = sender as Transform;
-        PlayRandomSFXClip(GetAudioClipRefsSO().deliveryFail, deliveryCounterPos);
+        BaseCounter deliveryCounterPos = sender as BaseCounter;
+        if (GetAudioClipRefsSO().potionWrong != null && deliveryCounterPos != null)
+        {
+            PlayRandomSFXClip(GetAudioClipRefsSO().potionWrong, deliveryCounterPos.transform);
+        }
     }
 
     private void Instance_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
     {
-        Transform deliveryCounterPos = sender as Transform;
-        PlayRandomSFXClip(GetAudioClipRefsSO().deliverySuccess, deliveryCounterPos);
+        BaseCounter deliveryCounterPos = sender as BaseCounter;
+        if(GetAudioClipRefsSO().potionSuccess != null && deliveryCounterPos != null)
+        {
+            PlayRandomSFXClip(GetAudioClipRefsSO().potionSuccess, deliveryCounterPos.transform);
+        }
     }
 
     private void WitchInputs_OnPlayerRunning()
@@ -81,10 +87,14 @@ public class SFXManager : MonoBehaviour
 
     private IEnumerator PlayerRunSFX()
     {
-        PlayRandomSFXClip(audioClipRefsSO.footstepHouse, BasePlayer.Instance.transform);
-        yield return new WaitForSeconds(delayBetweenRunningFootStepsSFX);
-        //Can play another SFX walking
-        playerRunSFXCoroutine = null;
+        if (GetAudioClipRefsSO().footstepHouse != null)
+        {
+
+            PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, BasePlayer.Instance.transform);
+            yield return new WaitForSeconds(delayBetweenRunningFootStepsSFX);
+            //Can play another SFX walking
+            playerRunSFXCoroutine = null;
+        }
     }
 
 
@@ -101,38 +111,54 @@ public class SFXManager : MonoBehaviour
 
     private IEnumerator PlayerMoveSFX()
     {
-        PlayRandomSFXClip(audioClipRefsSO.footstepHouse, BasePlayer.Instance.transform);
-        yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
-        //Can play another SFX walking
-        playerWalkSFXCoroutine = null;
+        if (GetAudioClipRefsSO().footstepHouse != null)
+        {
+            PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, BasePlayer.Instance.transform);
+            yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
+            //Can play another SFX walking
+            playerWalkSFXCoroutine = null;
+
+        }
     }
 
     private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
     {
-        Transform baseCounter = sender as Transform;
-        PlayRandomSFXClip(audioClipRefsSO.kitchenObjDrop, baseCounter.transform);
+        BaseCounter baseCounter = sender as BaseCounter;
+        if (GetAudioClipRefsSO().kitchenObjDrop != null && baseCounter != null)
+        {
+            PlayRandomSFXClip(audioClipRefsSO.kitchenObjDrop, baseCounter.transform);
+
+        }
     }
 
     private void Player_OnPickedSomething(object sender, System.EventArgs e)
     {
-        Transform player = sender as Transform;
-        PlayRandomSFXClip(audioClipRefsSO.kitchenObjPickup, player.transform);
+        PlayerInHouse player = sender as PlayerInHouse;
+        if (GetAudioClipRefsSO().kitchenObjPickup != null && player != null)
+        {
+            PlayRandomSFXClip(audioClipRefsSO.kitchenObjPickup, player.transform);
+        }
     }
 
     public void PlayRandomSFXClip(AudioClip[] audioClips, Transform soundPos, float volume = 1f)
     {
+        if(audioClips != null)
+        {
 
-        AudioSource audioSource = Instantiate(sFXObject, soundPos.position, Quaternion.identity);
+            //There is a clip to play
+            AudioSource audioSource = Instantiate(sFXObject, soundPos.position, Quaternion.identity);
 
-        audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
+            audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
 
-        audioSource.volume = volume;
+            audioSource.volume = volume;
 
-        audioSource.Play();
+            audioSource.Play();
 
-        float clipLength = audioSource.clip.length;
+            float clipLength = audioSource.clip.length;
 
-        Destroy(audioSource.gameObject, clipLength);
+            Destroy(audioSource.gameObject, clipLength);
+        }
+
     }
 
 

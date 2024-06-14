@@ -60,11 +60,6 @@ public class BasePlayer : MonoBehaviour
         WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
     }
 
-    protected virtual void Update()
-    {
-        Cursor.visible = false;
-    }
-
     protected void LateUpdate()
     {
         var groundcheck = Physics.OverlapSphere(transform.position + groundCheckPosition, groundCheckSize, groundLayer);

@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class AudioClipRefsSO : ScriptableObject
 {
-    //House
+    [Header("House")]
     public AudioClip[] footstepHouse;
     public AudioClip[] dash;
     public AudioClip[] kitchenObjPickup;
     public AudioClip[] kitchenObjDrop;
     public AudioClip[] trash;
-    public AudioClip[] deliverySuccess;
-    public AudioClip[] deliveryFail;
+    public AudioClip[] potionSuccess;
+    public AudioClip[] potionWrong;
     public AudioClip[] pestleSuccess;
     public AudioClip[] pestleFail;
     public AudioClip[] doneInteract; //finish cut and pestle (Similar to the same particle)
@@ -20,11 +20,27 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip[] caulderonLiquidToPotion;
     public AudioClip[] caulderonCleanLiquid;
     public AudioClip[] boxInteract;
+    [Space]
 
-    //GreenHouse
-   // public AudioClip[]
+    [Header("GreenHouse")]
+    public AudioClip[] footstepOutSide;
+    public AudioClip[] jump;
+    public AudioClip[] run;
+    public AudioClip[] clickCollect;
+    public AudioClip[] completeCollect;
+    public AudioClip[] stashItemInBox;
+    [Space]
 
-    public AudioClip[] warning;
+    [Header("Delivery")]
+    public AudioClip[] knockDoor1;
+    public AudioClip[] knockDoor2;
+    public AudioClip[] knockDoor3;
+    public AudioClip[] knockDoor4;
+
+    public AudioClip[] goodDelivery;
+    public AudioClip[] badDelivery;
+    public AudioClip[] startMinigame;
+
 
 
 }

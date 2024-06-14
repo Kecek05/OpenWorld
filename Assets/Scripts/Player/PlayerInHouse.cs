@@ -60,9 +60,8 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         }
     }
 
-    protected override void Update()
+    private void Update()
     {
-        base.Update();
         HandleInteractions();
     }
 

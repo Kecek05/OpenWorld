@@ -37,9 +37,9 @@ public class CountainerCounter : BaseCounter
 
                 //Destroy the item
 
-                player.GetKitchenObject().DestroySelf();
                 OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
                 OnChangedItemCount?.Invoke(this, EventArgs.Empty);
+                player.GetKitchenObject().DestroySelf();
             }
         }
     }

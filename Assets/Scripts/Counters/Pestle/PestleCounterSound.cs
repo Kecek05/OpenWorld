@@ -15,11 +15,11 @@ public class PestleCounterSound : MonoBehaviour
     private void PestleCounter_OnHitMissed(object sender, IHasHitBar.OnHitMissedEventArgs e)
     {
         if(e.missed)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().deliveryFail, transform);
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().potionWrong, transform);
     }
 
     private void PestleCounter_OnMoerRight(object sender, PestleCounter.OnMoerRightEventArgs e)
     {
-        SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().deliverySuccess, transform);
+        SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().potionSuccess, transform);
     }
 }
