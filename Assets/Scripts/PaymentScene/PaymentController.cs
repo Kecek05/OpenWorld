@@ -5,11 +5,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static MoneyController;
+using static PaymentUI;
 
 public class PaymentController : MonoBehaviour
 {
     public static MoneyController Instance;
-
+    public event EventHandler OnUpdateMoney;
 
     private int totalEconomy;
     private int expanseFixed = 50;
