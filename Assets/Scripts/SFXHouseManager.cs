@@ -24,18 +24,26 @@ public class SFXHouseManager : MonoBehaviour
 
     private void Start()
     {
-        DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
-        DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
-        CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
-        PlayerInHouse.InstancePlayerInHouse.OnPickedSomething += Player_OnPickedSomething;
+        DeliveryManager.Instance.OnRecipeWrong += Instance_OnRecipeWrong;
+        DeliveryManager.Instance.OnRecipeCompleted += Instance_OnRecipeCompleted;
         BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
-        TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
-
+        PlayerInHouse.InstancePlayerInHouse.OnPickedSomething += Player_OnPickedSomething;
         BasePlayer.OnPlayerWalking += WitchInputs_OnPlayerWalking;
         BasePlayer.OnPlayerRunning += WitchInputs_OnPlayerRunning;
 
     }
 
+    private void Instance_OnRecipeWrong(object sender, System.EventArgs e)
+    {
+        Transform deliveryCounterPos = sender as Transform;
+        PlayRandomSFXClip(GetAudioClipRefsSO().deliveryFail, deliveryCounterPos);
+    }
+
+    private void Instance_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
+    {
+        Transform deliveryCounterPos = sender as Transform;
+        PlayRandomSFXClip(GetAudioClipRefsSO().deliverySuccess, deliveryCounterPos);
+    }
 
     private void WitchInputs_OnPlayerRunning()
     {
@@ -44,7 +52,6 @@ public class SFXHouseManager : MonoBehaviour
             //Isnt playing SFX
             playerRunSFXCoroutine = PlayerRunSFX();
             StartCoroutine(playerRunSFXCoroutine);
-            Debug.Log("SFX RUN");
         }
     }
 
@@ -65,7 +72,6 @@ public class SFXHouseManager : MonoBehaviour
             //Isnt playing SFX
             playerWalkSFXCoroutine = PlayerMoveSFX();
             StartCoroutine(playerWalkSFXCoroutine);
-            Debug.Log("SFX MOVE");
         }
     }
 
@@ -75,14 +81,6 @@ public class SFXHouseManager : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
         //Can play another SFX walking
         playerWalkSFXCoroutine = null;
-    }
-
-
-    private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
-    {
-        TrashCounter trashCounter = sender as TrashCounter;
-
-        PlayRandomSFXClip(audioClipRefsSO.trash, trashCounter.transform);
     }
 
     private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
@@ -96,33 +94,6 @@ public class SFXHouseManager : MonoBehaviour
         PlayerInHouse player = sender as PlayerInHouse;
         PlayRandomSFXClip(audioClipRefsSO.objectPickup, player.transform);
     }
-
-    private void CuttingCounter_OnAnyCut(object sender, System.EventArgs e)
-    {
-        CuttingCounter cuttingCounter = sender as CuttingCounter;
-        PlayRandomSFXClip(audioClipRefsSO.chop, cuttingCounter.transform);
-    }
-
-    private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e)
-    {
-        DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlayRandomSFXClip(audioClipRefsSO.deliveryFail, deliveryCounter.transform);
-    }
-
-    private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e)
-    {
-        DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        PlayRandomSFXClip(audioClipRefsSO.deliverySuccess, deliveryCounter.transform);
-    }
-
-
-    public void PlayFootstepsSound(Vector3 position, float volume)
-    {
-   //     PlaySound(audioClipRefsSO.footstep, position, volume);
-    }
-
-
-    //new
 
     public void PlayRandomSFXClip(AudioClip[] audioClips, Transform soundPos, float volume = 1f)
     {
@@ -139,4 +110,8 @@ public class SFXHouseManager : MonoBehaviour
 
         Destroy(audioSource.gameObject, clipLength);
     }
+
+
+
+    public AudioClipRefsSO GetAudioClipRefsSO() { return audioClipRefsSO; }
 }

@@ -111,7 +111,6 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
                     progressNormalized = (float)crumpleCount / selectedRecipeSO.interactProgressMax
                 });
                 OnMoerRight?.Invoke(this, new OnMoerRightEventArgs { particleMaterial = GetKitchenObject().GetKitchenObjectSO().particleMaterial});
-
                 //numberCount = 0;
             } else
             {

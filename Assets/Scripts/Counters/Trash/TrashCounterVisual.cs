@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TrashCounterVisual : MonoBehaviour
 {
+    [SerializeField] private TrashCounter trashCounter;
     [SerializeField] private ParticleSystem trashParticle;
 
     private void Start()
     {
-        TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
+        trashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
     }
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
