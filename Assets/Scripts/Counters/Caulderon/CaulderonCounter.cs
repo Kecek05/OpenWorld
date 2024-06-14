@@ -264,8 +264,11 @@ public class CaulderonCounter : BaseCounter, IHasProgress
         kitchenObjectSOInCaulderonList.Clear();
 
         //Reset Confirm Coroutine
-        StopCoroutine(confirmDeleteCoroutine);
-        confirmDeleteCoroutine = null;
+        if(confirmDeleteCoroutine != null)
+        {
+            StopCoroutine(confirmDeleteCoroutine);
+            confirmDeleteCoroutine = null;
+        }
         confirmDeleteImage.SetActive(false);
 
         GetKitchenObject().DestroySelf();

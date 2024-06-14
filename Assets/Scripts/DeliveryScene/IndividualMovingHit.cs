@@ -79,7 +79,6 @@ public class IndividualMovingHit : MonoBehaviour
             yield return null; // Esperar até o próximo frame
         }
         movingOutScreenCoroutine = null;
-        Debug.Log("OutScreen");
     }
 
     public void StopMoving() { movingCoroutine = null; }

@@ -79,7 +79,6 @@ public class IndividualHit : MonoBehaviour
     {
         if(inMinigame)
         {
-            Debug.Log("Performed hit");
             hited = true;
             HittedIndividual();
         }
@@ -92,7 +91,6 @@ public class IndividualHit : MonoBehaviour
         timeToHit = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpeed, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpeed);
         _hitTime = 0f;
         individualMovingHit.gameObject.SetActive(true);
-        Debug.Log(DeliveryMinigame.Instance.GetMinigameDifficultySO().difficultyName);
         yield return new WaitForSeconds(randomSpawnDelay); // random spawn delay
         individualMovingHit.StartMoving();
         while (!hited && _hitTime <= timeToHit)
@@ -111,13 +109,13 @@ public class IndividualHit : MonoBehaviour
     private void MissedHitIndividual()
     {
         //Missed
-        Debug.Log("Missed");
         DeliveryMinigame.Instance.MissedHit();
     }
 
     private void HittedIndividual()
     {
-        StopCoroutine(hitLoopCoroutine); 
+        if(hitLoopCoroutine != null) 
+            StopCoroutine(hitLoopCoroutine); 
 
         //Hitted
         CalculateAccuracy(_hitTime);
@@ -135,26 +133,26 @@ public class IndividualHit : MonoBehaviour
     private void CalculateAccuracy(float timeClicked)
     {
         float accuracy = timeToHit - timeClicked;
-        Debug.Log("Accuracy is " + accuracy + " Time Clicked is " + timeClicked);
+
 
         if(accuracy <= timeToHit / 10)
         {
             // Perfect click
             OnTextFeedback?.Invoke(HitType.Perfect);
 
-            Debug.Log("Perfect");
+
             individualMultiplyAdd = 0.25f;
         } else if( accuracy <= timeToHit / 5)
         {
             //Good click
             OnTextFeedback?.Invoke(HitType.Good);
-            Debug.Log("Good");
+
             individualMultiplyAdd = 0.15f;
         } else
         {
             //Bad click
             OnTextFeedback?.Invoke(HitType.Bad);
-            Debug.Log("Bad Click");
+
             individualMultiplyAdd = 0;
         }
     }

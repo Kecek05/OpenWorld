@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamTest : MonoBehaviour
+public class MinimapCamera : MonoBehaviour
 {
 
     //[SerializeField] private Camera cameraMain;
     [SerializeField] private Camera cameraMinimap;
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 offset;
-    private float speed = 4f;
+    [SerializeField] private float speed = 4f;
     
 
     private void FixedUpdate()
