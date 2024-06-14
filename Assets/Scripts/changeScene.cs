@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class changeScene : MonoBehaviour
+public class ChangeScene : MonoBehaviour
 {
 
     [SerializeField] private float totalTime = 40f;
@@ -15,7 +15,7 @@ public class changeScene : MonoBehaviour
     private void Start()
     {
         currentTime = totalTime;
-        StartCoroutine(ChangeScene());
+        StartCoroutine(ChangeSceneCoroutine());
         StartCoroutine(Clock());
     }
 
@@ -37,7 +37,7 @@ public class changeScene : MonoBehaviour
         timerText.text = "00:00";
     }
 
-    private IEnumerator ChangeScene()
+    private IEnumerator ChangeSceneCoroutine()
     {
         yield return new WaitForSeconds(totalTime);
         Loader.Load(scene);

@@ -17,7 +17,7 @@ public class DeliveryManager : MonoBehaviour
         public PotionObjectSO completedPotion;
     }
 
-
+    private int correctRecipeCount = 0;
 
 
     private void Awake()
@@ -62,6 +62,7 @@ public class DeliveryManager : MonoBehaviour
                     //player delivered the correct ingredients!
                     if(potionShapeObject.CompareTag(waitingRecipeSO.PotionShape.tag))
                     {
+                        correctRecipeCount++;
                         //same potion shape
                         StoredPotions.Instance.StorePotion(deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate());
 
@@ -82,4 +83,6 @@ public class DeliveryManager : MonoBehaviour
         // Player did not delivered a correct recipe
         OnRecipeWrong?.Invoke(this, EventArgs.Empty);
     }
+
+    public int GetCorrectRecipeCount() { return correctRecipeCount; }
 }
