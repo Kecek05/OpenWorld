@@ -81,7 +81,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AbsorptionCoefficient: 0.186
+    - _AbsorptionCoefficient: 0.141
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -99,10 +99,10 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _Float: 0.45
-    - _FoamAmount: 0
+    - _FoamAmount: 1
     - _FoamCutoff: 1
     - _FoamScale: 0.78
-    - _FoamSpeed: 0.04
+    - _FoamSpeed: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -116,7 +116,7 @@ Material:
     - _RefractionSpeed: 1.02
     - _RefractionStrength: 1.15
     - _RippleDensity: 66.3
-    - _RippleSilmness: 54.9
+    - _RippleSilmness: 54.64
     - _RippleSpeed: 1
     - _Scale: 0
     - _Smoothness: 0.5
@@ -139,9 +139,10 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1.0592737, g: 1.0592737, b: 1.0592737, a: 1}
-    - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Intensity: {r: -20, g: 4.9, b: 0, a: 0}
+    - _RippleColor: {r: 1.319508, g: 1.319508, b: 1.319508, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterColor: {r: 0.05672476, g: 0.903264, b: 0.96981126, a: 1}
+    - _WaterColor: {r: 0.55602527, g: 0.9527559, b: 0.990566, a: 1}
     - _WaterColor2: {r: 0.02367381, g: 0.29999378, b: 0.6603774, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3007707208817405094
