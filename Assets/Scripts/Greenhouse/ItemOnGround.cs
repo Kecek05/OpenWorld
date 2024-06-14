@@ -32,6 +32,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
         selectedItemOnGroundSO = itemOnGroundSOArray[randomItemOnGround]; 
         selectedItemClicksToCollect = selectedItemOnGroundSO.clicksToCollect;
         itemInGround = Instantiate(selectedItemOnGroundSO.prefab, spawnpoint.transform);
+        itemInGround.GetComponent<SelectedIngredient>().SetParent(this.gameObject);
         itemInGroundImage.sprite = selectedItemOnGroundSO.itemSprite;
         ItemInGroundMinimap.sprite = selectedItemOnGroundSO.itemSprite;
     }
@@ -59,7 +60,7 @@ public class ItemOnGround : MonoBehaviour, IInteractable, IHasProgress
 
                 
                 spawnParticle.Play();
-
+                Debug.Log("Coletado");
                 Destroy(itemInGround.gameObject);
                 //selectedItemOnGroundSO = null;
                 Destroy(gameObject);

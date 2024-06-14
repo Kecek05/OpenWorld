@@ -17,6 +17,7 @@ public class SelectedCounterVisual : MonoBehaviour
         if(e.selectedCounter == baseCounter)
         {
             Show();
+            Debug.Log("Show");
         } else
         {
             Hide();

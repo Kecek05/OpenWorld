@@ -8,7 +8,6 @@ public class WitchInputs : MonoBehaviour
 {
     public static WitchInputs Instance { get; private set; }
 
-
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
 
@@ -24,8 +23,11 @@ public class WitchInputs : MonoBehaviour
     private float verticalInput;
     private float horizontalInput;
 
-    [SerializeField] private bool run;
-    [SerializeField] private bool jump;
+    private bool run;
+    private bool jump;
+
+    public Loader.Scene sceneType;
+
 
     private void Awake()
     {
@@ -50,14 +52,15 @@ public class WitchInputs : MonoBehaviour
         if(playerInputActions == null)
         {
             playerInputActions = new PlayerInputActions();
-            //Movement
-            playerInputActions.PlayerMovement.Move.performed += OnMovementPerformed;
-            playerInputActions.PlayerMovement.Move.canceled += OnMovementCanceled;
-            playerInputActions.PlayerMovement.Run.performed += i => run = true;
-            playerInputActions.PlayerMovement.Run.canceled += i => run = false;
-            playerInputActions.PlayerMovement.Jump.performed += i => jump = true;
-            playerInputActions.PlayerMovement.Jump.canceled += i => jump = false;
-            playerInputActions.PlayerMovement.Enable();
+            //OutSide
+            playerInputActions.PlayerOutSide.Move.performed += OnMovementPerformed;
+            playerInputActions.PlayerOutSide.Move.canceled += OnMovementCanceled;
+            playerInputActions.PlayerOutSide.Run.performed += i => run = true;
+            playerInputActions.PlayerOutSide.Run.canceled += i => run = false;
+            playerInputActions.PlayerOutSide.Jump.performed += i => jump = true;
+            playerInputActions.PlayerOutSide.Jump.canceled += i => jump = false;
+            playerInputActions.PlayerOutSide.Interact.performed += Interact_performed;
+            playerInputActions.PlayerOutSide.Disable();
 
             //Hit Minigame
             playerInputActions.PlayerHitMinigame.Hit1.performed += Hit1_performed;
@@ -66,9 +69,31 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerHitMinigame.Hit4.performed += Hit4_performed;
             playerInputActions.PlayerHitMinigame.Disable();
 
-            //Interact
-            playerInputActions.PlayerMovement.Interact.performed += Interact_performed;
-            playerInputActions.PlayerMovement.InteractAlternate.performed += InteractAlternate_performed;
+            //In Side
+            playerInputActions.PlayerInHouse.Move.performed += OnMovementPerformed;
+            playerInputActions.PlayerInHouse.Move.canceled += OnMovementCanceled;
+            playerInputActions.PlayerInHouse.Dash.performed += i => run = true;
+            playerInputActions.PlayerInHouse.Dash.canceled += i => run = false;
+            playerInputActions.PlayerInHouse.Interact.performed += Interact_performed;
+            playerInputActions.PlayerInHouse.InteractAlternate.performed += InteractAlternate_performed;
+            playerInputActions.PlayerInHouse.Disable();
+
+        }
+
+        switch(sceneType) // enable the correct input Map
+        {
+            case Loader.Scene.GreenHouse:
+                playerInputActions.PlayerOutSide.Enable();
+                playerInput.SwitchCurrentActionMap("PlayerOutSide");
+                break;
+            case Loader.Scene.DeliveryScene:
+                playerInputActions.PlayerOutSide.Enable();
+                playerInput.SwitchCurrentActionMap("PlayerOutSide");
+                break;
+            case Loader.Scene.House:
+                playerInputActions.PlayerInHouse.Enable();
+                playerInput.SwitchCurrentActionMap("PlayerInHouse");
+                break;
         }
  
     }
@@ -108,7 +133,6 @@ public class WitchInputs : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
-
     }
 
     private void OnMovementCanceled(InputAction.CallbackContext context)
@@ -120,15 +144,15 @@ public class WitchInputs : MonoBehaviour
     {
         if (state)
         {
-            playerInputActions.PlayerMovement.Disable();
+            playerInputActions.PlayerOutSide.Disable();
             playerInputActions.PlayerHitMinigame.Enable();
             playerInput.SwitchCurrentActionMap("PlayerHitMinigame");
         }
         else
         {
             playerInputActions.PlayerHitMinigame.Disable();
-            playerInputActions.PlayerMovement.Enable();
-            playerInput.SwitchCurrentActionMap("PlayerMovement");
+            playerInputActions.PlayerOutSide.Enable();
+            playerInput.SwitchCurrentActionMap("PlayerOutSide");
         }
     }
 
@@ -144,9 +168,9 @@ public class WitchInputs : MonoBehaviour
         horizontalInput = movementInput.x;
     }
 
-    public Vector2 GetMovementVectorNormalized()
+    public Vector2 GetMovementVectorNormalizedInHouse()
     {
-        Vector2 inputVector = playerInputActions.PlayerMovement.Move.ReadValue<Vector2>();
+        Vector2 inputVector = playerInputActions.PlayerInHouse.Move.ReadValue<Vector2>();
         inputVector = inputVector.normalized;
         ////arredonda o valor para 0 se ele for menor que 0.4 (isso melhora o movimento pelo controle)
         if ((inputVector.x < 0.4f && inputVector.x > 0f) || (inputVector.x > -0.4f && inputVector.x < 0f))

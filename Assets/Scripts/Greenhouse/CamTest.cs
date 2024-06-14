@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamTest : MonoBehaviour
 {
 
-    [SerializeField] private Camera cameraMain;
+    //[SerializeField] private Camera cameraMain;
     [SerializeField] private Camera cameraMinimap;
     [SerializeField] private GameObject player;
     [SerializeField] private Vector3 offset;

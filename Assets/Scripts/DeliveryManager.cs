@@ -6,8 +6,9 @@ using UnityEngine.EventSystems;
 
 public class DeliveryManager : MonoBehaviour
 {
-    public event EventHandler OnRecipeSuccess; // for SFX
-    public event EventHandler OnRecipeFailed; // for SFX
+    public static DeliveryManager Instance { get; private set; }
+
+    public event EventHandler OnRecipeWrong;
 
     public event EventHandler<OnRecipeCompletedEventArgs> OnRecipeCompleted;
 
@@ -16,8 +17,6 @@ public class DeliveryManager : MonoBehaviour
         public PotionObjectSO completedPotion;
     }
 
-
-    public static DeliveryManager Instance { get; private set; }
 
 
 
@@ -70,17 +69,17 @@ public class DeliveryManager : MonoBehaviour
                         {
                             completedPotion = deliveredPlateKitchenObject.GetPotionObjectSOInThisPlate()
                         });
-                        OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
                         return;
                     } else
                     {
                         //wrong potion shape
+                        OnRecipeWrong?.Invoke(this, EventArgs.Empty);
                     }
                 }
             }
         }
         //No matches found!
         // Player did not delivered a correct recipe
-        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+        OnRecipeWrong?.Invoke(this, EventArgs.Empty);
     }
 }

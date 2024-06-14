@@ -7,7 +7,9 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 {
     public static event EventHandler OnAnyObjectPlacedHere;
 
+
     [SerializeField] private Transform counterTopPoint;
+    [SerializeField] private ParticleSystem pickUpParticle;
 
     private KitchenObject kitchenObject;
 
@@ -33,6 +35,10 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
         if(kitchenObject != null )
         {
             OnAnyObjectPlacedHere?.Invoke(this, EventArgs.Empty);
+        }
+        if(pickUpParticle != null)
+        {
+            pickUpParticle.Play();
         }
     }
     public KitchenObject GetKitchenObject()

@@ -60,15 +60,14 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         }
     }
 
-    protected override void Update()
+    private void Update()
     {
-        base.Update();
         HandleInteractions();
     }
 
     private void HandleInteractions()
     {
-        Vector2 inputVector = WitchInputs.Instance.GetMovementVectorNormalized();
+        Vector2 inputVector = WitchInputs.Instance.GetMovementVectorNormalizedInHouse();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 

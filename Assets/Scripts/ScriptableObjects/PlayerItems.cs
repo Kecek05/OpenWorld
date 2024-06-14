@@ -26,6 +26,11 @@ public class PlayerItems : MonoBehaviour
     private void Start()
     {
         itemsCollected = new int[6];
+        for (int i = 0; i < itemsCollected.Length; i++)
+        {
+            //add one in the start of the game
+            itemsCollected[i]++;
+        }
     }
 
     public void ResetPlayerItems()

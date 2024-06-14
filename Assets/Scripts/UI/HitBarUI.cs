@@ -19,8 +19,15 @@ public class HitBarUI : MonoBehaviour
 
         hitBar.OnHitMissed += HitBar_OnHitMissed;
 
+        hitBar.OnHitInterrupted += HitBar_OnHitInterrupted;
+
         hitSlider.value = 0;
 
+        Hide();
+    }
+
+    private void HitBar_OnHitInterrupted(object sender, System.EventArgs e)
+    {
         Hide();
     }
 

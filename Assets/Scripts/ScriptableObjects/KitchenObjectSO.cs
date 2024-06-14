@@ -11,4 +11,9 @@ public class KitchenObjectSO : ScriptableObject
     public string objectName;
 
     public float timeInCaulderon;
+
+    public Material particleMaterial;
+
+    [Tooltip("SFX For Chop or Pestle")]
+    public AudioClip[] interactSFX;
 }

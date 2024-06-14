@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: acbbbbc308edbb249964c18dd6aec2d4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 244d28174f115d9479164da224d28be9, type: 2}
     - target: {fileID: 919132149155446097, guid: acbbbbc308edbb249964c18dd6aec2d4, type: 3}
       propertyPath: m_Name
       value: MesaEstufa
@@ -76,7 +80,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9206419207904956286}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8324040c2dfca6944a94d54d457821e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

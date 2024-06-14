@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,11 @@ using UnityEngine.EventSystems;
 public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
+
+    public static event Action OnPlayerWalking; // SFX
+    public static event Action OnPlayerRunning; // SFX
+
+    public event Action<GameObject> OnInteractObjectChanged;
 
     protected GameObject intectableObj;
 
@@ -41,8 +47,6 @@ public class BasePlayer : MonoBehaviour
 
     private float runTime;
 
-    [SerializeField] private bool isInHouse = false; // for the player in house
-
     protected virtual void Awake()
     {
         Instance = this;
@@ -54,11 +58,6 @@ public class BasePlayer : MonoBehaviour
     {
         WitchInputs.Instance.OnInteractAction += WitchInputs_OnInteractAction;
         WitchInputs.Instance.OnInteractAlternateAction += WitchInputs_OnInteractAlternateAction; ;
-    }
-
-    protected virtual void Update()
-    {
-        Cursor.visible = false;
     }
 
     protected void LateUpdate()
@@ -75,7 +74,7 @@ public class BasePlayer : MonoBehaviour
 
         }
 
-        if (isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false && !isInHouse)
+        if (isGround == true && WitchInputs.Instance.GetJumpInput() == true && isJumping == false)
         {
             if (jumpingCoroutine == null)
             {
@@ -100,11 +99,11 @@ public class BasePlayer : MonoBehaviour
 
     protected void OnTriggerStay(Collider other)
     {
-        //Debug.Log(other.gameObject);
         IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
         if (interactable != null)
         {
             intectableObj = other.gameObject;
+            OnInteractObjectChanged?.Invoke(other.gameObject);
         }
 
     }
@@ -116,6 +115,7 @@ public class BasePlayer : MonoBehaviour
         {
 
             intectableObj = null;
+            OnInteractObjectChanged?.Invoke(null);
         }
     }
 
@@ -151,22 +151,24 @@ public class BasePlayer : MonoBehaviour
             runSpeed = evaluatedSpeed;
             moveDirection = moveDirection * runSpeed;
 
-        }
-        else if (WitchInputs.Instance.GetRunInput() == true)
-        {
-            runTime = 0;
-            moveDirection = moveDirection * moveSpeed;
+
+            if (moveDirection != Vector3.zero)
+                OnPlayerRunning?.Invoke();
         }
         else
         {
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
+            if(moveDirection != Vector3.zero)
+                OnPlayerWalking?.Invoke();
         }
+
 
 
         Vector3 movementVelocity = moveDirection;
         movementVelocity.y = rb.velocity.y;
         rb.velocity = movementVelocity;
+            
     }
 
 
