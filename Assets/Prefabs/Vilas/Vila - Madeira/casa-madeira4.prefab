@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 327064008815436722, guid: a5f4a0c2feac81547a1dd9ba0fff97b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
     - target: {fileID: 919132149155446097, guid: a5f4a0c2feac81547a1dd9ba0fff97b1, type: 3}
       propertyPath: m_Name
       value: casa-madeira4
@@ -63,6 +67,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1502877291743220047, guid: a5f4a0c2feac81547a1dd9ba0fff97b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2031779050232922021}
+    - targetCorrespondingSourceObject: {fileID: 1502877291743220047, guid: a5f4a0c2feac81547a1dd9ba0fff97b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2551881153495358914}
   m_SourcePrefab: {fileID: 100100000, guid: a5f4a0c2feac81547a1dd9ba0fff97b1, type: 3}
 --- !u!1 &8520929138797910529 stripped
 GameObject:
@@ -91,3 +98,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2865104911859505335, guid: a5f4a0c2feac81547a1dd9ba0fff97b1, type: 3}
+--- !u!95 &2551881153495358914
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520929138797910529}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88d6b20fc4d5fac48aee78ee181c5df5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
