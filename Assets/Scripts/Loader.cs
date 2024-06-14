@@ -16,6 +16,8 @@ public static class Loader
         GreenHouse,
         LoadingScene,
         DeliveryScene,
+        Payment,
+        HitMinigame, // troll, quando ver tire
     }
 
     private static Action onLoaderCallBack;

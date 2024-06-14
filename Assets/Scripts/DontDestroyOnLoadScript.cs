@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class DontDestroyOnLoadScript : MonoBehaviour
 {
+    private static DontDestroyOnLoadScript instance;
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 
