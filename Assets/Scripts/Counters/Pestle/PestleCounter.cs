@@ -11,6 +11,7 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
     public event EventHandler OnHitFinished;
     public event EventHandler OnHitInterrupted;
     public event EventHandler<IHasHitBar.OnHitMissedEventArgs> OnHitMissed;
+    public event EventHandler<IHasHitBar.OnHitRightEventArgs> OnHitRight;
     public event EventHandler<OnMoerRightEventArgs> OnMoerRight;
 
     public class OnMoerRightEventArgs
@@ -20,7 +21,11 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
 
     //Minigame RNG
     private int numberCount;
-    private int numberToHit = 5; // number to hit, in the middle
+
+    private int minNumberToHit = 4;
+    private int maxNumberToHit = 6;
+
+    //private int numberToHit = 5; // number to hit, in the middle
     private bool adding = true;
 
 
@@ -29,11 +34,13 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
     private bool canHit = true;
 
     // Coroutines
-    private IEnumerator CountCoroutine;
-    private IEnumerator MissedCoroutine;
+    private IEnumerator countCoroutine;
+    private IEnumerator missedCoroutine;
+    private IEnumerator hitRightCoroutine;
 
     // Timers
-    [SerializeField] private float missedDelay = 1f;
+    [SerializeField] private float missedDelay;
+    [SerializeField] private float hitRightDelay = 0.1f;
     [Tooltip("in milisecconds")]
     [SerializeField] private float speedSlider;
 
@@ -64,8 +71,8 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
                     {
                         progressNormalized = crumpleCount
                     });
-                    CountCoroutine = Count();
-                    StartCoroutine(CountCoroutine);
+                    countCoroutine = Count();
+                    StartCoroutine(countCoroutine);
                 }
             }
         } else
@@ -75,7 +82,7 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
             {
                 //player is not carrying anything
 
-                StopCoroutine(CountCoroutine);
+                StopCoroutine(countCoroutine);
 
                 OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventsArgs
                 {
@@ -100,9 +107,10 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
         if(HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
             //there is a kitchenObject here and can be crumbled
-
-            if (numberToHit == numberCount && canHit)
+            Debug.Log(numberCount);
+            if (numberCount >= minNumberToHit && numberCount <= maxNumberToHit && canHit)
             {
+                Debug.Log(numberCount + " Right");
                 //correct hit
                 crumpleCount++;
 
@@ -112,13 +120,19 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
                 });
                 OnMoerRight?.Invoke(this, new OnMoerRightEventArgs { particleMaterial = GetKitchenObject().GetKitchenObjectSO().particleMaterial});
                 //numberCount = 0;
+
+                if(hitRightCoroutine == null)
+                {
+                    hitRightCoroutine = HitRightCountDown();
+                    StartCoroutine(hitRightCoroutine);
+                }
             } else
             {
                 //miss the hit
-                if (MissedCoroutine == null)
+                if (missedCoroutine == null)
                 {
-                    MissedCoroutine = MissedCountDown();
-                    StartCoroutine(MissedCoroutine);
+                    missedCoroutine = MissedCountDown();
+                    StartCoroutine(missedCoroutine);
 
                 }
 
@@ -126,7 +140,7 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
 
             if(crumpleCount >= selectedRecipeSO.interactProgressMax)
             {
-                StopCoroutine(CountCoroutine);
+                StopCoroutine(countCoroutine);
 
                 KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
 
@@ -195,7 +209,24 @@ public class PestleCounter : BaseCounter, IHasProgress, IHasHitBar
         {
             missed = false
         });
-        MissedCoroutine = null;
+        missedCoroutine = null;
+    }
+
+
+    private IEnumerator HitRightCountDown()
+    {
+        canHit = false;
+        OnHitRight?.Invoke(this, new IHasHitBar.OnHitRightEventArgs
+        {
+            hitRight = true
+        });
+        yield return new WaitForSeconds(hitRightDelay);
+        canHit = true;
+        OnHitRight?.Invoke(this, new IHasHitBar.OnHitRightEventArgs
+        {
+            hitRight = false
+        });
+        hitRightCoroutine = null;
     }
 
     private bool HasRecipeWithInput(KitchenObjectSO inputKitchenObjectSO)

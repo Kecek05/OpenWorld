@@ -51,7 +51,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
             iconTransform.GetComponent<Image>().sprite = kitchenObjectSO.sprite;
         }
         potionImage.sprite = potionObjectSO.potionSprite;
-        recipeCostText.text = potionObjectSO.potionMoneyRecieve.ToString();
+        recipeCostText.text = "$" + potionObjectSO.potionMoneyRecieve.ToString();
     }
 
 

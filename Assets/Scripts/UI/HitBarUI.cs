@@ -19,11 +19,25 @@ public class HitBarUI : MonoBehaviour
 
         hitBar.OnHitMissed += HitBar_OnHitMissed;
 
+        hitBar.OnHitRight += HitBar_OnHitRight;
+
         hitBar.OnHitInterrupted += HitBar_OnHitInterrupted;
 
         hitSlider.value = 0;
 
         Hide();
+    }
+
+    private void HitBar_OnHitRight(object sender, IHasHitBar.OnHitRightEventArgs e)
+    {
+        if (e.hitRight)
+        {
+            handleImage.color = Color.green;
+        }
+        else
+        {
+            handleImage.color = Color.white;
+        }
     }
 
     private void HitBar_OnHitInterrupted(object sender, System.EventArgs e)
@@ -49,8 +63,7 @@ public class HitBarUI : MonoBehaviour
 
     private void HitBar_OnHitChanged(object sender, IHasHitBar.OnHitChangedEventArgs e)
     {
-       hitSlider.value = (float)e.hitNumber / 10;
-
+        hitSlider.value = e.hitNumber;
 
         Show();
     }

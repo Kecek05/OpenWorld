@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 8004793975681333842}
   - component: {fileID: 6871849407238049775}
   - component: {fileID: 5640463604386180851}
-  - component: {fileID: 7060666140602959381}
   m_Layer: 12
   m_Name: UiImage
   m_TagString: Untagged
@@ -163,19 +162,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7060666140602959381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791724552115354599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97893818ea92b3e4cb037accca916252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 2
 --- !u!1 &1955390323752804632
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +254,7 @@ GameObject:
   - component: {fileID: 5654620997978399802}
   - component: {fileID: 8199179507031093877}
   - component: {fileID: 702627392966400146}
+  - component: {fileID: 6905641943366272998}
   m_Layer: 12
   m_Name: ItemCanvas
   m_TagString: Untagged
@@ -358,6 +345,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6905641943366272998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686199659255087474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97893818ea92b3e4cb037accca916252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
 --- !u!1 &5899340149852010761
 GameObject:
   m_ObjectHideFlags: 0

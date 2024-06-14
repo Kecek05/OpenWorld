@@ -271,9 +271,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6653123149537165907}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -926,8 +926,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   counterTopPoint: {fileID: 2215602339411452336}
   pickUpParticle: {fileID: 5011121678867827314}
-  missedDelay: 0.5
-  speedSlider: 0.05
+  missedDelay: 0.35
+  hitRightDelay: 0.225
+  speedSlider: 0.075
   crumpleRecipeSOArray:
   - {fileID: 11400000, guid: d70ca09511505ad4693741931b2bfcf3, type: 2}
   - {fileID: 11400000, guid: 4531f23441bb9a24ca852157c8f8cf0b, type: 2}
