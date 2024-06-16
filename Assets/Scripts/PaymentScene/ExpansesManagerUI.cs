@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ExpansesManagerUI : MonoBehaviour
 {
+    public static ExpansesManagerUI Instance { get; private set; }
     [SerializeField] private Transform container;
     [SerializeField] private Transform expanseTemplate;
     [SerializeField] private PaymentCostsSO paymentCostsSO;
@@ -13,36 +14,23 @@ public class ExpansesManagerUI : MonoBehaviour
         expanseTemplate.gameObject.SetActive(false);
     }
 
-
     private void Start()
     {
-
         UpdateVisual();
     }
 
     private void UpdateVisual()
     {
-        foreach (Transform child in container)
+
+        for (int i = 0; i < RandomizeExpanseController.Instance.GetCurrentExpensesIndexList().Count; i++)
         {
-            if (child == expanseTemplate) continue;
-            Destroy(child.gameObject);
+            Transform expanseTransform = Instantiate(expanseTemplate, container);
+            expanseTransform.SetSiblingIndex(3);
+            expanseTransform.gameObject.SetActive(true);
+
+            //passando os valores para os filhos
+            expanseTransform.GetComponent<ExpanseSingleUI>().SetExpanseData(paymentCostsSO.expansesTxt[RandomizeExpanseController.Instance.GetCurrentExpensesIndexList()[i]], paymentCostsSO.cousts[RandomizeExpanseController.Instance.GetCurrentExpensesIndexList()[i]]);
+            Debug.Log(RandomizeExpanseController.Instance.GetCurrentExpensesIndexList()[i]);
         }
-
-        for(int i = 0; i < RandomizeExpanseController.Instance.GetCurrentExpensesIndex().Count; i++)
-        {
-            // intanciar o filho, pegar o index e passar para o filho as informações do paymentcostSO baseado no index que ele recebeu
-        }
-        //foreach (PaymentCostsSO paymentCostsSO in RandomizeRecipeController.Instance.GetSelectedPotionsSOList())
-        //{
-        //    Transform recipeTransform = Instantiate(expanseTemplate, container);
-        //    recipeTransform.gameObject.SetActive(true);
-        //    recipeTransform.GetComponent<DeliveryManagerSingleUI>().SetPotionObjectSO(potionObjectSO);
-
-
-        //}
-
     }
-
-    // criar função que vai pegar a lista feita com os itens selecionados e instanciar os objetos filhos passando as informações
-
 }

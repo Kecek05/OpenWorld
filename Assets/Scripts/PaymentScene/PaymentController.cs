@@ -3,56 +3,63 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PaymentController : MonoBehaviour
 {
-    public static MoneyController Instance;
+    public static PaymentController Instance;
+    public event EventHandler<OnUiPaymentChangedEventArgs> OnUiPaymentChanged;
+
+    public class OnUiPaymentChangedEventArgs : EventArgs
+    {
+        public int _totalEconomy;
+        public int _payoff;
+        public int _dayMoney;
+        public Button _paymentButton;
+    }
 
     private int totalEconomy;
-    private int expanseFixed;
     private int payoff;
-
-    private bool paymentConcluded = false;
+    private int dayMoney;
+    private int paymentsConcluded;
     [SerializeField] private Loader.Scene scene;
-
-    [SerializeField] private TextMeshProUGUI[] expanseTxt;
-    [SerializeField] private TextMeshProUGUI economyTxt;
-    [SerializeField] private TextMeshProUGUI dayPaymentTxt;
-    [SerializeField] private TextMeshProUGUI fixedExpanseTxt;
-    [SerializeField] private TextMeshProUGUI payOffTxt;
-
-
+    
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    
     private void Start()
     {
         MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         totalEconomy = MoneyController.Instance.GetTotalMoney();
-        economyTxt.text = totalEconomy.ToString(); // passa para o texto, evento aqui
-        dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString(); // evento, pega o valor do dia e passar para o texto
-        fixedExpanseTxt.text = expanseFixed.ToString(); // evento, só passa o valor fixo
-
+        payoff = totalEconomy;
+        dayMoney = MoneyController.Instance.GetDayMoney();
+        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = totalEconomy, _payoff = payoff, _dayMoney = dayMoney });
+        paymentsConcluded = RandomizeExpanseController.Instance.GetExpensesCount();
     }
 
-
-    public void OnButtonClick()
+    public void DoPayment(int _expanseCost)
     {
-       DoPayment(); // evento para quando aperta o botão
+        payoff -= _expanseCost;
+        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = payoff, _payoff = payoff, _dayMoney = dayMoney });
+        paymentsConcluded--;
+        Debug.Log(paymentsConcluded + "quantidade de receitas");
     }
 
-    void DoPayment()
-    {
-        payoff = totalEconomy - expanseFixed; 
-        payOffTxt.text = payoff.ToString(); // passa o evento
-        paymentConcluded = true; // pagamento concluido
-    }
-
-   
     public void PassDay()
     {
-        if(paymentConcluded == true)
+        if(paymentsConcluded <= 0)
         {
             MoneyController.Instance.SetTotalMoney(payoff);
-            Debug.Log("quando sai da cena" + MoneyController.Instance.GetTotalMoney());
             MoneyController.Instance.ResetDayMoney();
             Loader.Load(scene);
         }
@@ -61,4 +68,6 @@ public class PaymentController : MonoBehaviour
             Debug.Log("tadurodorme");
         }
     }
+
+    
 }

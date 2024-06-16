@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PaymentUI : MonoBehaviour
 {
@@ -11,17 +12,20 @@ public class PaymentUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] expanseTxt;
     [SerializeField] private TextMeshProUGUI economyTxt;
     [SerializeField] private TextMeshProUGUI dayPaymentTxt;
-    [SerializeField] private TextMeshProUGUI fixedExpanseTxt;
     [SerializeField] private TextMeshProUGUI payOffTxt;
+    [SerializeField] private Button paymentButton;
 
-
-    private void SetStartPaymentTxt(int _economy, int _dayPayment, int _fixedExpanse)
+    private void OnEnable()
     {
-        economyTxt.text = _economy.ToString();
-        dayPaymentTxt.text = _dayPayment.ToString();
-        fixedExpanseTxt.text = _fixedExpanse.ToString();
+        PaymentController.Instance.OnUiPaymentChanged += PaymentController_OnUiPaymentChanged;   
     }
 
-
+    private void PaymentController_OnUiPaymentChanged(object sender, PaymentController.OnUiPaymentChangedEventArgs e)
+    {
+        economyTxt.text = e._totalEconomy.ToString();
+        dayPaymentTxt.text = e._dayMoney.ToString();
+        payOffTxt.text = e._payoff.ToString();
+        paymentButton = e._paymentButton;
+    }
 
 }
