@@ -87,10 +87,10 @@ public class SFXManager : MonoBehaviour
 
     private IEnumerator PlayerRunSFX()
     {
-        if (GetAudioClipRefsSO().footstepHouse != null)
+        if (GetAudioClipRefsSO().footstepOutSide != null)
         {
 
-            PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, BasePlayer.Instance.transform);
+            PlayRandomSFXClip(GetAudioClipRefsSO().footstepOutSide, BasePlayer.Instance.transform);
             yield return new WaitForSeconds(delayBetweenRunningFootStepsSFX);
             //Can play another SFX walking
             playerRunSFXCoroutine = null;
@@ -111,14 +111,30 @@ public class SFXManager : MonoBehaviour
 
     private IEnumerator PlayerMoveSFX()
     {
-        if (GetAudioClipRefsSO().footstepHouse != null)
+        if(PlayerInHouse.InstancePlayerInHouse != null)
         {
-            PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, BasePlayer.Instance.transform);
-            yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
-            //Can play another SFX walking
-            playerWalkSFXCoroutine = null;
+            // In house
+            if (GetAudioClipRefsSO().footstepHouse != null)
+            {
+                PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, BasePlayer.Instance.transform);
+                yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
+                //Can play another SFX walking
+                playerWalkSFXCoroutine = null;
 
+            }
+        } else
+        {
+            //OutSide
+            if (GetAudioClipRefsSO().footstepOutSide != null)
+            {
+                PlayRandomSFXClip(GetAudioClipRefsSO().footstepOutSide, BasePlayer.Instance.transform);
+                yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
+                //Can play another SFX walking
+                playerWalkSFXCoroutine = null;
+
+            }
         }
+        
     }
 
     private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
