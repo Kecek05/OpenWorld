@@ -8,7 +8,8 @@ public class MainMenuUI : MonoBehaviour
 {
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
-
+    [SerializeField] private Button optionsButton;
+    [SerializeField] private GameObject optionsPanel;
 
     private void Awake()
     {
@@ -19,6 +20,10 @@ public class MainMenuUI : MonoBehaviour
         quitButton.onClick.AddListener(() =>
         { 
             Application.Quit();
+        });
+        optionsButton.onClick.AddListener(() =>
+        {
+            optionsPanel.SetActive(true);
         });
     }
 
