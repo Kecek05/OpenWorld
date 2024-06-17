@@ -24,7 +24,8 @@ public class PaymentController : MonoBehaviour
     private int dayMoney;
     private int paymentsConcluded;
     [SerializeField] private Loader.Scene scene;
-    
+    [SerializeField] private GameObject gameOverPanel;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -39,12 +40,16 @@ public class PaymentController : MonoBehaviour
     
     private void Start()
     {
-        MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
+        // geting money of the day + economys of the player
+        MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney()); 
         totalEconomy = MoneyController.Instance.GetTotalMoney();
+
         payoff = totalEconomy;
+
         dayMoney = MoneyController.Instance.GetDayMoney();
+
         OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = totalEconomy, _payoff = payoff, _dayMoney = dayMoney });
-        paymentsConcluded = RandomizeExpanseController.Instance.GetExpensesCount();
+        paymentsConcluded = RandomizeExpanseController.Instance.GetExpensesCount() + 1; // +1 adding fixedPayment
     }
 
     public void DoPayment(int _expanseCost)
@@ -52,20 +57,29 @@ public class PaymentController : MonoBehaviour
         payoff -= _expanseCost;
         OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = payoff, _payoff = payoff, _dayMoney = dayMoney });
         paymentsConcluded--;
-        Debug.Log(paymentsConcluded + "quantidade de receitas");
     }
 
     public void PassDay()
     {
         if(paymentsConcluded <= 0)
         {
-            MoneyController.Instance.SetTotalMoney(payoff);
-            MoneyController.Instance.ResetDayMoney();
-            Loader.Load(scene);
+            // player clicked all pay buttons
+            if(payoff >= 0)
+            {
+                // player have money to pay all expanses, next day
+                MoneyController.Instance.SetTotalMoney(payoff);
+                MoneyController.Instance.ResetDayMoney();
+                Loader.Load(scene);
+            }
+            else
+            {
+                // player haven't money to pay all expanses, GameOver
+                gameOverPanel.SetActive(true);
+            }
         }
         else 
         {
-            Debug.Log("tadurodorme");
+            // player did not click all the pay buttons 
         }
     }
 
