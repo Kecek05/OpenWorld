@@ -8,6 +8,7 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
 
+    public static event Action OnPlayerJumping; // SFX
     public static event Action OnPlayerWalking; // SFX
     public static event Action OnPlayerRunning; // SFX
 
@@ -79,6 +80,7 @@ public class BasePlayer : MonoBehaviour
             if (jumpingCoroutine == null)
             {
                 isJumping = true;
+                OnPlayerJumping?.Invoke();
                 jumpingCoroutine = JumpCouroutine();
                 StartCoroutine(jumpingCoroutine);
             }

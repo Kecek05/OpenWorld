@@ -35,9 +35,18 @@ public class SFXManager : MonoBehaviour
             PlayerInHouse.InstancePlayerInHouse.OnPickedSomething += Player_OnPickedSomething;
 
         //Geral
-        BasePlayer.OnPlayerWalking += WitchInputs_OnPlayerWalking;
-        BasePlayer.OnPlayerRunning += WitchInputs_OnPlayerRunning;
+        BasePlayer.OnPlayerWalking += BasePlayer_OnPlayerWalking;
+        BasePlayer.OnPlayerRunning += BasePlayer_OnPlayerRunning;
+        BasePlayer.OnPlayerJumping += BasePlayer_OnPlayerJumping;
 
+    }
+
+    private void BasePlayer_OnPlayerJumping()
+    {
+        if (GetAudioClipRefsSO().jump != null)
+        {
+            PlayRandomSFXClip(GetAudioClipRefsSO().jump, BasePlayer.Instance.transform);
+        }
     }
 
     private void OnDisable()
@@ -53,8 +62,8 @@ public class SFXManager : MonoBehaviour
             PlayerInHouse.InstancePlayerInHouse.OnPickedSomething -= Player_OnPickedSomething;
 
         //Geral
-        BasePlayer.OnPlayerWalking -= WitchInputs_OnPlayerWalking;
-        BasePlayer.OnPlayerRunning -= WitchInputs_OnPlayerRunning;
+        BasePlayer.OnPlayerWalking -= BasePlayer_OnPlayerWalking;
+        BasePlayer.OnPlayerRunning -= BasePlayer_OnPlayerRunning;
     }
 
     private void Instance_OnRecipeWrong(object sender, System.EventArgs e)
@@ -75,7 +84,7 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    private void WitchInputs_OnPlayerRunning()
+    private void BasePlayer_OnPlayerRunning()
     {
         if (playerRunSFXCoroutine == null)
         {
@@ -99,7 +108,7 @@ public class SFXManager : MonoBehaviour
 
 
 
-    private void WitchInputs_OnPlayerWalking()
+    private void BasePlayer_OnPlayerWalking()
     {
         if(playerWalkSFXCoroutine == null)
         {
