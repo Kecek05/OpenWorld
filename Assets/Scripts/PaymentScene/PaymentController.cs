@@ -23,6 +23,7 @@ public class PaymentController : MonoBehaviour
     private int payoff;
     private int dayMoney;
     private int paymentsConcluded;
+    private int dayCounts = 1;
     [SerializeField] private Loader.Scene scene;
     [SerializeField] private GameObject gameOverPanel;
 
@@ -69,7 +70,11 @@ public class PaymentController : MonoBehaviour
                 // player have money to pay all expanses, next day
                 MoneyController.Instance.SetTotalMoney(payoff);
                 MoneyController.Instance.ResetDayMoney();
+                SavePlayer();
+                dayCounts++;
                 Loader.Load(scene);
+                
+                
             }
             else
             {
@@ -83,5 +88,20 @@ public class PaymentController : MonoBehaviour
         }
     }
 
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        totalEconomy = data.economyPlayer;
+        dayCounts = data.dayCount;
+    }
+
+    public int GetTotalEconomy() { return totalEconomy; }
+    public int GetDayCounts() { return dayCounts; }
     
 }
