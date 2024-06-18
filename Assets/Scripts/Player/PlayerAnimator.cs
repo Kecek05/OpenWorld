@@ -4,19 +4,25 @@ public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Animator anim;
 
-    private const string IDLE = "Idle";
-    private const string INTERACT = "Interact";
-    private const string FALLING = "Falling";
-    private const string JUMP = "Jump";
-    private const string RUN = "Run";
-    private const string WALKING = "Walking";
-    public string currentState;
+    //Hashed Parameters for performance
+    private static readonly int IDLE = Animator.StringToHash("Idle");
+    private static readonly int INTERACT = Animator.StringToHash("Interact");
+    private static readonly int FALLING = Animator.StringToHash("Falling");
+    private static readonly int JUMP = Animator.StringToHash("Jump");
+    private static readonly int RUN = Animator.StringToHash("Run");
+    private static readonly int WALKING = Animator.StringToHash("Walking");
 
-    public void ChangeAnimationState(string newState)
+    private int currentState;
+
+    public void ChangeAnimationState(int newState)
     {
         if(currentState == newState) return;
         anim.StopPlayback();
-        anim.Play(newState);
+
+        if (currentState == IDLE) // if its in idle, fade faster
+            anim.CrossFade(newState, 0.05f);
+        else
+            anim.CrossFade(newState, 0.2f);
         currentState = newState;
     }
 
@@ -25,6 +31,18 @@ public class PlayerAnimator : MonoBehaviour
         BasePlayer.OnPlayerWalking += BasePlayer_OnPlayerWalking;
         BasePlayer.OnPlayerIdle += BasePlayer_OnPlayerIdle;
         BasePlayer.OnPlayerRunning += BasePlayer_OnPlayerRunning;
+        BasePlayer.OnPlayerJumping += BasePlayer_OnPlayerJumping;
+        BasePlayer.OnPlayerFalling += BasePlayer_OnPlayerFalling;
+    }
+
+    private void BasePlayer_OnPlayerFalling()
+    {
+        ChangeAnimationState(FALLING);
+    }
+
+    private void BasePlayer_OnPlayerJumping()
+    {
+        ChangeAnimationState(JUMP);
     }
 
     private void BasePlayer_OnPlayerRunning()

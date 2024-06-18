@@ -8,6 +8,8 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
 
+    public static event Action OnPlayerFalling;
+    public static event Action OnPlayerJumping;
     public static event Action OnPlayerIdle;
     public static event Action OnPlayerWalking; 
     public static event Action OnPlayerRunning; 
@@ -48,6 +50,17 @@ public class BasePlayer : MonoBehaviour
 
     private float runTime;
 
+    private enum PlayerState
+    {
+        IDLE,
+        WALK,
+        RUN,
+        INTERACT,
+        JUMP,
+        FALL,
+    }
+    private PlayerState playerState;
+
     protected virtual void Awake()
     {
         Instance = this;
@@ -79,6 +92,7 @@ public class BasePlayer : MonoBehaviour
         {
             if (jumpingCoroutine == null)
             {
+                ChangePlayerState(PlayerState.JUMP);
                 isJumping = true;
                 jumpingCoroutine = JumpCouroutine();
                 StartCoroutine(jumpingCoroutine);
@@ -86,6 +100,37 @@ public class BasePlayer : MonoBehaviour
         }
         HandleAllMovement();
     }
+
+    private void ChangePlayerState(PlayerState newPlayerState)
+    {
+        if(playerState != newPlayerState)
+        {
+            //New State
+            playerState = newPlayerState;
+            switch(playerState)
+            {
+                case PlayerState.IDLE:
+                    OnPlayerIdle?.Invoke();
+                    break;
+                case PlayerState.WALK:
+                    OnPlayerWalking?.Invoke();
+                    break;
+                case PlayerState.RUN:
+                    OnPlayerRunning?.Invoke();
+                    break;
+                case PlayerState.JUMP:
+                    OnPlayerJumping?.Invoke();
+                    break;
+                case PlayerState.INTERACT:
+                    Debug.Log("On Interact");
+                    break;
+                case PlayerState.FALL:
+                    OnPlayerFalling?.Invoke();
+                    break;
+            }
+        }
+    }
+
 
     protected virtual void WitchInputs_OnInteractAlternateAction(object sender, System.EventArgs e)
     {
@@ -145,8 +190,9 @@ public class BasePlayer : MonoBehaviour
         moveDirection.y = 0;
 
 
-        if (WitchInputs.Instance.GetRunInput() == true)
+        if (WitchInputs.Instance.GetRunInput() == true && isGround) // can only run in ground
         {
+            //In ground and pressing run button
             float evaluatedSpeed = runSpeedCurve.Evaluate(runTime);
             runTime += Time.deltaTime;
             runSpeed = evaluatedSpeed;
@@ -154,14 +200,15 @@ public class BasePlayer : MonoBehaviour
 
 
             if (moveDirection != Vector3.zero)
-                OnPlayerRunning?.Invoke();
+                ChangePlayerState(PlayerState.RUN);
         }
         else
         {
+            //Not in ground or not pressing the btn
             runTime = 0;
             moveDirection = moveDirection * moveSpeed;
-            if(moveDirection != Vector3.zero)
-                OnPlayerWalking?.Invoke();
+            if(moveDirection != Vector3.zero && !isJumping)
+                ChangePlayerState(PlayerState.WALK);
         }
 
 
@@ -170,8 +217,8 @@ public class BasePlayer : MonoBehaviour
         movementVelocity.y = rb.velocity.y;
         rb.velocity = movementVelocity;
 
-        if(moveDirection == Vector3.zero)
-            OnPlayerIdle?.Invoke();
+        if(moveDirection == Vector3.zero && !isJumping)
+            ChangePlayerState(PlayerState.IDLE);
 
 
     }
@@ -188,6 +235,8 @@ public class BasePlayer : MonoBehaviour
             jumpingTime += Time.deltaTime;
             jumpForce = jumpForceCurve.Evaluate(jumpingTime);
             rb.velocity = transform.up * jumpForce;
+            if(jumpingTime >= jumpingMaxTime/2) //  half way the jump, now its falling
+                ChangePlayerState(PlayerState.FALL);
             yield return null;
         }
         isJumping = false;
