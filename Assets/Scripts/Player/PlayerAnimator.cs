@@ -26,6 +26,19 @@ public class PlayerAnimator : MonoBehaviour
         currentState = newState;
     }
 
+    public void PlayInteractAnim()
+    {
+        anim.CrossFade(INTERACT, 0.1f, 1);
+    }
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            PlayInteractAnim();
+        }
+    }
+
     private void Start()
     {
         BasePlayer.OnPlayerWalking += BasePlayer_OnPlayerWalking;
