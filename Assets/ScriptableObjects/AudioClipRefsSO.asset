@@ -52,10 +52,27 @@ MonoBehaviour:
   clickCollect: []
   completeCollect: []
   stashItemInBox: []
-  knockDoor1: []
-  knockDoor2: []
-  knockDoor3: []
-  knockDoor4: []
-  goodDelivery: []
-  badDelivery: []
-  startMinigame: []
+  knockDoorPerfect:
+  - {fileID: 8300000, guid: 9c6157275e190604d8136e7e497e941e, type: 3}
+  - {fileID: 8300000, guid: e519f586b4ac0904e877dfab85ed729e, type: 3}
+  knockDoorGood:
+  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
+  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
+  goodDelivery:
+  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
+  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
+  badDelivery:
+  - {fileID: 8300000, guid: 6024ba1d53d005f48a96b3a9f6bacedd, type: 3}
+  - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
+  startMinigame:
+  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
+  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
+  finishedMinigame:
+  - {fileID: 8300000, guid: 6a936576e1e30a640844535c71d5a149, type: 3}
+  - {fileID: 8300000, guid: 400611abd7434234993616a86c030d1e, type: 3}
+  missedClick:
+  - {fileID: 8300000, guid: 400611abd7434234993616a86c030d1e, type: 3}
+  - {fileID: 8300000, guid: 6a936576e1e30a640844535c71d5a149, type: 3}
+  badClick:
+  - {fileID: 8300000, guid: e519f586b4ac0904e877dfab85ed729e, type: 3}
+  - {fileID: 8300000, guid: 9c6157275e190604d8136e7e497e941e, type: 3}

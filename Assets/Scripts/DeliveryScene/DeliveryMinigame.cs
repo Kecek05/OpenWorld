@@ -6,6 +6,7 @@ public class DeliveryMinigame : MonoBehaviour
 {
     public static DeliveryMinigame Instance {  get; private set; }
 
+    public event Action OnStartedMinigame;
     public event Action OnFinishedMinigame;
 
     private int hitCount = 0;
@@ -44,8 +45,8 @@ public class DeliveryMinigame : MonoBehaviour
         ResetMinigame(); // just for safety
         minigameDifficultySO = _minigameDifficultySO;
         //debug
-       // minigameDifficultySO = debug;
-
+        // minigameDifficultySO = debug;
+        OnStartedMinigame?.Invoke(); //SFX
         startRecieveMoney = _startRecieveMoney;
         if(startMinigameCoroutine == null)
         {
