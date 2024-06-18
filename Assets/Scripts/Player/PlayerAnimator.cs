@@ -1,22 +1,44 @@
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    private const string IS_WALKING = "IsWalking";
-    private Animator animator;
+    [SerializeField] private Animator anim;
 
-    [SerializeField] private PlayerInHouse player;
+    private const string IDLE = "Idle";
+    private const string INTERACT = "Interact";
+    private const string FALLING = "Falling";
+    private const string JUMP = "Jump";
+    private const string RUN = "Run";
+    private const string WALKING = "Walking";
+    public string currentState;
 
-    private void Awake()
+    public void ChangeAnimationState(string newState)
     {
-        animator = GetComponent<Animator>();
-        //animator.SetBool(IS_WALKING, player.IsWalking());
+        if(currentState == newState) return;
+        anim.StopPlayback();
+        anim.Play(newState);
+        currentState = newState;
     }
-    private void Update()
+
+    private void Start()
     {
-        //animator.SetBool(IS_WALKING, player.IsWalking());
+        BasePlayer.OnPlayerWalking += BasePlayer_OnPlayerWalking;
+        BasePlayer.OnPlayerIdle += BasePlayer_OnPlayerIdle;
+        BasePlayer.OnPlayerRunning += BasePlayer_OnPlayerRunning;
+    }
+
+    private void BasePlayer_OnPlayerRunning()
+    {
+        ChangeAnimationState(RUN);
+    }
+
+    private void BasePlayer_OnPlayerIdle()
+    {
+        ChangeAnimationState(IDLE);
+    }
+
+    private void BasePlayer_OnPlayerWalking()
+    {
+        ChangeAnimationState(WALKING);
     }
 }

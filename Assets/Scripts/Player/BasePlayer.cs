@@ -8,8 +8,9 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
 
-    public static event Action OnPlayerWalking; // SFX
-    public static event Action OnPlayerRunning; // SFX
+    public static event Action OnPlayerIdle;
+    public static event Action OnPlayerWalking; 
+    public static event Action OnPlayerRunning; 
 
     public event Action<GameObject> OnInteractObjectChanged;
 
@@ -168,7 +169,11 @@ public class BasePlayer : MonoBehaviour
         Vector3 movementVelocity = moveDirection;
         movementVelocity.y = rb.velocity.y;
         rb.velocity = movementVelocity;
-            
+
+        if(moveDirection == Vector3.zero)
+            OnPlayerIdle?.Invoke();
+
+
     }
 
 
