@@ -287,9 +287,9 @@ GameObject:
   - component: {fileID: 4200875532525808140}
   - component: {fileID: 4912713672487685619}
   - component: {fileID: 5908410919521448980}
-  - component: {fileID: 5965230322448806824}
+  - component: {fileID: 1229954838224315985}
   m_Layer: 0
-  m_Name: StashBox
+  m_Name: DepositeItemBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depositeItemBox: {fileID: 4912713672487685619}
---- !u!114 &5965230322448806824
+--- !u!114 &1229954838224315985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6872012487644006211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc1b5c2fc1bb044086c451d257f702c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f326bdfc08d88a4694c20892df3ef72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectedVisualObject: {fileID: 4461973477954600498}

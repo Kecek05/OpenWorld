@@ -1,8 +1,8 @@
+
 using UnityEngine;
 
-public class SelectedIngredient : MonoBehaviour
+public class DepositeItemBoxSelected : MonoBehaviour
 {
-    private GameObject parent;
     [SerializeField] private GameObject selectedVisualObject;
 
 
@@ -17,22 +17,21 @@ public class SelectedIngredient : MonoBehaviour
 
     private void PlayerOutsideHouse_OnInteractObjectChanged(GameObject obj)
     {
-        if(selectedVisualObject != null)
+        if (selectedVisualObject != null)
         {
 
-            if(obj == parent)
+            if (obj == this.gameObject)
             {
 
-              selectedVisualObject.SetActive(true);
+                selectedVisualObject.SetActive(true);
 
-            } else
+            }
+            else
             {
 
-              selectedVisualObject.SetActive(false);
+                selectedVisualObject.SetActive(false);
 
             }
         }
     }
-
-    public void SetParent(GameObject _parent) { parent = _parent; }
 }
