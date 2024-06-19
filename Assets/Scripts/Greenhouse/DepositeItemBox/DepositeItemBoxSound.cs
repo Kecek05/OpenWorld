@@ -4,7 +4,6 @@ using UnityEngine;
 public class DepositeItemBoxSound : MonoBehaviour
 {
     [SerializeField] private DepositeItemBox depositeItemBox;
-    [SerializeField] private AudioClipRefsSO audioClipRefsSO;
 
     private void Start()
     {
@@ -13,7 +12,7 @@ public class DepositeItemBoxSound : MonoBehaviour
 
     private void DepositeItemBox_OnItemStashed()
     {
-        if(audioClipRefsSO.stashItemInBox != null)
-            SFXManager.Instance.PlayRandomSFXClip(audioClipRefsSO.stashItemInBox, transform);
+        if(SFXManager.Instance.GetAudioClipRefsSO().stashItemInBox != null)
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().stashItemInBox, transform);
     }
 }
