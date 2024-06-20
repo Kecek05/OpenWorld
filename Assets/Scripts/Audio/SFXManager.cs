@@ -125,6 +125,7 @@ public class SFXManager : MonoBehaviour
             // In house
             if (GetAudioClipRefsSO().footstepHouse != null)
             {
+
                 PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, BasePlayer.Instance.transform);
                 yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
                 //Can play another SFX walking
