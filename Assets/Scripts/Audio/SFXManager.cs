@@ -43,10 +43,10 @@ public class SFXManager : MonoBehaviour
 
     private void BasePlayer_OnPlayerJumping()
     {
-        if (GetAudioClipRefsSO().jump != null)
-        {
-            PlayRandomSFXClip(GetAudioClipRefsSO().jump, BasePlayer.Instance.transform);
-        }
+        //if (GetAudioClipRefsSO().jump != null)
+        //{
+        //    PlayRandomSFXClip(GetAudioClipRefsSO().jump, BasePlayer.Instance.transform);
+        //}
     }
 
     private void OnDisable()
@@ -69,18 +69,18 @@ public class SFXManager : MonoBehaviour
     private void Instance_OnRecipeWrong(object sender, System.EventArgs e)
     {
         BaseCounter deliveryCounterPos = sender as BaseCounter;
-        if (GetAudioClipRefsSO().potionWrong != null && deliveryCounterPos != null)
+        if (GetAudioClipRefsSO().potionRecipeDontExist != null && deliveryCounterPos != null)
         {
-            PlayRandomSFXClip(GetAudioClipRefsSO().potionWrong, deliveryCounterPos.transform);
+            PlayRandomSFXClip(GetAudioClipRefsSO().potionRecipeDontExist, deliveryCounterPos.transform);
         }
     }
 
     private void Instance_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
     {
         BaseCounter deliveryCounterPos = sender as BaseCounter;
-        if(GetAudioClipRefsSO().potionSuccess != null && deliveryCounterPos != null)
+        if(GetAudioClipRefsSO().potionInBag != null && deliveryCounterPos != null)
         {
-            PlayRandomSFXClip(GetAudioClipRefsSO().potionSuccess, deliveryCounterPos.transform);
+            PlayRandomSFXClip(GetAudioClipRefsSO().potionInBag, deliveryCounterPos.transform);
         }
     }
 
@@ -149,9 +149,9 @@ public class SFXManager : MonoBehaviour
     private void BaseCounter_OnAnyObjectPlacedHere(object sender, System.EventArgs e)
     {
         BaseCounter baseCounter = sender as BaseCounter;
-        if (GetAudioClipRefsSO().kitchenObjDrop != null && baseCounter != null)
+        if (GetAudioClipRefsSO().interact != null && baseCounter != null)
         {
-            PlayRandomSFXClip(audioClipRefsSO.kitchenObjDrop, baseCounter.transform);
+            PlayRandomSFXClip(audioClipRefsSO.interact, baseCounter.transform);
 
         }
     }
@@ -159,9 +159,9 @@ public class SFXManager : MonoBehaviour
     private void Player_OnPickedSomething(object sender, System.EventArgs e)
     {
         PlayerInHouse player = sender as PlayerInHouse;
-        if (GetAudioClipRefsSO().kitchenObjPickup != null && player != null)
+        if (GetAudioClipRefsSO().interact != null && player != null)
         {
-            PlayRandomSFXClip(audioClipRefsSO.kitchenObjPickup, player.transform);
+            PlayRandomSFXClip(audioClipRefsSO.interact, player.transform);
         }
     }
 

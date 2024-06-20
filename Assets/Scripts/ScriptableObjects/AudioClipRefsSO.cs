@@ -7,28 +7,19 @@ public class AudioClipRefsSO : ScriptableObject
 {
     [Header("House")]
     public AudioClip[] footstepHouse;
-    public AudioClip[] dash;
-    public AudioClip[] kitchenObjPickup;
-    public AudioClip[] kitchenObjDrop;
     public AudioClip[] trash;
-    public AudioClip[] potionSuccess;
-    public AudioClip[] potionWrong;
+    public AudioClip[] potionInBag;
+    public AudioClip[] potionRecipeDontExist;
     public AudioClip[] pestleSuccess;
     public AudioClip[] pestleFail;
-    public AudioClip[] doneInteract; //finish cut and pestle (Similar to the same particle)
-    public AudioClip[] caulderonMixing;
-    public AudioClip[] caulderonLiquidToPotion;
+    public AudioClip[] caulderonBubbles;
+    public AudioClip[] changeLiquidContent;
     public AudioClip[] caulderonCleanLiquid;
-    public AudioClip[] boxInteract;
     [Space]
 
     [Header("GreenHouse")]
     public AudioClip[] footstepOutSide;
-    public AudioClip[] jump;
-    public AudioClip[] run;
-    public AudioClip[] clickCollect;
     public AudioClip[] completeCollect;
-    public AudioClip[] stashItemInBox;
     [Space]
 
     [Header("Delivery")]
@@ -37,11 +28,12 @@ public class AudioClipRefsSO : ScriptableObject
 
     public AudioClip[] goodDelivery;
     public AudioClip[] badDelivery;
-    public AudioClip[] startMinigame;
+    public AudioClip[] startMinigameRingBell;
     public AudioClip[] finishedMinigame;
 
     public AudioClip[] missedClick;
     public AudioClip[] badClick;
 
-
+    [Header("General")]
+    public AudioClip[] interact;
 }

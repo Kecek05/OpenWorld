@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
+  - {fileID: 2100000, guid: b6f41f588a5021d44a359b7105508e59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
+  - {fileID: 2100000, guid: b6f41f588a5021d44a359b7105508e59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -392,37 +392,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3455292422214010178, guid: e79b4928b21be3a45b6ec61d787ee642, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7312064382423711669}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e79b4928b21be3a45b6ec61d787ee642, type: 3}
---- !u!1 &573266641977267232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3455292422214010178, guid: e79b4928b21be3a45b6ec61d787ee642, type: 3}
-  m_PrefabInstance: {fileID: 2884288240712978786}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7312064382423711669
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 573266641977267232}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd2d519a59d89414a92131df33c2b7d9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &3426594602901436041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e79b4928b21be3a45b6ec61d787ee642, type: 3}
@@ -580,7 +551,7 @@ MonoBehaviour:
   finishedCuttingParticle: {fileID: 8336088592364368307}
   cutParticle: {fileID: 2582603107452698501}
   cutParticleRender: {fileID: 281654698483053914}
-  animator: {fileID: 7312064382423711669}
+  animator: {fileID: 0}
 --- !u!1001 &7448384979279063237
 PrefabInstance:
   m_ObjectHideFlags: 0

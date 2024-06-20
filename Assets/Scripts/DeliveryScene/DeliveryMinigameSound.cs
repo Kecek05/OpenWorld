@@ -18,7 +18,7 @@ public class DeliveryMinigameSound : MonoBehaviour
 
     private void DeliveryMinigame_OnStartedMinigame()
     {
-        if (SFXManager.Instance.GetAudioClipRefsSO().startMinigame != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().startMinigame, transform);
+        if (SFXManager.Instance.GetAudioClipRefsSO().startMinigameRingBell != null)
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().startMinigameRingBell, transform);
     }
 }

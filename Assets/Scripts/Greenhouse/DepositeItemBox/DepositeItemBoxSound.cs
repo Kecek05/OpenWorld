@@ -12,7 +12,7 @@ public class DepositeItemBoxSound : MonoBehaviour
 
     private void DepositeItemBox_OnItemStashed()
     {
-        if(SFXManager.Instance.GetAudioClipRefsSO().stashItemInBox != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().stashItemInBox, transform);
+        if(SFXManager.Instance.GetAudioClipRefsSO().interact != null)
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().interact, transform);
     }
 }

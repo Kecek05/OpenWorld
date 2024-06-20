@@ -13,59 +13,57 @@ MonoBehaviour:
   m_Name: AudioClipRefsSO
   m_EditorClassIdentifier: 
   footstepHouse:
-  - {fileID: 8300000, guid: 078e15982fce2e147bf06c8a7682f28b, type: 3}
-  - {fileID: 8300000, guid: b2d2893ac04fbdb44a226f4b6ea0d271, type: 3}
-  - {fileID: 8300000, guid: cc97c340134faa948bcaf20fea6429c6, type: 3}
-  - {fileID: 8300000, guid: 64a04bb4fa4ed5d4eac6b0a31f91843a, type: 3}
-  dash: []
-  kitchenObjPickup:
-  - {fileID: 8300000, guid: 668de61a04ca5914aa745f8712c62720, type: 3}
-  - {fileID: 8300000, guid: 6728bf8b07482414e99ba965fdd022d8, type: 3}
-  - {fileID: 8300000, guid: 32d29abc86751884081d2005f9ff2676, type: 3}
-  kitchenObjDrop:
-  - {fileID: 8300000, guid: 9c88983fa5906dc41944ec5a43b6b5c7, type: 3}
-  - {fileID: 8300000, guid: 331b82ab2c0e2b74d805124d11372c85, type: 3}
-  - {fileID: 8300000, guid: 961379cce253f794abff0d24df806b68, type: 3}
+  - {fileID: 8300000, guid: aaa894a88de12ab49a9d4d1d7e4b16a3, type: 3}
+  - {fileID: 8300000, guid: 875081c8f1713154092837629f134b91, type: 3}
+  - {fileID: 8300000, guid: eca041a70cc1b584f839409a79f4925e, type: 3}
   trash:
-  - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
-  - {fileID: 8300000, guid: 6024ba1d53d005f48a96b3a9f6bacedd, type: 3}
-  potionSuccess:
-  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
-  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
-  potionWrong:
-  - {fileID: 8300000, guid: 400611abd7434234993616a86c030d1e, type: 3}
-  - {fileID: 8300000, guid: 6a936576e1e30a640844535c71d5a149, type: 3}
+  - {fileID: 8300000, guid: b97cbf05dfbedc14bbd70644cfd4b61b, type: 3}
+  - {fileID: 8300000, guid: 814a091aeb839bb4ea54df3addda3b94, type: 3}
+  potionInBag:
+  - {fileID: 8300000, guid: 6e2f267fb3ffd6344857b35bbbbd08f2, type: 3}
+  potionRecipeDontExist:
+  - {fileID: 8300000, guid: b97cbf05dfbedc14bbd70644cfd4b61b, type: 3}
+  - {fileID: 8300000, guid: 814a091aeb839bb4ea54df3addda3b94, type: 3}
   pestleSuccess:
-  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
-  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
+  - {fileID: 8300000, guid: 84708c9aa6004764d9d301517437d57a, type: 3}
+  - {fileID: 8300000, guid: 41dae3145cb6ee84392107af08e07522, type: 3}
+  - {fileID: 8300000, guid: bf111e6eb8c67b945bbc6d44601ed556, type: 3}
+  - {fileID: 8300000, guid: 33766d64d26fa5f489db953848ec9867, type: 3}
   pestleFail:
-  - {fileID: 8300000, guid: 400611abd7434234993616a86c030d1e, type: 3}
-  - {fileID: 8300000, guid: 6a936576e1e30a640844535c71d5a149, type: 3}
-  doneInteract: []
-  caulderonMixing: []
-  caulderonLiquidToPotion: []
-  caulderonCleanLiquid: []
-  boxInteract: []
+  - {fileID: 8300000, guid: b97cbf05dfbedc14bbd70644cfd4b61b, type: 3}
+  - {fileID: 8300000, guid: 814a091aeb839bb4ea54df3addda3b94, type: 3}
+  caulderonBubbles:
+  - {fileID: 8300000, guid: 15e5a884fc1029b41a4999bb4bf9161b, type: 3}
+  - {fileID: 8300000, guid: caac7f85f5f67f242b0d9386eff6cc9d, type: 3}
+  - {fileID: 8300000, guid: c8da6ce1d789bd14fa9ed9bdeccf4d3b, type: 3}
+  - {fileID: 8300000, guid: 104ec9c35ce162e44bfb6aa16411f80f, type: 3}
+  - {fileID: 8300000, guid: 1d95a371b26349c408c079462bead3c8, type: 3}
+  changeLiquidContent:
+  - {fileID: 8300000, guid: 01f79daeda9615448bdc6c1cf11cf122, type: 3}
+  caulderonCleanLiquid:
+  - {fileID: 8300000, guid: 01f79daeda9615448bdc6c1cf11cf122, type: 3}
   footstepOutSide:
-  - {fileID: 8300000, guid: cc97c340134faa948bcaf20fea6429c6, type: 3}
-  - {fileID: 8300000, guid: 078e15982fce2e147bf06c8a7682f28b, type: 3}
-  jump:
-  - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
-  - {fileID: 8300000, guid: e519f586b4ac0904e877dfab85ed729e, type: 3}
-  run: []
-  clickCollect:
-  - {fileID: 8300000, guid: 9c6157275e190604d8136e7e497e941e, type: 3}
-  - {fileID: 8300000, guid: 99c666127ba3b974c99980d14efcf03c, type: 3}
+  - {fileID: 8300000, guid: 90165ddcc296cbd4684792a905c01d03, type: 3}
+  - {fileID: 8300000, guid: 3e2c1a0e38f934145bffa20c34f7f783, type: 3}
+  - {fileID: 8300000, guid: b9b5c7e42e0ca5840a56f312381c11b4, type: 3}
+  - {fileID: 8300000, guid: f6b5845d175c9054fac8e3f9ae8a536b, type: 3}
+  - {fileID: 8300000, guid: 4f1e9cf78c4c79a498422c527e9d2bb2, type: 3}
+  - {fileID: 8300000, guid: 96d47f50250cc5d4bac550b597a8fdbb, type: 3}
   completeCollect:
-  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
-  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
-  stashItemInBox:
-  - {fileID: 8300000, guid: 6024ba1d53d005f48a96b3a9f6bacedd, type: 3}
-  - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
-  knockDoor1: []
-  knockDoor2: []
-  knockDoor3: []
-  knockDoor4: []
+  - {fileID: 8300000, guid: 6e2f267fb3ffd6344857b35bbbbd08f2, type: 3}
+  knockDoorPerfect: []
+  knockDoorGood: []
   goodDelivery: []
   badDelivery: []
-  startMinigame: []
+  startMinigameRingBell:
+  - {fileID: 8300000, guid: 59475df34f65fb848a2be770b7379d0e, type: 3}
+  - {fileID: 8300000, guid: 022c2242dd355af4da073bd43d1a173f, type: 3}
+  - {fileID: 8300000, guid: 7f516d1d2843c274f95180ea42743995, type: 3}
+  - {fileID: 8300000, guid: 897667b35c90d984881dce7138374682, type: 3}
+  finishedMinigame: []
+  missedClick: []
+  badClick: []
+  interact:
+  - {fileID: 8300000, guid: 5fc41b3e2d132294c827a98ccaae3b23, type: 3}
+  - {fileID: 8300000, guid: 0fec2295aa5769f4483dd3343f0c7a7b, type: 3}
+  - {fileID: 8300000, guid: 6dcfb4989298d63498f9eb3179435a73, type: 3}

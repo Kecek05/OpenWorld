@@ -12,13 +12,13 @@ public class ItemOnGroundSound : MonoBehaviour
 
     private void ItemOnGround_OnItemCollected()
     {
-        if(SFXManager.Instance.GetAudioClipRefsSO().completeCollect != null)
+        if (SFXManager.Instance.GetAudioClipRefsSO().completeCollect != null)
             SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().completeCollect, transform);
     }
 
     private void ItemOnGround_OnItemClicked()
     {
-        if (SFXManager.Instance.GetAudioClipRefsSO().clickCollect != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().clickCollect, transform);
+        if (SFXManager.Instance.GetAudioClipRefsSO().interact != null)
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().interact, transform);
     }
 }
