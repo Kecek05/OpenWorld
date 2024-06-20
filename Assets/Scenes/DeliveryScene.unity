@@ -24280,12 +24280,24 @@ PrefabInstance:
       value: ChaWitchOutSide
       objectReference: {fileID: 0}
     - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1
       objectReference: {fileID: 0}
     - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24318,6 +24330,42 @@ PrefabInstance:
     - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.2670766
+      objectReference: {fileID: 0}
+    - target: {fileID: 487646, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9530184, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9530184, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4d2c4a3cf156f944197b85bae48c731b, type: 2}
+    - target: {fileID: 1352496516417965196, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: jumpingMaxTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352496516417965196, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: jumpForceCurve.m_Curve.Array.data[2].time
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352496516417965196, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: jumpForceCurve.m_Curve.Array.data[2].value
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352496516417965196, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: jumpForceCurve.m_Curve.Array.data[2].inSlope
+      value: -298.07193
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352496516417965196, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: jumpForceCurve.m_Curve.Array.data[2].inWeight
+      value: 0.034542084
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352496516417965196, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
+      propertyPath: jumpForceCurve.m_Curve.Array.data[2].outSlope
+      value: -298.07193
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24860,7 +24908,7 @@ Transform:
   m_GameObject: {fileID: 388792635}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3405311, y: -0.21866177, z: 0.08175428, w: 0.9107919}
-  m_LocalPosition: {x: 10.88123, y: 9.184831, z: 183.77774}
+  m_LocalPosition: {x: 10.881238, y: 9.554823, z: 183.77774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30762,7 +30810,7 @@ Transform:
   m_GameObject: {fileID: 433407017}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3405311, y: -0.21866177, z: 0.08175428, w: 0.9107919}
-  m_LocalPosition: {x: 10.88123, y: 9.184831, z: 183.77774}
+  m_LocalPosition: {x: 10.881238, y: 9.554823, z: 183.77774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -140206,7 +140254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2795892386182384322, guid: ed452763c6cfeba47881f4d8f38d3dcc, type: 3}
       propertyPath: totalTime
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4770960528138626722, guid: ed452763c6cfeba47881f4d8f38d3dcc, type: 3}
       propertyPath: m_Name
