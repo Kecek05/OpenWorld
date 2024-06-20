@@ -9,8 +9,8 @@ public class Lamp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DayTime.instance.DuskCall += TurnOff;
-        DayTime.instance.DawnCall += TurnOn;
+        //DayTime.instance.DuskCall += TurnOff;
+        //DayTime.instance.DawnCall += TurnOn;
     }
 
     void TurnOn()
