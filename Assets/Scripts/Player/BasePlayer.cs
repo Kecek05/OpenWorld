@@ -104,8 +104,8 @@ public class BasePlayer : MonoBehaviour
 
     private void ChangePlayerState(PlayerState newPlayerState)
     {
-        if(playerState != newPlayerState)
-        {
+        //if(playerState != newPlayerState)
+        //{
             //New State
             playerState = newPlayerState;
             switch(playerState)
@@ -129,7 +129,7 @@ public class BasePlayer : MonoBehaviour
                     OnPlayerFalling?.Invoke();
                     break;
             }
-        }
+        //}
     }
 
 
