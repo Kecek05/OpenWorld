@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
     [SerializeField] private Button optionsButton;
+    [SerializeField] private Button closeOptionsMenuButton;
     [SerializeField] private GameObject optionsPanel;
 
     private void Awake()
@@ -25,6 +26,10 @@ public class MainMenuUI : MonoBehaviour
         optionsButton.onClick.AddListener(() =>
         {
             optionsPanel.SetActive(true);
+        });
+        closeOptionsMenuButton.onClick.AddListener(() =>
+        {
+            optionsPanel.SetActive(false);
         });
     }
 

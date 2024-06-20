@@ -38,11 +38,11 @@ public class PaymentController : MonoBehaviour
             Instance = this;
         }
     }
-    
+
     private void Start()
     {
         // geting money of the day + economys of the player
-        MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney()); 
+        MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         totalEconomy = MoneyController.Instance.GetTotalMoney();
 
         payoff = totalEconomy;
@@ -62,10 +62,10 @@ public class PaymentController : MonoBehaviour
 
     public void PassDay()
     {
-        if(paymentsConcluded <= 0)
+        if (paymentsConcluded <= 0)
         {
             // player clicked all pay buttons
-            if(payoff >= 0)
+            if (payoff >= 0)
             {
                 // player have money to pay all expanses, next day
                 MoneyController.Instance.SetTotalMoney(payoff);
@@ -73,8 +73,8 @@ public class PaymentController : MonoBehaviour
                 SavePlayer();
                 dayCounts++;
                 Loader.Load(scene);
-                
-                
+
+
             }
             else
             {
@@ -82,11 +82,17 @@ public class PaymentController : MonoBehaviour
                 gameOverPanel.SetActive(true);
             }
         }
-        else 
+        else
         {
             // player did not click all the pay buttons 
         }
     }
+
+    public void BackToMenu()
+    {
+        Loader.Load(Loader.Scene.MainMenuScene);
+    }
+
 
     public void SavePlayer()
     {
