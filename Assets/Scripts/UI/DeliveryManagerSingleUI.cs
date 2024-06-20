@@ -39,11 +39,11 @@ public class DeliveryManagerSingleUI : MonoBehaviour
 
         recipeNameText.text = potionObjectSO.PotionName;
 
-        foreach (Transform child in iconContainer)
-        {
-            if (child == iconTemplate) continue;
-            Destroy(child.gameObject);
-        }
+        //foreach (Transform child in iconContainer)
+        //{
+        //    if (child == iconTemplate) continue;
+        //    Destroy(child.gameObject);
+        //}
         foreach(KitchenObjectSO kitchenObjectSO in potionObjectSO.ingredientsSOList)
         {
             Transform iconTransform = Instantiate(iconTemplate, iconContainer);
