@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5677564512931336042}
+  m_Father: {fileID: 986722460152635021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8339628166294156364
 BoxCollider:
@@ -83,7 +83,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5677564512931336042}
+  m_Father: {fileID: 986722460152635021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9171986772301547983
 BoxCollider:
@@ -189,10 +189,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4968017340480599564, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1820842337720567021}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 4968017340480599564, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8969442609265930752}
     m_AddedComponents:
@@ -203,6 +203,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8777908497744465682}
   m_SourcePrefab: {fileID: 100100000, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
+--- !u!4 &986722460152635021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4968017340480599564, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
+  m_PrefabInstance: {fileID: 5278354735770871937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1879750733234526979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3218300222645537918, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
@@ -229,11 +234,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &5677564512931336042 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}
-  m_PrefabInstance: {fileID: 5278354735770871937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6943492330539131053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2962320540216363052, guid: d8815070bacb6c343b2f0f0541d87601, type: 3}

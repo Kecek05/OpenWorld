@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8277051802550822344}
+  m_Father: {fileID: 16931556376636808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8007372658528367471
 BoxCollider:
@@ -136,7 +136,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b69a064a7a4d516419463871eccf0cb8, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -762409510598611029, guid: b69a064a7a4d516419463871eccf0cb8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6040884932013244300}
     m_AddedComponents:
@@ -147,6 +147,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3651991341871339809}
   m_SourcePrefab: {fileID: 100100000, guid: b69a064a7a4d516419463871eccf0cb8, type: 3}
+--- !u!4 &16931556376636808 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -762409510598611029, guid: b69a064a7a4d516419463871eccf0cb8, type: 3}
+  m_PrefabInstance: {fileID: 8455305714300158499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &854173454412993407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9119197179601998172, guid: b69a064a7a4d516419463871eccf0cb8, type: 3}
@@ -199,8 +204,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &8277051802550822344 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b69a064a7a4d516419463871eccf0cb8, type: 3}
-  m_PrefabInstance: {fileID: 8455305714300158499}
-  m_PrefabAsset: {fileID: 0}
