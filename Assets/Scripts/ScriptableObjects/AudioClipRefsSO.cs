@@ -32,15 +32,16 @@ public class AudioClipRefsSO : ScriptableObject
     [Space]
 
     [Header("Delivery")]
-    public AudioClip[] knockDoor1;
-    public AudioClip[] knockDoor2;
-    public AudioClip[] knockDoor3;
-    public AudioClip[] knockDoor4;
+    public AudioClip[] knockDoorPerfect;
+    public AudioClip[] knockDoorGood;
 
     public AudioClip[] goodDelivery;
     public AudioClip[] badDelivery;
     public AudioClip[] startMinigame;
+    public AudioClip[] finishedMinigame;
 
+    public AudioClip[] missedClick;
+    public AudioClip[] badClick;
 
 
 }

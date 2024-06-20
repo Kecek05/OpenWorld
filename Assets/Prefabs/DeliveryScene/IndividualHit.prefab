@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 5384507660785446559}
   - component: {fileID: 4870211527971178093}
   - component: {fileID: 6960303375020977016}
+  - component: {fileID: 7267079571827449404}
   m_Layer: 5
   m_Name: IndividualHit
   m_TagString: Untagged
@@ -108,6 +109,19 @@ MonoBehaviour:
   individualHit: {fileID: 4870211527971178093}
   feedbackTxt: {fileID: 8026319363574064273}
   feedbackTxtAnim: {fileID: 6865231996666782994}
+--- !u!114 &7267079571827449404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366638745887590738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4babcc3a98206b849af8e9fcf4517773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  individualHit: {fileID: 4870211527971178093}
 --- !u!1 &1871593235282202445
 GameObject:
   m_ObjectHideFlags: 0

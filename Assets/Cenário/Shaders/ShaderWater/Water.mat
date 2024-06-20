@@ -14,9 +14,9 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2950
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -81,7 +81,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AbsorptionCoefficient: 0.141
+    - _AbsorptionCoefficient: 0.07
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -101,7 +101,7 @@ Material:
     - _Float: 0.45
     - _FoamAmount: 1
     - _FoamCutoff: 1
-    - _FoamScale: 0.78
+    - _FoamScale: 1
     - _FoamSpeed: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -110,7 +110,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
-    - _QueueOffset: -50
+    - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RefractionScale: 1.94
     - _RefractionSpeed: 1.02

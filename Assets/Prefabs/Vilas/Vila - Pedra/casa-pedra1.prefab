@@ -1,5 +1,111 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4331610717730270138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8911530979647868826}
+  - component: {fileID: 670042500008216697}
+  m_Layer: 0
+  m_Name: Colisor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8911530979647868826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331610717730270138}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.77, y: 0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 912749243765548731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &670042500008216697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331610717730270138}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8194602, y: 1.4104553, z: 1.8941243}
+  m_Center: {x: 0.08088507, y: 0.2052284, z: -1.1174914}
+--- !u!1 &5643376568678915366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972225073922555389}
+  - component: {fileID: 2357763728703159042}
+  m_Layer: 0
+  m_Name: Colisor1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1972225073922555389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643376568678915366}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.141, y: 0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 912749243765548731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2357763728703159042
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5643376568678915366}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.75338054, y: 1.221746, z: 0.6865869}
+  m_Center: {x: -0.45215607, y: 0.15759204, z: -0.3501124}
 --- !u!1001 &4873929971405618751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,9 +166,29 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 20.7208
       objectReference: {fileID: 0}
+    - target: {fileID: -2724427468568769377, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
+    - target: {fileID: 126477006958233346, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
     - target: {fileID: 919132149155446097, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
       propertyPath: m_Name
       value: casa-pedra1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1213140646963108964, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
+    - target: {fileID: 4742473837712756890, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.29555276
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.1013375
       objectReference: {fileID: 0}
     - target: {fileID: 8013692345575012051, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
       propertyPath: m_Materials.Array.size
@@ -86,12 +212,23 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5695102882091899012, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8911530979647868826}
+    - targetCorrespondingSourceObject: {fileID: 5695102882091899012, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1972225073922555389}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5960986468214371435, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5753083633784305844}
   m_SourcePrefab: {fileID: 100100000, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+--- !u!4 &912749243765548731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5695102882091899012, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}
+  m_PrefabInstance: {fileID: 4873929971405618751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1232298411874650708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5960986468214371435, guid: 811af6f5244a5bd4994abc8c567b8756, type: 3}

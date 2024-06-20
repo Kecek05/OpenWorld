@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5968099889134504868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6007730727940398518}
+  - component: {fileID: 626352534728155344}
+  m_Layer: 0
+  m_Name: Colisor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6007730727940398518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968099889134504868}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.26, y: 0.92, z: 2.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5293236501175875660}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &626352534728155344
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5968099889134504868}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.229618, y: 4.4344935, z: 1.8392334}
+  m_Center: {x: -0.06634331, y: 1.3373973, z: 0.03314209}
 --- !u!1001 &2366650927471931122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52,14 +105,40 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
+    - target: {fileID: -569803664786162603, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
     - target: {fileID: 919132149155446097, guid: 8847a28848e4c824a998b031c334816a, type: 3}
       propertyPath: m_Name
       value: casa-madeira1
       objectReference: {fileID: 0}
+    - target: {fileID: 4520803484624404439, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
+    - target: {fileID: 4742473837712756890, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+      propertyPath: m_LODs.Array.data[0].screenRelativeHeight
+      value: 0.2982184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+      propertyPath: m_LODs.Array.data[1].screenRelativeHeight
+      value: 0.10290587
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221701862112465832, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f93acdf310ab3bd4188accb5e8154aa5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7614833766500406974, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6007730727940398518}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -1646505250057545965, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6257829306401522431}
     - targetCorrespondingSourceObject: {fileID: -2219470237353423425, guid: 8847a28848e4c824a998b031c334816a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4965379041082514355}
@@ -90,3 +169,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &5293236501175875660 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7614833766500406974, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+  m_PrefabInstance: {fileID: 2366650927471931122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5331831261211212257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1646505250057545965, guid: 8847a28848e4c824a998b031c334816a, type: 3}
+  m_PrefabInstance: {fileID: 2366650927471931122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6257829306401522431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331831261211212257}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.148724, y: 5.3032756, z: 3.8535004}
+  m_Center: {x: -0.4132023, y: 2.6516364, z: -0.65239716}

@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class IndividualHit : MonoBehaviour
 {
+    public event Action OnHitMissed;
+    public event Action OnHitPerfect;
+    public event Action OnHitGood;
+    public event Action OnHitBad;
+
+
     public event Action<HitType> OnTextFeedback;
 
     public enum HitType
@@ -22,7 +28,6 @@ public class IndividualHit : MonoBehaviour
     private float individualMultiplyAdd = 0f;
     private bool inMinigame = false;
     private bool hited = false;
-
     private IEnumerator hitLoopCoroutine;
 
     
@@ -109,6 +114,7 @@ public class IndividualHit : MonoBehaviour
     private void MissedHitIndividual()
     {
         //Missed
+        OnHitMissed?.Invoke(); // SFX
         DeliveryMinigame.Instance.MissedHit();
     }
 
@@ -138,22 +144,24 @@ public class IndividualHit : MonoBehaviour
         if(accuracy <= timeToHit / 10)
         {
             // Perfect click
-            OnTextFeedback?.Invoke(HitType.Perfect);
 
-
+            OnHitPerfect?.Invoke();
             individualMultiplyAdd = 0.25f;
+            OnTextFeedback?.Invoke(HitType.Perfect);
         } else if( accuracy <= timeToHit / 5)
         {
             //Good click
-            OnTextFeedback?.Invoke(HitType.Good);
 
+            OnHitGood?.Invoke();
             individualMultiplyAdd = 0.15f;
+            OnTextFeedback?.Invoke(HitType.Good);
         } else
         {
             //Bad click
-            OnTextFeedback?.Invoke(HitType.Bad);
 
+            OnHitBad?.Invoke();
             individualMultiplyAdd = 0;
+            OnTextFeedback?.Invoke(HitType.Bad);
         }
     }
 
