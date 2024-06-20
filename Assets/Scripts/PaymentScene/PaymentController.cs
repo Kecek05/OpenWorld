@@ -3,62 +3,111 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PaymentController : MonoBehaviour
 {
-    public static MoneyController Instance;
+    public static PaymentController Instance;
+    public event EventHandler<OnUiPaymentChangedEventArgs> OnUiPaymentChanged;
+
+    public class OnUiPaymentChangedEventArgs : EventArgs
+    {
+        public int _totalEconomy;
+        public int _payoff;
+        public int _dayMoney;
+        public Button _paymentButton;
+    }
 
     private int totalEconomy;
-    private int expanseFixed;
     private int payoff;
-
-    private bool paymentConcluded = false;
+    private int dayMoney;
+    private int paymentsConcluded;
+    private int dayCounts = 1;
     [SerializeField] private Loader.Scene scene;
+    [SerializeField] private GameObject gameOverPanel;
 
-    [SerializeField] private TextMeshProUGUI[] expanseTxt;
-    [SerializeField] private TextMeshProUGUI economyTxt;
-    [SerializeField] private TextMeshProUGUI dayPaymentTxt;
-    [SerializeField] private TextMeshProUGUI fixedExpanseTxt;
-    [SerializeField] private TextMeshProUGUI payOffTxt;
-
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
+        // geting money of the day + economys of the player
         MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         totalEconomy = MoneyController.Instance.GetTotalMoney();
-        economyTxt.text = totalEconomy.ToString(); // passa para o texto, evento aqui
-        dayPaymentTxt.text = MoneyController.Instance.GetDayMoney().ToString(); // evento, pega o valor do dia e passar para o texto
-        fixedExpanseTxt.text = expanseFixed.ToString(); // evento, só passa o valor fixo
 
+        payoff = totalEconomy;
+
+        dayMoney = MoneyController.Instance.GetDayMoney();
+
+        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = totalEconomy, _payoff = payoff, _dayMoney = dayMoney });
+        paymentsConcluded = RandomizeExpanseController.Instance.GetExpensesCount() + 1; // +1 adding fixedPayment
     }
 
-
-    public void OnButtonClick()
+    public void DoPayment(int _expanseCost)
     {
-       DoPayment(); // evento para quando aperta o botão
+        payoff -= _expanseCost;
+        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = payoff, _payoff = payoff, _dayMoney = dayMoney });
+        paymentsConcluded--;
     }
 
-    void DoPayment()
-    {
-        payoff = totalEconomy - expanseFixed; 
-        payOffTxt.text = payoff.ToString(); // passa o evento
-        paymentConcluded = true; // pagamento concluido
-    }
-
-   
     public void PassDay()
     {
-        if(paymentConcluded == true)
+        if (paymentsConcluded <= 0)
         {
-            MoneyController.Instance.SetTotalMoney(payoff);
-            Debug.Log("quando sai da cena" + MoneyController.Instance.GetTotalMoney());
-            MoneyController.Instance.ResetDayMoney();
-            Loader.Load(scene);
+            // player clicked all pay buttons
+            if (payoff >= 0)
+            {
+                // player have money to pay all expanses, next day
+                MoneyController.Instance.SetTotalMoney(payoff);
+                MoneyController.Instance.ResetDayMoney();
+                SavePlayer();
+                dayCounts++;
+                Loader.Load(scene);
+
+
+            }
+            else
+            {
+                // player haven't money to pay all expanses, GameOver
+                gameOverPanel.SetActive(true);
+            }
         }
-        else 
+        else
         {
-            Debug.Log("tadurodorme");
+            // player did not click all the pay buttons 
         }
     }
+
+    public void BackToMenu()
+    {
+        Loader.Load(Loader.Scene.MainMenuScene);
+    }
+
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        totalEconomy = data.economyPlayer;
+        dayCounts = data.dayCount;
+    }
+
+    public int GetTotalEconomy() { return totalEconomy; }
+    public int GetDayCounts() { return dayCounts; }
+    
 }
