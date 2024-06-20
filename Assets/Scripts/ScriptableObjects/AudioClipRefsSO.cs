@@ -20,6 +20,7 @@ public class AudioClipRefsSO : ScriptableObject
     [Header("GreenHouse")]
     public AudioClip[] footstepOutSide;
     public AudioClip[] completeCollect;
+    public AudioClip[] stashItem;
     [Space]
 
     [Header("Delivery")]
