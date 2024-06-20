@@ -46,12 +46,22 @@ MonoBehaviour:
   caulderonLiquidToPotion: []
   caulderonCleanLiquid: []
   boxInteract: []
-  footstepOutSide: []
-  jump: []
+  footstepOutSide:
+  - {fileID: 8300000, guid: cc97c340134faa948bcaf20fea6429c6, type: 3}
+  - {fileID: 8300000, guid: 078e15982fce2e147bf06c8a7682f28b, type: 3}
+  jump:
+  - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
+  - {fileID: 8300000, guid: e519f586b4ac0904e877dfab85ed729e, type: 3}
   run: []
-  clickCollect: []
-  completeCollect: []
-  stashItemInBox: []
+  clickCollect:
+  - {fileID: 8300000, guid: 9c6157275e190604d8136e7e497e941e, type: 3}
+  - {fileID: 8300000, guid: 99c666127ba3b974c99980d14efcf03c, type: 3}
+  completeCollect:
+  - {fileID: 8300000, guid: 50205ffe58351d244bbcbd725dbfa802, type: 3}
+  - {fileID: 8300000, guid: 4b22bfbdbacfa0445bc9bbfbb0141085, type: 3}
+  stashItemInBox:
+  - {fileID: 8300000, guid: 6024ba1d53d005f48a96b3a9f6bacedd, type: 3}
+  - {fileID: 8300000, guid: 4b70ec0f0afb9ac4ea7dfea07aca4eb4, type: 3}
   knockDoor1: []
   knockDoor2: []
   knockDoor3: []

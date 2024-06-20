@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 5527216910005429613}
   - component: {fileID: 5195476113242327099}
   - component: {fileID: 6199377210795971172}
+  - component: {fileID: 8665370820568270924}
   m_Layer: 12
   m_Name: BoxOfItenOnGround
   m_TagString: Untagged
@@ -242,6 +243,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8665370820568270924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955390323752804632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b0a1fb2b8ec3442a6f8a52e0346fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemOnGround: {fileID: 5195476113242327099}
+  audioClipRefsSO: {fileID: 11400000, guid: 95220f103c8aefa49977e55a54b82196, type: 2}
 --- !u!1 &5686199659255087474
 GameObject:
   m_ObjectHideFlags: 0
