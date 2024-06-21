@@ -13,6 +13,7 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int WALKING = Animator.StringToHash("Walking");
 
     private int currentState;
+    private int currentStateUpperBody;
 
     public void ChangeAnimationState(int newState)
     {
@@ -26,19 +27,15 @@ public class PlayerAnimator : MonoBehaviour
         currentState = newState;
     }
 
-    public void PlayInteractAnim()
+    public void ChangeUpperBodyAnimationState(int newState)
     {
+        if (currentState == newState) return;
+        anim.StopPlayback();
+
         anim.CrossFade(INTERACT, 0.1f, 1);
-    }
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            PlayInteractAnim();
-        }
+        currentStateUpperBody = newState;
     }
-
     private void Start()
     {
         BasePlayer.OnPlayerWalking += BasePlayer_OnPlayerWalking;
@@ -46,6 +43,12 @@ public class PlayerAnimator : MonoBehaviour
         BasePlayer.OnPlayerRunning += BasePlayer_OnPlayerRunning;
         BasePlayer.OnPlayerJumping += BasePlayer_OnPlayerJumping;
         BasePlayer.OnPlayerFalling += BasePlayer_OnPlayerFalling;
+        BasePlayer.OnPlayerInteract += BasePlayer_OnPlayerInteract;
+    }
+
+    private void BasePlayer_OnPlayerInteract()
+    {
+        ChangeUpperBodyAnimationState(INTERACT);
     }
 
     private void BasePlayer_OnPlayerFalling()

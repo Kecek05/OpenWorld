@@ -8,6 +8,7 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
 
+    public static event Action OnPlayerInteract;
     public static event Action OnPlayerFalling;
     public static event Action OnPlayerJumping;
     public static event Action OnPlayerIdle;
