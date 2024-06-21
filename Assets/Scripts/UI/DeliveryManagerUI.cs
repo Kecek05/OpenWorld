@@ -7,7 +7,7 @@ public class DeliveryManagerUI : MonoBehaviour
     [SerializeField] private Transform container;
     [SerializeField] private Transform recipeTemplate;
 
-    [SerializeField] private RecipeListSO recipeListSO;
+
 
     private void Awake()
     {
@@ -18,15 +18,10 @@ public class DeliveryManagerUI : MonoBehaviour
     private void Start()
     {
 
-        recipeListSO.OnRecipeSpawned += RecipeListSO_OnRecipeSpawned;
-
         UpdateVisual();
     }
 
-    private void RecipeListSO_OnRecipeSpawned(object sender, System.EventArgs e)
-    {
-        
-    }
+
 
 
     private void UpdateVisual()
