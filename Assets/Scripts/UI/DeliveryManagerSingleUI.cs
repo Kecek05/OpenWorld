@@ -37,7 +37,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     {
         selectedPotionObjectSO = potionObjectSO;
 
-        recipeNameText.text = potionObjectSO.PotionName;
+
 
         //foreach (Transform child in iconContainer)
         //{
