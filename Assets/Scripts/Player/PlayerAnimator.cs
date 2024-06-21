@@ -30,7 +30,7 @@ public class PlayerAnimator : MonoBehaviour
 
     public void ChangeUpperBodyAnimationState(int newState)
     {
-        if (currentState == newState) return;
+        if (currentStateUpperBody == newState) return;
         anim.StopPlayback();
 
         anim.CrossFade(INTERACT, 0.1f, 1);
