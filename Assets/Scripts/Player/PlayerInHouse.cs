@@ -35,6 +35,7 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
     protected override void WitchInputs_OnInteractAlternateAction(object sender, EventArgs e)
     {
         if (!KitchenGameManager.Instance.IsGamePlaying()) return;
+        InteractAnimTrigger();
         
         if ((selectedCounter != null))
         {
@@ -117,6 +118,7 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
         if(kitchenObject != null)
         {
             OnPickedSomething?.Invoke(this, EventArgs.Empty);
+            HoldItemAnimTrigger();
         }
     }
     public KitchenObject GetKitchenObject()

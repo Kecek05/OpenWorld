@@ -8,6 +8,7 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
 
+    public static event Action OnPlayerHoldingItem;
     public static event Action OnPlayerInteract;
     public static event Action OnPlayerFalling;
     public static event Action OnPlayerJumping;
@@ -281,6 +282,13 @@ public class BasePlayer : MonoBehaviour
     }
 
 
-
+    protected void HoldItemAnimTrigger()
+    {
+        OnPlayerHoldingItem?.Invoke();
+    }
+    protected void InteractAnimTrigger()
+    {
+        OnPlayerInteract?.Invoke();
+    }
     public GameObject GetInteractableObj() { return intectableObj; }
 }

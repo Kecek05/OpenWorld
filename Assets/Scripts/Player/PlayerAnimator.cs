@@ -7,6 +7,7 @@ public class PlayerAnimator : MonoBehaviour
     //Hashed Parameters for performance
     private static readonly int IDLE = Animator.StringToHash("Idle");
     private static readonly int INTERACT = Animator.StringToHash("Interact");
+    private static readonly int HOLDITEM = Animator.StringToHash("HoldItem");
     private static readonly int FALLING = Animator.StringToHash("Falling");
     private static readonly int JUMP = Animator.StringToHash("Jump");
     private static readonly int RUN = Animator.StringToHash("Run");
@@ -44,6 +45,12 @@ public class PlayerAnimator : MonoBehaviour
         BasePlayer.OnPlayerJumping += BasePlayer_OnPlayerJumping;
         BasePlayer.OnPlayerFalling += BasePlayer_OnPlayerFalling;
         BasePlayer.OnPlayerInteract += BasePlayer_OnPlayerInteract;
+        BasePlayer.OnPlayerHoldingItem += BasePlayer_OnPlayerHoldingItem;
+    }
+
+    private void BasePlayer_OnPlayerHoldingItem()
+    {
+        ChangeUpperBodyAnimationState(HOLDITEM);
     }
 
     private void BasePlayer_OnPlayerInteract()
