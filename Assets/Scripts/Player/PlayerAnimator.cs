@@ -11,7 +11,7 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int FALLING = Animator.StringToHash("Falling");
     private static readonly int JUMP = Animator.StringToHash("Jump");
     private static readonly int RUN = Animator.StringToHash("Run");
-    private static readonly int WALKING = Animator.StringToHash("Walking");
+    private static readonly int WALKING = Animator.StringToHash("Walk");
 
     private int currentState;
     private int currentStateUpperBody;
