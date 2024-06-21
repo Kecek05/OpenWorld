@@ -94,8 +94,8 @@ public class BasePlayer : MonoBehaviour
         {
             if (jumpingCoroutine == null)
             {
-                ChangePlayerState(PlayerState.JUMP);
                 isJumping = true;
+                ChangePlayerState(PlayerState.JUMP);
                 OnPlayerJumping?.Invoke();
                 jumpingCoroutine = JumpCouroutine();
                 StartCoroutine(jumpingCoroutine);
@@ -202,7 +202,7 @@ public class BasePlayer : MonoBehaviour
             moveDirection = moveDirection * runSpeed;
 
 
-            if (moveDirection != Vector3.zero)
+            if (moveDirection != Vector3.zero && !isJumping)
                 ChangePlayerState(PlayerState.RUN);
         }
         else
