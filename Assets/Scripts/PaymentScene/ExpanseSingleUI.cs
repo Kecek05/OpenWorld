@@ -11,6 +11,7 @@ public class ExpanseSingleUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI expansePrice;
     [SerializeField] private Button payButton;
     [SerializeField] private int expanseSingleCost;
+    [SerializeField] private GameObject iconCheckMark;
 
     public void SetExpanseData(string expanseName, int expanseCost)
     {
@@ -22,6 +23,7 @@ public class ExpanseSingleUI : MonoBehaviour
     public void DoSinglePayment()
     {
         PaymentController.Instance.DoPayment(expanseSingleCost);
+        iconCheckMark.SetActive(true);
         payButton.interactable = false;
     }
 
