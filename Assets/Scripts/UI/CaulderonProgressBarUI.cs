@@ -9,8 +9,8 @@ public class CaulderonProgressBarUI : MonoBehaviour
 
     [SerializeField] private GameObject hasProgressGameObject;
     [SerializeField] private Image barImage;
-
-
+    [SerializeField] private CaulderonCounter caulderonCounter;
+    [SerializeField] private GameObject completeImg;
 
     private IHasProgress hasProgress;
 
@@ -18,12 +18,25 @@ public class CaulderonProgressBarUI : MonoBehaviour
     {
         hasProgress = hasProgressGameObject.GetComponent<IHasProgress>();
 
+        caulderonCounter.OnPotionDone += CaulderonCounter_OnPotionDone;
+        caulderonCounter.OnPotionCollected += CaulderonCounter_OnPotionCollected;
 
         hasProgress.OnProgressChanged += HasProgress_OnProgressChanged;
 
         barImage.fillAmount = 0;
 
         Hide();
+    }
+
+    private void CaulderonCounter_OnPotionCollected(object sender, EventArgs e)
+    {
+        Debug.Log("Collected");
+        Hide();
+    }
+
+    private void CaulderonCounter_OnPotionDone(object sender, EventArgs e)
+    {
+        completeImg.SetActive(true);
     }
 
     private void HasProgress_OnProgressChanged(object sender, IHasProgress.OnProgressChangedEventsArgs e)
@@ -53,6 +66,7 @@ public class CaulderonProgressBarUI : MonoBehaviour
     }
     private void Hide()
     {
+        completeImg.SetActive(false);
         gameObject.SetActive(false);
     }
 }
