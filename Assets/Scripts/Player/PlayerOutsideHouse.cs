@@ -14,6 +14,7 @@ public class PlayerOutsideHouse : BasePlayer
 
     protected override void WitchInputs_OnInteractAction(object sender, System.EventArgs e)
     {
+        InteractAnimTrigger();
         if(intectableObj != null)
         {
             IInteractable interactObj = intectableObj.gameObject.GetComponent<IInteractable>();

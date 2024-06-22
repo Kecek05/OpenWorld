@@ -7,12 +7,14 @@ public class PlayerAnimator : MonoBehaviour
     //Hashed Parameters for performance
     private static readonly int IDLE = Animator.StringToHash("Idle");
     private static readonly int INTERACT = Animator.StringToHash("Interact");
+    private static readonly int HOLDITEM = Animator.StringToHash("HoldItem");
     private static readonly int FALLING = Animator.StringToHash("Falling");
     private static readonly int JUMP = Animator.StringToHash("Jump");
     private static readonly int RUN = Animator.StringToHash("Run");
-    private static readonly int WALKING = Animator.StringToHash("Walking");
+    private static readonly int WALKING = Animator.StringToHash("Walk");
 
     private int currentState;
+    private int currentStateUpperBody;
 
     public void ChangeAnimationState(int newState)
     {
@@ -26,19 +28,15 @@ public class PlayerAnimator : MonoBehaviour
         currentState = newState;
     }
 
-    public void PlayInteractAnim()
+    public void ChangeUpperBodyAnimationState(int newState)
     {
+        //if (currentStateUpperBody == newState) return;
+        anim.StopPlayback();
+
         anim.CrossFade(INTERACT, 0.1f, 1);
-    }
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            PlayInteractAnim();
-        }
+        currentStateUpperBody = newState;
     }
-
     private void Start()
     {
         BasePlayer.OnPlayerWalking += BasePlayer_OnPlayerWalking;
@@ -46,6 +44,18 @@ public class PlayerAnimator : MonoBehaviour
         BasePlayer.OnPlayerRunning += BasePlayer_OnPlayerRunning;
         BasePlayer.OnPlayerJumping += BasePlayer_OnPlayerJumping;
         BasePlayer.OnPlayerFalling += BasePlayer_OnPlayerFalling;
+        BasePlayer.OnPlayerInteract += BasePlayer_OnPlayerInteract;
+        BasePlayer.OnPlayerHoldingItem += BasePlayer_OnPlayerHoldingItem;
+    }
+
+    private void BasePlayer_OnPlayerHoldingItem()
+    {
+        ChangeUpperBodyAnimationState(HOLDITEM);
+    }
+
+    private void BasePlayer_OnPlayerInteract()
+    {
+        ChangeUpperBodyAnimationState(INTERACT);
     }
 
     private void BasePlayer_OnPlayerFalling()

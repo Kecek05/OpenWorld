@@ -8,6 +8,8 @@ public class BasePlayer : MonoBehaviour
 {
     public static BasePlayer Instance;
 
+    public static event Action OnPlayerHoldingItem;
+    public static event Action OnPlayerInteract;
     public static event Action OnPlayerFalling;
     public static event Action OnPlayerJumping;
     public static event Action OnPlayerIdle;
@@ -92,8 +94,8 @@ public class BasePlayer : MonoBehaviour
         {
             if (jumpingCoroutine == null)
             {
-                ChangePlayerState(PlayerState.JUMP);
                 isJumping = true;
+                ChangePlayerState(PlayerState.JUMP);
                 OnPlayerJumping?.Invoke();
                 jumpingCoroutine = JumpCouroutine();
                 StartCoroutine(jumpingCoroutine);
@@ -200,7 +202,7 @@ public class BasePlayer : MonoBehaviour
             moveDirection = moveDirection * runSpeed;
 
 
-            if (moveDirection != Vector3.zero)
+            if (moveDirection != Vector3.zero && !isJumping)
                 ChangePlayerState(PlayerState.RUN);
         }
         else
@@ -280,6 +282,13 @@ public class BasePlayer : MonoBehaviour
     }
 
 
-
+    protected void HoldItemAnimTrigger()
+    {
+        OnPlayerHoldingItem?.Invoke();
+    }
+    protected void InteractAnimTrigger()
+    {
+        OnPlayerInteract?.Invoke();
+    }
     public GameObject GetInteractableObj() { return intectableObj; }
 }

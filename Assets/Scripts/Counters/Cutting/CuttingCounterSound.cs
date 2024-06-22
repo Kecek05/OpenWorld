@@ -13,6 +13,7 @@ public class CuttingCounterSound : MonoBehaviour
 
     private void CuttingCounter_OnCut(object sender, CuttingCounter.OnCutWithSOEventArgs e)
     {
-        SFXManager.Instance.PlayRandomSFXClip(e.kitchenObjectSO.interactSFX, transform);
+        if(e.kitchenObjectSO.interactSFX != null)
+            SFXManager.Instance.PlayRandomSFXClip(e.kitchenObjectSO.interactSFX, transform);
     }
 }

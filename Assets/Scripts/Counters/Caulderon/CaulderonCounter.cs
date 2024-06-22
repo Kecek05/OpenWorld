@@ -7,6 +7,9 @@ using static CuttingCounter;
 
 public class CaulderonCounter : BaseCounter, IHasProgress
 {
+    public event EventHandler OnPotionDone;
+    public event EventHandler OnPotionCollected;
+
     public event EventHandler<IHasProgress.OnProgressChangedEventsArgs> OnProgressChanged;
 
     public event EventHandler<OnStateCHangedEventArgs> OnStateChanged;
@@ -117,6 +120,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
  
                     break;
                 case State.Done:
+                    OnPotionDone?.Invoke(this, EventArgs.Empty);
                     break;
 
             }
@@ -206,7 +210,6 @@ public class CaulderonCounter : BaseCounter, IHasProgress
                             //Potion done
                             plateKitchenObject.AddIngredientToPotion(potionDone);
                             plateKitchenObject.SetPotionObjectSOInThisPlate(potionDone);
-
                             ResetCaulderon();
                             
                         }
@@ -289,6 +292,7 @@ public class CaulderonCounter : BaseCounter, IHasProgress
 
         });
 
+        OnPotionCollected?.Invoke(this, EventArgs.Empty);
 
         foreach (Transform kitchenObject in GetKitchenObjectFollowTransform())
         {
