@@ -10,7 +10,10 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button quitButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button closeOptionsMenuButton;
+    [SerializeField] private Button creditButton;
+    [SerializeField] private Button closeCreditButton;
     [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject creditsPanel;
 
     private void Awake()
     {
@@ -30,6 +33,14 @@ public class MainMenuUI : MonoBehaviour
         closeOptionsMenuButton.onClick.AddListener(() =>
         {
             optionsPanel.SetActive(false);
+        });
+        creditButton.onClick.AddListener(() =>
+        {
+            creditsPanel.SetActive(true);
+        });
+        closeCreditButton.onClick.AddListener(() =>
+        {
+            creditsPanel.SetActive(false);
         });
     }
 

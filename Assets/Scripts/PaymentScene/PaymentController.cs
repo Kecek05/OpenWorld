@@ -16,7 +16,6 @@ public class PaymentController : MonoBehaviour
         public int _totalEconomy;
         public int _payoff;
         public int _dayMoney;
-        public Button _paymentButton;
     }
 
     private int totalEconomy;
