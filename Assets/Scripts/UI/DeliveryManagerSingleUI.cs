@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class DeliveryManagerSingleUI : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI recipeNameText;
     [SerializeField] private TextMeshProUGUI recipeCountText;
     [SerializeField] private TextMeshProUGUI recipeCostText;
     [SerializeField] private Transform iconContainer;
@@ -26,6 +25,13 @@ public class DeliveryManagerSingleUI : MonoBehaviour
     {
         if(DeliveryManager.Instance != null)
             DeliveryManager.Instance.OnRecipeCompleted += DeliveryManager_OnRecipeCompleted;
+        if (DeliveryMinigame.Instance != null)
+            DeliveryMinigame.Instance.OnFinishedMinigame += DeliveryMinigame_OnFinishedMinigame; ;
+    }
+
+    private void DeliveryMinigame_OnFinishedMinigame()
+    {
+        UpdatePotionCount();
     }
 
     private void DeliveryManager_OnRecipeCompleted(object sender, DeliveryManager.OnRecipeCompletedEventArgs e)
@@ -52,6 +58,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
         }
         potionImage.sprite = potionObjectSO.potionSprite;
         recipeCostText.text = "$" + potionObjectSO.potionMoneyRecieve.ToString();
+        UpdatePotionCount();
     }
 
 

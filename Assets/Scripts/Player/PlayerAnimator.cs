@@ -19,24 +19,32 @@ public class PlayerAnimator : MonoBehaviour
 
     public void ChangeAnimationState(int newState)
     {
-        if(currentState == newState) return;
-        anim.StopPlayback();
+        if(anim  != null)
+        {
+            if(currentState == newState) return;
+            anim.StopPlayback();
 
-        if (currentState == IDLE) // if its in idle, fade faster
-            anim.CrossFade(newState, 0.05f);
-        else
-            anim.CrossFade(newState, 0.2f);
-        currentState = newState;
+            if (currentState == IDLE) // if its in idle, fade faster
+                anim.CrossFade(newState, 0.05f);
+            else
+                anim.CrossFade(newState, 0.2f);
+            currentState = newState;
+
+        }
     }
 
     public void ChangeUpperBodyAnimationState(int newState)
     {
-        //if (currentStateUpperBody == newState) return;
-        anim.StopPlayback();
+        if(anim != null)
+        {
+            //if (currentStateUpperBody == newState) return;
+            anim.StopPlayback();
 
-        anim.CrossFade(newState, 0.1f, 1);
+            anim.CrossFade(newState, 0.1f, 1);
 
-        currentStateUpperBody = newState;
+            currentStateUpperBody = newState;
+
+        }
     }
     private void Start()
     {
