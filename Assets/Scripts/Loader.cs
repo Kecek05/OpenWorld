@@ -43,15 +43,13 @@ public static class Loader
         loadingAsyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
         loadingAsyncOperation.allowSceneActivation = false;
 
-        while (!loadingAsyncOperation.isDone)
+        while (loadingAsyncOperation.progress < 0.9f)
         {
             yield return null;
-
-            Debug.Log(loadingAsyncOperation.progress);
         }
-        yield return new WaitForSeconds(2f);
+        yield return null;
         loadingAsyncOperation.allowSceneActivation = true;
-        Debug.Log("ficoutrue");
+
     }
 
     public static float GetLoadingProgress()

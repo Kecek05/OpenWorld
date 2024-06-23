@@ -73,9 +73,9 @@ public class MainMenuUI : MonoBehaviour
 
     private IEnumerator LoadNextScene()
     {
-        if(levelFade != null)
-           levelFade.DoFadeOut();
-        yield return new WaitForSeconds(1f);
+        if(LevelFade.instance != null)
+            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
+        yield return new WaitForSeconds(1f); // wait for the anim
         Loader.Load(Loader.Scene.GreenHouse);
     }
 

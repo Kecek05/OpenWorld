@@ -43,8 +43,8 @@ public class ChangeScene : MonoBehaviour
     private IEnumerator DelayToChangeScene()
     {
         
-        if(levelFade != null)
-           levelFade.DoFadeOut();
+        if(LevelFade.instance != null)
+           LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
         Loader.Load(scene);
     }
