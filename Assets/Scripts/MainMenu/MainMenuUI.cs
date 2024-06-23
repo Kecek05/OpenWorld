@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    public static MainMenuUI Instance;
+
+    public static event Action OnCloseOptions;
+
     [Header("Buttons")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
@@ -30,6 +35,9 @@ public class MainMenuUI : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance == null)
+            Instance = this;
+
         playButton.onClick.AddListener(() =>
         { // Lambda Expression, C# Delegates
             StartCoroutine(LoadNextScene());
@@ -46,6 +54,8 @@ public class MainMenuUI : MonoBehaviour
         closeOptionsMenuButton.onClick.AddListener(() =>
         {
             optionsGeralPanel.SetActive(false);
+            OnCloseOptions?.Invoke();
+
         });
         creditButton.onClick.AddListener(() =>
         {
@@ -69,6 +79,14 @@ public class MainMenuUI : MonoBehaviour
             optionsPanel.SetActive(false);
             bindsPanel.SetActive(true);
         });
+
+        if (WitchInputs.Instance != null)
+            WitchInputs.Instance.OnPausePerformed += WitchInputs_OnPausePerformed;
+    }
+
+    private void WitchInputs_OnPausePerformed(object sender, System.EventArgs e)
+    {
+        OnCloseOptions?.Invoke();
     }
 
     private IEnumerator LoadNextScene()

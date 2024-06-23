@@ -13,36 +13,22 @@ public class PauseMenu : MonoBehaviour
     private PlayerInputActions playerInputActions;
     public Loader.Scene sceneType;
 
-    private void OnEnable()
+    private void Start()
     {
-        if (playerInputActions == null)
-        {
-            playerInputActions = new PlayerInputActions();
-
-            //In House
-            playerInputActions.PlayerInHouse.Pause.performed += OnPausePerformed;
-
-            //GreenHouse
-            playerInputActions.PlayerOutSide.Pause.performed += OnPausePerformed;
-
-            switch (sceneType)
-            {
-                case Loader.Scene.GreenHouse:
-                    playerInputActions.PlayerOutSide.Enable();
-                    break;
-                case Loader.Scene.DeliveryScene:
-                    playerInputActions.PlayerOutSide.Enable();
-                    break;
-                case Loader.Scene.House:
-                    playerInputActions.PlayerInHouse.Enable();
-                    break;
-            }
-        }
+        MainMenuUI.OnCloseOptions += MainMenuUI_OnCloseOptions;
     }
 
-    private void OnPausePerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+
+
+
+    private void MainMenuUI_OnCloseOptions()
     {
-        Debug.Log("apertou o botao");
+        OnPausePerformed();
+    }
+
+    private void OnPausePerformed()
+    {
+        Debug.Log("despause");
         if (GameIsPaused)
         {
             panelPause.SetActive(false);

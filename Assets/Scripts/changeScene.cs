@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ChangeScene : MonoBehaviour
 {
-    public static ChangeScene Instance;
+    public static ChangeScene Instance { get; private set; }
 
     [SerializeField] private float totalTime = 40f;
     private float currentTime;
@@ -46,6 +47,8 @@ public class ChangeScene : MonoBehaviour
         if(LevelFade.instance != null)
            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
+        if(WitchInputs.Instance != null)
+            WitchInputs.Instance.ChangeActiveMap(scene);
         Loader.Load(scene);
     }
 

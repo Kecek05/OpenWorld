@@ -317,9 +317,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dash"",
+                    ""name"": ""Run"",
                     ""type"": ""Button"",
-                    ""id"": ""28e1d44e-db10-414a-a040-44cbb7366ef7"",
+                    ""id"": ""61bd1cf6-12c8-464b-a311-cf4b189f08ee"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -503,28 +503,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""756a3bba-2d9e-4c87-b541-8b67a0e8f2e3"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""98a28c44-1734-4752-b886-aa026a70d773"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""030c82ee-218c-4890-ab16-364965530aef"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -542,6 +520,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""444dcb4c-3037-420c-b537-fcd4d923aae6"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e35fc0fc-27bf-4561-ad6b-e42cd28d5c5a"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -582,6 +582,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Hit4"",
                     ""type"": ""Button"",
                     ""id"": ""fe7cc9b5-036a-4ad7-a38c-e82501a8d674"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""96d1cc25-bd9b-4efb-a91b-524e3ecc649f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -676,6 +685,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Hit4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e982ce2-7b69-494d-9a4a-1d20e5449002"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b765a87-b6f7-4040-80c8-4b03d914c725"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -717,7 +748,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerInHouse_Move = m_PlayerInHouse.FindAction("Move", throwIfNotFound: true);
         m_PlayerInHouse_Interact = m_PlayerInHouse.FindAction("Interact", throwIfNotFound: true);
         m_PlayerInHouse_InteractAlternate = m_PlayerInHouse.FindAction("InteractAlternate", throwIfNotFound: true);
-        m_PlayerInHouse_Dash = m_PlayerInHouse.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerInHouse_Run = m_PlayerInHouse.FindAction("Run", throwIfNotFound: true);
         m_PlayerInHouse_Pause = m_PlayerInHouse.FindAction("Pause", throwIfNotFound: true);
         // PlayerHitMinigame
         m_PlayerHitMinigame = asset.FindActionMap("PlayerHitMinigame", throwIfNotFound: true);
@@ -725,6 +756,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerHitMinigame_Hit2 = m_PlayerHitMinigame.FindAction("Hit2", throwIfNotFound: true);
         m_PlayerHitMinigame_Hit3 = m_PlayerHitMinigame.FindAction("Hit3", throwIfNotFound: true);
         m_PlayerHitMinigame_Hit4 = m_PlayerHitMinigame.FindAction("Hit4", throwIfNotFound: true);
+        m_PlayerHitMinigame_Pause = m_PlayerHitMinigame.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -867,7 +899,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInHouse_Move;
     private readonly InputAction m_PlayerInHouse_Interact;
     private readonly InputAction m_PlayerInHouse_InteractAlternate;
-    private readonly InputAction m_PlayerInHouse_Dash;
+    private readonly InputAction m_PlayerInHouse_Run;
     private readonly InputAction m_PlayerInHouse_Pause;
     public struct PlayerInHouseActions
     {
@@ -876,7 +908,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerInHouse_Move;
         public InputAction @Interact => m_Wrapper.m_PlayerInHouse_Interact;
         public InputAction @InteractAlternate => m_Wrapper.m_PlayerInHouse_InteractAlternate;
-        public InputAction @Dash => m_Wrapper.m_PlayerInHouse_Dash;
+        public InputAction @Run => m_Wrapper.m_PlayerInHouse_Run;
         public InputAction @Pause => m_Wrapper.m_PlayerInHouse_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInHouse; }
         public void Enable() { Get().Enable(); }
@@ -896,9 +928,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractAlternate.started += instance.OnInteractAlternate;
             @InteractAlternate.performed += instance.OnInteractAlternate;
             @InteractAlternate.canceled += instance.OnInteractAlternate;
-            @Dash.started += instance.OnDash;
-            @Dash.performed += instance.OnDash;
-            @Dash.canceled += instance.OnDash;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
@@ -915,9 +947,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractAlternate.started -= instance.OnInteractAlternate;
             @InteractAlternate.performed -= instance.OnInteractAlternate;
             @InteractAlternate.canceled -= instance.OnInteractAlternate;
-            @Dash.started -= instance.OnDash;
-            @Dash.performed -= instance.OnDash;
-            @Dash.canceled -= instance.OnDash;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
@@ -946,6 +978,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerHitMinigame_Hit2;
     private readonly InputAction m_PlayerHitMinigame_Hit3;
     private readonly InputAction m_PlayerHitMinigame_Hit4;
+    private readonly InputAction m_PlayerHitMinigame_Pause;
     public struct PlayerHitMinigameActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -954,6 +987,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Hit2 => m_Wrapper.m_PlayerHitMinigame_Hit2;
         public InputAction @Hit3 => m_Wrapper.m_PlayerHitMinigame_Hit3;
         public InputAction @Hit4 => m_Wrapper.m_PlayerHitMinigame_Hit4;
+        public InputAction @Pause => m_Wrapper.m_PlayerHitMinigame_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerHitMinigame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -975,6 +1009,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Hit4.started += instance.OnHit4;
             @Hit4.performed += instance.OnHit4;
             @Hit4.canceled += instance.OnHit4;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerHitMinigameActions instance)
@@ -991,6 +1028,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Hit4.started -= instance.OnHit4;
             @Hit4.performed -= instance.OnHit4;
             @Hit4.canceled -= instance.OnHit4;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerHitMinigameActions instance)
@@ -1039,7 +1079,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnInteractAlternate(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
     public interface IPlayerHitMinigameActions
@@ -1048,5 +1088,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnHit2(InputAction.CallbackContext context);
         void OnHit3(InputAction.CallbackContext context);
         void OnHit4(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

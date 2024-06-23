@@ -11,6 +11,7 @@ public class WitchInputs : MonoBehaviour
 
     public static WitchInputs Instance { get; private set; }
 
+    public event EventHandler OnPausePerformed;
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractAlternateAction;
 
@@ -29,8 +30,6 @@ public class WitchInputs : MonoBehaviour
     private bool run;
     private bool jump;
 
-    public Loader.Scene sceneType;
-
     public enum Binding
     {
         Move_Up, 
@@ -45,7 +44,11 @@ public class WitchInputs : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+        }
 
         if (playerInputActions == null)
         {
@@ -56,7 +59,10 @@ public class WitchInputs : MonoBehaviour
                 playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BINDINGS));
             }
 
+
+
             //OutSide
+            playerInputActions.PlayerOutSide.Pause.performed += Pause_performed;
             playerInputActions.PlayerOutSide.Move.performed += OnMovementPerformed;
             playerInputActions.PlayerOutSide.Move.canceled += OnMovementCanceled;
             playerInputActions.PlayerOutSide.Run.performed += i => run = true;
@@ -74,23 +80,30 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerHitMinigame.Disable();
 
             //In Side
+            playerInputActions.PlayerInHouse.Pause.performed += Pause_performed;
             playerInputActions.PlayerInHouse.Move.performed += OnMovementPerformed;
             playerInputActions.PlayerInHouse.Move.canceled += OnMovementCanceled;
-            playerInputActions.PlayerInHouse.Dash.performed += i => run = true;
-            playerInputActions.PlayerInHouse.Dash.canceled += i => run = false;
+            playerInputActions.PlayerInHouse.Run.performed += i => run = true;
+            playerInputActions.PlayerInHouse.Run.canceled += i => run = false;
             playerInputActions.PlayerInHouse.Interact.performed += Interact_performed;
             playerInputActions.PlayerInHouse.InteractAlternate.performed += InteractAlternate_performed;
             playerInputActions.PlayerInHouse.Disable();
 
         }
 
+    }
 
+    private void Pause_performed(InputAction.CallbackContext obj)
+    {
+        //throw new NotImplementedException();
+        Debug.Log("pause performed");
     }
 
     private void Start()
     {
         run = false;
         jump = false;
+        ChangeActiveMap(Loader.Scene.GreenHouse); // Start at greenhouse map
     }
 
 
@@ -100,11 +113,9 @@ public class WitchInputs : MonoBehaviour
     }
 
 
-    private void OnEnable()
+    public void ChangeActiveMap(Loader.Scene _scene)
     {
-        
-
-        switch(sceneType) // enable the correct input Map
+        switch (_scene) // enable the correct input Map
         {
             case Loader.Scene.GreenHouse:
                 ChangeMovement(true);
@@ -119,7 +130,7 @@ public class WitchInputs : MonoBehaviour
                 playerInput.SwitchCurrentActionMap("PlayerInHouse");
                 break;
         }
-
+        Debug.Log(_scene.ToString());
     }
 
     private void InteractAlternate_performed(InputAction.CallbackContext context)

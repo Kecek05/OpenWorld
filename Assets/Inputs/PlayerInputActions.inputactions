@@ -295,9 +295,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
+                    "name": "Run",
                     "type": "Button",
-                    "id": "28e1d44e-db10-414a-a040-44cbb7366ef7",
+                    "id": "61bd1cf6-12c8-464b-a311-cf4b189f08ee",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -481,28 +481,6 @@
                 },
                 {
                     "name": "",
-                    "id": "756a3bba-2d9e-4c87-b541-8b67a0e8f2e3",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "98a28c44-1734-4752-b886-aa026a70d773",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "030c82ee-218c-4890-ab16-364965530aef",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -520,6 +498,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "444dcb4c-3037-420c-b537-fcd4d923aae6",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e35fc0fc-27bf-4561-ad6b-e42cd28d5c5a",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -560,6 +560,15 @@
                     "name": "Hit4",
                     "type": "Button",
                     "id": "fe7cc9b5-036a-4ad7-a38c-e82501a8d674",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "96d1cc25-bd9b-4efb-a91b-524e3ecc649f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -652,6 +661,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Hit4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e982ce2-7b69-494d-9a4a-1d20e5449002",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b765a87-b6f7-4040-80c8-4b03d914c725",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
