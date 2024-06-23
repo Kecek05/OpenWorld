@@ -101,8 +101,8 @@ public class DeliveryMinigame : MonoBehaviour
 
     private int CalculateMoneyAdd()
     {
-        int totalMoney = startRecieveMoney * (int)recieveMoneyMultiply;
-        return totalMoney;
+        float calcMoney = startRecieveMoney * recieveMoneyMultiply;
+        return (int)calcMoney;
     }
 
 
@@ -110,6 +110,7 @@ public class DeliveryMinigame : MonoBehaviour
     {
        hitCount++;
        recieveMoneyMultiply += multiplyAdd;
+      Debug.Log(recieveMoneyMultiply);
        VerifyFinishedGame();
     }
 
