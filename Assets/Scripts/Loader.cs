@@ -45,17 +45,10 @@ public static class Loader
 
         while (loadingAsyncOperation.progress < 0.9f)
         {
-
-            Debug.Log("while");
-
-            Debug.Log(loadingAsyncOperation.progress);
             yield return null;
-
         }
-        Debug.Log("Wait 2 sec");
-        yield return new WaitForSeconds(2f);
+        yield return null;
         loadingAsyncOperation.allowSceneActivation = true;
-        Debug.Log("ficoutrue");
 
     }
 
