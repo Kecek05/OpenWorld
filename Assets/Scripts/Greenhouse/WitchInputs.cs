@@ -294,4 +294,9 @@ public class WitchInputs : MonoBehaviour
             })
         .Start();
     }
+
+    private void ChangeBind(InputAction inputAction, int bindingIndex)
+    {
+
+    }
 }
