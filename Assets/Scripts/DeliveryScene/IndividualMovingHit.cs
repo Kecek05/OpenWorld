@@ -2,13 +2,13 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IndividualMovingHit : MonoBehaviour
 {
 
     [SerializeField] private IndividualHit individualHit;
 
-    [SerializeField] private TextMeshProUGUI movingText;
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endPosition;
     [SerializeField] private Transform outScreenPosition;
@@ -22,10 +22,14 @@ public class IndividualMovingHit : MonoBehaviour
 
     private float duration;
 
+    [SerializeField] private Sprite startSprite;
+    [SerializeField] private Sprite missedSprite;
+    [SerializeField] private Image imageRenderer;
+
     private void OnEnable()
     {
         gameObject.transform.position = startPosition.position;
-        movingText.color = Color.white;
+        imageRenderer.sprite = startSprite;
     }
 
     public void StartMoving()
@@ -67,7 +71,7 @@ public class IndividualMovingHit : MonoBehaviour
 
     private IEnumerator MissedMoving()
     {
-        movingText.color = Color.gray;
+        imageRenderer.sprite = missedSprite;
         float elapsedTime = 0f;
         float outScreenTime = 0.5f;
         while ( elapsedTime < outScreenTime )

@@ -15,6 +15,8 @@ public class StoredPotions : MonoBehaviour
 
     [SerializeField] PotionObjectSO[] potionsDebug;
 
+    private bool stillHavePotions = true;
+
     private void Awake()
     {
         Instance = this;
@@ -28,7 +30,7 @@ public class StoredPotions : MonoBehaviour
         //{
         //    potionsMade.Add(potionsDebug[i]);
         //}
-        
+
     }
 
     public void ResetPotionsMade()
@@ -60,8 +62,27 @@ public class StoredPotions : MonoBehaviour
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;
+                CheckHaveMorePotionsToDelivery();
                 break;
             }
+        }
+    }
+    private void CheckHaveMorePotionsToDelivery()
+    {
+        int count = 2;
+        for (int i = 0; i < recipeSavedCountArray.Length; i++)
+        {
+            if (recipeSavedCountArray[i] <= 0)
+            {
+                //Delivered all potions in this recipe
+                count--;
+            }
+           
+        }
+        if(count <= 0)
+        {
+            //Delivered all potions, change scene (wait for 10 secconds) 
+            //Do fade out
         }
     }
 
