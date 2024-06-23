@@ -6,15 +6,27 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [Header("Buttons")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button quitButton;
-    [SerializeField] private Button optionsButton;
+    [SerializeField] private Button optionsGeralPanelButton;
     [SerializeField] private Button closeOptionsMenuButton;
     [SerializeField] private Button creditButton;
     [SerializeField] private Button closeCreditButton;
-    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private Button bindsPanelButton;
+    [SerializeField] private Button optionsPanelButton;
+
+    [Header("Panels")]
+    [SerializeField] private GameObject optionsGeralPanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject bindsPanel;
     [SerializeField] private LevelFade levelFade;
+
+    [Header("Colors")]
+    [SerializeField] private Color normalColor;
+    [SerializeField] private Color selectedColor;
+
 
     private void Awake()
     {
@@ -27,13 +39,13 @@ public class MainMenuUI : MonoBehaviour
         { 
             Application.Quit();
         });
-        optionsButton.onClick.AddListener(() =>
+        optionsGeralPanelButton.onClick.AddListener(() =>
         {
-            optionsPanel.SetActive(true);
+            optionsGeralPanel.SetActive(true);
         });
         closeOptionsMenuButton.onClick.AddListener(() =>
         {
-            optionsPanel.SetActive(false);
+            optionsGeralPanel.SetActive(false);
         });
         creditButton.onClick.AddListener(() =>
         {
@@ -43,6 +55,20 @@ public class MainMenuUI : MonoBehaviour
         {
             creditsPanel.SetActive(false);
         });
+        optionsPanelButton.onClick.AddListener(() =>
+        {
+            optionsPanelButton.image.color = selectedColor;
+            bindsPanelButton.image.color = normalColor;
+            bindsPanel.SetActive(false);
+            optionsPanel.SetActive(true);
+        });
+        bindsPanelButton.onClick.AddListener(() =>
+        {
+            optionsPanelButton.image.color = normalColor;
+            bindsPanelButton.image.color = selectedColor;
+            optionsPanel.SetActive(false);
+            bindsPanel.SetActive(true);
+        });
     }
 
     private IEnumerator LoadNextScene()
@@ -51,7 +77,6 @@ public class MainMenuUI : MonoBehaviour
            levelFade.DoFadeOut();
         yield return new WaitForSeconds(1f);
         Loader.Load(Loader.Scene.GreenHouse);
-        //SceneManager.LoadScene("Greenhouse");
     }
 
 }
