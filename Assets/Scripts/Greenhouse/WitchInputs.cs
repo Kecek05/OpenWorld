@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class WitchInputs : MonoBehaviour
 {
+    private const string PLAYER_PREFS_BINDINGS = "InputBindings";
+
+
     public static WitchInputs Instance { get; private set; }
 
     public event EventHandler OnInteractAction;
@@ -28,30 +31,31 @@ public class WitchInputs : MonoBehaviour
 
     public Loader.Scene sceneType;
 
+    public enum Binding
+    {
+        Move_Up, 
+        Move_Down, 
+        Move_Left, 
+        Move_Right,
+        Jump,
+        Interact,
+        Alternate_Interact
+    }
+
 
     private void Awake()
     {
         Instance = this;
-    }
 
-    private void Start()
-    {
-        run = false;
-        jump = false;
-    }
-
-
-    private void Update()
-    {
-        GetAllInputs();
-    }
-
-
-    private void OnEnable()
-    {
-        if(playerInputActions == null)
+        if (playerInputActions == null)
         {
             playerInputActions = new PlayerInputActions();
+
+            if (PlayerPrefs.HasKey(PLAYER_PREFS_BINDINGS))
+            {
+                playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BINDINGS));
+            }
+
             //OutSide
             playerInputActions.PlayerOutSide.Move.performed += OnMovementPerformed;
             playerInputActions.PlayerOutSide.Move.canceled += OnMovementCanceled;
@@ -80,6 +84,26 @@ public class WitchInputs : MonoBehaviour
 
         }
 
+
+    }
+
+    private void Start()
+    {
+        run = false;
+        jump = false;
+    }
+
+
+    private void Update()
+    {
+        GetAllInputs();
+    }
+
+
+    private void OnEnable()
+    {
+        
+
         switch(sceneType) // enable the correct input Map
         {
             case Loader.Scene.GreenHouse:
@@ -95,7 +119,7 @@ public class WitchInputs : MonoBehaviour
                 playerInput.SwitchCurrentActionMap("PlayerInHouse");
                 break;
         }
- 
+
     }
 
     private void InteractAlternate_performed(InputAction.CallbackContext context)
@@ -194,4 +218,85 @@ public class WitchInputs : MonoBehaviour
     public bool GetJumpInput() { return jump; }
     public void GetAllInputs() => HandleAllInputs();
 
+
+    public string GetBindingText(Binding binding)
+    {
+        switch(binding)
+        {
+            default:
+            case Binding.Move_Up:
+                return playerInputActions.PlayerOutSide.Move.bindings[1].ToDisplayString();
+            case Binding.Move_Down:
+                return playerInputActions.PlayerOutSide.Move.bindings[2].ToDisplayString();
+            case Binding.Move_Left:
+                return playerInputActions.PlayerOutSide.Move.bindings[3].ToDisplayString();
+            case Binding.Move_Right:
+                return playerInputActions.PlayerOutSide.Move.bindings[4].ToDisplayString();
+            case Binding.Interact:
+                return playerInputActions.PlayerOutSide.Interact.bindings[0].ToDisplayString();
+            case Binding.Jump:
+                return playerInputActions.PlayerOutSide.Jump.bindings[0].ToDisplayString();
+        }
+    }
+
+    public void RebindBinding(Binding binding, Action OnActionRebound)
+    {
+        playerInputActions.PlayerOutSide.Disable();
+        InputAction inputAction;
+        int bindingIndex;
+
+        switch(binding)
+        {
+            default :
+            case Binding.Move_Up:
+                inputAction = playerInputActions.PlayerOutSide.Move;
+                bindingIndex = 1;
+                break;
+            case Binding.Move_Down:
+                inputAction = playerInputActions.PlayerOutSide.Move;
+                bindingIndex = 2;
+                break;
+            case Binding.Move_Left:
+                inputAction = playerInputActions.PlayerOutSide.Move;
+                bindingIndex = 3;
+                break;
+            case Binding.Move_Right:
+                inputAction = playerInputActions.PlayerOutSide.Move;
+                bindingIndex = 4;
+                break;
+            case Binding.Interact:
+                inputAction = playerInputActions.PlayerOutSide.Interact;
+                bindingIndex = 0;
+                break;
+            case Binding.Jump:
+                inputAction = playerInputActions.PlayerOutSide.Jump;
+                bindingIndex = 0;
+                break;
+        }
+
+        //playerInputActions.PlayerOutSide.Move.PerformInteractiveRebinding(1)
+        //    .OnComplete(callback => {
+        //        callback.Dispose();
+        //        playerInputActions.PlayerOutSide.Enable();
+        //        OnActionRebound();
+        //    })
+        //.Start();
+
+        inputAction.PerformInteractiveRebinding(bindingIndex)
+            .OnComplete(callback =>
+            {
+                callback.Dispose();
+                playerInputActions.PlayerOutSide.Enable();
+                OnActionRebound();
+
+                PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
+                PlayerPrefs.Save();
+            })
+        .Start();
+    }
+
+    private void ChangeBind(InputAction inputAction, int bindingIndex)
+    {
+
+    }
 }
