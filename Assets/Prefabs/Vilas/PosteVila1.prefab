@@ -296,9 +296,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 57c4965e6e9f31240b1a406d859c529c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4643892273094132450}
-    - targetCorrespondingSourceObject: {fileID: -5054874428173585446, guid: 57c4965e6e9f31240b1a406d859c529c, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 57c4965e6e9f31240b1a406d859c529c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1033651441909034786}
+      addedObject: {fileID: 9103140375100591058}
   m_SourcePrefab: {fileID: 100100000, guid: 57c4965e6e9f31240b1a406d859c529c, type: 3}
 --- !u!4 &115502405057332608 stripped
 Transform:
@@ -324,19 +324,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mylight: {fileID: 8816595430685641456}
   rend: {fileID: 0}
---- !u!1 &4596376226894565809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5054874428173585446, guid: 57c4965e6e9f31240b1a406d859c529c, type: 3}
-  m_PrefabInstance: {fileID: 437097302077219435}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1033651441909034786
+--- !u!65 &9103140375100591058
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4596376226894565809}
-  m_Material: {fileID: 0}
+  m_GameObject: {fileID: 779554292952801082}
+  m_Material: {fileID: 13400000, guid: 7e1beb53798ece846a470417a79060b7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
