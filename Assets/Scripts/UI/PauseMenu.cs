@@ -6,40 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] public bool GameIsPaused = false;
+    [SerializeField] private bool GameIsPaused = false;
     [SerializeField] private GameObject panelPause;
 
 
-    private PlayerInputActions playerInputActions;
-    public Loader.Scene sceneType;
 
     private void Start()
     {
-       // MainMenuUI.OnCloseOptions += MainMenuUI_OnCloseOptions;
+        if(WitchInputs.Instance != null)
+            WitchInputs.Instance.OnPausePerformed += WitchInputs_OnPausePerformed;
     }
 
-
-
-
-    private void MainMenuUI_OnCloseOptions()
+    private void WitchInputs_OnPausePerformed(object sender, System.EventArgs e)
     {
-        OnPausePerformed();
+        PauseGame();
     }
 
-    private void OnPausePerformed()
+    public void PauseGame()
     {
-        Debug.Log("despause");
-        if (GameIsPaused)
+        GameIsPaused = !GameIsPaused;
+        if(GameIsPaused)
         {
-            panelPause.SetActive(false);
-            Time.timeScale = 1f;
-            GameIsPaused = false;
-        }
-        else
-        {
+            //Pause Game
             panelPause.SetActive(true);
             Time.timeScale = 0f;
-            GameIsPaused = true;
+        } else
+        {
+            //Un pause
+            panelPause.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 }

@@ -96,6 +96,7 @@ public class WitchInputs : MonoBehaviour
     private void Pause_performed(InputAction.CallbackContext obj)
     {
         //throw new NotImplementedException();
+        OnPausePerformed?.Invoke(this, EventArgs.Empty);
         Debug.Log("pause performed");
     }
 
