@@ -6,22 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class LevelFade : MonoBehaviour
 {
+    public static LevelFade instance;
+
+
     [SerializeField] private Animator anim;
-    private AsyncOperation asyncLoad; 
+    [SerializeField] private GameObject fadeObject;
 
-    private void OnEnable()
+    private void Awake()
     {
-        DoFadeIn();
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void DoFadeIn()
+    public IEnumerator DoFadeIn()
     {
-        Debug.Log("tatrool");
+        fadeObject.SetActive(true);
+        Debug.Log("name " + gameObject.name);
         anim.Play("CircleSwipe_Start");
+        yield return new WaitForSeconds(1f);
+        fadeObject.SetActive(false);
     }
 
-    public void DoFadeOut()
+    public IEnumerator DoFadeOut()
     {
+        fadeObject.SetActive(true);
         anim.Play("CircleSwipe_End");
+        yield return new WaitForSeconds(1f);
+        fadeObject.SetActive(false);
     }
 }
