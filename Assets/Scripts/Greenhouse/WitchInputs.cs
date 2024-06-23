@@ -41,6 +41,7 @@ public class WitchInputs : MonoBehaviour
         Pause,
     }
 
+    private Loader.Scene currentScene;
 
     private void Awake()
     {
@@ -118,7 +119,8 @@ public class WitchInputs : MonoBehaviour
 
     public void ChangeActiveMap(Loader.Scene _scene)
     {
-        switch (_scene) // enable the correct input Map
+        currentScene = _scene;
+        switch (currentScene) // enable the correct input Map
         {
             case Loader.Scene.GreenHouse:
                 ChangeMovement(true);
@@ -234,7 +236,7 @@ public class WitchInputs : MonoBehaviour
 
     public string GetBindingText(Binding binding)
     {
-        switch(binding)
+        switch (binding)
         {
             default:
             case Binding.Move_Up:
@@ -247,14 +249,23 @@ public class WitchInputs : MonoBehaviour
                 return playerInputActions.PlayerOutSide.Move.bindings[4].ToDisplayString();
             case Binding.Interact:
                 return playerInputActions.PlayerOutSide.Interact.bindings[0].ToDisplayString();
+            case Binding.Alternate_Interact:
+                return playerInputActions.PlayerInHouse.InteractAlternate.bindings[0].ToDisplayString();
             case Binding.Jump:
                 return playerInputActions.PlayerOutSide.Jump.bindings[0].ToDisplayString();
+            case Binding.Run:
+                return playerInputActions.PlayerOutSide.Run.bindings[0].ToDisplayString();
+            case Binding.Pause:
+                return playerInputActions.PlayerOutSide.Pause.bindings[0].ToDisplayString();
         }
+
     }
 
     public void RebindBinding(Binding binding, Action OnActionRebound)
     {
         playerInputActions.PlayerOutSide.Disable();
+        playerInputActions.PlayerInHouse.Disable();
+        playerInputActions.PlayerHitMinigame.Disable();
 
         switch(binding)
         {
@@ -305,12 +316,31 @@ public class WitchInputs : MonoBehaviour
             .OnComplete(callback =>
             {
                 callback.Dispose();
-                playerInputActions.PlayerOutSide.Enable();
+                EnableCorrectInputAction();
+
+
                 OnActionRebound();
 
                 PlayerPrefs.SetString(PLAYER_PREFS_BINDINGS, playerInputActions.SaveBindingOverridesAsJson());
                 PlayerPrefs.Save();
             })
         .Start();
+    }
+
+
+    private void EnableCorrectInputAction()
+    {
+        switch(currentScene)
+        {
+            case Loader.Scene.House:
+                playerInputActions.PlayerInHouse.Enable();
+            break;
+            case Loader.Scene.GreenHouse:
+                playerInputActions.PlayerOutSide.Enable();
+            break;
+            case Loader.Scene.DeliveryScene:
+                playerInputActions.PlayerOutSide.Enable();
+            break;
+        }
     }
 }

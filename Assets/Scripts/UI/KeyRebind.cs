@@ -2,6 +2,7 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class KeyRebind : MonoBehaviour
@@ -42,6 +43,7 @@ public class KeyRebind : MonoBehaviour
 
     private void RebindBinding(WitchInputs.Binding binding)
     {
+        EventSystem.current.SetSelectedGameObject(null);
         ShowPressToRebindKey();
         WitchInputs.Instance.RebindBinding(binding, () => {
             HidePressToRebindKey();
