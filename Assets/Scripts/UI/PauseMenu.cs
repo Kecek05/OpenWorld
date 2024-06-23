@@ -9,8 +9,9 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] public bool GameIsPaused = false;
     [SerializeField] private GameObject panelPause;
 
-    private PlayerInputActions playerInputActions;
 
+    private PlayerInputActions playerInputActions;
+    public Loader.Scene sceneType;
 
     private void OnEnable()
     {
@@ -18,11 +19,24 @@ public class PauseMenu : MonoBehaviour
         {
             playerInputActions = new PlayerInputActions();
 
-            //Inhouse - create a reference on witchInputs
+            //In House
             playerInputActions.PlayerInHouse.Pause.performed += OnPausePerformed;
 
-            //GreenHouse - create a reference on witchInputs
+            //GreenHouse
             playerInputActions.PlayerOutSide.Pause.performed += OnPausePerformed;
+
+            switch (sceneType)
+            {
+                case Loader.Scene.GreenHouse:
+                    playerInputActions.PlayerOutSide.Enable();
+                    break;
+                case Loader.Scene.DeliveryScene:
+                    playerInputActions.PlayerOutSide.Enable();
+                    break;
+                case Loader.Scene.House:
+                    playerInputActions.PlayerInHouse.Enable();
+                    break;
+            }
         }
     }
 
