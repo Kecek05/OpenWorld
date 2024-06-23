@@ -60,7 +60,7 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerOutSide.Jump.performed += i => jump = true;
             playerInputActions.PlayerOutSide.Jump.canceled += i => jump = false;
             playerInputActions.PlayerOutSide.Interact.performed += Interact_performed;
-            playerInputActions.PlayerOutSide.Disable();
+            ChangeMovement(false);
 
             //Hit Minigame
             playerInputActions.PlayerHitMinigame.Hit1.performed += Hit1_performed;
@@ -83,11 +83,11 @@ public class WitchInputs : MonoBehaviour
         switch(sceneType) // enable the correct input Map
         {
             case Loader.Scene.GreenHouse:
-                playerInputActions.PlayerOutSide.Enable();
+                ChangeMovement(true);
                 playerInput.SwitchCurrentActionMap("PlayerOutSide");
                 break;
             case Loader.Scene.DeliveryScene:
-                playerInputActions.PlayerOutSide.Enable();
+                ChangeMovement(true);
                 playerInput.SwitchCurrentActionMap("PlayerOutSide");
                 break;
             case Loader.Scene.House:
@@ -144,14 +144,14 @@ public class WitchInputs : MonoBehaviour
     {
         if (state)
         {
-            playerInputActions.PlayerOutSide.Disable();
+            ChangeMovement(false);
             playerInputActions.PlayerHitMinigame.Enable();
             playerInput.SwitchCurrentActionMap("PlayerHitMinigame");
         }
         else
         {
             playerInputActions.PlayerHitMinigame.Disable();
-            playerInputActions.PlayerOutSide.Enable();
+            ChangeMovement(true);
             playerInput.SwitchCurrentActionMap("PlayerOutSide");
         }
     }
@@ -180,6 +180,13 @@ public class WitchInputs : MonoBehaviour
         return inputVector;
     }
 
+    public void ChangeMovement(bool _enable)
+    {
+        if(_enable)
+            playerInputActions.PlayerOutSide.Enable();
+        else
+            playerInputActions.PlayerOutSide.Disable();
+    }
     public float GetVerticalInput() { return verticalInput; }
     public float GetHorizontalInput() { return horizontalInput; }
 

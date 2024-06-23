@@ -34,7 +34,7 @@ public class AudioClipRefsSO : ScriptableObject
 
     public AudioClip[] missedClick;
     public AudioClip[] badClick;
-
+    public AudioClip[] fallWater;
     [Header("General")]
     public AudioClip[] interact;
 }
