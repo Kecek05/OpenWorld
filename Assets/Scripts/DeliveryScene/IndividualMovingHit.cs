@@ -47,13 +47,11 @@ public class IndividualMovingHit : MonoBehaviour
 
     private IEnumerator Moving()
     {
-        float elapsedTime = 0;
 
-        while (elapsedTime < duration)
+        while (individualHit.GetHitTime() < duration)
         {
             // Interpolação linear da posição entre A e B ao longo do tempo
-            transform.position = Vector3.Lerp(_startPosition, _endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(_startPosition, _endPosition, individualHit.GetHitTime() / duration);
             yield return null; // Esperar até o próximo frame
         }
 

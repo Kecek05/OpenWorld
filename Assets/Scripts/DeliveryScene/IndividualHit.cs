@@ -104,7 +104,8 @@ public class IndividualHit : MonoBehaviour
             inMinigame = true;
 
             _hitTime += Time.deltaTime;
-            yield return null;
+            yield return new WaitForSeconds(.5f);
+            //yield return null;
         }
         //Missed
         inMinigame = false;
@@ -128,7 +129,7 @@ public class IndividualHit : MonoBehaviour
 
         //Hit turn off the moving img
         individualMovingHit.StopMoving();
-        individualMovingHit.gameObject.SetActive(false);
+        //individualMovingHit.gameObject.SetActive(false);
 
         DeliveryMinigame.Instance.Hitted(individualMultiplyAdd);
     }
@@ -141,14 +142,14 @@ public class IndividualHit : MonoBehaviour
         float accuracy = timeToHit - timeClicked;
 
 
-        if(accuracy <= timeToHit / 10)
+        if(accuracy <= timeToHit / 25)
         {
             // Perfect click
 
             OnHitPerfect?.Invoke();
             individualMultiplyAdd = 0.25f;
             OnTextFeedback?.Invoke(HitType.Perfect);
-        } else if( accuracy <= timeToHit / 5)
+        } else if( accuracy <= timeToHit / 10)
         {
             //Good click
 
@@ -178,6 +179,7 @@ public class IndividualHit : MonoBehaviour
         individualMovingHit.StopMoving();
     }
 
+    public float GetHitTime() { return _hitTime; }
     public float GetTimeToHit() { return timeToHit; }
     
 }
