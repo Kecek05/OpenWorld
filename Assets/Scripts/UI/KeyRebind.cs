@@ -1,9 +1,7 @@
 
-using System;
+
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class KeyRebind : MonoBehaviour
@@ -21,7 +19,9 @@ public class KeyRebind : MonoBehaviour
         rebindButtons[3].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Move_Right); });
         rebindButtons[4].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Jump); });
         rebindButtons[5].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Interact); });
-       // rebindButtons[6].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Alternate_Interact); });
+        rebindButtons[6].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Alternate_Interact); });
+        rebindButtons[7].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Run); });
+        rebindButtons[8].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Pause); });
     }
     private void Start()
     {
@@ -57,6 +57,8 @@ public class KeyRebind : MonoBehaviour
         rebindTexts[3].text = WitchInputs.Instance.GetBindingText(WitchInputs.Binding.Move_Right);
         rebindTexts[4].text = WitchInputs.Instance.GetBindingText(WitchInputs.Binding.Jump);
         rebindTexts[5].text = WitchInputs.Instance.GetBindingText(WitchInputs.Binding.Interact);
-        //  rebindTexts[6].text = WitchInputs.Instance.GetBindingText(WitchInputs.Binding.Alternate_Interact);
+        rebindTexts[6].text = WitchInputs.Instance.GetBindingText(WitchInputs.Binding.Alternate_Interact);
+        rebindTexts[7].text = WitchInputs.Instance.GetBindingText(WitchInputs.Binding.Run);
+        rebindTexts[8].text = WitchInputs.Instance.GetBindingText(WitchInputs.Binding.Pause);
     }
 }

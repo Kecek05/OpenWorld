@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,8 +35,10 @@ public class WitchInputs : MonoBehaviour
         Move_Left, 
         Move_Right,
         Jump,
+        Run,
         Interact,
-        Alternate_Interact
+        Alternate_Interact,
+        Pause,
     }
 
 
@@ -102,12 +102,11 @@ public class WitchInputs : MonoBehaviour
     {
         OnPausePerformed?.Invoke(this, EventArgs.Empty);
     }
-
     private void Start()
     {
         run = false;
         jump = false;
-        ChangeActiveMap(Loader.Scene.GreenHouse); // Start at greenhouse map
+        ChangeActiveMap(Loader.Scene.GreenHouse);
     }
 
 
@@ -134,7 +133,6 @@ public class WitchInputs : MonoBehaviour
                 playerInput.SwitchCurrentActionMap("PlayerInHouse");
                 break;
         }
-        Debug.Log(_scene.ToString());
     }
 
     private void InteractAlternate_performed(InputAction.CallbackContext context)
@@ -144,7 +142,6 @@ public class WitchInputs : MonoBehaviour
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        Debug.Log("INTERACT PERFOMRED");
         OnInteractAction?.Invoke(this, EventArgs.Empty); // se for null ele nao faz nada, se nao for ele faz o Invoke
     }
 
@@ -258,45 +255,51 @@ public class WitchInputs : MonoBehaviour
     public void RebindBinding(Binding binding, Action OnActionRebound)
     {
         playerInputActions.PlayerOutSide.Disable();
-        InputAction inputAction;
-        int bindingIndex;
 
         switch(binding)
         {
             default :
             case Binding.Move_Up:
-                inputAction = playerInputActions.PlayerOutSide.Move;
-                bindingIndex = 1;
+                ChangeBind(playerInputActions.PlayerOutSide.Move, 1, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Move, 1, OnActionRebound);
                 break;
             case Binding.Move_Down:
-                inputAction = playerInputActions.PlayerOutSide.Move;
-                bindingIndex = 2;
+                ChangeBind(playerInputActions.PlayerOutSide.Move, 2, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Move, 2, OnActionRebound);
                 break;
             case Binding.Move_Left:
-                inputAction = playerInputActions.PlayerOutSide.Move;
-                bindingIndex = 3;
+                ChangeBind(playerInputActions.PlayerOutSide.Move, 3, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Move, 3, OnActionRebound);
                 break;
             case Binding.Move_Right:
-                inputAction = playerInputActions.PlayerOutSide.Move;
-                bindingIndex = 4;
+                ChangeBind(playerInputActions.PlayerOutSide.Move, 4, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Move, 4, OnActionRebound);
                 break;
             case Binding.Interact:
-                inputAction = playerInputActions.PlayerOutSide.Interact;
-                bindingIndex = 0;
+                ChangeBind(playerInputActions.PlayerOutSide.Interact, 0, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Interact, 0, OnActionRebound);
+                break;
+            case Binding.Alternate_Interact:
+                ChangeBind(playerInputActions.PlayerInHouse.InteractAlternate, 0, OnActionRebound);
                 break;
             case Binding.Jump:
-                inputAction = playerInputActions.PlayerOutSide.Jump;
-                bindingIndex = 0;
+                ChangeBind(playerInputActions.PlayerOutSide.Jump, 0, OnActionRebound);
+                break;
+            case Binding.Run:
+                ChangeBind(playerInputActions.PlayerOutSide.Run, 0, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Run, 0, OnActionRebound);
+                break;
+            case Binding.Pause:
+                ChangeBind(playerInputActions.PlayerOutSide.Pause, 0, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Pause, 0, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerHitMinigame.Pause, 0, OnActionRebound);
                 break;
         }
 
-        //playerInputActions.PlayerOutSide.Move.PerformInteractiveRebinding(1)
-        //    .OnComplete(callback => {
-        //        callback.Dispose();
-        //        playerInputActions.PlayerOutSide.Enable();
-        //        OnActionRebound();
-        //    })
-        //.Start();
+    }
+
+    private void ChangeBind(InputAction inputAction, int bindingIndex, Action OnActionRebound)
+    {
 
         inputAction.PerformInteractiveRebinding(bindingIndex)
             .OnComplete(callback =>
@@ -309,10 +312,5 @@ public class WitchInputs : MonoBehaviour
                 PlayerPrefs.Save();
             })
         .Start();
-    }
-
-    private void ChangeBind(InputAction inputAction, int bindingIndex)
-    {
-
     }
 }
