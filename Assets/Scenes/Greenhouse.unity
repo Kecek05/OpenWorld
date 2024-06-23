@@ -1322,7 +1322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &34581275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1718,7 +1718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1352496516417965196, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       propertyPath: groundLayer.m_Bits
-      value: 4096
+      value: 4104
       objectReference: {fileID: 0}
     - target: {fileID: 8004448452401515959, guid: 33cf96e7c28302643ace35c3d203f5e0, type: 3}
       propertyPath: m_Material
@@ -69537,9 +69537,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8389cc0a9ebbb7245bd0d034c479efba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1eb8912a651c1214f9cceaf58b7826ae, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 0.7452208
