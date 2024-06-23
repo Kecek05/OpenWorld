@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ChangeScene : MonoBehaviour
 {
+    public static ChangeScene Instance;
 
     [SerializeField] private float totalTime = 40f;
     private float currentTime;

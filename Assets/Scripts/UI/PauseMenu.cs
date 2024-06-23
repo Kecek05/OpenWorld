@@ -1,41 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] public static bool GameIsPaused = false;
-
-    private PlayerInputActions playerInputActions;
+    [SerializeField] public bool GameIsPaused = false;
     [SerializeField] private GameObject panelPause;
 
-    private void Awake()
-    {
-        // Inicialize PlayerInputActions
-        playerInputActions = new PlayerInputActions();
-    }
+    private PlayerInputActions playerInputActions;
+
 
     private void OnEnable()
     {
-        playerInputActions.PlayerInHouse.Enable();
-        playerInputActions.PlayerOutSide.Enable();
-        playerInputActions.PlayerInHouse.Pause.performed += OnPausePerformed;
-        playerInputActions.PlayerOutSide.Pause.performed += OnPausePerformed;
+        if (playerInputActions == null)
+        {
+            playerInputActions = new PlayerInputActions();
 
-        playerInputActions.PlayerInHouse.Pause.canceled -= OnPausePerformed;
-        playerInputActions.PlayerOutSide.Pause.canceled -= OnPausePerformed;
+            //Inhouse - create a reference on witchInputs
+            playerInputActions.PlayerInHouse.Pause.performed += OnPausePerformed;
+
+            //GreenHouse - create a reference on witchInputs
+            playerInputActions.PlayerOutSide.Pause.performed += OnPausePerformed;
+        }
     }
 
-    
     private void OnPausePerformed(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        GameIsPaused = !GameIsPaused;
-        panelPause.SetActive(GameIsPaused);
-        Time.timeScale = GameIsPaused ? 0f : 1f;
-    }
-
-    private void Update()
-    {
-        // A lógica de atualização do painel de pausa foi movida para OnPausePerformed
+        Debug.Log("apertou o botao");
+        if (GameIsPaused)
+        {
+            panelPause.SetActive(false);
+            Time.timeScale = 1f;
+            GameIsPaused = false;
+        }
+        else
+        {
+            panelPause.SetActive(true);
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
     }
 }
