@@ -94,6 +94,7 @@ public class IndividualHit : MonoBehaviour
         //Random numbers based on difficulty of the recipe
         float randomSpawnDelay = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpawnTime, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpawnTime);
         timeToHit = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpeed, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpeed);
+        Debug.Log(timeToHit + " time to hit");
         _hitTime = 0f;
         individualMovingHit.gameObject.SetActive(true);
         yield return new WaitForSeconds(randomSpawnDelay); // random spawn delay
