@@ -15,8 +15,6 @@ public class StoredPotions : MonoBehaviour
 
     [SerializeField] PotionObjectSO[] potionsDebug;
 
-    private bool stillHavePotions = true;
-
     private void Awake()
     {
         Instance = this;
@@ -67,7 +65,7 @@ public class StoredPotions : MonoBehaviour
             }
         }
     }
-    private void CheckHaveMorePotionsToDelivery()
+    public void CheckHaveMorePotionsToDelivery()
     {
         int count = 2;
         for (int i = 0; i < recipeSavedCountArray.Length; i++)
