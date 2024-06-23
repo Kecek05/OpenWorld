@@ -9,6 +9,8 @@ public static class Loader
 {
     private class LoadingMonoBehaviour : MonoBehaviour { }
 
+    [SerializeField] private static Animator transition;
+
     public enum Scene // same as file 
     {
         MainMenuScene,
@@ -39,11 +41,15 @@ public static class Loader
     {
         yield return null; // If you need a delay to transition the scenes, put it here
         loadingAsyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
+        loadingAsyncOperation.allowSceneActivation = false;
 
-        while(!loadingAsyncOperation.isDone)
+        while (loadingAsyncOperation.progress < 0.9f)
         {
             yield return null;
         }
+        yield return null;
+        loadingAsyncOperation.allowSceneActivation = true;
+
     }
 
     public static float GetLoadingProgress()
