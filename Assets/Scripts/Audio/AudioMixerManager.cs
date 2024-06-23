@@ -11,11 +11,11 @@ public class AudioMixerManager : MonoBehaviour
 
     private void Awake()
     {
-        mainAudioMixer.SetFloat("SoundFXVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, 1f));
+        mainAudioMixer.SetFloat("SoundFXVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME));
 
-        mainAudioMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_MUSIC_VOLUME, 1f));
+        mainAudioMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_MUSIC_VOLUME));
 
-        mainAudioMixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_MASTER_VOLUME, 1f));
+        mainAudioMixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_MASTER_VOLUME));
     }
 
     public void SetMasterVolume(float volume)

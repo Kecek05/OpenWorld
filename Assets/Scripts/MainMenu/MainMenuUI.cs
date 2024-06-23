@@ -99,7 +99,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OpenOptions()
     {
-        optionsPanel.SetActive(true);
+        OptionsMenu.instance.OpenOptionMenu();
     }
 
     public void OpenCredits()
