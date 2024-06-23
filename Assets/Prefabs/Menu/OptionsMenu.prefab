@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 8185133532484740408}
   - component: {fileID: 7779885021317460646}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: CloseBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2503,7 +2503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2056998924263009624}
   m_Layer: 5
-  m_Name: BindsMenu
+  m_Name: BindingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2540,7 +2540,7 @@ GameObject:
   - component: {fileID: 214282449079329836}
   - component: {fileID: 8252532592022117619}
   m_Layer: 5
-  m_Name: OptionsMenu
+  m_Name: SettingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3327,6 +3327,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2bb24f2be5e26489181ae64dc0c169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsPanel: {fileID: 4408085744098265870}
+  bindingPanel: {fileID: 2838640491541543269}
+  settingsPanel: {fileID: 2915493785787809356}
+  settingsBtn: {fileID: 1097431637126188293}
+  bindsBtn: {fileID: 973230393720918786}
+  activeColor: {r: 1, g: 0.92855203, b: 0, a: 1}
+  deactiveColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &4167695984603596549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,7 +3748,7 @@ GameObject:
   - component: {fileID: 3851078287777645690}
   - component: {fileID: 973230393720918786}
   m_Layer: 5
-  m_Name: BindsButton
+  m_Name: BindingBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3848,7 +3855,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3851078287777645690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2247751407362437886}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: OpenBinding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4843977376005981462
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,7 +4169,7 @@ GameObject:
   - component: {fileID: 1600207442589747143}
   - component: {fileID: 1097431637126188293}
   m_Layer: 5
-  m_Name: OptionsButton
+  m_Name: SettingsBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4257,7 +4276,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1600207442589747143}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2247751407362437886}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5500248506033489065
 GameObject:
   m_ObjectHideFlags: 0
