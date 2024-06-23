@@ -1,9 +1,10 @@
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class InventoryUIController : MonoBehaviour
 {
-    [SerializeField] private Text[] texts;
+    [SerializeField] private TextMeshProUGUI[] texts;
 
     [SerializeField] private Transform itemOnHandTemplate;
     [SerializeField] private Transform container;

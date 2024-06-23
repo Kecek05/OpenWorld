@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ChangeScene : MonoBehaviour
 {
+    public static ChangeScene Instance { get; private set; }
 
     [SerializeField] private float totalTime = 40f;
     private float currentTime;
@@ -11,11 +13,12 @@ public class ChangeScene : MonoBehaviour
     [SerializeField] private Text timerText;
 
     [SerializeField] private Loader.Scene scene;
+    [SerializeField] private LevelFade levelFade;
+
 
     private void Start()
     {
         currentTime = totalTime;
-        StartCoroutine(ChangeSceneCoroutine());
         StartCoroutine(Clock());
     }
 
@@ -35,11 +38,17 @@ public class ChangeScene : MonoBehaviour
         }
         currentTime = 0;
         timerText.text = "00:00";
+        StartCoroutine(DelayToChangeScene());
     }
 
-    private IEnumerator ChangeSceneCoroutine()
+    private IEnumerator DelayToChangeScene()
     {
-        yield return new WaitForSeconds(totalTime);
+        
+        if(LevelFade.instance != null)
+           LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
+        yield return new WaitForSeconds(1f);
+        if(WitchInputs.Instance != null)
+            WitchInputs.Instance.ChangeActiveMap(scene);
         Loader.Load(scene);
     }
 

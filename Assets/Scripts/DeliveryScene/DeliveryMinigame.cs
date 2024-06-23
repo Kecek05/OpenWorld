@@ -45,7 +45,7 @@ public class DeliveryMinigame : MonoBehaviour
         ResetMinigame(); // just for safety
         minigameDifficultySO = _minigameDifficultySO;
         //debug
-        // minigameDifficultySO = debug;
+        //minigameDifficultySO = debug;
         OnStartedMinigame?.Invoke(); //SFX
         startRecieveMoney = _startRecieveMoney;
         if(startMinigameCoroutine == null)
@@ -74,7 +74,6 @@ public class DeliveryMinigame : MonoBehaviour
         yield return new WaitForSeconds(1f);
         //Add the money
         MoneyController.Instance.SetDayMoney(MoneyController.Instance.GetDayMoney() + CalculateMoneyAdd());
-        Debug.Log("farmou" + ":" + MoneyController.Instance.GetTotalMoney());
         WitchInputs.Instance.ChangePLayerInputHitMinigame(false);
         titleObj.SetActive(false);
         for (int i = 0; i < individualHits.Length; i++)
@@ -101,8 +100,8 @@ public class DeliveryMinigame : MonoBehaviour
 
     private int CalculateMoneyAdd()
     {
-        int totalMoney = startRecieveMoney * (int)recieveMoneyMultiply;
-        return totalMoney;
+        float calcMoney = startRecieveMoney * recieveMoneyMultiply;
+        return (int)calcMoney;
     }
 
 

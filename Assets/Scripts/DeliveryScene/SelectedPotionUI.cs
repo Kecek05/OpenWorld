@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SelectedPotionUI : MonoBehaviour
 {
     [SerializeField] private Image potionImage;
+    [SerializeField] private SpriteRenderer potionImageMinimap;
 
     [SerializeField] private DeliverySpot thisDeliverySpot;
 
@@ -16,5 +17,6 @@ public class SelectedPotionUI : MonoBehaviour
     private void ThisDeliverySpot_OnPotionSet(object sender, DeliverySpot.OnPotionSetEventArgs e)
     {
         potionImage.sprite = e.potionSprite;
+        potionImageMinimap.sprite = e.potionSprite;
     }
 }

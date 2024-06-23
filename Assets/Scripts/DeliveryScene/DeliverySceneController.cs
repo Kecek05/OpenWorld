@@ -6,13 +6,13 @@ using UnityEngine;
 public class DeliverySceneController : MonoBehaviour
 {
     //Serialize for now
+    public static DeliverySceneController instance;
 
     [SerializeField] private List<GameObject> deliverySpotsList = new List<GameObject>();
 
     [SerializeField] private float delayBetweenOrders;
 
     private IEnumerator creaRandomNewOrderCoroutine;
-
 
 
     private void Start()

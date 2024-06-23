@@ -24,12 +24,12 @@ public class StoredPotions : MonoBehaviour
     {
         recipeSavedCountArray = new int[RandomizeRecipeController.Instance.GetSelectedPotionsSOList().Count];
         //debug only
-        for (int i = 0; i < potionsDebug.Length; i++)
-        {
-            potionsMade.Add(potionsDebug[i]);
-        }
-    }
+        //for (int i = 0; i < potionsDebug.Length; i++)
+        //{
+        //    potionsMade.Add(potionsDebug[i]);
+        //}
 
+    }
 
     public void ResetPotionsMade()
     {
@@ -60,8 +60,27 @@ public class StoredPotions : MonoBehaviour
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;
+                CheckHaveMorePotionsToDelivery();
                 break;
             }
+        }
+    }
+    public void CheckHaveMorePotionsToDelivery()
+    {
+        int count = 2;
+        for (int i = 0; i < recipeSavedCountArray.Length; i++)
+        {
+            if (recipeSavedCountArray[i] <= 0)
+            {
+                //Delivered all potions in this recipe
+                count--;
+            }
+           
+        }
+        if(count <= 0)
+        {
+            //Delivered all potions, change scene (wait for 10 secconds) 
+            //Do fade out
         }
     }
 

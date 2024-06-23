@@ -2,13 +2,13 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IndividualMovingHit : MonoBehaviour
 {
 
     [SerializeField] private IndividualHit individualHit;
 
-    [SerializeField] private TextMeshProUGUI movingText;
     [SerializeField] private Transform startPosition;
     [SerializeField] private Transform endPosition;
     [SerializeField] private Transform outScreenPosition;
@@ -22,10 +22,14 @@ public class IndividualMovingHit : MonoBehaviour
 
     private float duration;
 
+    [SerializeField] private Sprite startSprite;
+    [SerializeField] private Sprite missedSprite;
+    [SerializeField] private Image imageRenderer;
+
     private void OnEnable()
     {
         gameObject.transform.position = startPosition.position;
-        movingText.color = Color.white;
+        imageRenderer.sprite = startSprite;
     }
 
     public void StartMoving()
@@ -47,13 +51,11 @@ public class IndividualMovingHit : MonoBehaviour
 
     private IEnumerator Moving()
     {
-        float elapsedTime = 0;
 
-        while (elapsedTime < duration)
+        while (individualHit.GetHitTime() < duration)
         {
             // Interpolação linear da posição entre A e B ao longo do tempo
-            transform.position = Vector3.Lerp(_startPosition, _endPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
+            transform.position = Vector3.Lerp(_startPosition, _endPosition, individualHit.GetHitTime() / duration);
             yield return null; // Esperar até o próximo frame
         }
 
@@ -69,7 +71,7 @@ public class IndividualMovingHit : MonoBehaviour
 
     private IEnumerator MissedMoving()
     {
-        movingText.color = Color.gray;
+        imageRenderer.sprite = missedSprite;
         float elapsedTime = 0f;
         float outScreenTime = 0.5f;
         while ( elapsedTime < outScreenTime )

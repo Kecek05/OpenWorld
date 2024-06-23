@@ -9,6 +9,7 @@ public class DeliveryManagerUI : MonoBehaviour
 
 
 
+
     private void Awake()
     {
         recipeTemplate.gameObject.SetActive(false);
@@ -18,14 +19,15 @@ public class DeliveryManagerUI : MonoBehaviour
     private void Start()
     {
 
-        UpdateVisual();
+        StartCoroutine(UpdateVisual());
     }
 
 
 
 
-    private void UpdateVisual()
+    private IEnumerator UpdateVisual()
     {
+        yield return new WaitForSeconds(0.1f);
         foreach (Transform child in container)
         {
             if(child == recipeTemplate) continue;
@@ -39,7 +41,7 @@ public class DeliveryManagerUI : MonoBehaviour
 
 
         }
-
+        Debug.Log("VAMO DORMIR");
     }
 
 

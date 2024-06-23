@@ -216,6 +216,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1094b8489527f184dac2abe60dfd4d6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2541751792699261423}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1094b8489527f184dac2abe60dfd4d6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2136028927095901003}
   m_SourcePrefab: {fileID: 100100000, guid: 1094b8489527f184dac2abe60dfd4d6a, type: 3}
 --- !u!23 &52115350284793218 stripped
 MeshRenderer:
@@ -246,3 +249,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mylight: {fileID: 3683200806194748693}
   rend: {fileID: 52115350284793218}
+--- !u!136 &2136028927095901003
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997868508343325783}
+  m_Material: {fileID: 13400000, guid: 7e1beb53798ece846a470417a79060b7, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.12633461
+  m_Height: 2.1252317
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0626159, z: 0}
