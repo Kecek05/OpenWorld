@@ -62,7 +62,7 @@ public class WitchInputs : MonoBehaviour
 
 
             //OutSide
-            playerInputActions.PlayerOutSide.Pause.performed += Pause_performed;
+            playerInputActions.PlayerOutSide.Pause.performed += Pause_performed; ;
             playerInputActions.PlayerOutSide.Move.performed += OnMovementPerformed;
             playerInputActions.PlayerOutSide.Move.canceled += OnMovementCanceled;
             playerInputActions.PlayerOutSide.Run.performed += i => run = true;
@@ -80,7 +80,7 @@ public class WitchInputs : MonoBehaviour
             playerInputActions.PlayerHitMinigame.Disable();
 
             //In Side
-            playerInputActions.PlayerInHouse.Pause.performed += Pause_performed;
+            playerInputActions.PlayerInHouse.Pause.performed += Pause_performed1; ;
             playerInputActions.PlayerInHouse.Move.performed += OnMovementPerformed;
             playerInputActions.PlayerInHouse.Move.canceled += OnMovementCanceled;
             playerInputActions.PlayerInHouse.Run.performed += i => run = true;
@@ -93,11 +93,14 @@ public class WitchInputs : MonoBehaviour
 
     }
 
+    private void Pause_performed1(InputAction.CallbackContext obj)
+    {
+        OnPausePerformed?.Invoke(this, EventArgs.Empty);
+    }
+
     private void Pause_performed(InputAction.CallbackContext obj)
     {
-        //throw new NotImplementedException();
         OnPausePerformed?.Invoke(this, EventArgs.Empty);
-        Debug.Log("pause performed");
     }
 
     private void Start()
@@ -141,6 +144,7 @@ public class WitchInputs : MonoBehaviour
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        Debug.Log("INTERACT PERFOMRED");
         OnInteractAction?.Invoke(this, EventArgs.Empty); // se for null ele nao faz nada, se nao for ele faz o Invoke
     }
 

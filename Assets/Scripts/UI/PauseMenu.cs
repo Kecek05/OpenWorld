@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private bool GameIsPaused = false;
     [SerializeField] private GameObject panelPause;
-
+    [SerializeField] private GameObject optionsMenu;
 
 
     private void Start()
@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     private void WitchInputs_OnPausePerformed(object sender, System.EventArgs e)
     {
         PauseGame();
+        optionsMenu.SetActive(true);
     }
 
     public void PauseGame()
