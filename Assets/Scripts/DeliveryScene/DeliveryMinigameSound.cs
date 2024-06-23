@@ -13,12 +13,12 @@ public class DeliveryMinigameSound : MonoBehaviour
     private void DeliveryMinigame_OnFinishedMinigame()
     {
         if (SFXManager.Instance.GetAudioClipRefsSO().finishedMinigame != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().finishedMinigame, transform);
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().finishedMinigame, Camera.main.transform);
     }
 
     private void DeliveryMinigame_OnStartedMinigame()
     {
         if (SFXManager.Instance.GetAudioClipRefsSO().startMinigameRingBell != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().startMinigameRingBell, transform);
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().startMinigameRingBell, Camera.main.transform);
     }
 }

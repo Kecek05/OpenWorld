@@ -94,6 +94,7 @@ public class IndividualHit : MonoBehaviour
         //Random numbers based on difficulty of the recipe
         float randomSpawnDelay = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpawnTime, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpawnTime);
         timeToHit = UnityEngine.Random.Range(DeliveryMinigame.Instance.GetMinigameDifficultySO().minSpeed, DeliveryMinigame.Instance.GetMinigameDifficultySO().maxSpeed);
+        Debug.Log(timeToHit + " time to hit");
         _hitTime = 0f;
         individualMovingHit.gameObject.SetActive(true);
         yield return new WaitForSeconds(randomSpawnDelay); // random spawn delay
@@ -104,6 +105,7 @@ public class IndividualHit : MonoBehaviour
             inMinigame = true;
 
             _hitTime += Time.deltaTime;
+            //yield return new WaitForSeconds(.5f);
             yield return null;
         }
         //Missed
@@ -141,14 +143,14 @@ public class IndividualHit : MonoBehaviour
         float accuracy = timeToHit - timeClicked;
 
 
-        if(accuracy <= timeToHit / 10)
+        if(accuracy <= timeToHit / 25)
         {
             // Perfect click
 
             OnHitPerfect?.Invoke();
             individualMultiplyAdd = 0.25f;
             OnTextFeedback?.Invoke(HitType.Perfect);
-        } else if( accuracy <= timeToHit / 5)
+        } else if( accuracy <= timeToHit / 10)
         {
             //Good click
 
@@ -178,6 +180,7 @@ public class IndividualHit : MonoBehaviour
         individualMovingHit.StopMoving();
     }
 
+    public float GetHitTime() { return _hitTime; }
     public float GetTimeToHit() { return timeToHit; }
     
 }

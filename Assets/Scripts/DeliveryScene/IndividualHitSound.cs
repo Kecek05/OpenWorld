@@ -19,25 +19,25 @@ public class IndividualHitSound : MonoBehaviour
     private void IndividualHit_OnHitPerfect()
     {
         if (SFXManager.Instance.GetAudioClipRefsSO().knockDoorPerfect != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().knockDoorPerfect, transform);
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().knockDoorPerfect, Camera.main.transform);
     }
 
 
     private void IndividualHit_OnHitGood()
     {
         if (SFXManager.Instance.GetAudioClipRefsSO().knockDoorGood != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().knockDoorGood, transform);
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().knockDoorGood, Camera.main.transform);
     }
 
     private void IndividualHit_OnHitBad()
     {
         if (SFXManager.Instance.GetAudioClipRefsSO().badClick != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().badClick, transform);
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().badClick, Camera.main.transform);
     }
 
     private void IndividualHit_OnHitMissed()
     {
         if (SFXManager.Instance.GetAudioClipRefsSO().missedClick != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().missedClick, transform);
+            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().missedClick, Camera.main.transform);
     }
 }
