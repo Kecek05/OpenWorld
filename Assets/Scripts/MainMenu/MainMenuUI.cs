@@ -14,13 +14,14 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private Button closeCreditButton;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private LevelFade levelFade;
 
     private void Awake()
     {
         playButton.onClick.AddListener(() =>
         { // Lambda Expression, C# Delegates
-            Loader.Load(Loader.Scene.GreenHouse);
-            PaymentController.Instance.LoadPlayer();
+            StartCoroutine(LoadNextScene());
+           // PaymentController.Instance.LoadPlayer();
         });
         quitButton.onClick.AddListener(() =>
         { 
@@ -44,6 +45,13 @@ public class MainMenuUI : MonoBehaviour
         });
     }
 
-
+    private IEnumerator LoadNextScene()
+    {
+        if(levelFade != null)
+           levelFade.DoFadeOut();
+        yield return new WaitForSeconds(1f);
+        Loader.Load(Loader.Scene.GreenHouse);
+        //SceneManager.LoadScene("Greenhouse");
+    }
 
 }
