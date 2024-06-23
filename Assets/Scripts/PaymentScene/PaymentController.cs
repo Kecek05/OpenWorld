@@ -23,6 +23,8 @@ public class PaymentController : MonoBehaviour
     private int dayMoney;
     private int paymentsConcluded;
     private int dayCounts = 1;
+    private int countExpanses;
+
     [SerializeField] private Loader.Scene scene;
     [SerializeField] private GameObject gameOverPanel;
 
@@ -67,18 +69,16 @@ public class PaymentController : MonoBehaviour
             if (payoff >= 0)
             {
                 // player have money to pay all expanses, next day
+                countExpanses = RandomizeExpanseController.Instance.GetExpensesCount();
                 MoneyController.Instance.SetTotalMoney(payoff);
                 MoneyController.Instance.ResetDayMoney();
                 SavePlayer();
                 dayCounts++;
                 Loader.Load(scene);
-
-
             }
             else
             {
                 // player haven't money to pay all expanses, GameOver
-                gameOverPanel.SetActive(true);
             }
         }
         else
@@ -92,7 +92,6 @@ public class PaymentController : MonoBehaviour
         Loader.Load(Loader.Scene.MainMenuScene);
     }
 
-
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);
@@ -101,12 +100,12 @@ public class PaymentController : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-
         totalEconomy = data.economyPlayer;
         dayCounts = data.dayCount;
+        countExpanses = data.expansesCount;
     }
 
     public int GetTotalEconomy() { return totalEconomy; }
     public int GetDayCounts() { return dayCounts; }
-    
+    public int GetExpansesCount() { return countExpanses; }
 }
