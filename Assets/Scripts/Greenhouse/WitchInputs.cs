@@ -39,6 +39,11 @@ public class WitchInputs : MonoBehaviour
         Interact,
         Alternate_Interact,
         Pause,
+        JumpGamepad,
+        RunGamepad,
+        InteractGamepad,
+        Alternate_InteractGamepad,
+        PauseGamepad,
     }
 
     private Loader.Scene currentScene;
@@ -257,6 +262,16 @@ public class WitchInputs : MonoBehaviour
                 return playerInputActions.PlayerOutSide.Run.bindings[0].ToDisplayString();
             case Binding.Pause:
                 return playerInputActions.PlayerOutSide.Pause.bindings[0].ToDisplayString();
+            case Binding.JumpGamepad:
+                return playerInputActions.PlayerOutSide.Jump.bindings[1].ToDisplayString();
+            case Binding.RunGamepad:
+                return playerInputActions.PlayerOutSide.Run.bindings[1].ToDisplayString();
+            case Binding.InteractGamepad:
+                return playerInputActions.PlayerOutSide.Interact.bindings[1].ToDisplayString();
+            case Binding.Alternate_InteractGamepad:
+                return playerInputActions.PlayerInHouse.InteractAlternate.bindings[1].ToDisplayString();
+            case Binding.PauseGamepad:
+                return playerInputActions.PlayerOutSide.Pause.bindings[1].ToDisplayString();
         }
 
     }
@@ -305,8 +320,28 @@ public class WitchInputs : MonoBehaviour
                 ChangeBind(playerInputActions.PlayerInHouse.Pause, 0, OnActionRebound);
                 ChangeBind(playerInputActions.PlayerHitMinigame.Pause, 0, OnActionRebound);
                 break;
+            case Binding.JumpGamepad:
+                ChangeBind(playerInputActions.PlayerOutSide.Jump, 1, OnActionRebound);
+                break;
+            case Binding.RunGamepad:
+                ChangeBind(playerInputActions.PlayerOutSide.Run, 1, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Run, 1, OnActionRebound);
+                break;
+            case Binding.InteractGamepad:
+                ChangeBind(playerInputActions.PlayerOutSide.Interact, 1, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Interact, 1, OnActionRebound);
+                break;
+            case Binding.Alternate_InteractGamepad:
+                ChangeBind(playerInputActions.PlayerInHouse.InteractAlternate, 1, OnActionRebound);
+                break;
+            case Binding.PauseGamepad:
+                ChangeBind(playerInputActions.PlayerOutSide.Pause, 1, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerInHouse.Pause, 1, OnActionRebound);
+                ChangeBind(playerInputActions.PlayerHitMinigame.Pause, 1, OnActionRebound);
+                break;
         }
-
+        //Finished Rebinding
+        EnableCorrectInputAction();
     }
 
     private void ChangeBind(InputAction inputAction, int bindingIndex, Action OnActionRebound)
@@ -316,8 +351,6 @@ public class WitchInputs : MonoBehaviour
             .OnComplete(callback =>
             {
                 callback.Dispose();
-                EnableCorrectInputAction();
-
 
                 OnActionRebound();
 
