@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        MainMenuUI.OnCloseOptions += MainMenuUI_OnCloseOptions;
+       // MainMenuUI.OnCloseOptions += MainMenuUI_OnCloseOptions;
     }
 
 

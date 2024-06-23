@@ -9,28 +9,33 @@ public class MainMenuUI : MonoBehaviour
 {
     public static MainMenuUI Instance;
 
-    public static event Action OnCloseOptions;
+    //public static event Action OnCloseOptions;
 
-    [Header("Buttons")]
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button quitButton;
-    [SerializeField] private Button optionsGeralPanelButton;
-    [SerializeField] private Button closeOptionsMenuButton;
-    [SerializeField] private Button creditButton;
-    [SerializeField] private Button closeCreditButton;
-    [SerializeField] private Button bindsPanelButton;
-    [SerializeField] private Button optionsPanelButton;
+    //[Header("Buttons")]
+    //[SerializeField] private Button playButton;
+    //[SerializeField] private Button quitButton;
+    //[SerializeField] private Button optionsGeralPanelButton;
+    //[SerializeField] private Button closeOptionsMenuButton;
+    //[SerializeField] private Button creditButton;
+    //[SerializeField] private Button closeCreditButton;
+    //[SerializeField] private Button bindsPanelButton;
+    //[SerializeField] private Button optionsPanelButton;
 
-    [Header("Panels")]
-    [SerializeField] private GameObject optionsGeralPanel;
-    [SerializeField] private GameObject creditsPanel;
+    //[Header("Panels")]
+    //[SerializeField] private GameObject optionsGeralPanel;
+    //[SerializeField] private GameObject creditsPanel;
+    //[SerializeField] private GameObject optionsPanel;
+    //[SerializeField] private GameObject bindsPanel;
+    //[SerializeField] private LevelFade levelFade;
+
+    //[Header("Colors")]
+    //[SerializeField] private Color normalColor;
+    //[SerializeField] private Color selectedColor;
+
+    //new
     [SerializeField] private GameObject optionsPanel;
-    [SerializeField] private GameObject bindsPanel;
-    [SerializeField] private LevelFade levelFade;
+    [SerializeField] private GameObject creditsPanel;
 
-    [Header("Colors")]
-    [SerializeField] private Color normalColor;
-    [SerializeField] private Color selectedColor;
 
 
     private void Awake()
@@ -38,55 +43,84 @@ public class MainMenuUI : MonoBehaviour
         if(Instance == null)
             Instance = this;
 
-        playButton.onClick.AddListener(() =>
-        { // Lambda Expression, C# Delegates
-            StartCoroutine(LoadNextScene());
-           // PaymentController.Instance.LoadPlayer();
-        });
-        quitButton.onClick.AddListener(() =>
-        { 
-            Application.Quit();
-        });
-        optionsGeralPanelButton.onClick.AddListener(() =>
-        {
-            optionsGeralPanel.SetActive(true);
-        });
-        closeOptionsMenuButton.onClick.AddListener(() =>
-        {
-            optionsGeralPanel.SetActive(false);
-            OnCloseOptions?.Invoke();
+        //playButton.onClick.AddListener(() =>
+        //{ // Lambda Expression, C# Delegates
+        //    StartCoroutine(LoadNextScene());
+        //   // PaymentController.Instance.LoadPlayer();
+        //});
+        //quitButton.onClick.AddListener(() =>
+        //{ 
+        //    Application.Quit();
+        //});
+        //optionsGeralPanelButton.onClick.AddListener(() =>
+        //{
+        //    optionsGeralPanel.SetActive(true);
+        //});
+        //closeOptionsMenuButton.onClick.AddListener(() =>
+        //{
+        //    optionsGeralPanel.SetActive(false);
+        //    OnCloseOptions?.Invoke();
 
-        });
-        creditButton.onClick.AddListener(() =>
-        {
-            creditsPanel.SetActive(true);
-        });
-        closeCreditButton.onClick.AddListener(() =>
-        {
-            creditsPanel.SetActive(false);
-        });
-        optionsPanelButton.onClick.AddListener(() =>
-        {
-            optionsPanelButton.image.color = selectedColor;
-            bindsPanelButton.image.color = normalColor;
-            bindsPanel.SetActive(false);
-            optionsPanel.SetActive(true);
-        });
-        bindsPanelButton.onClick.AddListener(() =>
-        {
-            optionsPanelButton.image.color = normalColor;
-            bindsPanelButton.image.color = selectedColor;
-            optionsPanel.SetActive(false);
-            bindsPanel.SetActive(true);
-        });
+        //});
+        //creditButton.onClick.AddListener(() =>
+        //{
+        //    creditsPanel.SetActive(true);
+        //});
+        //closeCreditButton.onClick.AddListener(() =>
+        //{
+        //    creditsPanel.SetActive(false);
+        //});
+        //optionsPanelButton.onClick.AddListener(() =>
+        //{
+        //    optionsPanelButton.image.color = selectedColor;
+        //    bindsPanelButton.image.color = normalColor;
+        //    bindsPanel.SetActive(false);
+        //    optionsPanel.SetActive(true);
+        //});
+        //bindsPanelButton.onClick.AddListener(() =>
+        //{
+        //    optionsPanelButton.image.color = normalColor;
+        //    bindsPanelButton.image.color = selectedColor;
+        //    optionsPanel.SetActive(false);
+        //    bindsPanel.SetActive(true);
+        //});
 
-        if (WitchInputs.Instance != null)
-            WitchInputs.Instance.OnPausePerformed += WitchInputs_OnPausePerformed;
+        //if (WitchInputs.Instance != null)
+        //    WitchInputs.Instance.OnPausePerformed += WitchInputs_OnPausePerformed;
     }
+
+
+
+    public void Play()
+    {
+        StartCoroutine(LoadNextScene());
+         //PaymentController.Instance.LoadPlayer();
+    }
+
+    public void OpenOptions()
+    {
+        optionsPanel.SetActive(true);
+    }
+
+    public void OpenCredits()
+    {
+        creditsPanel.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
+
+
+
+
 
     private void WitchInputs_OnPausePerformed(object sender, System.EventArgs e)
     {
-        OnCloseOptions?.Invoke();
+        //OnCloseOptions?.Invoke();
     }
 
     private IEnumerator LoadNextScene()
