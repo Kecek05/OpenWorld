@@ -12,15 +12,11 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject creditsPanel;
 
-
-
     private void Awake()
     {
         if(Instance == null)
             Instance = this;
     }
-
-
 
     public void Play()
     {
@@ -38,10 +34,17 @@ public class MainMenuUI : MonoBehaviour
         creditsPanel.SetActive(true);
     }
 
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
     }
+
+
     private IEnumerator LoadNextScene()
     {
         if(LevelFade.instance != null)
