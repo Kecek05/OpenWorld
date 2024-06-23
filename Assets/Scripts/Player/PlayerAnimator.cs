@@ -12,6 +12,7 @@ public class PlayerAnimator : MonoBehaviour
     private static readonly int JUMP = Animator.StringToHash("Jump");
     private static readonly int RUN = Animator.StringToHash("Run");
     private static readonly int WALKING = Animator.StringToHash("Walk");
+    private static readonly int EMPTYUPPERBODY = Animator.StringToHash("Empty");
 
     private int currentState;
     private int currentStateUpperBody;
@@ -33,7 +34,7 @@ public class PlayerAnimator : MonoBehaviour
         //if (currentStateUpperBody == newState) return;
         anim.StopPlayback();
 
-        anim.CrossFade(INTERACT, 0.1f, 1);
+        anim.CrossFade(newState, 0.1f, 1);
 
         currentStateUpperBody = newState;
     }
@@ -46,6 +47,12 @@ public class PlayerAnimator : MonoBehaviour
         BasePlayer.OnPlayerFalling += BasePlayer_OnPlayerFalling;
         BasePlayer.OnPlayerInteract += BasePlayer_OnPlayerInteract;
         BasePlayer.OnPlayerHoldingItem += BasePlayer_OnPlayerHoldingItem;
+        BasePlayer.OnPlayerNotHoldingItem += BasePlayer_OnPlayerNotHoldingItem;
+    }
+
+    private void BasePlayer_OnPlayerNotHoldingItem()
+    {
+        ChangeUpperBodyAnimationState(EMPTYUPPERBODY);
     }
 
     private void BasePlayer_OnPlayerHoldingItem()
