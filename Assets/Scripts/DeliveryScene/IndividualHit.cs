@@ -104,8 +104,8 @@ public class IndividualHit : MonoBehaviour
             inMinigame = true;
 
             _hitTime += Time.deltaTime;
-            yield return new WaitForSeconds(.5f);
-            //yield return null;
+            //yield return new WaitForSeconds(.5f);
+            yield return null;
         }
         //Missed
         inMinigame = false;
@@ -129,7 +129,7 @@ public class IndividualHit : MonoBehaviour
 
         //Hit turn off the moving img
         individualMovingHit.StopMoving();
-        //individualMovingHit.gameObject.SetActive(false);
+        individualMovingHit.gameObject.SetActive(false);
 
         DeliveryMinigame.Instance.Hitted(individualMultiplyAdd);
     }

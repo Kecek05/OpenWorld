@@ -45,7 +45,7 @@ public class DeliveryMinigame : MonoBehaviour
         ResetMinigame(); // just for safety
         minigameDifficultySO = _minigameDifficultySO;
         //debug
-        // minigameDifficultySO = debug;
+        minigameDifficultySO = debug;
         OnStartedMinigame?.Invoke(); //SFX
         startRecieveMoney = _startRecieveMoney;
         if(startMinigameCoroutine == null)
