@@ -119,7 +119,6 @@ public class WitchInputs : MonoBehaviour
     private void Update()
     {
         GetAllInputs();
-        Debug.Log(playerInput.currentActionMap + " CURRENT ACTIOn");
     }
 
 

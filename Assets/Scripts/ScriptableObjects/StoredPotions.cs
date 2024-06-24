@@ -32,10 +32,10 @@ public class StoredPotions : MonoBehaviour
     {
         recipeSavedCountArray = new int[RandomizeRecipeController.Instance.GetSelectedPotionsSOList().Count];
         //debug only
-        //for (int i = 0; i < potionsDebug.Length; i++)
-        //{
-        //    potionsMade.Add(potionsDebug[i]);
-        //}
+        for (int i = 0; i < potionsDebug.Length; i++)
+        {
+            potionsMade.Add(potionsDebug[i]);
+        }
 
     }
 
@@ -68,8 +68,9 @@ public class StoredPotions : MonoBehaviour
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;
-                if(CheckHaveMorePotionsToDelivery())
+                if(!CheckHaveMorePotionsToDelivery())
                 {
+                    Debug.Log("ALL POTIONS DELIVERED");
                     //Change scene
                     StartCoroutine(ChangeScene());
                 }
@@ -88,7 +89,7 @@ public class StoredPotions : MonoBehaviour
                 //Delivered all potions in this recipe
                 count--;
             }
-           
+            Debug.Log(count + " COUNT");
         }
         if(count <= 0)
         {
@@ -102,6 +103,8 @@ public class StoredPotions : MonoBehaviour
 
     private IEnumerator ChangeScene()
     {
+        Debug.Log("ON COROUTINE CHANGESCENE");
+        yield return new WaitForSeconds(7f);
         if(LevelFade.instance != null)
             LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);

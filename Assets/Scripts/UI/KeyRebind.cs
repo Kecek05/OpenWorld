@@ -19,9 +19,9 @@ public class KeyRebind : MonoBehaviour
         rebindButtons[2].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Move_Left); });
         rebindButtons[3].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Move_Right); });
         rebindButtons[4].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Jump); });
-        rebindButtons[5].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Interact); });
-        rebindButtons[6].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Alternate_Interact); });
-        rebindButtons[7].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Run); });
+        rebindButtons[5].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Run); });
+        rebindButtons[6].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Interact); });
+        rebindButtons[7].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Alternate_Interact); });
         rebindButtons[8].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.Pause); });
         rebindButtons[9].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.JumpGamepad); });
         rebindButtons[10].onClick.AddListener(() => { RebindBinding(WitchInputs.Binding.RunGamepad); });
