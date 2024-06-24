@@ -12,12 +12,13 @@ public class RandomizeExpanseController : MonoBehaviour
     
     private List<int> currentExpensesIndex = new List<int>();
 
-    private int expensesCount;
-
+    private int expensesCount = 1;
+    private int days;
 
     private void Awake()
     {
         Instance = this;
+        days = PaymentController.Instance.GetDayCounts();
         SetNewExpansesList();
     }
 
@@ -30,9 +31,14 @@ public class RandomizeExpanseController : MonoBehaviour
             availableExpensesIndex.Add(i);
         }
 
-        expensesCount = UnityEngine.Random.Range(1, 4);
+        if (days % 2 == 0)
+        {
+            expensesCount++;
+        }
+
         currentExpensesIndex.Clear();
-       
+
+
         for (int i = 0; i < expensesCount; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, availableExpensesIndex.Count);

@@ -51,6 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameIsPaused: 0
   panelPause: {fileID: 2581462249403308927}
+  optionsMenu: {fileID: 903827570714015858}
+  settingBtn: {fileID: 3885047665133237766}
 --- !u!1 &2581462249403308927
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,3 +359,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4054433463351659867, guid: 1022b75b136eb32479109faacdfa2477, type: 3}
   m_PrefabInstance: {fileID: 4238074192363567875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &903827570714015858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3916900656665346929, guid: 1022b75b136eb32479109faacdfa2477, type: 3}
+  m_PrefabInstance: {fileID: 4238074192363567875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3885047665133237766 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1097431637126188293, guid: 1022b75b136eb32479109faacdfa2477, type: 3}
+  m_PrefabInstance: {fileID: 4238074192363567875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -23,8 +23,13 @@ public class PaymentController : MonoBehaviour
     private int dayMoney;
     private int paymentsConcluded;
     private int dayCounts = 1;
+    private int countExpanses;
+
+    [SerializeField] private Button fixedExpanseBtn;
+
     [SerializeField] private Loader.Scene scene;
-    [SerializeField] private GameObject gameOverPanel;
+
+    private IEnumerator changeSceneDelay;
 
     private void Awake()
     {
@@ -50,6 +55,8 @@ public class PaymentController : MonoBehaviour
 
         OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = totalEconomy, _payoff = payoff, _dayMoney = dayMoney });
         paymentsConcluded = RandomizeExpanseController.Instance.GetExpensesCount() + 1; // +1 adding fixedPayment
+
+        fixedExpanseBtn.Select();
     }
 
     public void DoPayment(int _expanseCost)
@@ -64,21 +71,28 @@ public class PaymentController : MonoBehaviour
         if (paymentsConcluded <= 0)
         {
             // player clicked all pay buttons
-            if (payoff >= 0)
+            if (payoff <= 0) // correct is payoff >= 0
             {
-                // player have money to pay all expanses, next day
+                // player have money to pay all expanses, next day 
+                countExpanses = RandomizeExpanseController.Instance.GetExpensesCount();
                 MoneyController.Instance.SetTotalMoney(payoff);
                 MoneyController.Instance.ResetDayMoney();
                 SavePlayer();
                 dayCounts++;
-                Loader.Load(scene);
 
-
+                //Reset the dontDestroy
+                GameObject dontDestroyThisDay = GameObject.FindWithTag("DontDestroyThisDay");
+                Destroy(dontDestroyThisDay);
+                if (changeSceneDelay == null)
+                {
+                    changeSceneDelay = ChangeSceneDelay();
+                    StartCoroutine(changeSceneDelay);
+                }
+                
             }
             else
             {
                 // player haven't money to pay all expanses, GameOver
-                gameOverPanel.SetActive(true);
             }
         }
         else
@@ -87,11 +101,19 @@ public class PaymentController : MonoBehaviour
         }
     }
 
+    private IEnumerator ChangeSceneDelay()
+    {
+        if(LevelFade.instance != null)
+            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
+        yield return new WaitForSeconds(1f);
+        Loader.Load(scene);
+    }
+
+
     public void BackToMenu()
     {
         Loader.Load(Loader.Scene.MainMenuScene);
     }
-
 
     public void SavePlayer()
     {
@@ -101,12 +123,12 @@ public class PaymentController : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
-
         totalEconomy = data.economyPlayer;
         dayCounts = data.dayCount;
+        countExpanses = data.expansesCount;
     }
 
     public int GetTotalEconomy() { return totalEconomy; }
     public int GetDayCounts() { return dayCounts; }
-    
+    public int GetExpansesCount() { return countExpanses; }
 }

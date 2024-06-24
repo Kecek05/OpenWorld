@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
@@ -23,10 +24,17 @@ public class OptionsMenu : MonoBehaviour
         if (instance == null)
             instance = this;
     }
+    private void OnEnable()
+    {
+        //bindingPanel.SetActive(false);
+        //settingsPanel.SetActive(true);
+        //settingsBtn.Select();
+    }
 
     public void OpenOptionMenu()
     {
-        optionsPanel.SetActive(true);
+        optionsPanel.SetActive(true); //Gamepad navegation
+        settingsBtn.Select();
     }
 
     public void CloseOptionsMenu()
@@ -36,16 +44,16 @@ public class OptionsMenu : MonoBehaviour
 
     public void OpenBinding()
     {
-        settingsBtn.image.color = deactiveColor;
-        bindsBtn.image.color = activeColor;
+       // settingsBtn.image.color = deactiveColor;
+        //bindsBtn.image.color = activeColor;
         settingsPanel.SetActive(false);
         bindingPanel.SetActive(true);
     }
 
     public void OpenSettings()
     {
-        settingsBtn.image.color = activeColor;
-        bindsBtn.image.color = deactiveColor;
+        //settingsBtn.image.color = activeColor;
+        //bindsBtn.image.color = deactiveColor;
         bindingPanel.SetActive(false);
         settingsPanel.SetActive(true);
     }

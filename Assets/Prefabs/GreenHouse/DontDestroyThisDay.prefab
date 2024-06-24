@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5215860429170402506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7937661422187922111}
+  - component: {fileID: 907719881710321509}
+  - component: {fileID: 8878005685805609020}
+  - component: {fileID: 6927009779263410437}
+  m_Layer: 0
+  m_Name: DontDestroyThisDay
+  m_TagString: DontDestroyThisDay
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7937661422187922111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215860429170402506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &907719881710321509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215860429170402506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38f149c61a6caf4db99b1fbfc6d71ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8878005685805609020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215860429170402506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba662dc6635f57478c7e2245b3bdb59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeListSO1: {fileID: 11400000, guid: cd11a3ef04ccc5f41a0dde9d6fee5c7a, type: 2}
+  recipeListSO2: {fileID: 11400000, guid: 4169f76b7fb8eb8408c9a2c6f3cf728e, type: 2}
+--- !u!114 &6927009779263410437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5215860429170402506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc0e7529a209f64ab683c7e29d5eeaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionsMade: []
+  recipeSavedCountArray: 
+  potionsDebug:
+  - {fileID: 11400000, guid: 3e2a35fd1f967eb4f9071d9185c8ecf7, type: 2}
+  - {fileID: 11400000, guid: fbee19999016ffc4f8e223a82aeb07ed, type: 2}

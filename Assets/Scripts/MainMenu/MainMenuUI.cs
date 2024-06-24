@@ -9,18 +9,18 @@ public class MainMenuUI : MonoBehaviour
 {
     public static MainMenuUI Instance;
 
+
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject creditsPanel;
-
-
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button closeCreditsBtn;
 
     private void Awake()
     {
         if(Instance == null)
             Instance = this;
     }
-
-
 
     public void Play()
     {
@@ -30,18 +30,34 @@ public class MainMenuUI : MonoBehaviour
 
     public void OpenOptions()
     {
+        startPanel.SetActive(false);
         OptionsMenu.instance.OpenOptionMenu();
     }
 
     public void OpenCredits()
     {
+        startPanel.SetActive(false);
         creditsPanel.SetActive(true);
+        closeCreditsBtn.Select();
+    }
+
+    public void OpenStartPanel()
+    {
+        startPanel.SetActive(true);
+        playButton.Select();
+    }
+
+    public void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
+
+
     private IEnumerator LoadNextScene()
     {
         if(LevelFade.instance != null)

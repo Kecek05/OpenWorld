@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8317864857209453984}
   - component: {fileID: 6179453841101982871}
-  - component: {fileID: 4959804955343397075}
   - component: {fileID: 9027937651597458556}
-  - component: {fileID: 3117519495349758837}
   - component: {fileID: 3528329241603642739}
   m_Layer: 0
   m_Name: DontDestroyOnLoadScripts
@@ -48,20 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38f149c61a6caf4db99b1fbfc6d71ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4959804955343397075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2994724517594351840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ba662dc6635f57478c7e2245b3bdb59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recipeListSO1: {fileID: 11400000, guid: cd11a3ef04ccc5f41a0dde9d6fee5c7a, type: 2}
-  recipeListSO2: {fileID: 11400000, guid: 4169f76b7fb8eb8408c9a2c6f3cf728e, type: 2}
 --- !u!114 &9027937651597458556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,23 +59,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsCollected: 
---- !u!114 &3117519495349758837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2994724517594351840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cc0e7529a209f64ab683c7e29d5eeaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  potionsMade: []
-  recipeSavedCountArray: 
-  potionsDebug:
-  - {fileID: 11400000, guid: 3e2a35fd1f967eb4f9071d9185c8ecf7, type: 2}
-  - {fileID: 11400000, guid: fbee19999016ffc4f8e223a82aeb07ed, type: 2}
 --- !u!114 &3528329241603642739
 MonoBehaviour:
   m_ObjectHideFlags: 0

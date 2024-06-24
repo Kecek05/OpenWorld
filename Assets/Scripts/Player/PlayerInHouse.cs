@@ -85,10 +85,12 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
                 if(baseCounter != selectedCounter)
                 {
                     SetSelectedCounter(baseCounter);
+                    Debug.Log(baseCounter.ToString());
                 }
             } else
             {
                 SetSelectedCounter(null);
+                Debug.Log(baseCounter.ToString());
             }
         }
         else

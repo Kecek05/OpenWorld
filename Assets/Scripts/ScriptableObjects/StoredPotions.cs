@@ -17,7 +17,14 @@ public class StoredPotions : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -60,12 +67,12 @@ public class StoredPotions : MonoBehaviour
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;
-                CheckHaveMorePotionsToDelivery();
+                //CheckHaveMorePotionsToDelivery();
                 break;
             }
         }
     }
-    public void CheckHaveMorePotionsToDelivery()
+    public bool CheckHaveMorePotionsToDelivery()
     {
         int count = 2;
         for (int i = 0; i < recipeSavedCountArray.Length; i++)
@@ -81,7 +88,9 @@ public class StoredPotions : MonoBehaviour
         {
             //Delivered all potions, change scene (wait for 10 secconds) 
             //Do fade out
+            return false;
         }
+        return true;
     }
 
     public int[] GetRecipeSavedCountArray() { return recipeSavedCountArray; }
