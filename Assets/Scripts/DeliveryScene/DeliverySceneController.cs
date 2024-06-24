@@ -24,6 +24,7 @@ public class DeliverySceneController : MonoBehaviour
 
     private IEnumerator CreateRandomNewOrder()
     {
+
         while (StoredPotions.Instance.potionsMade.Count > 0)
         {
             //There is a spot to delivery potion
