@@ -33,6 +33,8 @@ public class PaymentController : MonoBehaviour
     private IEnumerator changeSceneDelay;
 
     [SerializeField] private Button nextButon;
+
+    [SerializeField] private Animator payNotifyaNIM;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -47,12 +49,12 @@ public class PaymentController : MonoBehaviour
 
     private void Start()
     {
-        SavePlayer();
-        LoadPlayer();
         dayCount++;
         // geting money of the day + economys of the player
         MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         totalEconomy = MoneyController.Instance.GetTotalMoney();
+        SavePlayer();
+        LoadPlayer();
 
         payoff = totalEconomy;
 
@@ -60,6 +62,8 @@ public class PaymentController : MonoBehaviour
 
 
         RandomizeExpanseController.Instance.OnNewExpansesList += Randomize_OnNewExpansesList;
+        paymentsConcluded = GetDayCounts() + 1;
+
 
         fixedExpanseBtn.Select();
         Invoke(nameof(DelayEvent), 0.1f);
@@ -73,7 +77,7 @@ public class PaymentController : MonoBehaviour
 
     private void Randomize_OnNewExpansesList()
     {
-        paymentsConcluded = GetDayCounts(); // +1 adding fixedPayment
+        paymentsConcluded = GetDayCounts() + 1; // +1 adding fixedPayment
     }
 
     public void DoPayment(int _expanseCost)
@@ -120,6 +124,7 @@ public class PaymentController : MonoBehaviour
         else
         {
             // player did not click all the pay buttons 
+            payNotifyaNIM.SetTrigger("notify");
         }
     }
 
@@ -137,7 +142,44 @@ public class PaymentController : MonoBehaviour
 
     public void BackToMenu()
     {
-        Loader.Load(Loader.Scene.MainMenuScene);
+        if (paymentsConcluded <= 0)
+        {
+            // player clicked all pay buttons
+            if (payoff >= 0) // correct is payoff >= 0
+            {
+                // player have money to pay all expanses, go to menu
+                //  countExpanses = RandomizeExpanseController.Instance.GetExpensesCount();
+                MoneyController.Instance.SetTotalMoney(payoff);
+                MoneyController.Instance.ResetDayMoney();
+                SavePlayer();
+
+                //Reset the dontDestroy
+                GameObject dontDestroyThisDay = GameObject.FindWithTag("DontDestroyThisDay");
+                Destroy(dontDestroyThisDay);
+                GameObject DontDestroyOnLoadScripts = GameObject.FindWithTag("DontDestroyScript");
+                if (DontDestroyOnLoadScripts != null)
+                    if (changeSceneDelay == null)
+                {
+                    changeSceneDelay = ChangeSceneDelay(Loader.Scene.MainMenuScene);
+                    StartCoroutine(changeSceneDelay);
+                }
+
+            }
+            else
+            {
+                // player haven't money to pay all expanses, GameOver
+                if (changeSceneDelay == null)
+                {
+                    changeSceneDelay = ChangeSceneDelay(Loader.Scene.GameOverScene);
+                    StartCoroutine(changeSceneDelay);
+                }
+            }
+        }
+        else
+        {
+            // player did not click all the pay buttons 
+            payNotifyaNIM.SetTrigger("notify");
+        }
     }
 
     public void SavePlayer()

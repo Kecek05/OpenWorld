@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 [System.Serializable]
@@ -15,7 +14,7 @@ public class PlayerData {
         economyPlayer = PaymentController.Instance.GetTotalEconomy();
         dayCount = PaymentController.Instance.GetDayCounts();
         expansesCount = PaymentController.Instance.GetExpansesCount();
-
+        Debug.Log("Economy Player is " + economyPlayer);
     }
     
 }

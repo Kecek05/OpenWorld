@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.InputSystem.XR;
 
 public static class SaveSystem {
 
     public static void SavePlayer(PaymentController controller)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.cherrbaygames";
+        string path = Application.persistentDataPath + "/playerConfig.cherrbaygames";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(controller);
@@ -18,7 +19,7 @@ public static class SaveSystem {
 
     public static PlayerData LoadPlayer()
     {
-        string path = Application.persistentDataPath + "/player.cherrbaygames";
+        string path = Application.persistentDataPath + "/playerConfig.cherrbaygames";
         if(File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -36,9 +37,23 @@ public static class SaveSystem {
         }
     }
 
+
+    public static void ResetPlayerSave()
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/playerConfig.cherrbaygames";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PaymentController paymentReseted = new PaymentController();
+        PlayerData data = new PlayerData(paymentReseted);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
     public static void DeletePlayerSave()
     {
-        string path = Application.persistentDataPath + "/player.cherrbaygames";
+        string path = Application.persistentDataPath + "/playerConfig.cherrbaygames";
 
         if (File.Exists(path))
         {

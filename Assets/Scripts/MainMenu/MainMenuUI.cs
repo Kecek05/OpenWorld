@@ -15,7 +15,6 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject startPanel;
     [SerializeField] private Button playButton;
     [SerializeField] private Button closeCreditsBtn;
-
     private void Awake()
     {
         if(Instance == null)
@@ -50,6 +49,13 @@ public class MainMenuUI : MonoBehaviour
     public void CloseCredits()
     {
         creditsPanel.SetActive(false);
+    }
+
+    public void ResetGame()
+    {
+        //Reset game
+       // SaveSystem.ResetPlayerSave();
+       SaveSystem.DeletePlayerSave();
     }
 
     public void QuitGame()

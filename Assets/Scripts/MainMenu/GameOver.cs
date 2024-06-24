@@ -7,14 +7,25 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] private Button playAgainBtn;
 
+    private IEnumerator menuCoroutine;
+    private IEnumerator playAgainCoroutine;
+
     public void GameOvers()
     {
-        StartCoroutine(DeleteGame());
+        if (playAgainCoroutine == null)
+        {
+            playAgainCoroutine = DeleteGame();
+            StartCoroutine(playAgainCoroutine);
+        }
     }
 
     public void Menu()
     {
-        StartCoroutine(LoadMenuScene());
+        if(menuCoroutine == null)
+        {
+            menuCoroutine = LoadMenuScene();
+            StartCoroutine(menuCoroutine);
+        }
     }
 
     private void Start()
@@ -30,6 +41,7 @@ public class GameOver : MonoBehaviour
             LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
         Loader.Load(Loader.Scene.GreenHouse);
+        playAgainCoroutine = null;
     }
 
 
@@ -41,24 +53,25 @@ public class GameOver : MonoBehaviour
             LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
         Loader.Load(Loader.Scene.MainMenuScene);
+        menuCoroutine = null;
     }
 
 
     private void destroyOnLoads()
     {
         GameObject DontDestroyOnLoadScripts = GameObject.FindWithTag("DontDestroyScript");
-        Destroy(DontDestroyOnLoadScripts);
+        if(DontDestroyOnLoadScripts != null)
+            Destroy(DontDestroyOnLoadScripts);
         GameObject dontDestroyThisDay = GameObject.FindWithTag("DontDestroyThisDay");
-        Destroy(dontDestroyThisDay);
+        if(dontDestroyThisDay != null)
+            Destroy(dontDestroyThisDay);
     }
 
 
     private void ResetData()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
-        data.expansesCount = 0;
-        data.economyPlayer = 0;
-        data.dayCount = 0;
+        //  SaveSystem.ResetPlayerSave();
+        SaveSystem.DeletePlayerSave();
     }
 
     
