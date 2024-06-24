@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -67,7 +68,12 @@ public class StoredPotions : MonoBehaviour
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;
-                //CheckHaveMorePotionsToDelivery();
+                if(CheckHaveMorePotionsToDelivery())
+                {
+                    //Change scene
+                    StartCoroutine(ChangeScene());
+                }
+                
                 break;
             }
         }
@@ -91,6 +97,17 @@ public class StoredPotions : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+
+    private IEnumerator ChangeScene()
+    {
+        if(LevelFade.instance != null)
+            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
+        yield return new WaitForSeconds(1f);
+        if (WitchInputs.Instance != null)
+            WitchInputs.Instance.ChangeActiveMap(Loader.Scene.GreenHouse);
+        Loader.Load(Loader.Scene.Payment);
     }
 
     public int[] GetRecipeSavedCountArray() { return recipeSavedCountArray; }

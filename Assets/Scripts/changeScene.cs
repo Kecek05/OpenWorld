@@ -47,7 +47,7 @@ public class ChangeScene : MonoBehaviour
            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
         //Check if its in House
-        if(SceneManager.GetActiveScene().name.ToString() == Loader.Scene.House.ToString())
+        if(SceneManager.GetActiveScene().name == Loader.Scene.House.ToString())
         {
             //its in house, check if have made any potions
             if(StoredPotions.Instance.CheckHaveMorePotionsToDelivery())
@@ -68,6 +68,7 @@ public class ChangeScene : MonoBehaviour
             //Other scene
             if (WitchInputs.Instance != null)
                 WitchInputs.Instance.ChangeActiveMap(scene);
+            Debug.Log("CHEGUEIU " + scene);
             Loader.Load(scene);
         }
 

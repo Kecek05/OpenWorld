@@ -71,7 +71,7 @@ public class PaymentController : MonoBehaviour
         if (paymentsConcluded <= 0)
         {
             // player clicked all pay buttons
-            if (payoff <= 0) // correct is payoff >= 0
+            if (payoff >= 0) // correct is payoff >= 0
             {
                 // player have money to pay all expanses, next day 
                 countExpanses = RandomizeExpanseController.Instance.GetExpensesCount();
@@ -106,6 +106,8 @@ public class PaymentController : MonoBehaviour
         if(LevelFade.instance != null)
             LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
+        if (WitchInputs.Instance != null)
+            WitchInputs.Instance.ChangeActiveMap(scene);
         Loader.Load(scene);
     }
 

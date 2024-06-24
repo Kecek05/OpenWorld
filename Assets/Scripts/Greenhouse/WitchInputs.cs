@@ -119,6 +119,7 @@ public class WitchInputs : MonoBehaviour
     private void Update()
     {
         GetAllInputs();
+        Debug.Log(playerInput.currentActionMap + " CURRENT ACTIOn");
     }
 
 
@@ -129,14 +130,17 @@ public class WitchInputs : MonoBehaviour
         switch (currentScene) // enable the correct input Map
         {
             case Loader.Scene.GreenHouse:
+                playerInputActions.PlayerInHouse.Disable();
                 ChangeMovement(true);
                 playerInput.SwitchCurrentActionMap("PlayerOutSide");
                 break;
             case Loader.Scene.DeliveryScene:
+                playerInputActions.PlayerInHouse.Disable();
                 ChangeMovement(true);
                 playerInput.SwitchCurrentActionMap("PlayerOutSide");
                 break;
             case Loader.Scene.House:
+                ChangeMovement(false);
                 playerInputActions.PlayerInHouse.Enable();
                 playerInput.SwitchCurrentActionMap("PlayerInHouse");
                 break;
