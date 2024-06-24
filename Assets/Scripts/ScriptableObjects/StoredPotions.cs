@@ -39,15 +39,16 @@ public class StoredPotions : MonoBehaviour
 
     }
     //debug only
-    //private void Update()
-    //{
-    //    if(Input.GetKeyUp(KeyCode.U)) {
-    //        for (int i = 0; i < potionsDebug.Length; i++)
-    //        {
-    //            potionsMade.Add(potionsDebug[i]);
-    //        }
-    //    }
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.U))
+        {
+            for (int i = 0; i < potionsDebug.Length; i++)
+            {
+                potionsMade.Add(potionsDebug[i]);
+            }
+        }
+    }
 
     public void ResetPotionsMade()
     {
