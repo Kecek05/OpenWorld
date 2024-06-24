@@ -16,6 +16,12 @@ public class ExpansesManagerUI : MonoBehaviour
 
     private void Start()
     {
+        RandomizeExpanseController.Instance.OnNewExpansesList += Instance_OnNewExpansesList;
+
+    }
+
+    private void Instance_OnNewExpansesList()
+    {
         UpdateVisual();
     }
 

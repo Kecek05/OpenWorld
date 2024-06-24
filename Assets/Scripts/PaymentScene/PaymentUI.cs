@@ -12,7 +12,7 @@ public class PaymentUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI economyTxt;
     [SerializeField] private TextMeshProUGUI dayPaymentTxt;
     [SerializeField] private TextMeshProUGUI payOffTxt;
-
+    [SerializeField] private TextMeshProUGUI dayCountTxt;
 
     private void OnEnable()
     {
@@ -24,6 +24,7 @@ public class PaymentUI : MonoBehaviour
         economyTxt.text = e._totalEconomy.ToString();
         dayPaymentTxt.text = e._dayMoney.ToString();
         payOffTxt.text = e._payoff.ToString();
+        dayCountTxt.text = e._day.ToString();
     }
 
 }

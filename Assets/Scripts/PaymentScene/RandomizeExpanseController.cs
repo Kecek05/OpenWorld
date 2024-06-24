@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,17 +10,20 @@ public class RandomizeExpanseController : MonoBehaviour
 
     [SerializeField] private PaymentCostsSO paymentCostsSO;
 
+    public event Action OnNewExpansesList;
     
     private List<int> currentExpensesIndex = new List<int>();
 
-    private int expensesCount = 1;
-    private int days;
 
     private void Awake()
     {
-        Instance = this;
-        days = PaymentController.Instance.GetDayCounts();
-        SetNewExpansesList();
+        if(Instance == null)
+            Instance = this;
+    }
+
+    private void Start()
+    {
+        Invoke(nameof(SetNewExpansesList),0.1f);
     }
 
     public void SetNewExpansesList()
@@ -31,23 +35,18 @@ public class RandomizeExpanseController : MonoBehaviour
             availableExpensesIndex.Add(i);
         }
 
-        if (days % 2 == 0)
-        {
-            expensesCount++;
-        }
-
         currentExpensesIndex.Clear();
 
 
-        for (int i = 0; i < expensesCount; i++)
+        for (int i = 0; i < PaymentController.Instance.GetDayCounts(); i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, availableExpensesIndex.Count);
             currentExpensesIndex.Add(availableExpensesIndex[randomIndex]);
             availableExpensesIndex.Remove(randomIndex);
         }
+        OnNewExpansesList?.Invoke();
     }
 
-    public int GetExpensesCount() { return expensesCount; }
     public List<int> GetCurrentExpensesIndexList() { return currentExpensesIndex; }
 
 }
