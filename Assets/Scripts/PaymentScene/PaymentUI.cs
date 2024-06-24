@@ -9,10 +9,10 @@ public class PaymentUI : MonoBehaviour
 {
     public static PaymentUI instance;
 
-    [SerializeField] private TextMeshProUGUI[] expanseTxt;
     [SerializeField] private TextMeshProUGUI economyTxt;
     [SerializeField] private TextMeshProUGUI dayPaymentTxt;
     [SerializeField] private TextMeshProUGUI payOffTxt;
+
 
     private void OnEnable()
     {

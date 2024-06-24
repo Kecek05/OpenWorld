@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AudioMixerManager : MonoBehaviour
 {
-
+    public static AudioMixerManager instance;
     private const string PLAYER_PREFS_SOUND_EFFECTS_VOLUME = "SoundEffectsVolume";
     private const string PLAYER_PREFS_MUSIC_VOLUME = "SoundEffectsVolume";
     private const string PLAYER_PREFS_MASTER_VOLUME = "SoundEffectsVolume";
@@ -12,7 +12,16 @@ public class AudioMixerManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         mainAudioMixer.SetFloat("SoundFXVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME));
 
         mainAudioMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_MUSIC_VOLUME));
