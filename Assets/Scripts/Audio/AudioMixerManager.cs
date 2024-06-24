@@ -1,5 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AudioMixerManager : MonoBehaviour
 {
@@ -17,39 +18,39 @@ public class AudioMixerManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        float volumeMain = PlayerPrefs.GetFloat(PLAYER_PREFS_MASTER_VOLUME);
+        SetMasterVolume(volumeMain);
 
-        mainAudioMixer.SetFloat("SoundFXVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME));
+        float volumeSFX = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME);
+        SetSoundFXVolume(volumeSFX);
 
-        mainAudioMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_MUSIC_VOLUME));
+        float volumeMusic = PlayerPrefs.GetFloat(PLAYER_PREFS_MUSIC_VOLUME);
+        SetMusicVolume(volumeMain);
 
-        mainAudioMixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat(PLAYER_PREFS_MASTER_VOLUME));
     }
 
     public void SetMasterVolume(float volume)
     {
-        mainAudioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20f); // math to compensate the volume curve
+        mainAudioMixer.SetFloat("MasterVolume", volume); 
 
-        PlayerPrefs.SetFloat(PLAYER_PREFS_MASTER_VOLUME, Mathf.Log10(volume) * 20f);
+        PlayerPrefs.SetFloat(PLAYER_PREFS_MASTER_VOLUME, volume);
         PlayerPrefs.Save();
     }
 
     public void SetSoundFXVolume(float volume)
     {
-        mainAudioMixer.SetFloat("SoundFXVolume", Mathf.Log10(volume) * 20f);
+        mainAudioMixer.SetFloat("SoundFXVolume", volume);
 
-        PlayerPrefs.SetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, Mathf.Log10(volume) * 20f);
+        PlayerPrefs.SetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, volume);
+        Debug.Log(PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME));
         PlayerPrefs.Save();
     }
 
     public void SetMusicVolume(float volume)
     {
-        mainAudioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20f);
+        mainAudioMixer.SetFloat("MusicVolume", volume);
 
-        PlayerPrefs.SetFloat(PLAYER_PREFS_MUSIC_VOLUME, Mathf.Log10(volume) * 20f);
+        PlayerPrefs.SetFloat(PLAYER_PREFS_MUSIC_VOLUME, volume);
         PlayerPrefs.Save();
     }
 }
