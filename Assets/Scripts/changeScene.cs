@@ -68,10 +68,13 @@ public class ChangeScene : MonoBehaviour
             //Other scene
             if (WitchInputs.Instance != null)
                 WitchInputs.Instance.ChangeActiveMap(scene);
+            Debug.Log("CHEGUEIU " + scene);
             Loader.Load(scene);
         }
 
         
     }
 
+
+    
 }

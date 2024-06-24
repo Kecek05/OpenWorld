@@ -19,7 +19,7 @@ public static class Loader
         LoadingScene,
         DeliveryScene,
         Payment,
-        GameOverScene,
+        HitMinigame, // troll, quando ver tire
     }
 
     private static Action onLoaderCallBack;
