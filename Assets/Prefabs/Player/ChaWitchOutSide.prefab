@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4871033194061318114}
   - component: {fileID: 8004448452401515959}
   - component: {fileID: 7157463851070273373}
+  - component: {fileID: 318261779296689561}
   m_Layer: 7
   m_Name: ChaWitchOutSide
   m_TagString: Player
@@ -182,7 +183,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.63
   m_Height: 3.6343722
@@ -201,6 +202,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 598282825497341949}
+--- !u!65 &318261779296689561
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179894}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.170065, y: 3.9247184, z: 1.1997753}
+  m_Center: {x: -0.08503272, y: 1.769181, z: -0.09988779}
 --- !u!1 &3323364562652723348
 GameObject:
   m_ObjectHideFlags: 0

@@ -310,9 +310,9 @@ GameObject:
   - component: {fileID: 4420971826075170421}
   - component: {fileID: 5225433857273832659}
   - component: {fileID: 8664420527342360149}
-  - component: {fileID: 3455494148189906191}
   - component: {fileID: 2549000429416550114}
   - component: {fileID: 6313169567948604460}
+  - component: {fileID: 7506702813265917512}
   m_Layer: 7
   m_Name: ChaWitchInHouse
   m_TagString: Player
@@ -358,8 +358,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7868338, y: 3.626513, z: 2.6037743}
-  m_Center: {x: -0.05053559, y: 1.8632565, z: 1.3478547}
+  m_Size: {x: 1.7868338, y: 3.626513, z: 3.119997}
+  m_Center: {x: -0.05053556, y: 1.8632565, z: 1.6059661}
 --- !u!54 &8664420527342360149
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -387,29 +387,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &3455494148189906191
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7639482433900844779}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.63
-  m_Height: 3.6343722
-  m_Direction: 1
-  m_Center: {x: -0.04000002, y: 1.8888376, z: -0.33000004}
 --- !u!114 &2549000429416550114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,6 +481,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 5338738187902815638}
+--- !u!65 &7506702813265917512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639482433900844779}
+  m_Material: {fileID: 13400000, guid: 1ccd78f90463a3f4a8865a9783d7aa5e, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.170065, y: 3.9247184, z: 1.1997753}
+  m_Center: {x: -0.08503272, y: 1.769181, z: -0.09988779}
 --- !u!1 &7867971986810491307
 GameObject:
   m_ObjectHideFlags: 0
