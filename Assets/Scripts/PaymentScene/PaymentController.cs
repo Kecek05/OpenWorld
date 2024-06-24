@@ -109,7 +109,7 @@ public class PaymentController : MonoBehaviour
                 // player haven't money to pay all expanses, GameOver
                 if (changeSceneDelay == null)
                 {
-                    changeSceneDelay = ChangeSceneDelay(Loader.Scene.GameOver);
+                    changeSceneDelay = ChangeSceneDelay(Loader.Scene.GameOverScene);
                     StartCoroutine(changeSceneDelay);
                 }
             }

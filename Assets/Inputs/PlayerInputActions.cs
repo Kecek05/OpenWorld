@@ -655,17 +655,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f50395e7-7e7a-4b2d-a0a1-2179e6b2b356"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Hit3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3f68f354-57dc-4a3d-bcc3-a28e679c152c"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
@@ -677,8 +666,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""28f2aba4-06f7-47e2-b292-8c0344990181"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""id"": ""f50395e7-7e7a-4b2d-a0a1-2179e6b2b356"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -705,6 +694,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28f2aba4-06f7-47e2-b292-8c0344990181"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Hit3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
