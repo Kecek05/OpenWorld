@@ -16,11 +16,32 @@ public class GameOver : MonoBehaviour
 
     private IEnumerator DeleteGame()
     {
+        destroyOnLoads();
         ResetData();
         if (LevelFade.instance != null)
             LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
         Loader.Load(Loader.Scene.GreenHouse);
+    }
+
+
+    private IEnumerator LoadMenuScene()
+    {
+        destroyOnLoads();
+        ResetData();
+        if (LevelFade.instance != null)
+            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
+        yield return new WaitForSeconds(1f);
+        Loader.Load(Loader.Scene.MainMenuScene);
+    }
+
+
+    private void destroyOnLoads()
+    {
+        GameObject DontDestroyOnLoadScripts = GameObject.FindWithTag("");
+        Destroy(DontDestroyOnLoadScripts);
+        GameObject dontDestroyThisDay = GameObject.FindWithTag("");
+        Destroy(dontDestroyThisDay);
     }
 
 
@@ -32,13 +53,5 @@ public class GameOver : MonoBehaviour
         data.dayCount = 0;
     }
 
-    private IEnumerator LoadMenuScene()
-    {
-        ResetData();
-        if (LevelFade.instance != null)
-            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
-        yield return new WaitForSeconds(1f);
-        Loader.Load(Loader.Scene.MainMenuScene);
-    }
-
+    
 }
