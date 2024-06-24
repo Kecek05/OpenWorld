@@ -21,6 +21,7 @@ public class InventoryUIController : MonoBehaviour
     {
         witchInventorySO.OnDepositeItems += WitchInventory_OnDepositeItems;
         witchInventorySO.OnItemGrab += WitchInventory_OnItemGrab;
+        Invoke(nameof(UpdateTextCount), 0.1f);
     }
 
     private void WitchInventory_OnItemGrab(object sender, WitchInventorySO.OnItemGrabEventArgs e)
@@ -51,7 +52,12 @@ public class InventoryUIController : MonoBehaviour
             if (child == itemOnHandTemplate) continue;
             Destroy(child.gameObject);
         }
-        for(int i = 0; i < texts.Length; i++)
+        UpdateTextCount();
+    }
+
+    private void UpdateTextCount()
+    {
+        for (int i = 0; i < texts.Length; i++)
         {
             texts[i].text = PlayerItems.Instance.GetItemsCollectedArray()[i].ToString();
         }
