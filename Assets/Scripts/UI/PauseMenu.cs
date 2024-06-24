@@ -13,33 +13,67 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button settingBtn;
     private IEnumerator mainMenuCoroutine;
 
+    
     private void Start()
     {
-        if(WitchInputs.Instance != null)
-            WitchInputs.Instance.OnPausePerformed += WitchInputs_OnPausePerformed;
+        Invoke(nameof(CheckingWitchInputs), 1f);
     }
 
     private void WitchInputs_OnPausePerformed(object sender, System.EventArgs e)
     {
         PauseGame();
-        optionsMenu.SetActive(true);
+        if (optionsMenu != null)
+        {
+            optionsMenu.SetActive(true);
+        }
     }
+
+    private void CheckingWitchInputs()
+    {
+        if (WitchInputs.Instance != null)
+        {
+            WitchInputs.Instance.OnPausePerformed += WitchInputs_OnPausePerformed;
+        }
+    }
+
 
     public void PauseGame()
     {
         GameIsPaused = !GameIsPaused;
-        if(GameIsPaused)
+        if (GameIsPaused)
         {
-            //Pause Game
-            panelPause.SetActive(true);
-            settingBtn.Select();
+            // Pause Game
+            if (panelPause != null)
+            {
+                panelPause.SetActive(true);
+            }
+            if (settingBtn != null)
+            {
+                settingBtn.Select();
+            }
             Time.timeScale = 0f;
-        } else
+        }
+        else
         {
-            //Un pause
-            panelPause.SetActive(false);
+            // Unpause Game
+            if (panelPause != null)
+            {
+                panelPause.SetActive(false);
+            }
             Time.timeScale = 1f;
         }
+        //if(GameIsPaused)
+        //{
+        //    //Pause Game
+        //    panelPause.SetActive(true);
+        //    settingBtn.Select();
+        //    Time.timeScale = 0f;
+        //} else
+        //{
+        //    //Un pause
+        //    panelPause.SetActive(false);
+        //    Time.timeScale = 1f;
+        //}
     }
 
 
