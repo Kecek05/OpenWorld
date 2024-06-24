@@ -20,10 +20,11 @@ public static class Loader
         DeliveryScene,
         Payment,
         HitMinigame, // troll, quando ver tire
+        GameOver,
     }
 
     private static Action onLoaderCallBack;
-    private static AsyncOperation loadingAsyncOperation;
+
 
     public static void Load(Scene targetScene)
     {
@@ -40,28 +41,26 @@ public static class Loader
     private static IEnumerator LoadSceneAsync(Scene scene)
     {
         yield return null; // If you need a delay to transition the scenes, put it here
-        loadingAsyncOperation = SceneManager.LoadSceneAsync(scene.ToString());
-        loadingAsyncOperation.allowSceneActivation = false;
+        SceneManager.LoadScene(scene.ToString());
+        
 
-        while (loadingAsyncOperation.progress < 0.9f)
-        {
-            yield return null;
-        }
+
         yield return null;
-        loadingAsyncOperation.allowSceneActivation = true;
+
 
     }
 
     public static float GetLoadingProgress()
     {
-        if (loadingAsyncOperation != null)
-        {
-            return loadingAsyncOperation.progress;
-        }
-        else
-        {
-            return 1f;
-        }
+        //if (loadingAsyncOperation != null)
+        //{
+        //    return loadingAsyncOperation.progress;
+        //}
+        //else
+        //{
+        //    return 1f;
+        //}
+        return 1f;
     }
     public static void LoaderCallback()
     {

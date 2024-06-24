@@ -58,17 +58,16 @@ public class ChangeScene : MonoBehaviour
                 Loader.Load(scene);
             } else
             {
-                //Dont have made any potions, GAME OVER
+                //Dont have made any potions, PAYMENT
                 if (WitchInputs.Instance != null)
                     WitchInputs.Instance.ChangeActiveMap(Loader.Scene.GreenHouse);
-                Loader.Load(Loader.Scene.GreenHouse);
+                Loader.Load(Loader.Scene.Payment);
             }
         } else
         {
             //Other scene
             if (WitchInputs.Instance != null)
                 WitchInputs.Instance.ChangeActiveMap(scene);
-            Debug.Log("CHEGUEIU " + scene);
             Loader.Load(scene);
         }
 

@@ -16,13 +16,14 @@ public class PaymentController : MonoBehaviour
         public int _totalEconomy;
         public int _payoff;
         public int _dayMoney;
+        public int _day;
     }
 
     private int totalEconomy;
     private int payoff;
     private int dayMoney;
     private int paymentsConcluded;
-    private int dayCounts = 1;
+    private int dayCount = 0;
     private int countExpanses;
 
     [SerializeField] private Button fixedExpanseBtn;
@@ -45,6 +46,8 @@ public class PaymentController : MonoBehaviour
 
     private void Start()
     {
+        LoadPlayer();
+        dayCount++;
         // geting money of the day + economys of the player
         MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         totalEconomy = MoneyController.Instance.GetTotalMoney();
@@ -53,16 +56,28 @@ public class PaymentController : MonoBehaviour
 
         dayMoney = MoneyController.Instance.GetDayMoney();
 
-        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = totalEconomy, _payoff = payoff, _dayMoney = dayMoney });
-        paymentsConcluded = RandomizeExpanseController.Instance.GetExpensesCount() + 1; // +1 adding fixedPayment
+
+        RandomizeExpanseController.Instance.OnNewExpansesList += Randomize_OnNewExpansesList;
 
         fixedExpanseBtn.Select();
+        Invoke(nameof(DelayEvent), 0.1f);
+    }
+
+    private void DelayEvent()
+    {
+        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = totalEconomy, _payoff = payoff, _dayMoney = dayMoney, _day = dayCount });
+
+    }
+
+    private void Randomize_OnNewExpansesList()
+    {
+        paymentsConcluded = GetDayCounts(); // +1 adding fixedPayment
     }
 
     public void DoPayment(int _expanseCost)
     {
         payoff -= _expanseCost;
-        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = payoff, _payoff = payoff, _dayMoney = dayMoney });
+        OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = payoff, _payoff = payoff, _dayMoney = dayMoney, _day = dayCount });
         paymentsConcluded--;
     }
 
@@ -74,18 +89,17 @@ public class PaymentController : MonoBehaviour
             if (payoff >= 0) // correct is payoff >= 0
             {
                 // player have money to pay all expanses, next day 
-                countExpanses = RandomizeExpanseController.Instance.GetExpensesCount();
+              //  countExpanses = RandomizeExpanseController.Instance.GetExpensesCount();
                 MoneyController.Instance.SetTotalMoney(payoff);
                 MoneyController.Instance.ResetDayMoney();
                 SavePlayer();
-                dayCounts++;
 
                 //Reset the dontDestroy
                 GameObject dontDestroyThisDay = GameObject.FindWithTag("DontDestroyThisDay");
                 Destroy(dontDestroyThisDay);
                 if (changeSceneDelay == null)
                 {
-                    changeSceneDelay = ChangeSceneDelay();
+                    changeSceneDelay = ChangeSceneDelay(Loader.Scene.GreenHouse);
                     StartCoroutine(changeSceneDelay);
                 }
                 
@@ -93,6 +107,11 @@ public class PaymentController : MonoBehaviour
             else
             {
                 // player haven't money to pay all expanses, GameOver
+                if (changeSceneDelay == null)
+                {
+                    changeSceneDelay = ChangeSceneDelay(Loader.Scene.GameOver);
+                    StartCoroutine(changeSceneDelay);
+                }
             }
         }
         else
@@ -101,14 +120,15 @@ public class PaymentController : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeSceneDelay()
+    private IEnumerator ChangeSceneDelay(Loader.Scene _scene)
     {
         if(LevelFade.instance != null)
             LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
         if (WitchInputs.Instance != null)
-            WitchInputs.Instance.ChangeActiveMap(scene);
-        Loader.Load(scene);
+            WitchInputs.Instance.ChangeActiveMap(Loader.Scene.GreenHouse);
+        Loader.Load(_scene);
+        changeSceneDelay = null;
     }
 
 
@@ -126,11 +146,11 @@ public class PaymentController : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadPlayer();
         totalEconomy = data.economyPlayer;
-        dayCounts = data.dayCount;
+        dayCount = data.dayCount;
         countExpanses = data.expansesCount;
     }
 
     public int GetTotalEconomy() { return totalEconomy; }
-    public int GetDayCounts() { return dayCounts; }
+    public int GetDayCounts() { return dayCount; }
     public int GetExpansesCount() { return countExpanses; }
 }

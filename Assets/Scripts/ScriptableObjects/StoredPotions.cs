@@ -38,6 +38,16 @@ public class StoredPotions : MonoBehaviour
         //}
 
     }
+    //debug only
+    //private void Update()
+    //{
+    //    if(Input.GetKeyUp(KeyCode.U)) {
+    //        for (int i = 0; i < potionsDebug.Length; i++)
+    //        {
+    //            potionsMade.Add(potionsDebug[i]);
+    //        }
+    //    }
+    //}
 
     public void ResetPotionsMade()
     {
@@ -68,7 +78,7 @@ public class StoredPotions : MonoBehaviour
             {
                 //decrease the ammount of that potion
                 recipeSavedCountArray[i]--;
-                if(CheckHaveMorePotionsToDelivery())
+                if(!CheckHaveMorePotionsToDelivery())
                 {
                     //Change scene
                     StartCoroutine(ChangeScene());
@@ -88,7 +98,6 @@ public class StoredPotions : MonoBehaviour
                 //Delivered all potions in this recipe
                 count--;
             }
-           
         }
         if(count <= 0)
         {
@@ -102,6 +111,7 @@ public class StoredPotions : MonoBehaviour
 
     private IEnumerator ChangeScene()
     {
+        yield return new WaitForSeconds(17f); // wait to finish the minigame
         if(LevelFade.instance != null)
             LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);

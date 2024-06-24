@@ -15,6 +15,7 @@ public class PlayerData {
         economyPlayer = PaymentController.Instance.GetTotalEconomy();
         dayCount = PaymentController.Instance.GetDayCounts();
         expansesCount = PaymentController.Instance.GetExpansesCount();
+
     }
     
 }
