@@ -71,7 +71,7 @@ public class SFXManager : MonoBehaviour
         BaseCounter deliveryCounterPos = sender as BaseCounter;
         if (GetAudioClipRefsSO().potionRecipeDontExist != null && deliveryCounterPos != null)
         {
-            PlayRandomSFXClip(GetAudioClipRefsSO().potionRecipeDontExist, Camera.main.transform);
+            PlayRandomSFXClip(GetAudioClipRefsSO().potionRecipeDontExist, deliveryCounterPos.transform);
         }
     }
 
@@ -80,7 +80,7 @@ public class SFXManager : MonoBehaviour
         BaseCounter deliveryCounterPos = sender as BaseCounter;
         if(GetAudioClipRefsSO().potionInBag != null && deliveryCounterPos != null)
         {
-            PlayRandomSFXClip(GetAudioClipRefsSO().potionInBag, Camera.main.transform);
+            PlayRandomSFXClip(GetAudioClipRefsSO().potionInBag, deliveryCounterPos.transform);
         }
     }
 
@@ -126,7 +126,7 @@ public class SFXManager : MonoBehaviour
             if (GetAudioClipRefsSO().footstepHouse != null)
             {
 
-                PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, Camera.main.transform);
+                PlayRandomSFXClip(GetAudioClipRefsSO().footstepHouse, BasePlayer.Instance.transform);
                 yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
                 //Can play another SFX walking
                 playerWalkSFXCoroutine = null;
@@ -137,7 +137,7 @@ public class SFXManager : MonoBehaviour
             //OutSide
             if (GetAudioClipRefsSO().footstepOutSide != null)
             {
-                PlayRandomSFXClip(GetAudioClipRefsSO().footstepOutSide, Camera.main.transform);
+                PlayRandomSFXClip(GetAudioClipRefsSO().footstepOutSide, BasePlayer.Instance.transform);
                 yield return new WaitForSeconds(delayBetweenWalkingFootStepsSFX);
                 //Can play another SFX walking
                 playerWalkSFXCoroutine = null;
@@ -152,7 +152,7 @@ public class SFXManager : MonoBehaviour
         BaseCounter baseCounter = sender as BaseCounter;
         if (GetAudioClipRefsSO().interact != null && baseCounter != null)
         {
-            PlayRandomSFXClip(audioClipRefsSO.interact, Camera.main.transform);
+            PlayRandomSFXClip(audioClipRefsSO.interact, baseCounter.transform);
 
         }
     }

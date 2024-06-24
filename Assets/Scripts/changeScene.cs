@@ -14,6 +14,7 @@ public class ChangeScene : MonoBehaviour
 
     [SerializeField] private Loader.Scene scene;
 
+    private bool doSFX = false;
 
     private void Start()
     {
@@ -33,6 +34,11 @@ public class ChangeScene : MonoBehaviour
             int seconds = Mathf.FloorToInt(currentTime);
             int milliseconds = Mathf.FloorToInt((currentTime - seconds) * 100);
             timerText.text = seconds.ToString("00") + ":" + milliseconds.ToString("00");
+            if(currentTime <= 10f && !doSFX)
+            {
+                doSFX = true;
+                SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().clockTicking, Camera.main.transform);
+            }
             yield return null;
         }
         currentTime = 0;

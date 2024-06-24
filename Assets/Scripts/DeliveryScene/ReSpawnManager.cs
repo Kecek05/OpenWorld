@@ -31,10 +31,13 @@ public class ReSpawnManager : MonoBehaviour
     private IEnumerator ReSpawnDelay()
     {
         OnWitchFallWater?.Invoke();
-        WitchInputs.Instance.ChangeMovement(false);
+        if(WitchInputs.Instance != null)
+            WitchInputs.Instance.ChangeMovement(false);
         yield return new WaitForSeconds(0.5f);
-        playerObj.transform.position = spawnPoint.position;
-        WitchInputs.Instance.ChangeMovement(true);
+        if(playerObj != null)
+            playerObj.transform.position = spawnPoint.position;
+        if (WitchInputs.Instance != null)
+            WitchInputs.Instance.ChangeMovement(true);
         respawnCoroutine = null;
     }
 }

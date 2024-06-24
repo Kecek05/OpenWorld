@@ -37,4 +37,5 @@ public class AudioClipRefsSO : ScriptableObject
     public AudioClip[] fallWater;
     [Header("General")]
     public AudioClip[] interact;
+    public AudioClip[] clockTicking;
 }
