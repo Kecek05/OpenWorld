@@ -12,8 +12,5 @@ public class LoadingProgressBar : MonoBehaviour
         image = transform.GetComponent<Image>();
     }
 
-    private void Update()
-    {
-        image.fillAmount = Loader.GetLoadingProgress();
-    }
+
 }
