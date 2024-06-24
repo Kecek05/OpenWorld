@@ -9,8 +9,11 @@ public class MainMenuUI : MonoBehaviour
 {
     public static MainMenuUI Instance;
 
+
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private Button playButton;
 
     private void Awake()
     {
@@ -18,6 +21,10 @@ public class MainMenuUI : MonoBehaviour
             Instance = this;
     }
 
+    private void OnEnable()
+    {
+        playButton.Select();
+    }
     public void Play()
     {
         StartCoroutine(LoadNextScene());
@@ -26,12 +33,19 @@ public class MainMenuUI : MonoBehaviour
 
     public void OpenOptions()
     {
+        startPanel.SetActive(false);
         OptionsMenu.instance.OpenOptionMenu();
     }
 
     public void OpenCredits()
     {
+        startPanel.SetActive(false);
         creditsPanel.SetActive(true);
+    }
+
+    public void OpenStartPanel()
+    {
+        startPanel.SetActive(true);
     }
 
     public void CloseCredits()
