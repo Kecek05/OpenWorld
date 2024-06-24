@@ -35,7 +35,7 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
     protected override void WitchInputs_OnInteractAlternateAction(object sender, EventArgs e)
     {
         //if (!KitchenGameManager.Instance.IsGamePlaying() && GetKitchenObject() != null) return;
-        if (GetKitchenObject() != null) return;
+        if (GetKitchenObject() != null ) return;
         InteractAnimTrigger();
 
         if ((selectedCounter != null))
@@ -46,7 +46,8 @@ public class PlayerInHouse : BasePlayer, IKitchenObjectParent
 
     protected override void WitchInputs_OnInteractAction(object sender, System.EventArgs e)
     {
-        if (!KitchenGameManager.Instance.IsGamePlaying()) return;
+        //if (!KitchenGameManager.Instance.IsGamePlaying()) return;
+        //if (GetKitchenObject() != null) return;
 
         if (intectableObj != null)
         {

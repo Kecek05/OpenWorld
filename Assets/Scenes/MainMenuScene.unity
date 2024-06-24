@@ -5489,10 +5489,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bruxinha SeatFinal
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: de9a7abe3563feb4a92a4993f0275cb8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fa567a4c007a1e548842f486f4a5cdea, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de9a7abe3563feb4a92a4993f0275cb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1910729696}
   m_SourcePrefab: {fileID: 100100000, guid: de9a7abe3563feb4a92a4993f0275cb8, type: 3}
 --- !u!4 &182691314 stripped
 Transform:
@@ -13584,6 +13591,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573af40340fcd754ba88a2ef812482aa, type: 3}
+--- !u!1 &1339728594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3893722416717529905, guid: de9a7abe3563feb4a92a4993f0275cb8, type: 3}
+  m_PrefabInstance: {fileID: 167747048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1357528900
 GameObject:
   m_ObjectHideFlags: 0
@@ -24604,6 +24616,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6841115527393332214, guid: 573af40340fcd754ba88a2ef812482aa, type: 3}
   m_PrefabInstance: {fileID: 678487037}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1910729693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: de9a7abe3563feb4a92a4993f0275cb8, type: 3}
+  m_PrefabInstance: {fileID: 167747048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1910729696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910729693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a98b98df51bb6f4d836dc0dc0337478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  face: {fileID: 1339728594}
 --- !u!4 &1912990544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4052580381447505085, guid: 7f2096b3153cc1549b2e7cb97e6a58ea, type: 3}
