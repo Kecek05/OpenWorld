@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
+    [SerializeField] private Button playAgainBtn;
+
     public void GameOvers()
     {
         StartCoroutine(DeleteGame());
@@ -12,6 +15,11 @@ public class GameOver : MonoBehaviour
     public void Menu()
     {
         StartCoroutine(LoadMenuScene());
+    }
+
+    private void Start()
+    {
+        playAgainBtn.Select();
     }
 
     private IEnumerator DeleteGame()
@@ -38,9 +46,9 @@ public class GameOver : MonoBehaviour
 
     private void destroyOnLoads()
     {
-        GameObject DontDestroyOnLoadScripts = GameObject.FindWithTag("");
+        GameObject DontDestroyOnLoadScripts = GameObject.FindWithTag("DontDestroyScript");
         Destroy(DontDestroyOnLoadScripts);
-        GameObject dontDestroyThisDay = GameObject.FindWithTag("");
+        GameObject dontDestroyThisDay = GameObject.FindWithTag("DontDestroyThisDay");
         Destroy(dontDestroyThisDay);
     }
 

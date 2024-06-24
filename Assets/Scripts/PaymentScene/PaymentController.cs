@@ -32,6 +32,7 @@ public class PaymentController : MonoBehaviour
 
     private IEnumerator changeSceneDelay;
 
+    [SerializeField] private Button nextButon;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -79,6 +80,7 @@ public class PaymentController : MonoBehaviour
         payoff -= _expanseCost;
         OnUiPaymentChanged?.Invoke(this, new OnUiPaymentChangedEventArgs { _totalEconomy = payoff, _payoff = payoff, _dayMoney = dayMoney, _day = dayCount });
         paymentsConcluded--;
+        nextButon.Select();
     }
 
     public void PassDay()
