@@ -47,10 +47,28 @@ public class ChangeScene : MonoBehaviour
         if(LevelFade.instance != null)
            LevelFade.instance.StartCoroutine(LevelFade.instance.DoFadeOut());
         yield return new WaitForSeconds(1f);
-        if(WitchInputs.Instance != null)
-            WitchInputs.Instance.ChangeActiveMap(scene);
-        Loader.Load(scene);
+        //Check if its in House
+        if(SceneManager.GetActiveScene().name.ToString() == Loader.Scene.House.ToString())
+        {
+            //its in house, check if have made any potions
+            if(StoredPotions.Instance.CheckHaveMorePotionsToDelivery())
+            {
+                //Have potions to delivery, next scene
+                if (WitchInputs.Instance != null)
+                    WitchInputs.Instance.ChangeActiveMap(scene);
+                Loader.Load(scene);
+            } else
+            {
+                //Dont have made any potions, GAME OVER
+                if (WitchInputs.Instance != null)
+                    WitchInputs.Instance.ChangeActiveMap(Loader.Scene.GreenHouse);
+                Loader.Load(Loader.Scene.GreenHouse);
+            }
+        }
+
+        
     }
+
 
     
 }
