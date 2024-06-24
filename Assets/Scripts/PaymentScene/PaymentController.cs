@@ -47,6 +47,7 @@ public class PaymentController : MonoBehaviour
 
     private void Start()
     {
+        SavePlayer();
         LoadPlayer();
         dayCount++;
         // geting money of the day + economys of the player

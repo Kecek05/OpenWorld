@@ -8274,50 +8274,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1618189712848184149, guid: 2c567417977e0a341b297033e7cade19, type: 3}
   m_PrefabInstance: {fileID: 1173461325}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1194500928
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1194500930}
-  - component: {fileID: 1194500929}
-  m_Layer: 0
-  m_Name: StoredPotionsController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!114 &1194500929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194500928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7cdbf47f6fa0f4987dc1830647e68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1194500930
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194500928}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209512023
 GameObject:
   m_ObjectHideFlags: 0
@@ -15583,7 +15539,6 @@ SceneRoots:
   - {fileID: 5355915201603871416}
   - {fileID: 1311613056}
   - {fileID: 710022786}
-  - {fileID: 1194500930}
   - {fileID: 460180364}
   - {fileID: 1281862591}
   - {fileID: 778420026}
