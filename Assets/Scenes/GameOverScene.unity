@@ -295,9 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: -257
-    m_Right: 0
+    m_Right: -25
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: 25
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -397,7 +397,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 198098536}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1857164121}
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_MethodName: GameOvers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &198098536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -142724204, guid: 65913774d5a211e4ba87a350e88a2fcd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09a59654b8b9ef34998a6e19a54999cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1491,7 +1503,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 929012471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1857164121}
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &929012471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1512,7 +1536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -142724204, guid: 65913774d5a211e4ba87a350e88a2fcd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09a59654b8b9ef34998a6e19a54999cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

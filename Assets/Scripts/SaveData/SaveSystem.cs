@@ -35,4 +35,19 @@ public static class SaveSystem {
             return null;
         }
     }
+
+    public static void DeletePlayerSave()
+    {
+        string path = Application.persistentDataPath + "/player.cherrbaygames";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Save file deleted successfully.");
+        }
+        else
+        {
+            Debug.LogError("Save file not found in " + path);
+        }
+    }
 }
