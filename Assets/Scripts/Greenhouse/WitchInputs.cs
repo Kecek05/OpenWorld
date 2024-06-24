@@ -125,6 +125,7 @@ public class WitchInputs : MonoBehaviour
     public void ChangeActiveMap(Loader.Scene _scene)
     {
         currentScene = _scene;
+        Debug.Log("CURRENT SCENE ACTIVE MAP IS " + currentScene);
         switch (currentScene) // enable the correct input Map
         {
             case Loader.Scene.GreenHouse:

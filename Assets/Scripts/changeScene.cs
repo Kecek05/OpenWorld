@@ -13,7 +13,6 @@ public class ChangeScene : MonoBehaviour
     [SerializeField] private Text timerText;
 
     [SerializeField] private Loader.Scene scene;
-    [SerializeField] private LevelFade levelFade;
 
 
     private void Start()
@@ -64,6 +63,12 @@ public class ChangeScene : MonoBehaviour
                     WitchInputs.Instance.ChangeActiveMap(Loader.Scene.GreenHouse);
                 Loader.Load(Loader.Scene.GreenHouse);
             }
+        } else
+        {
+            //Other scene
+            if (WitchInputs.Instance != null)
+                WitchInputs.Instance.ChangeActiveMap(scene);
+            Loader.Load(scene);
         }
 
         

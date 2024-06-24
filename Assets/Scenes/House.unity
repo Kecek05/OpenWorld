@@ -3866,6 +3866,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DontDestroyOnLoadScripts
       objectReference: {fileID: 0}
+    - target: {fileID: 2994724517594351840, guid: d79bdc38aa527fa49921ea0e86a9d93c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8317864857209453984, guid: d79bdc38aa527fa49921ea0e86a9d93c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4935,7 +4939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2754988120900818426, guid: 58cd65940b7f90347821958d66109961, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4164038952989491865, guid: 58cd65940b7f90347821958d66109961, type: 3}
       propertyPath: m_DefaultActionMap
@@ -5442,7 +5446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &842068221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12354,6 +12358,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6313169567948604460, guid: e7c2b8de4f609df478d5c5059f918bf8, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 3862268409632107447}
     - target: {fileID: 7639482433900844779, guid: e7c2b8de4f609df478d5c5059f918bf8, type: 3}
       propertyPath: m_Name
       value: ChaWitchInHouse
@@ -12363,6 +12371,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7c2b8de4f609df478d5c5059f918bf8, type: 3}
+--- !u!95 &3862268409632107447 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5338738187902815638, guid: e7c2b8de4f609df478d5c5059f918bf8, type: 3}
+  m_PrefabInstance: {fileID: 3862268409632107446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4095214374886529079
 PrefabInstance:
   m_ObjectHideFlags: 0
