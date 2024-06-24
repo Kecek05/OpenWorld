@@ -14,6 +14,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject startPanel;
     [SerializeField] private Button playButton;
+    [SerializeField] private Button closeCreditsBtn;
 
     private void Awake()
     {
@@ -21,10 +22,6 @@ public class MainMenuUI : MonoBehaviour
             Instance = this;
     }
 
-    private void OnEnable()
-    {
-        playButton.Select();
-    }
     public void Play()
     {
         StartCoroutine(LoadNextScene());
@@ -41,11 +38,13 @@ public class MainMenuUI : MonoBehaviour
     {
         startPanel.SetActive(false);
         creditsPanel.SetActive(true);
+        closeCreditsBtn.Select();
     }
 
     public void OpenStartPanel()
     {
         startPanel.SetActive(true);
+        playButton.Select();
     }
 
     public void CloseCredits()

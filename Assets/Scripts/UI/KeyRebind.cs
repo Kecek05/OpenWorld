@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class KeyRebind : MonoBehaviour
 {
-
+    [SerializeField] private Button bindsSelectButton;
     [SerializeField] private TextMeshProUGUI[] rebindTexts;
     [SerializeField] private Button[] rebindButtons;
     [SerializeField] private GameObject pressKeyPanel;
@@ -50,7 +50,7 @@ public class KeyRebind : MonoBehaviour
 
     private void RebindBinding(WitchInputs.Binding binding)
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        bindsSelectButton.Select();
         ShowPressToRebindKey();
         WitchInputs.Instance.RebindBinding(binding, () => {
             HidePressToRebindKey();

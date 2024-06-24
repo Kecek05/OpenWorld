@@ -24,6 +24,12 @@ public class OptionsMenu : MonoBehaviour
         if (instance == null)
             instance = this;
     }
+    private void OnEnable()
+    {
+        //bindingPanel.SetActive(false);
+        //settingsPanel.SetActive(true);
+        //settingsBtn.Select();
+    }
 
     public void OpenOptionMenu()
     {
