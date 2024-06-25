@@ -16,6 +16,9 @@ public class MoneyController : MonoBehaviour
     private int totalMoney;
     private int dayMoney;
 
+
+    private int dayCount;
+
     private void Awake()
     {
         if (Instance == null)
@@ -47,4 +50,8 @@ public class MoneyController : MonoBehaviour
 
     public int GetDayMoney() { return dayMoney; }
     public int GetTotalMoney() { return totalMoney; }
+
+    public int GetDayCount() {  return dayCount; }
+
+    public void SetDayCount(int _dayCount) { dayCount = _dayCount; }
 }

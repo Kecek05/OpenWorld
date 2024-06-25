@@ -49,7 +49,8 @@ public class PaymentController : MonoBehaviour
 
     private void Start()
     {
-        dayCount++;
+        
+        dayCount = MoneyController.Instance.GetDayCount() + 1;
         // geting money of the day + economys of the player
         MoneyController.Instance.SetTotalMoney(MoneyController.Instance.GetTotalMoney() + MoneyController.Instance.GetDayMoney());
         totalEconomy = MoneyController.Instance.GetTotalMoney();
@@ -99,6 +100,7 @@ public class PaymentController : MonoBehaviour
               //  countExpanses = RandomizeExpanseController.Instance.GetExpensesCount();
                 MoneyController.Instance.SetTotalMoney(payoff);
                 MoneyController.Instance.ResetDayMoney();
+                MoneyController.Instance.SetDayCount(dayCount);
                 SavePlayer();
 
                 //Reset the dontDestroy
