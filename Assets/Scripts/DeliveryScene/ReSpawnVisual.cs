@@ -4,11 +4,22 @@ using UnityEngine;
 public class ReSpawnVisual : MonoBehaviour
 {
     [SerializeField] private ParticleSystem splashParticle;
-    [SerializeField] private Transform playerTransform;
     [SerializeField] private Vector3 offset;
+    private Transform playerTransform;
     private void Start()
     {
         ReSpawnManager.OnWitchFallWater += ReSpawnManager_OnWitchFallWater;
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player != null)
+        {
+            playerTransform = player.transform;
+            Debug.Log("Encontrou o transform do jogador");
+        }
+        else
+        {
+            Debug.LogWarning("Não achou o transform do jogador");
+        }
     }
 
     private void ReSpawnManager_OnWitchFallWater()

@@ -8,15 +8,32 @@ public class ReSpawnManager : MonoBehaviour
     public static ReSpawnManager instance;
     [SerializeField] private Transform spawnPoint;
     public static event Action OnWitchFallWater;
-    [SerializeField] private GameObject playerObj;
+    private GameObject playerObj;
 
     private IEnumerator respawnCoroutine;
     public void Awake()
     {
         if(instance == null)
             instance = this;
+
+
     }
 
+    private void Start()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if (player != null)
+        {
+            playerObj = player;
+            Debug.Log("jogador encontrado.");
+        }
+        else
+        {
+            Debug.LogWarning("Jogador não encontrado");
+        }
+        
+    }
 
     public void ReSpawn()
     {
