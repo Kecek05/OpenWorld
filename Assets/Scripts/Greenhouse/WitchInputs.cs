@@ -1,7 +1,8 @@
 using System;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class WitchInputs : MonoBehaviour
 {
     private const string PLAYER_PREFS_BINDINGS = "InputBindings";
@@ -30,9 +31,9 @@ public class WitchInputs : MonoBehaviour
 
     public enum Binding
     {
-        Move_Up, 
-        Move_Down, 
-        Move_Left, 
+        Move_Up,
+        Move_Down,
+        Move_Left,
         Move_Right,
         Jump,
         Run,
@@ -50,7 +51,7 @@ public class WitchInputs : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(Instance);
@@ -101,7 +102,15 @@ public class WitchInputs : MonoBehaviour
 
     private void Pause_performed1(InputAction.CallbackContext obj)
     {
-        OnPausePerformed?.Invoke(this, EventArgs.Empty);
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "MainMenuScene" || sceneName == "Lore" || sceneName == "ControlScene" || sceneName == "GameOverScene" || sceneName == "LoadingScene")
+        {
+            Debug.Log("voce esta troll");
+        }
+        else
+        {
+            OnPausePerformed?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void Pause_performed(InputAction.CallbackContext obj)
