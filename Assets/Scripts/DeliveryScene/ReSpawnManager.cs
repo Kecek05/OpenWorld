@@ -16,11 +16,6 @@ public class ReSpawnManager : MonoBehaviour
         if(instance == null)
             instance = this;
 
-
-    }
-
-    private void Start()
-    {
         GameObject player = GameObject.FindWithTag("Player");
 
         if (player != null)
@@ -32,7 +27,6 @@ public class ReSpawnManager : MonoBehaviour
         {
             Debug.LogWarning("Jogador não encontrado");
         }
-        
     }
 
     public void ReSpawn()
@@ -51,8 +45,14 @@ public class ReSpawnManager : MonoBehaviour
         if(WitchInputs.Instance != null)
             WitchInputs.Instance.ChangeMovement(false);
         yield return new WaitForSeconds(0.5f);
-        if(playerObj != null)
+        if (playerObj != null)
+        {
             playerObj.transform.position = spawnPoint.position;
+        }
+        else
+        {
+            Debug.LogWarning("playerObj foi destruído antes da reposição.");
+        }
         if (WitchInputs.Instance != null)
             WitchInputs.Instance.ChangeMovement(true);
         respawnCoroutine = null;

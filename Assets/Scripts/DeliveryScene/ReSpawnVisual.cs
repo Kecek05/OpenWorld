@@ -24,9 +24,18 @@ public class ReSpawnVisual : MonoBehaviour
 
     private void ReSpawnManager_OnWitchFallWater()
     {
-        if (SFXManager.Instance.GetAudioClipRefsSO().fallWater != null)
-            SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().fallWater, Camera.main.transform);
-        Vector3 spawnParticlePos = playerTransform.position + offset;
-        Instantiate(splashParticle, spawnParticlePos, Quaternion.identity);
+        if (playerTransform != null)
+        {
+            if (SFXManager.Instance.GetAudioClipRefsSO().fallWater != null)
+            {
+                SFXManager.Instance.PlayRandomSFXClip(SFXManager.Instance.GetAudioClipRefsSO().fallWater, Camera.main.transform);
+            }
+            Vector3 spawnParticlePos = playerTransform.position + offset;
+            Instantiate(splashParticle, spawnParticlePos, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("nois comeu bosta");
+        }
     }
 }
