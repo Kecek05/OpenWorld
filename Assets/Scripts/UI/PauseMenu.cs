@@ -88,6 +88,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(mainMenuCoroutine == null)
         {
+            WitchInputs.Instance.ChangeActiveMap(Loader.Scene.GreenHouse);
             mainMenuCoroutine = MainMenu();
             StartCoroutine(mainMenuCoroutine);
         }
