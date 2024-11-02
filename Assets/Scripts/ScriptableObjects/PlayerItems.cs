@@ -33,12 +33,19 @@ public class PlayerItems : MonoBehaviour
     private void Start()
     {
         itemsCollected = new int[6];
-        for (int i = 0; i < itemsCollected.Length; i++)
+        bool gameStarted = true;
+
+        if (gameStarted)
         {
-            //add one in the start of the game
-            itemsCollected[i]++;
+            for (int i = 0; i < itemsCollected.Length; i++)
+            {
+                itemsCollected[i]++;
+            }
         }
+        gameStarted = false;
     }
+
+   
 
     public void ResetPlayerItems()
     {
