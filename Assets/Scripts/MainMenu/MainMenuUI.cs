@@ -54,7 +54,7 @@ public class MainMenuUI : MonoBehaviour
     public void ResetGame()
     {
         //Reset game
-       // SaveSystem.ResetPlayerSave();
+       //SaveSystem.ResetPlayerSave();
        SaveSystem.DeletePlayerSave();
     }
 

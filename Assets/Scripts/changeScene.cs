@@ -8,7 +8,7 @@ public class ChangeScene : MonoBehaviour
     public static ChangeScene Instance { get; private set; }
 
     [SerializeField] private float totalTime = 40f;
-    private float currentTime;
+    public float currentTime;
     [SerializeField] private Image clockImage;
     [SerializeField] private Text timerText;
 
